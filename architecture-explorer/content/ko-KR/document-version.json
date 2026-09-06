@@ -1,0 +1,48 @@
+{
+  "id": "document-version",
+  "title": "문서 버전 (DocumentVersion)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "문서의 특정 상태를 보존한 스냅샷입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "어제의 인용문을 설명하려면 오늘 판본뿐 아니라 어제 판본도 남겨야 합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "1번 버전에 “X 지원”, 2번 버전에 “Y 지원”이라고 적혀 있어도 과거 근거는 계속 1번 버전을 가리킵니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "내용, 원본 개정, 처리 규칙, 권한이 바뀌면 새로운 불변 버전이 생길 수 있습니다. 정확히 같은 요청의 재시도는 변경 없음으로 처리합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "덮어쓰면 이전 진술을 뒷받침했던 맥락을 잃게 됩니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "버전 메타데이터에는 제목과 원본 URI 식별이 포함됩니다. F1은 메타데이터 해시 무결성 범위의 검증이며 전체 수집 검증이 아닙니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "ac17256d3beec9314ba36f5bc6098229fb29d5a4cb6fee1ae8ea49ce797dbf1f"
+}

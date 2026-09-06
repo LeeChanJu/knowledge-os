@@ -1,0 +1,48 @@
+{
+  "id": "parsing",
+  "title": "Parsing",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Converting a supported file format into text for ingestion."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Converting a supported file format into text for ingestion. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A PDF requires a parser before its passages can become chunks."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Existing file adapters support documented text formats and optional PDF/DOCX dependencies."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "File layout and text are different representations."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "d5a1da1723a7c32c298b7de9cc7c67042ea9515e49704aea8c3b6f7de6a146d7"
+}

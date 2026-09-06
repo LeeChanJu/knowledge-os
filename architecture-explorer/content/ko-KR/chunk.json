@@ -1,0 +1,48 @@
+{
+  "id": "chunk",
+  "title": "문서 조각 (Chunk)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "개별 근거로 가리킬 수 있도록 나눈 문서의 일부입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "교과서 전체 대신 관련 문단을 가리킨다고 생각해 보세요."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "Joule Studio 설명이 있는 문단을 검색 가능한 근거 단위로 사용합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Chunk는 불변 DocumentVersion에 속하며 버전이 있는 분할 규칙으로 생성됩니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "근거 단위를 작게 나누면 검색과 인용을 더 구체적으로 할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "F6은 조각 크기 상한의 정확성을 다룹니다. 상한 설정이 있다고 모든 입력이 이를 지킨다는 증거는 아닙니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "24e315843b8b76d77bbd144859666235390866cc9559c1e14d77ae550cfc2eb4"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "source",
+  "title": "Source Registry",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The identity and connector binding of an observed source."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "The identity and connector binding of an observed source. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A Drive folder is one source; its files are documents."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "First ingestion binds a stable connector instance. Checkpoints advance only when the run commits."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries prevent one adapter from silently taking over another source."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "0be327e6222080fbdf8278194c9c6b5cd0841bcd7eee31cdf7ea61bbfcb75a1e"
+}

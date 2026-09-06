@@ -1,0 +1,806 @@
+{
+  "repository": "https://github.com/LeeChanJu/knowledge-os",
+  "revision": "5275071c977da7f103e98f01777030edfcb7c3f7",
+  "references": {
+    "ref:AGENT.md#architecture-explorer": {
+      "path": "AGENT.md",
+      "fingerprint": "ff74a868ba14417c0919f32b7657d43d197c0a65b85b431027c36fefb887bcb6",
+      "fileDigest": "b651c092ef1325424c56682d0b5f0eb60a962719e66ecc146bd8d39e8fe83687"
+    },
+    "ref:AGENT.md#current-remediation-workflow": {
+      "path": "AGENT.md",
+      "fingerprint": "cd733d750bad72d37893801feabbf984652e5b7237ac3b16c7975ae0a2a64c53",
+      "fileDigest": "b651c092ef1325424c56682d0b5f0eb60a962719e66ecc146bd8d39e8fe83687"
+    },
+    "ref:AGENT.md#deferred-capabilities": {
+      "path": "AGENT.md",
+      "fingerprint": "4ef4abdbf28469295dcd27a2ca4ba506b6abc1b8b710f9292b2e4bc6c0f3477f",
+      "fileDigest": "b651c092ef1325424c56682d0b5f0eb60a962719e66ecc146bd8d39e8fe83687"
+    },
+    "ref:config/contracts.yaml": {
+      "path": "config/contracts.yaml",
+      "fingerprint": "3d5d62893ae84c9372f9c6b8933bc13a552234a5c1987de82557bf07d5b47099",
+      "fileDigest": "3d5d62893ae84c9372f9c6b8933bc13a552234a5c1987de82557bf07d5b47099"
+    },
+    "ref:config/ontology.yaml": {
+      "path": "config/ontology.yaml",
+      "fingerprint": "9069df0e6b15954cc3a9181bfdd9bddb724fed7b4426fc95235df28ac1423584",
+      "fileDigest": "9069df0e6b15954cc3a9181bfdd9bddb724fed7b4426fc95235df28ac1423584"
+    },
+    "ref:config/prompts.yaml": {
+      "path": "config/prompts.yaml",
+      "fingerprint": "49584cec687d023671d246365994a095121c7b1df6d2db1bd744b3ec61c885b8",
+      "fileDigest": "49584cec687d023671d246365994a095121c7b1df6d2db1bd744b3ec61c885b8"
+    },
+    "ref:docs/architecture/0001-stable-context-contracts.md": {
+      "path": "docs/architecture/0001-stable-context-contracts.md",
+      "fingerprint": "95c51f608d9adb44214496b740bf9dd32035f9921cc61a21aa3da5e752d96f01",
+      "fileDigest": "95c51f608d9adb44214496b740bf9dd32035f9921cc61a21aa3da5e752d96f01"
+    },
+    "ref:docs/architecture/north-star-conformance.md": {
+      "path": "docs/architecture/north-star-conformance.md",
+      "fingerprint": "702ee89cedcd9261554073d752a9ea5adb5a9d14e15e1f9366893b6cf2a88dc8",
+      "fileDigest": "702ee89cedcd9261554073d752a9ea5adb5a9d14e15e1f9366893b6cf2a88dc8"
+    },
+    "ref:docs/evaluations/2026-09-05-embedding-provenance.md": {
+      "path": "docs/evaluations/2026-09-05-embedding-provenance.md",
+      "fingerprint": "0257a9289543c1565e56fa06a1315e92c8fcd7e099594fb397733b36886137e4",
+      "fileDigest": "0257a9289543c1565e56fa06a1315e92c8fcd7e099594fb397733b36886137e4"
+    },
+    "ref:docs/evaluations/2026-09-05-extraction-context-service.md": {
+      "path": "docs/evaluations/2026-09-05-extraction-context-service.md",
+      "fingerprint": "8fd1c0e15675fca3ffaaea58274df3ec17e7fba2ddbbaf1b34ab510511a0fd58",
+      "fileDigest": "8fd1c0e15675fca3ffaaea58274df3ec17e7fba2ddbbaf1b34ab510511a0fd58"
+    },
+    "ref:docs/evaluations/2026-09-06-cross-lingual-semantic-selection.md": {
+      "path": "docs/evaluations/2026-09-06-cross-lingual-semantic-selection.md",
+      "fingerprint": "4086f61d4cbec829a6a28748797c58bf9b6b932b6f3c2dcbdd576f6282e38afe",
+      "fileDigest": "4086f61d4cbec829a6a28748797c58bf9b6b932b6f3c2dcbdd576f6282e38afe"
+    },
+    "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md": {
+      "path": "docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md",
+      "fingerprint": "e758b24a1d2c9bb6729f0a2d078531140c18c42f3abeaf6337b054e45360babd",
+      "fileDigest": "e758b24a1d2c9bb6729f0a2d078531140c18c42f3abeaf6337b054e45360babd"
+    },
+    "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md": {
+      "path": "docs/evaluations/2026-09-06-post-action-recovery-drill.md",
+      "fingerprint": "046eb3dd48c47b9896c475d6e286cd423ba93da58169d22d63f8ee5d91164cf7",
+      "fileDigest": "046eb3dd48c47b9896c475d6e286cd423ba93da58169d22d63f8ee5d91164cf7"
+    },
+    "ref:docs/operations/backup-and-restore.md": {
+      "path": "docs/operations/backup-and-restore.md",
+      "fingerprint": "41e097fb3f552328fa224f9daf447bb2a471f5b274f9fb5d78b1c4d391f2497a",
+      "fileDigest": "41e097fb3f552328fa224f9daf447bb2a471f5b274f9fb5d78b1c4d391f2497a"
+    },
+    "ref:docs/operations/google-drive.md": {
+      "path": "docs/operations/google-drive.md",
+      "fingerprint": "2422257450fdb5f24d9d96ea80bab336233660d894abcf2c2c0e389c6714bdb0",
+      "fileDigest": "2422257450fdb5f24d9d96ea80bab336233660d894abcf2c2c0e389c6714bdb0"
+    },
+    "ref:docs/operations/mcp-adapter.md": {
+      "path": "docs/operations/mcp-adapter.md",
+      "fingerprint": "fc5099b80af428f7a03e63fd01e88ec0ff6b3334fda2838d225d7d38ef56bafa",
+      "fileDigest": "fc5099b80af428f7a03e63fd01e88ec0ff6b3334fda2838d225d7d38ef56bafa"
+    },
+    "ref:docs/operations/meeting-transcripts.md": {
+      "path": "docs/operations/meeting-transcripts.md",
+      "fingerprint": "61620188310a32d3026e49c0e65fb5b3fcec821736ee0690d99908c8ae90a506",
+      "fileDigest": "61620188310a32d3026e49c0e65fb5b3fcec821736ee0690d99908c8ae90a506"
+    },
+    "ref:docs/operations/notion-connector.md": {
+      "path": "docs/operations/notion-connector.md",
+      "fingerprint": "7eeda9b635378cdd46cd0cb2ac69b6893d25a1e8f7515343215443731764f18f",
+      "fileDigest": "7eeda9b635378cdd46cd0cb2ac69b6893d25a1e8f7515343215443731764f18f"
+    },
+    "ref:migrations/001_core.cypher": {
+      "path": "migrations/001_core.cypher",
+      "fingerprint": "ac2c372f7098f6887a00134f052ba69c007645a6088bc0379f02e61c4a493919",
+      "fileDigest": "ac2c372f7098f6887a00134f052ba69c007645a6088bc0379f02e61c4a493919"
+    },
+    "ref:migrations/002_chunk_vector.cypher": {
+      "path": "migrations/002_chunk_vector.cypher",
+      "fingerprint": "30a785e67ad5446798f55f8ddc32fb4f8d3e30d5c779273c8bf3c8c718989202",
+      "fileDigest": "30a785e67ad5446798f55f8ddc32fb4f8d3e30d5c779273c8bf3c8c718989202"
+    },
+    "ref:migrations/003_vector_search_filters.cypher": {
+      "path": "migrations/003_vector_search_filters.cypher",
+      "fingerprint": "5db584373feae09730c83be697ac641b840715b7416eaa2ef4d09e2ef865849f",
+      "fileDigest": "5db584373feae09730c83be697ac641b840715b7416eaa2ef4d09e2ef865849f"
+    },
+    "ref:migrations/004_action_execution.cypher": {
+      "path": "migrations/004_action_execution.cypher",
+      "fingerprint": "a075e8f8c9e892335da6b2f53e0131854dcd0001579db6f78326e55cca2cc924",
+      "fileDigest": "a075e8f8c9e892335da6b2f53e0131854dcd0001579db6f78326e55cca2cc924"
+    },
+    "ref:migrations/005_proposal_evidence_lineage.cypher": {
+      "path": "migrations/005_proposal_evidence_lineage.cypher",
+      "fingerprint": "7535b75c170aa1b8d78e73f8d1ee63bfdc3c46047bb87b7aa217c72f3c7e754b",
+      "fileDigest": "7535b75c170aa1b8d78e73f8d1ee63bfdc3c46047bb87b7aa217c72f3c7e754b"
+    },
+    "ref:migrations/006_action_capability_principals.cypher": {
+      "path": "migrations/006_action_capability_principals.cypher",
+      "fingerprint": "bdcda4aec1af83c5a447d929d4a23c01d7a6617cab0fe5ecddb020f679bbf1ca",
+      "fileDigest": "bdcda4aec1af83c5a447d929d4a23c01d7a6617cab0fe5ecddb020f679bbf1ca"
+    },
+    "ref:migrations/007_action_execution_claim.cypher": {
+      "path": "migrations/007_action_execution_claim.cypher",
+      "fingerprint": "75a2c8ce5205af570255c1cc03e0593f547dd202225baa479f6dc0c07d774596",
+      "fileDigest": "75a2c8ce5205af570255c1cc03e0593f547dd202225baa479f6dc0c07d774596"
+    },
+    "ref:migrations/008_action_contract_provenance.cypher": {
+      "path": "migrations/008_action_contract_provenance.cypher",
+      "fingerprint": "1e03754c521371894e532a5cc5ddcab867996df5ea3271ccfd4361bdc72bbc6b",
+      "fileDigest": "1e03754c521371894e532a5cc5ddcab867996df5ea3271ccfd4361bdc72bbc6b"
+    },
+    "ref:migrations/009_action_contract_required.cypher": {
+      "path": "migrations/009_action_contract_required.cypher",
+      "fingerprint": "3395a5d82b4387b0204a38fb7cb9c315788f00675ada40d0e255c9cf88293034",
+      "fileDigest": "3395a5d82b4387b0204a38fb7cb9c315788f00675ada40d0e255c9cf88293034"
+    },
+    "ref:src/knowledge_os/api.py": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/api.py::approve_proposal": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "7abb9aba76dbc569aa5a759b8b3989fa404cd7db0fa627750abdcd750f4e410a",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/api.py::claim_action_execution": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "88cdd6940feab1a61a19d6048ce7eff19d7b996a0d5788c2eca9cc45cfbae071",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/api.py::evidence_bundle": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "d9092ba577c364ad29fb1e9ebdfc40a200f986dd62c35a95929d73bdbe9604b8",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/api.py::ingest_manifest": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "0bc532adf8875b3e5b52adef611d5e77d132338a251aca19ac95a746cd1097ce",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/api.py::retrieve": {
+      "path": "src/knowledge_os/api.py",
+      "fingerprint": "49092cd71414ba758fef2efd6650f88d935d7cbe3136195ef47b8128e6d270cc",
+      "fileDigest": "d379b6bf97d0a17ca2edafc69525199a4c0afb33588a8a90e49c9856d350fe81"
+    },
+    "ref:src/knowledge_os/connector_observation.py::observe_connector_run": {
+      "path": "src/knowledge_os/connector_observation.py",
+      "fingerprint": "5763a5c58a4d0251be646b81d00bf5145d8573220551baab0ad64eb39a6724fb",
+      "fileDigest": "4b19066f68896e6dd6875f8907ed63b9d5d720e3c89ded9c1550b39f5c929455"
+    },
+    "ref:src/knowledge_os/dependencies.py": {
+      "path": "src/knowledge_os/dependencies.py",
+      "fingerprint": "",
+      "fileDigest": "e3b97fb23e5bb111ca7f129bd3161015f94a90b0bd4f480c9eff2b9b0d7d3870"
+    },
+    "ref:src/knowledge_os/doctor.py::audit_migrations": {
+      "path": "src/knowledge_os/doctor.py",
+      "fingerprint": "1b425968948f537f49ca4911c479cea8885fa54a2e340ffae2fbadf46b595f57",
+      "fileDigest": "012d037f3571db45233bfd16b21a6f9789b3960f28ff9b1d56ad3b4c667e4c50"
+    },
+    "ref:src/knowledge_os/doctor.py::run_doctor": {
+      "path": "src/knowledge_os/doctor.py",
+      "fingerprint": "437a9e31010c604ec94786c89c058e54cfbd9334dec0a5649c26df231071ec7a",
+      "fileDigest": "012d037f3571db45233bfd16b21a6f9789b3960f28ff9b1d56ad3b4c667e4c50"
+    },
+    "ref:src/knowledge_os/evaluate.py::run_suite": {
+      "path": "src/knowledge_os/evaluate.py",
+      "fingerprint": "bf85d55537f4fc33810eecc4f5c6d6178847f4a78fb8fbd21c8453181119902f",
+      "fileDigest": "984d5f40ef183329ba8e5d19e1663f955ca99b526a5a8a21f12f91f15663aa7f"
+    },
+    "ref:src/knowledge_os/file_connector.py::build_manifest": {
+      "path": "src/knowledge_os/file_connector.py",
+      "fingerprint": "1ed407a835560de6e8c4cef2f8d0627cc4237417eb0b1a64ec8f87268ab372a2",
+      "fileDigest": "fcac6b93c2379c4a13afe393f00c2fbbf2ee7346aa04eac6771158bc042c782a"
+    },
+    "ref:src/knowledge_os/file_connector.py::extract_file": {
+      "path": "src/knowledge_os/file_connector.py",
+      "fingerprint": "30570c26569906a7549e8337bc0f2609170024c9ad147472ea6f2589c7a0c673",
+      "fileDigest": "fcac6b93c2379c4a13afe393f00c2fbbf2ee7346aa04eac6771158bc042c782a"
+    },
+    "ref:src/knowledge_os/google_drive_connector.py::build_manifest": {
+      "path": "src/knowledge_os/google_drive_connector.py",
+      "fingerprint": "171a51b4aa5551df48321e3d3e452d4295a918f3d56edb4a026f0da39c56c254",
+      "fileDigest": "64034a30e75d809e2accfc0dc612b79233a3c4b935a0d85bc5ef52aa0d1c2009"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "5c1d82acee932f9f7ee9727de78f303a5931c0ff117ae280dd81b64790638a37",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._approve": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "e540e1518b665a7a028bbebe366c631326fa4d12a109b16ce20dbe36d0ca08a4",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._approve_decision": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "6dfdb07b3f3c800f26afd888794b4465b70819fd2b9247733e7454a86fc7a721",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._approve_event": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "08e06098059ba1a70882a47bff909e45fd4c330c94935ef276c89d52c2b5f27b",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "7726fcf38ff9c7f7f6e9667a1c2fd0c4af3eeb9555ec4ae0016ef6f8df92d346",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "67b013bc5ec5da73f606c92816def8d57ee1f3902109250825c363c7fba8b441",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._write_manifest": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "9a3eaa4b0d06daac68aa92cf4bd0f205b3d5be8099440d7aefb1b9db570047a1",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "246747559ff032f8b4f46b8907453091c337082c461d4f30a7126400962189a8",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._write_tombstone": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "2fb5bf464e1bdb923c444bbd2a7fdcbe9def191a11385b15cf1f656fd59c8432",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore._write_version": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "0926cf158b121b3ea83f2c06359b7cc954d9fd512ebe37c57e58924ae58efdfe",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "080675ea6b6ff3b410642949a27e6ce4bc98dd57992c186bc2451448f103f789",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.assertion": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "d4b79df33f79edaf951bfddd74e515a4e0adffba273a4d496ee2a00c336f4f17",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "6544d33f038af4c0fd82845bd955b4849b4e934c4d4a077b4cd6bfe5c6ed9f3d",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.commit_sync_checkpoint": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "a73b3a0e2da94917277f19d0340d0c673c91e4b04c34966ea8f333394c41b3ba",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.decision": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "a5ea5f01b0c55efb4dded7fe07efd61c219e22609b1171842a5f0b5f20458c68",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.document": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "8ccc379ac32d7a5e970abcc1642d952ae6f48bfa20d326ab55f7fcea69eb4896",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.entity": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "aa8ae345c9f94ab6812fa248545e6c1749a69720cdf676ffc83af2abdf25f00b",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "a299def11eb236df11576b64a7cc73e872b399d899812545f00f60b12b6830f5",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.fuse_results": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "486a9e7a4ed18fde4d7ec5c4471681c0ccb8e3b4441f33288f50b05a67c9cb07",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.ingest_manifest": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "b6dafc777cb9407829854580d16d73b9c4e4bc8f3eb16738ecae3e1a0a719913",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.ingest_text": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "55651201a75c48eff54ed35e32acfec7fd000d891c0939ad3a332907d8b793a8",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.migrate": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "2727d574533e00d89be33b09069d879d21a8783135201ae6d991fa91b3e54a25",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.neighbors": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "fd83674870cad47195ceb62f7ae44187d2e4ac1a9fe5290d535d649bbfc26f3a",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "653086490f331252ab102ee4057583eae72b08d9843f89ca52ba4e9c35f11f48",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.retrieve": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "e9431b3c23e214e6a392926bb5016457dc1e98380c981f9ed5044370482ca055",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.search": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "3efac1756d8145ea9fb34f8ee8b3deb92d08569d1e8f4bdeead997be4560fb1e",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.search_entities": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "200d5a0a0934cafe765e19c98242282351b765eb01ea0c0d8b0a1aff54f7573e",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.semantic_search": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "6e8f789130723e6a26eb1e238e3e3de8f50bb7138888a25a29f9b717485212f3",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.source": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "af69333ff310a9e68304aa6c1e97b3959a4e0dbbcbb8ff6deeef793099f554ac",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::GraphStore.upsert_chunk_embedding": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "470f90b10302af9f2507ea46fb3d598085e8179f9f56b39492c80cc4f67e80ac",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::literal_fulltext_query": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "da3d0d9027bb4eb8585d193a2482bd285e918a48c8b722a6337e1f2f99d88936",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::proposal_identity": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "07a989e555d9215c72f9efe299e30d08acf3557cc78911c023a09850d57e6111",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::rerank_keyword_results": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "31778832a93b05de2e9cbe8d24d20595281bd2fde7a54266b4ee1f2a8ba2e8df",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::source_metadata_fingerprint": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "7112868fa3e5bd37b965a12204f2d21ab283a45a18da85f1e0a39c5f046e69d4",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/graph.py::split_text": {
+      "path": "src/knowledge_os/graph.py",
+      "fingerprint": "a46d41343269abcdd209469844474694bed2ce6d79c6b42ff4c96b991679d6e3",
+      "fileDigest": "b0893769c76444317062fdabf193c6b3b565c9e932058412633fd25e1bcc72e9"
+    },
+    "ref:src/knowledge_os/ids.py::document_id": {
+      "path": "src/knowledge_os/ids.py",
+      "fingerprint": "64857816ed0063fc6d6e191d0350653d1d3c8df99b77f9c2a851fd821db77fd2",
+      "fileDigest": "73ff819293feacdd008340384338a0997f96c71af1d707242b4ce2ec4c6c38ac"
+    },
+    "ref:src/knowledge_os/ids.py::processing_fingerprint": {
+      "path": "src/knowledge_os/ids.py",
+      "fingerprint": "27431b711ab391dec34696c675d5c5b19d087e22d0d9efcaeabdeb7fa8979093",
+      "fileDigest": "73ff819293feacdd008340384338a0997f96c71af1d707242b4ce2ec4c6c38ac"
+    },
+    "ref:src/knowledge_os/ids.py::source_id": {
+      "path": "src/knowledge_os/ids.py",
+      "fingerprint": "1ed6d574d1c9d9d2deb329b98334e78c16a8fc96c0a585075e0375aa1e0b30c7",
+      "fileDigest": "73ff819293feacdd008340384338a0997f96c71af1d707242b4ce2ec4c6c38ac"
+    },
+    "ref:src/knowledge_os/ids.py::stable_id": {
+      "path": "src/knowledge_os/ids.py",
+      "fingerprint": "76ce42d9566b8169771373c6035b211de5d341166321544d7bbcd295335eda86",
+      "fileDigest": "73ff819293feacdd008340384338a0997f96c71af1d707242b4ce2ec4c6c38ac"
+    },
+    "ref:src/knowledge_os/mcp_server.py": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/mcp_server.py::get_contracts": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "74ea00096830da04611b3a8bb89d93cec6eb3af3df6c7a32130d9add8a57bec1",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/mcp_server.py::get_evidence": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "c20fef78ed472550e804b7720862ad2d7528d4853cb6212b86a695f7f3eb0171",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "ed18b2f51b0c7ffb20413c86c25f43b22c051f6be98ed2b35554a216578f578a",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/mcp_server.py::propose_assertions": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "3ca340ad0a301d2cd6de48e03bbc1e94de82654c9123b84f5808fd04bf64eac5",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/mcp_server.py::request_action": {
+      "path": "src/knowledge_os/mcp_server.py",
+      "fingerprint": "c8c6f37457b3c26881b18220ff5dedc207c21ed4e2307540ae47af8b973b4d3b",
+      "fileDigest": "703a3c096b9493dbb361b39784df2a004f794d67b853b6088598be3a87313d84"
+    },
+    "ref:src/knowledge_os/migrate.py::main": {
+      "path": "src/knowledge_os/migrate.py",
+      "fingerprint": "13ee8cc53de8a95a67e8ed0c53b172ee451dde7b4c3064ac08a9b466084f4087",
+      "fileDigest": "ee0b5038b7b6d2d1b732c229d04d026626d4c3c11e13c5b32371f82162fd187a"
+    },
+    "ref:src/knowledge_os/models.py::ActionCreate": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "42819e872158f5c405c2603692ea04cf88900c6dfd0e5965ac4458aae5acb03b",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::AssertionChange": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "ddab484506b1eaae1c4070f7716f8afcde354b576e40802ee47ec8fffc1a1e6e",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::DecisionProposalCreate": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "6e7ad4e8b72e33606c672f221b5ef785ed680797877ee8a287e40284c9fa97ff",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::EmbeddingUpsert": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "b55c0142544cb81a7bd42cfd4f92a8abca6b67b22a98b7880592de27b93265bf",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::EntityRef": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "1a6b4ee393458a8976ef7abcc5991f8adea8dc08a9627692d1f7eb7181a9e9d4",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::EventProposalCreate": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "2b5e1439862fa2147eb849a1e37897d17ade935edee4fa612169e8d02c548626",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::EvidenceBundleRequest": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "652cda9cb7dcb25057c8a8273e778773645a8209497b7a8fdc61734d51e76302",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::ProposalCreate": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "c143edbac6ee9d84d16105c5a01a8cdcf0a36f44e87828b3fdaefd5f5765cd16",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/models.py::SyncManifest": {
+      "path": "src/knowledge_os/models.py",
+      "fingerprint": "f0d36decefd70cc312fad856a3cbd1a7983853f9adbe78ca81d49aff25a42bf8",
+      "fileDigest": "c324d073b5cd29554b7026c5580eaa90b1a829a1094aee98b1b9c38fc8edf726"
+    },
+    "ref:src/knowledge_os/notion_action_executor.py::execute_action": {
+      "path": "src/knowledge_os/notion_action_executor.py",
+      "fingerprint": "7839a4fbea6582337babb7a9fd71a9393813a39c0b5de2165cf1c8b47777c696",
+      "fileDigest": "ae2571746bd2fedbad213d2a8770e43b3a1c7643184a3fe33700889efc529107"
+    },
+    "ref:src/knowledge_os/notion_connector.py::build_manifest": {
+      "path": "src/knowledge_os/notion_connector.py",
+      "fingerprint": "a699c88089b1af792f1347030c0422fdafefd71ed9755bf85fc8fb4711107651",
+      "fileDigest": "eb62859a4db68aec3e49a3823b4566028183a987ba969a69820fd15587b1b2ed"
+    },
+    "ref:src/knowledge_os/ontology.py::Ontology.validate": {
+      "path": "src/knowledge_os/ontology.py",
+      "fingerprint": "729854ac7685dc61d60048e26a53dd69354a8a243e4de781a574a42a60c5c107",
+      "fileDigest": "63216d0891af2931f3a7524f2b0eb842e11fd48f22304b4f738e8e0d346f4265"
+    },
+    "ref:src/knowledge_os/ops.py::OpsStore": {
+      "path": "src/knowledge_os/ops.py",
+      "fingerprint": "9e136bda6c439e58fa13187f5404ed186f5caabbce0648bc6364a62f19addb0a",
+      "fileDigest": "57b31a0e2f413aa1d9baf63059b8a559263a876daa84da01b320aa2409447355"
+    },
+    "ref:src/knowledge_os/prompts.py::PromptRegistry": {
+      "path": "src/knowledge_os/prompts.py",
+      "fingerprint": "004f4e239aad7fb1a6cbdd450c227e1c4a4724030fc6f7bda70081da00b76977",
+      "fileDigest": "d1af8ed2fd6e4be1df9e59af146a5e4cedb0207d97ae6f15e57b9552d63b2934"
+    },
+    "ref:src/knowledge_os/recovery.py::_backup_sqlite": {
+      "path": "src/knowledge_os/recovery.py",
+      "fingerprint": "ebe04dbdbed6ba35d605c4035f6d7d523ade67b06af4117797f711dcf43e508e",
+      "fileDigest": "a4566b91702f428ade587fa05fb02103391bc8c86dbc91cf6654cef32ca44595"
+    },
+    "ref:src/knowledge_os/recovery.py::create_backup": {
+      "path": "src/knowledge_os/recovery.py",
+      "fingerprint": "74cafd3fae7d32027a596b31345e99a56e3e0245a6ce9c565e13ac26e1fd0a97",
+      "fileDigest": "a4566b91702f428ade587fa05fb02103391bc8c86dbc91cf6654cef32ca44595"
+    },
+    "ref:src/knowledge_os/recovery.py::verify_backup": {
+      "path": "src/knowledge_os/recovery.py",
+      "fingerprint": "4b83a5696e61b8ba5ef29186b3e5157eacb8de5df462110fe7da5ae2b92d10fe",
+      "fileDigest": "a4566b91702f428ade587fa05fb02103391bc8c86dbc91cf6654cef32ca44595"
+    },
+    "ref:tests/test_contracts.py::test_decision_proposal_deduplicates_evidence_and_validates_time": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "7e7aca4895afdb04fa48cc4055d1ec81082ea16d4ddf2f37c5e75ae453976bb3",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_direct_source_mutations_expose_document_version_cas": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "d9ae23e41ad17c111c0e00cb1e039062268301d8f267f3b0f7d9befaaf5e6de3",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_doctor_detects_missing_changed_and_unexpected_migrations": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "ac7f57fc9706a00fe5d032184ae541bc6b8789ae0bbfd8c4d6d9888b84777fa3",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "3cb9e74153cf7e0a14f64a451317e0feebb3a0bdc7c6b2cc46a5def5179a2472",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "3767afa39cb911277368ad26f54eb408027dfb9b01057af7fbe7b9444cd53c33",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_source_parent_per_operational_event": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "a952a1f5ee8df69288328e623df282f3860ab10675201c94bc5558307089f835",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_embedding_fingerprint_binds_vector_model_and_version": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "089db8910a86b9e450c174f874c32d09dd1e619a0afbb68637ce5dcda4f242d9",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_empty_initial_manifest_cannot_checkpoint_existing_active_documents": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "42f3f491523d219a046302ffdfaebdca268fe45ac78efe58b253d000b11ff13b",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "632f3942faeb7ef79bbde0c163c0e010039f0b400026a661ecc524e79a3d2a59",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_extraction_context_is_deterministic_and_verified": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "22de6eb0450920ef4dc87dfa70f6fdd65850c401847e593b2f4f9f6d705ca4f5",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_filesystem_connector_builds_deterministic_upserts_and_tombstones": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "32267010d60693ba013037232efe7fc3f409a3aaa1df3389a7b4e1f40bdd9d10",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_google_drive_connector_is_deterministic_replay_safe_and_tombstones": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "cdf22f4bd8333ef5fab6bd7f340ab4d43fa53e11ce719bca6bcb9e73a0e7258d",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_http_adapter_records_bounded_operational_telemetry": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "8e6a22f30d3a58a79b3051f82ae5e8c7ef9557436921fb1f258ca3f0522df4df",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "63aa49a0ed5fda65696b7bacdccb74b6ec42faa9a3065d587316f019e0f79790",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "0001f8adb041937ebf634f4c29b49c5d9505e4c5f18338d938a0bc56164ab967",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "a474ce373aa70fb34f287b924921b73358e72d63f13ed1158016b24e94fa8e9d",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "3db3825f541a63670fdbd16cb79e8c00c5ca80cc7228dee2419e4ae1ba97fccf",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "ef35221ed1ede8467431f5f64f07092ebc9991d8d45a6a3c316f0128bdcb3a3f",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_meeting_transcripts_preserve_raw_timestamps_and_source_identity": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "0a3450a0df0ae0d08575bff5b0f6521dd88454290c8375204688dd66d9a71b7a",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_notion_page_tree_and_manifest_are_deterministic_and_acl_bound": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "5fdb6965a44d35f07f62563cd25cba45b88980b2e23ea6b2f25035134a6d9f77",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "190f73a9713542c0d528cd5b1c1ca933a5b7a2f8cad1bc76fa50765bd819f52f",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "c1414d69610a6ad0f7cbf27617d91b5bbf957a85af873cf72cda03c24323fe8c",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "a92701687123431b486eb59a3f41ce578478b4edc22419b29b89f59a6eff9ea4",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "da9014dc8e8dd20e072e7869104122a1d87f9a3ca8d6babfade4a9f589032686",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "9bbc7715017ced83d3eb11a206c042d9bca093a7b57e40a8c9514d0b1c17f8a7",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_source_and_document_identity_is_workspace_scoped_and_delimiter_safe": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "6bb8f174144082e7d66b974d97b43c8b9637be4926ab8e54af645d76032e7ccf",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "7138fdf6e3e7d80056cbb690705caef0a0c7cee8026cbfb7589290aca1853c65",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_stable_id_is_deterministic": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "c6ad150c55f45ccabc6da673a4202aca6d9e4d837d46fd8715c18d134c9b6751",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_contracts.py::test_user_search_text_cannot_become_lucene_query_syntax": {
+      "path": "tests/test_contracts.py",
+      "fingerprint": "22779e18f39905d0f9501f6c303c214b9232de4bc5916f353bc99d3f319d3329",
+      "fileDigest": "ca1c3d34faa17d0e36302440bbf471b8db050556844bb75881c6499c97ddcbd2"
+    },
+    "ref:tests/test_deletion_replay.py": {
+      "path": "tests/test_deletion_replay.py",
+      "fingerprint": "",
+      "fileDigest": "07c51645736716844f2d74a6cdbdcbacf5f599be86d4fc69ac27e04ba8c942b3"
+    },
+    "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion": {
+      "path": "tests/test_deletion_replay.py",
+      "fingerprint": "4630bde1af2126af750991b1ece16c238df0f1f4ce883806580cbcfae37813a1",
+      "fileDigest": "07c51645736716844f2d74a6cdbdcbacf5f599be86d4fc69ac27e04ba8c942b3"
+    },
+    "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash": {
+      "path": "tests/test_deletion_replay.py",
+      "fingerprint": "2e0d0cc1244aefd5b96ff3661500aee99cfc6c501dde5b7d0bf59dbeec92572e",
+      "fileDigest": "07c51645736716844f2d74a6cdbdcbacf5f599be86d4fc69ac27e04ba8c942b3"
+    },
+    "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash": {
+      "path": "tests/test_deletion_replay.py",
+      "fingerprint": "99e702d6cb139116f6b84d473cd319c2593f360233a1596feffd20340168f932",
+      "fileDigest": "07c51645736716844f2d74a6cdbdcbacf5f599be86d4fc69ac27e04ba8c942b3"
+    },
+    "ref:tests/test_metadata_correction.py": {
+      "path": "tests/test_metadata_correction.py",
+      "fingerprint": "",
+      "fileDigest": "20ea4f6cc1694bf565dcdbce2cb50915e1be996149cb37656d1fd3b5035686e9"
+    },
+    "ref:tests/test_metadata_correction.py::test_correction_preserves_history_and_audits_exactly_once": {
+      "path": "tests/test_metadata_correction.py",
+      "fingerprint": "b3e600b74ed84e4641a6a0021e7f0c4c8df5495b3d1019b9028fe8c1fc8adf96",
+      "fileDigest": "20ea4f6cc1694bf565dcdbce2cb50915e1be996149cb37656d1fd3b5035686e9"
+    },
+    "ref:tests/test_metadata_correction.py::test_ingestion_paths_share_exact_persisted_metadata_contract": {
+      "path": "tests/test_metadata_correction.py",
+      "fingerprint": "426ecafd6e65a7f6010cacadb4469f29d1784c85afd70963a43785990d9acd8c",
+      "fileDigest": "20ea4f6cc1694bf565dcdbce2cb50915e1be996149cb37656d1fd3b5035686e9"
+    },
+    "ref:tests/test_metadata_correction.py::test_stale_correction_rolls_back_prior_changes_and_audit": {
+      "path": "tests/test_metadata_correction.py",
+      "fingerprint": "9d51fb9faa0ccb5d081181353366b8424b4d2b4792d0e8793836c3b8bd1afe7a",
+      "fileDigest": "20ea4f6cc1694bf565dcdbce2cb50915e1be996149cb37656d1fd3b5035686e9"
+    },
+    "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical": {
+      "path": "tests/test_v01_correctness_regressions.py",
+      "fingerprint": "f8dd9380733acda7b4f0c03384f6f28358fff59a410a91e43b7d480b0c47e5eb",
+      "fileDigest": "ee7afaac8ba616a6c3725d8cfa5c87c49959484f9bb1a2b06064bc4d7b627920"
+    },
+    "ref:tests/test_v01_correctness_regressions.py::test_f4_wrong_policy_reviewer_never_reaches_claim_or_provider": {
+      "path": "tests/test_v01_correctness_regressions.py",
+      "fingerprint": "33ea8dfa045446115abedd2cddd983e3ce23105ef4838ed12eb091d202d1ebe4",
+      "fileDigest": "ee7afaac8ba616a6c3725d8cfa5c87c49959484f9bb1a2b06064bc4d7b627920"
+    },
+    "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate": {
+      "path": "tests/test_v01_correctness_regressions.py",
+      "fingerprint": "e17895db4b472980dc26c284013d30e4e9a99f161937df6cda3976f2d7a85f0c",
+      "fileDigest": "ee7afaac8ba616a6c3725d8cfa5c87c49959484f9bb1a2b06064bc4d7b627920"
+    },
+    "ref:tests/test_v01_correctness_regressions.py::test_f6_chunk_size_is_a_hard_bound_without_content_loss": {
+      "path": "tests/test_v01_correctness_regressions.py",
+      "fingerprint": "14f0f31645d7aefc681ed20d53fc7880f86cb2993bb8ab7c6766c06a2fc1961e",
+      "fileDigest": "ee7afaac8ba616a6c3725d8cfa5c87c49959484f9bb1a2b06064bc4d7b627920"
+    },
+    "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion": {
+      "path": "tests/test_v01_correctness_regressions.py",
+      "fingerprint": "06d8337687cde19d8fd21b0169f713467dda1100ea09278ceccbd507a68cf659",
+      "fileDigest": "ee7afaac8ba616a6c3725d8cfa5c87c49959484f9bb1a2b06064bc4d7b627920"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "45b078b89ea9baaa3d9d8b4a7dd1c4ba6d507ea2e635a0cc6f9d76251a75a785",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "e178eb40a544a7ed3ad1c70b08e6992a4e5685fae012d9ffd0868d184265bef5",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_stale_document_updates_have_one_winner": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "d327edd8f795fa9c8d337c74abb8ba50fcb3039db14ba89d3e6da923e5b6a42d",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f1_manifest_hash_matches_immutable_document_metadata": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "e202e6126cfff6a98c03270264146d75ee0e2d1837f491705571d70c95a9952f",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f1_manifest_rejects_document_uri_drift_under_same_revision": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "f0aa530b3337b8b209c96e4e7925929b5e1775dab076d8a9a3b28a7ac724ba90",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "cdc15c9ae2cf5c3e456b6ee6d4fc73bcba6eb85263e92bec01329a4202898f9b",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_accepts_proposal_with_current_governance_contract": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "7ee50c198feaec4cdb01d175ac9e7ae3cb6db02c91ffd800c191bff6589d8fa0",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_corrupted_metadata_hash": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "7776d018d695353d7fd1c6da5b72d5c36a4452a1a9d8f9bcf1521a22863708a7",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "d92419f3fc01f5bbdace3b81bac17d6aa56de39bb0cf2d40267f76a81327c509",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_multi_node_supersession_cycle": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "5e12b27f4633f07fff44e1b733b9b4edde0ed842060fd99e17cc7db88ab80262",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f8_committed_mutation_is_not_reported_as_unqualified_sqlite_failure": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "9287f71144c3ac14a8d07158ba60147d5fdba626b26adbb54f84f968b4f06ab4",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_f8_retry_reconciles_audit_missing_after_graph_commit": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "1a458dbece6d6a315ed56d01215b46ac1785a2265a3da8f49ab9a8245c0e2a50",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "47f1919027919ee921a98d0dc19414ab4b197d7770dba31848ffa5024b376302",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    },
+    "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity": {
+      "path": "tests/test_v01_neo4j_regressions.py",
+      "fingerprint": "3d3c056b17486c1e0bb58dd14ce75681d5af0a163927cd5403e65a52b4fe1ad4",
+      "fileDigest": "188507ee89ecd3b7ec62bb8173af5422db7d867d2384f29a3c86e04aa4edbb6f"
+    }
+  }
+}

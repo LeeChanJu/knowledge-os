@@ -1,0 +1,48 @@
+{
+  "id": "keep-assertions",
+  "title": "Why Assertion instead of a bare edge?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A statement needs evidence, validity and correction history. A labeled entity link alone does not carry the complete governed record."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start with responsibility and evidence before choosing technology."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Follow the linked document journey to see this boundary in practice."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "A statement needs evidence, validity and correction history. A labeled entity link alone does not carry the complete governed record."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries protect provenance and reduce unnecessary infrastructure."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR is the authority. Where it gives no further rationale, this page makes no additional claim."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "e835780caf117b05d735eb639a591902d29d9e896e83e53dcc97cbb542e6b00a"
+}

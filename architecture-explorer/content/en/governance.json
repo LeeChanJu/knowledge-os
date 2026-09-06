@@ -1,0 +1,48 @@
+{
+  "id": "governance",
+  "title": "Governance",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Rules and recorded decisions controlling which changes are accepted."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A shared notebook needs rules for adding and correcting important conclusions."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A new assertion remains a proposal until the authorized review path accepts it."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Proposal → validation → approval/rejection separates candidates from canonical knowledge."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "It protects evidence, authorization boundaries and decision history."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Action execution has a separate authorized adapter boundary. Approval alone does not perform an external mutation."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "022a45aaf18d936416da73715191070e0a51a77d82bd3607ab7961cdf6be2966"
+}

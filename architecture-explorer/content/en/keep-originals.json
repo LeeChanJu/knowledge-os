@@ -1,0 +1,48 @@
+{
+  "id": "keep-originals",
+  "title": "Why does Drive remain authoritative?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Knowledge OS derives context. Keeping the original system authoritative preserves ownership and avoids a competing transactional record store."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start with responsibility and evidence before choosing technology."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Follow the linked document journey to see this boundary in practice."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Knowledge OS derives context. Keeping the original system authoritative preserves ownership and avoids a competing transactional record store."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries protect provenance and reduce unnecessary infrastructure."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR is the authority. Where it gives no further rationale, this page makes no additional claim."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "cebfb198ec57b04e18898ff5fab60735a512e273578a8ad8b81afde5ed35e27d"
+}

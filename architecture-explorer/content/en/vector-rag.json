@@ -1,0 +1,48 @@
+{
+  "id": "vector-rag",
+  "title": "Vector RAG",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A RAG approach that uses vector similarity to retrieve evidence."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Look for similar meaning, then give the matching passages to a model."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A question about agent tooling retrieves semantically related passages."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The repository provides semantic retrieval support, while production embedding population is deferred."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "It can bridge wording differences that literal search misses."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This term describes a retrieval pattern, not a separately deployed service or a verified model pipeline."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "93ee51212d111942ab102660e1a398b1b3bbc1fb6b30e7a9600d44eb6dec1ad8"
+}

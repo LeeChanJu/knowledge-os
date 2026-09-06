@@ -1,0 +1,48 @@
+{
+  "id": "temporal-validity",
+  "title": "Temporal validity",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The time interval in which a statement is considered applicable."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A person can have one role last year and a different role today without either historical statement being meaningless."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A policy applies from January until its replacement in March."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Assertions and Decisions support temporal fields and optional as-of reads."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Time prevents yesterday’s truth from being silently presented as today’s context."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Validity intervals use [valid_from, valid_to): the start is included and the end excluded. This snapshot does not claim the later temporal remediation is verified."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "3288570b4a9b9193ac7752393f0ddf9dc9c5d148b56c5be0053aa7edb3abbf59"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "migration",
+  "title": "Migrations",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Numbered changes that establish and evolve persisted structure."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Numbered changes that establish and evolve persisted structure. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A migration creates the Neo4j vector index."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Applied migrations are checksum-protected. The Explorer reads identities and never executes them."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Versioned changes make persisted structure auditable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "90e04daf05d094ec581032feae4d42454068a8703e5175d2473d534ab93859fc"
+}

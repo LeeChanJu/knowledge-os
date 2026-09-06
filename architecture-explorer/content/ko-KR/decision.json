@@ -1,0 +1,48 @@
+{
+  "id": "decision",
+  "title": "결정 (Decision)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "근거를 가진 사람 또는 조직의 결정입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "근거를 가진 사람 또는 조직의 결정입니다. 전체 문서 여정의 한 부분으로 이해하면 됩니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "팀이 인용한 문서를 바탕으로 도구 사용을 결정합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Decision을 제안하고 승인하며 참여자·시간·근거와 함께 보존합니다. 날짜만 아는 경우의 정밀도도 명시합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "나중에 읽는 사람에게는 결과뿐 아니라 이유와 맥락도 필요합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "아래의 정확한 저장소 참조를 따라 확인할 수 있습니다. 참조가 존재한다고 새로운 실행 검증 결과가 되는 것은 아닙니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "861571b2ecfd5171fe2a0cd692507cd00fe4eb321db28e691becbe6b8a630e0c"
+}

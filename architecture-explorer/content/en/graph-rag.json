@@ -1,0 +1,48 @@
+{
+  "id": "graph-rag",
+  "title": "Graph RAG",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A RAG approach that uses graph relationships to gather context."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Follow relevant connections, then explain them using their evidence."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A tool’s related technology and supporting assertions can help explain its place in a project."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Bounded graph reads and evidence access support a consuming agent. No additional Graph RAG framework is introduced."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Graph structure adds context that semantic similarity alone may not express."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The term does not imply global graph summarization or an autonomous reasoning engine."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "539b9793c255656806878afb4b1d51817d2e04845a1584387bb638ba9bef69ee"
+}

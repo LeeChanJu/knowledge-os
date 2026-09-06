@@ -1,0 +1,48 @@
+{
+  "id": "supersession",
+  "title": "Supersession",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A new record explicitly replaces an earlier record while preserving it."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Publish a corrected edition instead of erasing the old one."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Assertion B supersedes Assertion A; readers can still inspect A and its evidence."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Governed correction validates the target and records a successor relationship."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "A correction should explain history rather than silently rewrite it."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted contract requires a single successor and preserves assertion subject/predicate. Historical and current views must be distinguished."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "294b7d4c140190588ae7d7cb1e72aa5b9ed109ca52f91df204df0906541cfec0"
+}

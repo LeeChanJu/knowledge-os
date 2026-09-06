@@ -1,0 +1,48 @@
+{
+  "id": "provenance",
+  "title": "출처 계보 (Provenance)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "정보가 어디에서 왔고 어떤 과정을 거쳐 이 기록이 되었는지 보여 주는 계보입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "인용문에는 저자 이름뿐 아니라 책, 판본, 쪽수가 필요합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "답변에서 조각, 문서 버전, 문서, 원본 시스템까지 거슬러 올라갈 수 있습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Source → Document → DocumentVersion → Chunk → Assertion 계보를 보존합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "계보가 없으면 원본이 바뀌거나 삭제되었을 때 과거 답변을 설명하기 어렵습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "과거 권한 스냅샷은 당시 맥락의 기록일 뿐 영구 접근권이 아닙니다. 읽을 때는 현재 권한을 확인합니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "8d05dd8804ffa6bf9a5612f14c4e51e4a4598b3ac15839b8c6b6759aeb5080a7"
+}

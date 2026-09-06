@@ -1,0 +1,48 @@
+{
+  "id": "entity-assertion",
+  "title": "06. Entity와 Assertion",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "어떤 대상에 대해 근거를 연결해 기록한 진술입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "“이 문서에는 이렇게 적혀 있다”와 “이것은 언제나 참이다”를 구분해 보세요."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "문서에 도구가 특정 생태계에 속한다고 적혀 있다면, 진술은 그 내용과 근거 조각을 연결합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "진술 후보는 Proposal로 들어가며 승인 경로를 거쳐야 정식 기록이 됩니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "진술을 별도 기록으로 두면 근거, 유효 기간, 정정 과정을 설명할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "진술에는 원본 근거와 시간 범위가 있습니다. 지식 기록의 상태와 Explorer의 구현 검증 상태는 다른 개념입니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "8b266b9e293d9d97ddf6eb924372cfc991febe3202273e049064528016567016"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "doctor",
+  "title": "Doctor",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Read-only checks that report integrity problems without repairing them."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read-only checks that report integrity problems without repairing them. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A chunk with an invalid parent is reported for investigation."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Doctor checks graph lineage, migration/index state and SQLite integrity. F3 records remaining coverage issues."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Detection must not silently rewrite historical data."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a8f25df1213eef3353fde4ebe041c975e873dd5aac1450181be5c1bced83bc38"
+}

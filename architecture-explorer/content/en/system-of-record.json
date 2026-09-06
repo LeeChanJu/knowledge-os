@@ -1,0 +1,48 @@
+{
+  "id": "system-of-record",
+  "title": "System of Record / Source of Truth",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The system responsible for the original business record."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A school keeps official grades in its gradebook; a student’s summary does not replace it."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A Drive file remains a Drive file after Knowledge OS reads it."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Read-only ingestion observes provider content and permissions, then preserves evidence snapshots."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Keeping authority clear prevents a derived graph from silently becoming a competing business database."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Systems of Record and the Source contract are distinct: one owns originals; the other describes the integration boundary."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "865229c5cea50c7aba665ff8ad9ea3ca18dfa852d3ebe0c69a5f086570359387"
+}

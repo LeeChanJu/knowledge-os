@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import Site from "./docs/Site";
 import type { Architecture } from "./model";
 import "./style.css";
 
@@ -10,7 +10,7 @@ import("../data/architecture.json")
   .then(({ default: data }) => {
     createRoot(target).render(
       <StrictMode>
-        <App data={data as unknown as Architecture} />
+        <Site data={data as unknown as Architecture} />
       </StrictMode>,
     );
   })

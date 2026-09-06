@@ -1,0 +1,48 @@
+{
+  "id": "extraction",
+  "title": "Extraction",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Turning source passages into candidate structured statements."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Turning source passages into candidate structured statements. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A model may suggest entities and a relationship from a paragraph."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Versioned prompts and ontology context are exposed; automated extraction providers remain deferred. All writes use proposals."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Structure is useful, but generated candidates must not be accepted without governance."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "db3806568caf6f26e23dcd078b3bab5199eed544fb61cd518eeb93dcc942afdc"
+}

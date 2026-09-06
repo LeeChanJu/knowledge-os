@@ -1,0 +1,48 @@
+{
+  "id": "mcp",
+  "title": "MCP",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "An adapter protocol through which an AI host can call exposed tools."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "It is a plug connecting an assistant to tools, not the database’s rules."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An agent calls a knowledge tool to retrieve authorized evidence."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The stdio adapter projects service contracts with host-fixed workspace and principals."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Keeping MCP replaceable prevents one AI protocol from defining core knowledge semantics."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The adapter can submit governed requests but cannot approve or execute Actions. It does not expose arbitrary Cypher."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "351a2fd89dba1097b5c61ffba9ef0be2b3b8f6e5661c8f88b2ee85064d25ebbb"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "temporal-validity",
+  "title": "시간적 유효성 (Temporal validity)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "진술이 적용되는 것으로 보는 시간 범위입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "어떤 사람이 작년과 올해 다른 역할을 맡았어도 과거 기록이 무의미해지는 것은 아닙니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "어떤 정책이 1월부터 3월의 대체 정책 전까지 적용됩니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Assertion과 Decision은 시간 필드와 선택적인 시점 조회를 지원합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "어제의 사실을 오늘의 맥락인 것처럼 제시하지 않기 위해 필요합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "유효 구간은 [valid_from, valid_to)로 시작은 포함하고 끝은 제외합니다. 이 스냅샷은 이후 시간 정정 작업의 검증을 주장하지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "17bd18a942e32d519e8c8b6fc7f4b6b84e6c51e3e0adfbe3909d491b9839487c"
+}

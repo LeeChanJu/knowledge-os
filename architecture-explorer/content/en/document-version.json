@@ -1,0 +1,48 @@
+{
+  "id": "document-version",
+  "title": "DocumentVersion",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A preserved snapshot of a particular state of a document."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Keep yesterday’s edition as well as today’s edition so old quotations remain explainable."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Version 1 says “supports X”; version 2 says “supports Y.” Old evidence still points to version 1."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Changed content, source revision, processing or authorization can produce a new immutable version. Exact retries are unchanged."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Overwriting would erase the context that supported an earlier assertion."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Version metadata includes title and source URI identity. F1 is scoped to metadata hash integrity, not blanket ingestion verification."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "e9ad37ea607a1f80a0d82ae7c16bcd7251121720cf663e7c6f281c3025f7d6a2"
+}

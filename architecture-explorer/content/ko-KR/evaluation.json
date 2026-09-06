@@ -1,0 +1,48 @@
+{
+  "id": "evaluation",
+  "title": "평가 (Evaluation)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "기대한 동작과 관찰한 동작을 비교한 기록입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "시험에는 문제와 채점 기준이 필요합니다. 한 시험에서 높은 점수를 받았다고 모든 상황을 잘 아는 것은 아닙니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "검색 평가 모음은 기대한 문서를 찾았는지, 얼마나 높은 순위에 나오는지 측정합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "평가 기록은 기존 검색 계약과 SQLite를 사용하며 작업공간과 접근 지문으로 범위를 정합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "근거는 성공 주장을 꾸미는 데 그치지 않고 설계 변경을 이끌고 한계를 드러내야 합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "F7은 권한 평가 제외 문제를 다룹니다. 과거 PROVEN 기록이 자동으로 현재 VERIFIED 상태가 되지는 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "6967852699bcc3d6359354b0de2a57b03ccf8e7705192d138f53b730c752c6f0"
+}

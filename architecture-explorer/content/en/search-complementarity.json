@@ -1,0 +1,48 @@
+{
+  "id": "search-complementarity",
+  "title": "Why several search methods?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Exact words, semantic similarity and explicit connections express different signals. Current hybrid fusion is keyword plus semantic; graph access is separate."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start with responsibility and evidence before choosing technology."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Follow the linked document journey to see this boundary in practice."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Exact words, semantic similarity and explicit connections express different signals. Current hybrid fusion is keyword plus semantic; graph access is separate."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries protect provenance and reduce unnecessary infrastructure."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR is the authority. Where it gives no further rationale, this page makes no additional claim."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "7fd215739cfda8c70f2135e13da463b56cece61e8770b5272c1dbe74ffa6e675"
+}

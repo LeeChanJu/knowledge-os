@@ -1,0 +1,48 @@
+{
+  "id": "action",
+  "title": "Action",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A governed request to change something through a System-of-Record adapter."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Permission to suggest a change is different from permission to approve or perform it."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An agent requests creation of a Notion page; a designated reviewer and executor have separate roles."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Actions retain policy and principal snapshots, approval, a pre-execution claim and execution evidence."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Knowledge access must not silently grant permission to mutate external records."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "An approved Action remains unexecuted until an authorized adapter performs it. External APIs that ignore idempotency do not gain an exactly-once guarantee."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "620dcd116d0fa190b80910d6e3db69c1189fa10a22a4c8f73eb5a5804853d2eb"
+}

@@ -1,0 +1,965 @@
+{
+  "systems": {
+    "name": "Systems of Record",
+    "description": "Notion, Google Drive, local files, and meeting exports remain authoritative for source content. Knowledge OS holds derived context with provenance.",
+    "responsibilities": [
+      "Supply source revisions and authorization observations. Receive mutations only through an independently authorized, governed Action adapter."
+    ],
+    "inputs": [
+      "User-authored source content and source-side sharing decisions."
+    ],
+    "outputs": [
+      "Provider snapshots, file bytes, revision metadata, and ACL observations."
+    ],
+    "owns": [
+      "Original source records outside Knowledge OS."
+    ],
+    "invariants": [
+      "Source content is not silently rewritten by ingestion. Derived knowledge never replaces the source of record."
+    ],
+    "gaps": [
+      "External sharing semantics are provider-specific; Notion does not claim complete human/group ACL parity."
+    ],
+    "deferrals": []
+  },
+  "source": {
+    "name": "Source Registry",
+    "description": "Source records identify a workspace-scoped source collection and its bound connector instance; this is part of GraphStore, not a separate registry service.",
+    "responsibilities": [
+      "Bind source identity and checkpoint state so retries and source catalogs refer to the same collection."
+    ],
+    "inputs": [
+      "Workspace, source type, opaque external ID, connector ID."
+    ],
+    "outputs": [
+      "Stable Source identity and authorized catalog/checkpoint summaries."
+    ],
+    "owns": [
+      "Source node, connector binding, committed sync cursor."
+    ],
+    "invariants": [
+      "A different connector cannot silently take ownership. Item ingestion does not independently advance a completed-run checkpoint."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "connectors": {
+    "name": "Connectors",
+    "description": "Filesystem, Google Drive, and Notion adapters translate provider-specific observations into the provider-neutral manifest contract.",
+    "responsibilities": [
+      "Complete the inventory before declaring deletions. Write local connector checkpoints only after the graph commit succeeds."
+    ],
+    "inputs": [
+      "Provider inventory, source authorization, previous connector checkpoint."
+    ],
+    "outputs": [
+      "Deterministic UPSERT/TOMBSTONE manifest and proposed next checkpoint."
+    ],
+    "owns": [
+      "Adapter-local checkpoint files; no canonical semantic truth."
+    ],
+    "invariants": [
+      "Retries must reproduce the same semantic state. Provider failures must not be interpreted as an empty successful inventory."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "parsing": {
+    "name": "Parsing",
+    "description": "File extraction produces text and a parser version. Provider adapters flatten supported source structures before manifest ingestion.",
+    "responsibilities": [
+      "Retain useful evidence text and source provenance while normalizing supported document formats."
+    ],
+    "inputs": [
+      "Supported file bytes or provider blocks and properties."
+    ],
+    "outputs": [
+      "Text, title, URI, and parser version."
+    ],
+    "owns": [
+      "No independent store; text is passed to ingestion."
+    ],
+    "invariants": [
+      "Processing versions contribute to evidence identity. Transcript timestamps remain part of the evidence text."
+    ],
+    "gaps": [
+      "Parser fidelity is format-specific; the repository does not demonstrate every external exporter."
+    ],
+    "deferrals": []
+  },
+  "ingestion": {
+    "name": "Ingestion",
+    "description": "Text, manifests, tombstones, and checkpoints enter the existing GraphStore transaction boundary through REST or local connector commands.",
+    "responsibilities": [
+      "Create immutable evidence versions and preserve replay identity. Atomically commit complete manifests under Source serialization."
+    ],
+    "inputs": [
+      "Typed text requests or ordered manifest records with authorization and processing metadata."
+    ],
+    "outputs": [
+      "Document/version/Chunk identities, tombstone Events, and committed checkpoints."
+    ],
+    "owns": [
+      "Evidence lifecycle and source-run completion records in Neo4j."
+    ],
+    "invariants": [
+      "Compare-and-set protects current versions and cursors. Failed manifests roll back earlier records and the checkpoint. F1/F2 corrections do not establish full release acceptance."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "document": {
+    "name": "Document",
+    "description": "The stable document identity links a source record to its current version and retained historical versions.",
+    "responsibilities": [
+      "Provide the lifecycle and CURRENT_VERSION anchor without overwriting historical evidence."
+    ],
+    "inputs": [
+      "Source identity plus external document ID."
+    ],
+    "outputs": [
+      "Stable document ID, current-version pointer, version history."
+    ],
+    "owns": [
+      "Document identity, active/deleted lifecycle, current-version relationship."
+    ],
+    "invariants": [
+      "Identity is workspace/source scoped. A tombstone retains version history; direct updates require the current version precondition."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "version": {
+    "name": "DocumentVersion",
+    "description": "An immutable source/processing/authorization snapshot preserves the exact provenance of a document at ingestion.",
+    "responsibilities": [
+      "Separate changed source observations from stable Document identity and maintain supersession lineage."
+    ],
+    "inputs": [
+      "Content, source revision, metadata, ACL snapshot, parser/chunker contract."
+    ],
+    "outputs": [
+      "Content-addressed version identity and version-linked evidence Chunks."
+    ],
+    "owns": [
+      "Historical metadata, authorization snapshot, hashes, processing provenance."
+    ],
+    "invariants": [
+      "Metadata hashes must match persisted title/URI. Reusing one source revision with conflicting metadata fails closed. Historical ACLs are provenance, not permanent read grants."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "chunking": {
+    "name": "Chunking",
+    "description": "The paragraph-v1 split_text function turns normalized source text into retrieval-sized evidence units within the ingestion module.",
+    "responsibilities": [
+      "Create deterministic evidence boundaries that remain attributable to a DocumentVersion."
+    ],
+    "inputs": [
+      "Extracted text and declared chunk_size."
+    ],
+    "outputs": [
+      "Ordered text chunks."
+    ],
+    "owns": [
+      "No separate service or store."
+    ],
+    "invariants": [
+      "Do not lose evidence to satisfy a size bound. F6 records that long paragraphs exceed the intended hard limit."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "chunk": {
+    "name": "Chunk",
+    "description": "The exact evidence unit used by retrieval, evidence bundles, and governed proposals; each Chunk belongs to a historical DocumentVersion.",
+    "responsibilities": [
+      "Give claims stable, inspectable support and expose evidence only under current source authorization."
+    ],
+    "inputs": [
+      "Version identity, chunk order, text, processing metadata."
+    ],
+    "outputs": [
+      "Authorized exact evidence and retrieval candidates."
+    ],
+    "owns": [
+      "Evidence text, version link, lifecycle flags, optional embedding provenance."
+    ],
+    "invariants": [
+      "Current ACL and active Document lifecycle govern reads. Historical Chunk provenance is retained even when its source is deleted."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "embedding": {
+    "name": "Embedding",
+    "description": "Existing interfaces accept caller-supplied vectors with model/version provenance. This is contract support, not an active production embedding provider.",
+    "responsibilities": [
+      "Annotate authorized current Chunks with immutable vector provenance for model-isolated retrieval."
+    ],
+    "inputs": [
+      "Chunk ID, vector, model/version, authenticated access context."
+    ],
+    "outputs": [
+      "Idempotent embedding annotation or rejection of a conflicting payload."
+    ],
+    "owns": [
+      "Embedding vector and fingerprint on the existing Chunk."
+    ],
+    "invariants": [
+      "Only current active authorized evidence can be annotated. A different payload cannot silently overwrite an embedding."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "Production provider activation is deferred; the historical personal snapshot has no populated current Chunk vectors."
+    ]
+  },
+  "extraction": {
+    "name": "Extraction",
+    "description": "Versioned assertion, Decision, and Event prompts plus ontology context guide external candidate generation. Automated extraction providers are deferred.",
+    "responsibilities": [
+      "Make extraction context discoverable while ensuring all proposed knowledge enters governed review."
+    ],
+    "inputs": [
+      "Authorized evidence bundle, ontology version, prompt version/checksum."
+    ],
+    "outputs": [
+      "Typed Proposal candidates from replaceable adapters."
+    ],
+    "owns": [
+      "Git-controlled prompts; candidates persist through Proposal contracts."
+    ],
+    "invariants": [
+      "Prompt output never directly becomes canonical knowledge. No model SDK or autonomous extraction pipeline is implied."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "Automated extraction provider and production embedding provider integrations."
+    ]
+  },
+  "ontology": {
+    "name": "Ontology",
+    "description": "The Git-controlled vocabulary specifies entity types and allowed subject/object relation combinations for candidate validation.",
+    "responsibilities": [
+      "Keep semantic names and relationship constraints explicit and versioned."
+    ],
+    "inputs": [
+      "EntityRef and AssertionChange candidates."
+    ],
+    "outputs": [
+      "Validated typed relations or a validation error."
+    ],
+    "owns": [
+      "config/ontology.yaml version and vocabulary."
+    ],
+    "invariants": [
+      "Unknown types and object relations must be rejected. F5 tracks the scalar-value path bypassing predicate validation."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "resolution": {
+    "name": "Entity Resolution",
+    "description": "Approval derives Entity IDs from workspace, entity type, and case-folded name, then merges those IDs. This is deterministic identity matching, not fuzzy entity resolution.",
+    "responsibilities": [
+      "Reuse named entities within the approved canonical graph and preserve subject identity during Assertion correction."
+    ],
+    "inputs": [
+      "Approved subject/object EntityRef values."
+    ],
+    "outputs": [
+      "Stable Entity IDs and canonical merges."
+    ],
+    "owns": [
+      "No separate resolver database or provider."
+    ],
+    "invariants": [
+      "Identity is scoped by workspace/type/name. Aliases do not establish an implemented fuzzy matching system."
+    ],
+    "gaps": [
+      "No dedicated real-world disambiguation quality benchmark or automatic alias reconciliation was found."
+    ],
+    "deferrals": []
+  },
+  "governance": {
+    "name": "Proposal / Approval",
+    "description": "Proposals collect candidate knowledge and exact evidence. A separate authenticated review decision either rejects them or promotes canonical records.",
+    "responsibilities": [
+      "Separate extraction from truth and preserve immutable review outcomes. Revalidate evidence access inside the write transaction."
+    ],
+    "inputs": [
+      "Typed candidates, creator access context, reviewer identity and decision."
+    ],
+    "outputs": [
+      "One immutable approval/rejection outcome and, on approval, canonical records."
+    ],
+    "owns": [
+      "Proposal identity/payload, SUPPORTED_BY lineage, Approval history."
+    ],
+    "invariants": [
+      "MCP cannot approve or reject. A pending proposal cannot acquire conflicting review outcomes. Authorization uses current evidence ACLs."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "entity": {
+    "name": "Entity",
+    "description": "A canonical typed participant or concept shared by approved Assertions, Events, and Decisions.",
+    "responsibilities": [
+      "Provide stable points for evidence-backed discovery and graph-neighbor reads."
+    ],
+    "inputs": [
+      "Approved EntityRef values and evidence-backed canonical relations."
+    ],
+    "outputs": [
+      "Authorized entity summaries and neighbors."
+    ],
+    "owns": [
+      "Canonical name/type/aliases and workspace membership."
+    ],
+    "invariants": [
+      "Discovery requires related authorized evidence; a known ID does not grant access. Runtime VERIFIED labels describe knowledge status, not Explorer implementation verification."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "assertion": {
+    "name": "Assertion",
+    "description": "An approved claim connects a subject to an object or scalar value with exact evidence and temporal validity.",
+    "responsibilities": [
+      "Represent inspectable semantic claims and retain correction/supersession history."
+    ],
+    "inputs": [
+      "An approved AssertionChange with evidence, predicate and temporal fields."
+    ],
+    "outputs": [
+      "Canonical Assertion reads and graph relationships."
+    ],
+    "owns": [
+      "Claim predicate/value, evidence link, confidence, temporal and extraction provenance."
+    ],
+    "invariants": [
+      "Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor."
+    ],
+    "gaps": [
+      "Temporal supersession regression cases are present; this milestone does not claim the release gate passed."
+    ],
+    "deferrals": []
+  },
+  "event": {
+    "name": "Event",
+    "description": "Events record semantic occurrences and operational provenance, distinguished by event_class. Only semantic Events use candidate review.",
+    "responsibilities": [
+      "Preserve occurrence/correction history and source synchronization or deletion observations without conflating those meanings."
+    ],
+    "inputs": [
+      "Approved Event proposal or a source operation."
+    ],
+    "outputs": [
+      "Semantic Event reads or operational source history."
+    ],
+    "owns": [
+      "Occurrence and recording times, participants/evidence or source parent linkage."
+    ],
+    "invariants": [
+      "Operational Events have exactly one Source/Document provenance parent. Source deletion observations retain source timestamps separately from local recording time."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "decision": {
+    "name": "Decision",
+    "description": "An approved human or organizational Decision preserves evidence, participants, temporal validity, and supersession.",
+    "responsibilities": [
+      "Make decision history retrievable without treating extraction or operational logs as human decisions."
+    ],
+    "inputs": [
+      "Governed DecisionProposalCreate and supporting evidence."
+    ],
+    "outputs": [
+      "Authorized canonical Decision, optionally as of a specified time."
+    ],
+    "owns": [
+      "Decision payload, participants, evidence, temporal validity, predecessor lineage."
+    ],
+    "invariants": [
+      "A later decision supersedes rather than overwrites. Access depends on current authorization to all supporting evidence."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "action": {
+    "name": "Action",
+    "description": "A governed request for a bounded external capability. Approval does not execute it; a separately authorized adapter claims execution and records immutable results.",
+    "responsibilities": [
+      "Keep operational writes behind policy, reviewer, capability, lease, and source-system authorization boundaries."
+    ],
+    "inputs": [
+      "Action request, designated reviewers/executors, policy version, explicit approval."
+    ],
+    "outputs": [
+      "Execution claim, provider operation, and immutable execution evidence."
+    ],
+    "owns": [
+      "Action snapshots, review decisions, claim lease and execution records in Neo4j."
+    ],
+    "invariants": [
+      "MCP cannot approve or execute. A lease expiry is not takeover permission. External exactly-once delivery is not guaranteed if the provider ignores idempotency. F4/F8 remain open."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "neo4j": {
+    "name": "Neo4j",
+    "description": "The local graph stores source lineage, approved knowledge, governance, and retrieval indexes as the System of Context.",
+    "responsibilities": [
+      "Keep graph/evidence relationships and transactional transitions in one existing persistence boundary."
+    ],
+    "inputs": [
+      "Governed GraphStore writes and versioned migrations."
+    ],
+    "outputs": [
+      "Authorized evidence, canonical reads, search results and operational provenance."
+    ],
+    "owns": [
+      "Context graph, full-text/vector indexes, migration ledger."
+    ],
+    "invariants": [
+      "Original Systems of Record remain authoritative. No external vector store or second knowledge database is introduced."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "vector": {
+    "name": "Vector Index",
+    "description": "Neo4j chunk_embedding_vector indexes 1,536-dimensional Chunk embeddings with model/version and active filters.",
+    "responsibilities": [
+      "Provide semantic candidates inside the existing graph store."
+    ],
+    "inputs": [
+      "Authorized current Chunk vectors with model/version metadata."
+    ],
+    "outputs": [
+      "Filtered semantic search candidates."
+    ],
+    "owns": [
+      "A Neo4j index over Chunk embeddings."
+    ],
+    "invariants": [
+      "Do not change dimensionality merely to activate a provider. Model/version provenance must match the query. Index availability does not imply populated vectors."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "fulltext": {
+    "name": "Full-text Index",
+    "description": "Neo4j indexes Chunk text/section and Entity name/description for keyword and entity discovery.",
+    "responsibilities": [
+      "Supply native indexed candidates for authorized search without another search service."
+    ],
+    "inputs": [
+      "Indexed Chunk/Entity text and literalized query tokens."
+    ],
+    "outputs": [
+      "Keyword and entity candidate rows."
+    ],
+    "owns": [
+      "chunk_text_fulltext and entity_name_fulltext indexes."
+    ],
+    "invariants": [
+      "User search text cannot become Lucene query syntax. Candidate ranking does not bypass source authorization."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "graph-retrieval": {
+    "name": "Graph Retrieval",
+    "description": "Authorized entity discovery, neighbor traversal, and canonical record reads expose bounded graph context through stable service contracts.",
+    "responsibilities": [
+      "Connect retrieved evidence to approved semantic relationships while preserving access and temporal constraints."
+    ],
+    "inputs": [
+      "Entity/record IDs or discovery query, access context, optional as-of time."
+    ],
+    "outputs": [
+      "Bounded authorized canonical records and traced discovery results."
+    ],
+    "owns": [
+      "No separate database; retrieval traces belong to the operations store."
+    ],
+    "invariants": [
+      "Known IDs do not bypass ACLs. Canonical reads require all supporting evidence to remain accessible."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "api": {
+    "name": "Knowledge API",
+    "description": "The FastAPI REST surface exposes the stable contracts; endpoint transport is a replaceable adapter around the Knowledge Service implementation.",
+    "responsibilities": [
+      "Validate typed requests, apply access context and expose bounded service capabilities."
+    ],
+    "inputs": [
+      "REST requests with adapter-derived authenticated identity."
+    ],
+    "outputs": [
+      "Contract responses, deliberate denials, traces, and bounded errors."
+    ],
+    "owns": [
+      "No independent store. GraphStore and OpsStore own persistence."
+    ],
+    "invariants": [
+      "Authentication belongs to the edge adapter. Caller display names alone never authorize governance. Stable contracts are authoritative over transport choices."
+    ],
+    "gaps": [
+      "This local boundary must not be represented as a separately demonstrated enterprise authentication deployment."
+    ],
+    "deferrals": []
+  },
+  "mcp": {
+    "name": "MCP",
+    "description": "A stdio MCP adapter projects authorized reads and governed Proposal/Action requests through the Knowledge Service using host-fixed identities.",
+    "responsibilities": [
+      "Let agent clients consume context and request review without receiving direct database authority."
+    ],
+    "inputs": [
+      "Bounded MCP tool arguments plus host-owned workspace/principals."
+    ],
+    "outputs": [
+      "Knowledge Service results or governed request receipts."
+    ],
+    "owns": [
+      "Host adapter configuration only; no independent knowledge store."
+    ],
+    "invariants": [
+      "No direct Cypher, ingestion, approval, Action execution or external mutation tools. MCP is not entirely read-only: it can submit governed requests."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "telemetry": {
+    "name": "Telemetry / Evaluation",
+    "description": "Bounded telemetry, traces, feedback, evaluation results, audits, and safe errors support measured correctness and retrieval quality work.",
+    "responsibilities": [
+      "Record operational evidence without becoming canonical knowledge or leaking raw principals and source payloads into error records."
+    ],
+    "inputs": [
+      "Adapter timings, access-bound trace IDs, evaluation cases and feedback."
+    ],
+    "outputs": [
+      "Operational rows, measured retrieval metrics and diagnostic records."
+    ],
+    "owns": [
+      "Evidence of operations in the existing local SQLite store."
+    ],
+    "invariants": [
+      "Authorization-denial cases must fail on leaked results before exclusions; F7 remains open. Cross-store graph/audit recovery is not a distributed transaction; F8 remains open."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "sqlite": {
+    "name": "SQLite Operations",
+    "description": "The existing local SQLite database stores telemetry, audit, traces, evaluations, feedback, and safe operational errors.",
+    "responsibilities": [
+      "Keep local operational evidence outside the canonical context graph with minimal infrastructure."
+    ],
+    "inputs": [
+      "Bounded application observations and trace-linked evaluation/feedback."
+    ],
+    "outputs": [
+      "Operational diagnostics and online backup artifact."
+    ],
+    "owns": [
+      "Operations tables only; no source document or canonical knowledge store."
+    ],
+    "invariants": [
+      "Operations data cannot promote canonical truth. Graph commits and SQLite writes do not form one atomic distributed transaction."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "migration": {
+    "name": "Migration",
+    "description": "Numbered Cypher files define the graph constraints/indexes and explicit lineage/provenance backfills; checksums protect the applied ledger.",
+    "responsibilities": [
+      "Evolve schema explicitly and detect missing, changed, or unexpected migrations."
+    ],
+    "inputs": [
+      "Git-owned Cypher files and current SchemaMigration ledger."
+    ],
+    "outputs": [
+      "Applied schema/backfill operations and recorded checksums."
+    ],
+    "owns": [
+      "SchemaMigration records in Neo4j; migration files remain authoritative in Git."
+    ],
+    "invariants": [
+      "Applied migrations are never edited silently. Explorer checks read migration files but never execute them."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "recovery": {
+    "name": "Backup / Recovery",
+    "description": "A recovery set combines an official Neo4j backup, SQLite online backup, contract/Git provenance and artifact hashes.",
+    "responsibilities": [
+      "Make recovery inspectable and verify artifacts without treating the cross-store capture window as a distributed transaction."
+    ],
+    "inputs": [
+      "Existing graph and operations stores plus explicit administrative backup tooling."
+    ],
+    "outputs": [
+      "Recovery manifest, database artifacts, hashes, verification results."
+    ],
+    "owns": [
+      "Protected local backup files outside committed documentation."
+    ],
+    "invariants": [
+      "Verify hashes and archive consistency before restore. Local same-DBMS restore evidence does not establish host-loss recovery or off-device retention."
+    ],
+    "gaps": [
+      "Host-loss recovery and off-device retention remain outside recorded proof."
+    ],
+    "deferrals": []
+  },
+  "proposal": {
+    "name": "Proposal",
+    "description": "A content-addressed candidate for Assertion, Decision, or Event knowledge.",
+    "responsibilities": [
+      "Preserve proposed payload and complete evidence before human review."
+    ],
+    "inputs": [
+      "Candidate, creator identity, ontology version."
+    ],
+    "outputs": [
+      "Reviewable immutable candidate identity."
+    ],
+    "owns": [
+      "Payload hash and SUPPORTED_BY Chunk links."
+    ],
+    "invariants": [
+      "Retries do not reopen approved or rejected payloads."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "approval": {
+    "name": "Approval",
+    "description": "An immutable decision owned by one Proposal or Action.",
+    "responsibilities": [
+      "Record the authenticated human decision and its provenance."
+    ],
+    "inputs": [
+      "Review identity, decision, reason and authorized evidence."
+    ],
+    "outputs": [
+      "One approval/rejection outcome."
+    ],
+    "owns": [
+      "Decision record with exactly one governance parent."
+    ],
+    "invariants": [
+      "Approval does not itself execute an external Action."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "doctor": {
+    "name": "Read-only Doctor",
+    "description": "Integrity checks inspect graph lineage, migration/index state, and operational provenance.",
+    "responsibilities": [
+      "Detect violations without normalizing away history."
+    ],
+    "inputs": [
+      "Existing graph, migration files, operations store."
+    ],
+    "outputs": [
+      "Bounded integrity report."
+    ],
+    "owns": [
+      "No repair state."
+    ],
+    "invariants": [
+      "Detection is separate from correction. F3 has unresolved coverage and compatibility cases."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "files": {
+    "name": "Filesystem Connector",
+    "description": "A source-specific adapter producing the common atomic manifest contract.",
+    "responsibilities": [
+      "Translate a complete source inventory and prior checkpoint into deterministic observations."
+    ],
+    "inputs": [
+      "Authorized inventory and prior connector state."
+    ],
+    "outputs": [
+      "Manifest and next checkpoint."
+    ],
+    "owns": [
+      "Local source-bound checkpoint."
+    ],
+    "invariants": [
+      "No checkpoint advancement before successful graph commit; preserve provider-specific provenance and ACL limitations."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "drive": {
+    "name": "Google Drive Connector",
+    "description": "A source-specific adapter producing the common atomic manifest contract.",
+    "responsibilities": [
+      "Translate a complete source inventory and prior checkpoint into deterministic observations."
+    ],
+    "inputs": [
+      "Authorized inventory and prior connector state."
+    ],
+    "outputs": [
+      "Manifest and next checkpoint."
+    ],
+    "owns": [
+      "Local source-bound checkpoint."
+    ],
+    "invariants": [
+      "No checkpoint advancement before successful graph commit; preserve provider-specific provenance and ACL limitations."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "notion": {
+    "name": "Notion Connector",
+    "description": "A source-specific adapter producing the common atomic manifest contract.",
+    "responsibilities": [
+      "Translate a complete source inventory and prior checkpoint into deterministic observations."
+    ],
+    "inputs": [
+      "Authorized inventory and prior connector state."
+    ],
+    "outputs": [
+      "Manifest and next checkpoint."
+    ],
+    "owns": [
+      "Local source-bound checkpoint."
+    ],
+    "invariants": [
+      "No checkpoint advancement before successful graph commit; preserve provider-specific provenance and ACL limitations."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "keyword": {
+    "name": "Keyword / Hybrid Retrieval",
+    "description": "Literal full-text search uses bounded title reranking and hybrid rank fusion when a compatible query embedding is supplied.",
+    "responsibilities": [
+      "Make ranking explainable and model isolation explicit."
+    ],
+    "inputs": [
+      "Query, mode, access context and optional vector/model/version."
+    ],
+    "outputs": [
+      "Ranked evidence and trace ID."
+    ],
+    "owns": [
+      "No additional index service."
+    ],
+    "invariants": [
+      "Fusion cannot discard authorization requirements."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "provider": {
+    "name": "Production Embedding Provider",
+    "description": "Production vector population is deliberately inactive pending provider acceptance.",
+    "responsibilities": [
+      "Keep measured provider selection separate from supported semantic contracts."
+    ],
+    "inputs": [
+      "New provider evaluation and authorized corpus."
+    ],
+    "outputs": [
+      "No activated production provider in this scope."
+    ],
+    "owns": [
+      "No new provider deployment."
+    ],
+    "invariants": [
+      "An online vector index alone does not prove semantic readiness."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "Requires fresh acceptance evidence before production population."
+    ]
+  },
+  "automated-extraction": {
+    "name": "Automated Extraction Provider",
+    "description": "An automated provider is intentionally deferred; prompt and Proposal contracts already exist.",
+    "responsibilities": [
+      "Reserve candidate generation behind the governed interface."
+    ],
+    "inputs": [
+      "A separately justified provider capability."
+    ],
+    "outputs": [
+      "No automated extraction runtime in v1."
+    ],
+    "owns": [
+      "None."
+    ],
+    "invariants": [
+      "Extracted output cannot bypass review."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "future-adapters": {
+    "name": "A2A / Product UI",
+    "description": "Production A2A integration and a product-facing custom graph UI remain deferred. This Explorer is removable developer documentation.",
+    "responsibilities": [
+      "Keep replaceable adapters from redefining stable architecture."
+    ],
+    "inputs": [
+      "A separately requested measured capability requirement."
+    ],
+    "outputs": [
+      "No production adapter in this milestone."
+    ],
+    "owns": [
+      "None."
+    ],
+    "invariants": [
+      "The Explorer is not a runtime dependency or a product feature."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-source": {
+    "name": "Source Contract",
+    "description": "Source identity, connector observations, versions, deletion and checkpoint semantics.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Provider observations with stable identity and authorization."
+    ],
+    "outputs": [
+      "Versioned evidence and committed source-run history."
+    ],
+    "owns": [
+      "Source contract version; runtime data lives in Neo4j."
+    ],
+    "invariants": [
+      "Provider retries must not duplicate semantic state."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-evidence": {
+    "name": "Evidence Contract",
+    "description": "Exact authorized evidence with immutable DocumentVersion and Source provenance.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Stable Chunk IDs and current access context."
+    ],
+    "outputs": [
+      "Bounded all-or-nothing evidence bundles."
+    ],
+    "owns": [
+      "Evidence contract version."
+    ],
+    "invariants": [
+      "Historical ACL snapshots never replace current authorization."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-knowledge": {
+    "name": "Knowledge Contract",
+    "description": "Canonical Entity, Assertion, Event and Decision reads plus extraction context discovery.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Record IDs, query context, ontology/prompt names."
+    ],
+    "outputs": [
+      "Authorized semantic records and versioned extraction context."
+    ],
+    "owns": [
+      "Knowledge contract version."
+    ],
+    "invariants": [
+      "Knowledge requires approved provenance; adapters cannot redefine canonical truth."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-governance": {
+    "name": "Governance Contract",
+    "description": "Candidate validation, authenticated review, rejection and promotion.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Evidence-backed candidates and explicit reviewer context."
+    ],
+    "outputs": [
+      "Immutable decisions and approved canonical records."
+    ],
+    "owns": [
+      "Governance contract version."
+    ],
+    "invariants": [
+      "Proposal → validation → Approval/rejection → canonical graph."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-retrieval": {
+    "name": "Retrieval Contract",
+    "description": "Keyword, vector, hybrid and graph discovery with access-bound operational evidence.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Queries, exact model/version when semantic, authenticated access."
+    ],
+    "outputs": [
+      "Bounded ranked context, capabilities, traces and evaluation evidence."
+    ],
+    "owns": [
+      "Retrieval contract version."
+    ],
+    "invariants": [
+      "Ranking and vector search do not bypass evidence authorization."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-action": {
+    "name": "Action Contract",
+    "description": "Governed capability creation, review, claims and execution evidence.",
+    "responsibilities": [
+      "Define the stable architectural boundary independently of REST, MCP, storage adapters or UI."
+    ],
+    "inputs": [
+      "Explicit capability/policy, principals and source-system authorization."
+    ],
+    "outputs": [
+      "Approved request, bounded claim and immutable execution records."
+    ],
+    "owns": [
+      "Action contract version."
+    ],
+    "invariants": [
+      "External writes occur only through separately authenticated, authorized adapters."
+    ],
+    "gaps": [],
+    "deferrals": []
+  }
+}

@@ -1,0 +1,2620 @@
+{
+  "schemaVersion": "1.0.0",
+  "pages": [
+    {
+      "id": "knowledge-os",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "system-of-record",
+        "system-of-context",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "system-of-record",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "systems"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "source",
+        "document",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "system-of-context",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "knowledge-graph",
+        "decision"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "knowledge-graph",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "entity",
+        "relationship",
+        "ontology"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "ontology",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "ontology"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "entity",
+        "assertion",
+        "relationship"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "data",
+        "graph",
+        "rules"
+      ]
+    },
+    {
+      "id": "entity",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "entity"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.entity",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "assertion",
+        "ontology",
+        "resolution"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "relationship",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "ontology"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "ontology",
+        "assertion",
+        "graph-traversal"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "assertion",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "claim",
+        "evidence",
+        "proposal",
+        "temporal-validity"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "claim",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "assertion",
+        "proposal",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "evidence",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "contract-evidence"
+      ],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "provenance",
+        "chunk",
+        "assertion"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "provenance",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "document-version",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "document",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "document"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ids.py::document_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.document",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:tests/test_contracts.py::test_direct_source_mutations_expose_document_version_cas",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "system-of-record",
+        "document-version",
+        "chunk"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "document-version",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "chunk",
+        "provenance"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "chunk",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "chunk"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/models.py::EvidenceBundleRequest",
+        "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F6"
+      ],
+      "relatedPageIds": [
+        "document-version",
+        "chunking",
+        "embedding"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "embedding",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "embedding"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.upsert_chunk_embedding",
+        "ref:src/knowledge_os/models.py::EmbeddingUpsert",
+        "ref:tests/test_contracts.py::test_embedding_fingerprint_binds_vector_model_and_version",
+        "ref:docs/evaluations/2026-09-05-embedding-provenance.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "vector-search",
+        "chunk",
+        "evaluation"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "vector-search",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "vector"
+      ],
+      "referenceIds": [
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "embedding",
+        "full-text-search",
+        "hybrid-retrieval"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "full-text-search",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "fulltext"
+      ],
+      "referenceIds": [
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::literal_fulltext_query",
+        "ref:src/knowledge_os/graph.py::GraphStore.search",
+        "ref:tests/test_contracts.py::test_user_search_text_cannot_become_lucene_query_syntax"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "vector-search",
+        "hybrid-retrieval",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "graph-traversal",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "graph-retrieval"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+        "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-graph",
+        "entity",
+        "graph-rag"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "rag",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "keyword"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedPageIds": [
+        "vector-rag",
+        "graph-rag",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "vector-rag",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "vector"
+      ],
+      "referenceIds": [
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "rag",
+        "embedding",
+        "vector-search"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "graph-rag",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "graph-retrieval"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+        "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "rag",
+        "graph-traversal",
+        "assertion"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "hybrid-retrieval",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "keyword"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedPageIds": [
+        "full-text-search",
+        "vector-search",
+        "graph-traversal",
+        "evaluation"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "proposal",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "proposal"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "approval",
+        "governance",
+        "assertion"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "approval",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "approval"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "proposal",
+        "governance",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "governance",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "governance"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "proposal",
+        "approval",
+        "supersession",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "temporal-validity",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "valid-from",
+        "valid-to",
+        "observed-at",
+        "recorded-at",
+        "supersession"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "valid-from",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "temporal-validity",
+        "document-version"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "valid-to",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "temporal-validity",
+        "document-version"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "observed-at",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "temporal-validity",
+        "document-version"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "recorded-at",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "temporal-validity",
+        "document-version"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "supersession",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "assertion",
+        "temporal-validity",
+        "governance"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "mcp",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "mcp"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-api",
+        "agent",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "knowledge-api",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "api"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/api.py",
+        "ref:src/knowledge_os/dependencies.py",
+        "ref:tests/test_contracts.py::test_http_adapter_records_bounded_operational_telemetry",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/api.py::ingest_manifest",
+        "ref:src/knowledge_os/api.py::evidence_bundle",
+        "ref:src/knowledge_os/api.py::approve_proposal",
+        "ref:src/knowledge_os/api.py::retrieve",
+        "ref:src/knowledge_os/api.py::claim_action_execution"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "mcp",
+        "evidence",
+        "governance"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "agent",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "mcp"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "mcp",
+        "knowledge-api",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "action",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "action"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "F4",
+        "F8"
+      ],
+      "relatedPageIds": [
+        "agent",
+        "approval",
+        "system-of-record"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "telemetry",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "telemetry"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [
+        "F7",
+        "F8"
+      ],
+      "relatedPageIds": [
+        "evaluation",
+        "sqlite",
+        "recovery"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "evaluation",
+      "kind": "concept",
+      "category": "concepts",
+      "nodeIds": [
+        "telemetry"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [
+        "F7",
+        "F8"
+      ],
+      "relatedPageIds": [
+        "telemetry",
+        "hybrid-retrieval",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "source",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "source"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ids.py::source_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.source",
+        "ref:src/knowledge_os/graph.py::GraphStore.commit_sync_checkpoint",
+        "ref:tests/test_contracts.py::test_source_and_document_identity_is_workspace_scoped_and_delimiter_safe",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "connectors",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "connectors"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_empty_initial_manifest_cannot_checkpoint_existing_active_documents",
+        "ref:tests/test_deletion_replay.py"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "parsing",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "parsing"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::extract_file",
+        "ref:tests/test_contracts.py::test_meeting_transcripts_preserve_raw_timestamps_and_source_identity",
+        "ref:docs/operations/meeting-transcripts.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "chunking",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "chunking"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::split_text",
+        "ref:src/knowledge_os/ids.py::processing_fingerprint",
+        "ref:tests/test_v01_correctness_regressions.py::test_f6_chunk_size_is_a_hard_bound_without_content_loss"
+      ],
+      "claimIds": [
+        "F6"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "extraction",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "extraction"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/prompts.py::PromptRegistry",
+        "ref:src/knowledge_os/models.py::ProposalCreate",
+        "ref:config/prompts.yaml",
+        "ref:tests/test_contracts.py::test_extraction_context_is_deterministic_and_verified",
+        "ref:docs/evaluations/2026-09-05-extraction-context-service.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "resolution",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "resolution"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/ids.py::stable_id",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "event",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "event"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_event",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_tombstone",
+        "ref:src/knowledge_os/models.py::EventProposalCreate",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_source_parent_per_operational_event",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "decision",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "decision"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_decision",
+        "ref:src/knowledge_os/graph.py::GraphStore.decision",
+        "ref:src/knowledge_os/models.py::DecisionProposalCreate",
+        "ref:tests/test_contracts.py::test_decision_proposal_deduplicates_evidence_and_validates_time",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "sqlite",
+      "kind": "concept",
+      "category": "operations",
+      "nodeIds": [
+        "sqlite"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/recovery.py::_backup_sqlite",
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "F8"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "doctor",
+      "kind": "concept",
+      "category": "operations",
+      "nodeIds": [
+        "doctor"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/doctor.py::run_doctor",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object"
+      ],
+      "claimIds": [
+        "F3"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "migration",
+      "kind": "concept",
+      "category": "operations",
+      "nodeIds": [
+        "migration"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/migrate.py::main",
+        "ref:src/knowledge_os/graph.py::GraphStore.migrate",
+        "ref:src/knowledge_os/doctor.py::audit_migrations",
+        "ref:tests/test_contracts.py::test_doctor_detects_missing_changed_and_unexpected_migrations",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F3"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "recovery",
+      "kind": "concept",
+      "category": "operations",
+      "nodeIds": [
+        "recovery"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "a2a",
+      "kind": "concept",
+      "category": "capabilities",
+      "nodeIds": [
+        "future-adapters"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:AGENT.md#architecture-explorer"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "verification",
+      "kind": "concept",
+      "category": "operations",
+      "nodeIds": [
+        "release-gate"
+      ],
+      "referenceIds": [
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_stale_document_updates_have_one_winner",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "evaluation"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "start-here",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "system-of-record",
+        "system-of-context",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "source-of-truth",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "systems"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "system-of-record",
+        "source",
+        "document",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "document-journey",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "provenance",
+        "document",
+        "document-version",
+        "evidence"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "original",
+        "observe",
+        "source",
+        "document",
+        "version",
+        "parse",
+        "chunk",
+        "extract",
+        "proposal",
+        "approve",
+        "canonical",
+        "retrieve",
+        "consume"
+      ]
+    },
+    {
+      "id": "graph-basics",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "knowledge-graph",
+        "entity",
+        "relationship",
+        "ontology"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "ontology-basics",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "ontology"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "ontology",
+        "entity",
+        "assertion",
+        "relationship"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "data",
+        "graph",
+        "rules"
+      ]
+    },
+    {
+      "id": "entity-assertion",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "assertion",
+        "claim",
+        "evidence",
+        "proposal",
+        "temporal-validity"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "review-before-trust",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "proposal"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "proposal",
+        "approval",
+        "governance",
+        "assertion"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "search-methods",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "keyword"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedPageIds": [
+        "hybrid-retrieval",
+        "full-text-search",
+        "vector-search",
+        "graph-traversal",
+        "evaluation"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "agent-access",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "mcp"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "agent",
+        "mcp",
+        "knowledge-api",
+        "action"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "read-the-map",
+      "kind": "lesson",
+      "category": "getting-started",
+      "nodeIds": [
+        "neo4j"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedPageIds": [
+        "system-of-context",
+        "knowledge-os",
+        "knowledge-graph",
+        "decision"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "new-document",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "drive"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_google_drive_connector_is_deterministic_replay_safe_and_tombstones",
+        "ref:docs/operations/google-drive.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "original",
+        "observe",
+        "source",
+        "document",
+        "version",
+        "parse",
+        "chunk",
+        "extract",
+        "proposal",
+        "approve",
+        "canonical",
+        "retrieve",
+        "consume"
+      ]
+    },
+    {
+      "id": "document-changes",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "before",
+        "observe",
+        "after",
+        "active"
+      ]
+    },
+    {
+      "id": "document-deletion",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "F2"
+      ],
+      "referenceIds": [
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+        "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+        "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "missing",
+        "tombstone",
+        "inactive",
+        "retry"
+      ]
+    },
+    {
+      "id": "knowledge-changes",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "old",
+        "propose",
+        "review",
+        "new"
+      ]
+    },
+    {
+      "id": "agent-question",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "mcp"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "query",
+        "find",
+        "evidence",
+        "answer"
+      ]
+    },
+    {
+      "id": "agent-action",
+      "kind": "walkthrough",
+      "category": "walkthroughs",
+      "nodeIds": [
+        "action"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "F4",
+        "F8"
+      ],
+      "relatedPageIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": [
+        "request",
+        "review",
+        "claim",
+        "external"
+      ]
+    },
+    {
+      "id": "storage-boundaries",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "sqlite"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/recovery.py::_backup_sqlite",
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "F8"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "keep-originals",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "systems"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "keep-versions",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "keep-assertions",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "assertion"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "review-gate",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "governance"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "local-vector",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "vector"
+      ],
+      "referenceIds": [
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "search-complementarity",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "keyword"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "adapter-boundary",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "mcp"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "deferred-platforms",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "provider"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/north-star-conformance.md",
+        "ref:docs/evaluations/2026-09-06-cross-lingual-semantic-selection.md"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    },
+    {
+      "id": "stable-contracts",
+      "kind": "decision",
+      "category": "architecture",
+      "nodeIds": [
+        "contract-knowledge"
+      ],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "relatedPageIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ],
+      "sectionIds": [
+        "one-sentence",
+        "plain-language",
+        "example",
+        "in-knowledge-os",
+        "why",
+        "related",
+        "technical",
+        "implementation"
+      ],
+      "stepIds": []
+    }
+  ],
+  "learningPath": [
+    "start-here",
+    "source-of-truth",
+    "document-journey",
+    "graph-basics",
+    "ontology-basics",
+    "entity-assertion",
+    "review-before-trust",
+    "search-methods",
+    "agent-access",
+    "read-the-map"
+  ]
+}

@@ -13,12 +13,12 @@ test("every visible control works; architecture remains a static local document"
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("request", (r) => {
     if (
-      !r.url().startsWith("http://127.0.0.1:5173/") &&
+      !r.url().startsWith(`http://127.0.0.1:${process.env.EXPLORER_PORT || "5173"}/`) &&
       !r.url().startsWith("data:")
     )
       external.push(r.url());
   });
-  await page.goto("/");
+  await page.goto("/#/en/explore");
   await expect(
     page.getByRole("heading", { name: "A map of the system." }),
   ).toBeVisible();
@@ -163,7 +163,7 @@ test("every visible control works; architecture remains a static local document"
     path: "test-results/finding-dark.png",
     fullPage: true,
   });
-  await page.getByRole("button", { name: "Switch to light theme" }).click();
+  await page.getByRole("button", { name: "Change theme" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await page
     .getByRole("button", { name: "Reset overview", exact: true })
@@ -181,7 +181,7 @@ test("every visible control works; architecture remains a static local document"
   });
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await page.getByRole("button", { name: "Switch to dark theme" }).click();
+  await page.getByRole("button", { name: "Change theme" }).click();
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });

@@ -1,0 +1,48 @@
+{
+  "id": "decision",
+  "title": "Decision",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "An evidence-backed human or organizational decision."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "An evidence-backed human or organizational decision. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A team decides to use a tool based on cited documents."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Decisions are proposed, approved and preserved with participants, time and evidence. Date-only precision is explicit."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Future readers need the reason and context, not only the outcome."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "fae60a01e3700f8708a132ef6965aa1aca1ab1de4f3f63761db9fb8f16869a54"
+}

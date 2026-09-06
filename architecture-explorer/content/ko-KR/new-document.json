@@ -1,0 +1,127 @@
+{
+  "id": "new-document",
+  "title": "새 Drive 문서의 여정",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "변경 하나를 원본부터 근거와 결과까지 따라가 봅니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "단계를 순서대로 읽어 보세요. 각 단계의 책임은 다르며 화살표가 모든 단계의 자동 실행을 뜻하지는 않습니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "교육용 상황: 열람 권한이 있는 Drive 문서에 “Joule Studio는 SAP에서 AI Agent를 개발하기 위한 환경이다”라고 적혀 있습니다. 이 문장은 예시 원문이며 사이트가 검증한 사실이 아닙니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "아래 흐름을 따라가며 각 단계를 열어 아키텍처를 확인하세요."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "식별·이력·권한을 보존해야 나중의 설명을 추적할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "확인된 스냅샷을 설명하는 안내이며 실행한 통합 테스트가 아닙니다. 미해결 항목과 유보된 제공자의 한계가 그대로 적용됩니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [
+    {
+      "id": "original",
+      "nodeId": "systems",
+      "title": "원본",
+      "body": "원본은 Drive에 남습니다. 이 예시는 실제 제공자 실행 기록이 아닙니다."
+    },
+    {
+      "id": "observe",
+      "nodeId": "drive",
+      "title": "관찰하고 변환하기",
+      "body": "연결기가 권한 있는 폴더 스냅샷을 읽고 manifest를 준비합니다."
+    },
+    {
+      "id": "source",
+      "nodeId": "source",
+      "title": "원본 결합",
+      "body": "원본은 안정된 식별과 연결기 결합을 갖습니다."
+    },
+    {
+      "id": "document",
+      "nodeId": "document",
+      "title": "문서 식별",
+      "body": "외부 파일 식별을 안정된 Document 식별에 연결합니다."
+    },
+    {
+      "id": "version",
+      "nodeId": "version",
+      "title": "이번 버전 보존",
+      "body": "내용·메타데이터·권한을 보존된 스냅샷에 연결합니다."
+    },
+    {
+      "id": "parse",
+      "nodeId": "parsing",
+      "title": "읽고 나누기",
+      "body": "지원하는 텍스트를 읽어 결정적으로 나눕니다. F6은 열린 상태입니다."
+    },
+    {
+      "id": "chunk",
+      "nodeId": "chunk",
+      "title": "정확한 근거 유지",
+      "body": "각 조각은 불변 버전을 가리킵니다."
+    },
+    {
+      "id": "extract",
+      "nodeId": "extraction",
+      "title": "지식 후보 만들기",
+      "body": "별도 생성자가 버전 프롬프트를 사용할 수 있습니다. 자동 추출은 유보 상태입니다."
+    },
+    {
+      "id": "proposal",
+      "nodeId": "proposal",
+      "title": "제안 제출",
+      "body": "후보와 근거는 정식 사실이 아니라 검토 대상으로 들어갑니다."
+    },
+    {
+      "id": "approve",
+      "nodeId": "approval",
+      "title": "검증하고 승인하기",
+      "body": "권한 있는 검토에서 근거와 온톨로지를 확인합니다. F4/F5의 한계는 남아 있습니다."
+    },
+    {
+      "id": "canonical",
+      "nodeId": "assertion",
+      "title": "승인된 지식 저장",
+      "body": "Neo4j의 엔터티와 진술에 근거 계보를 보존합니다."
+    },
+    {
+      "id": "retrieve",
+      "nodeId": "keyword",
+      "title": "근거 맥락 찾기",
+      "body": "키워드·의미 검색과 별도 그래프 읽기를 권한 있는 사용자에게 제공합니다."
+    },
+    {
+      "id": "consume",
+      "nodeId": "mcp",
+      "title": "근거 사용",
+      "body": "API/MCP가 맥락을 전달합니다. 사람이나 외부 에이전트가 해석하며 답변 생성은 외부 단계입니다."
+    }
+  ],
+  "reviewedPeerDigest": "0d106015eaeceba936dd5def03f720ba90657a2786f8e1675f00fa4b5a7fd763"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "system-of-context",
+  "title": "System of Context",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A connected view that helps interpret records without replacing their owners."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A single note says little; linking it to a project, a decision and the evidence explains its context."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A decision can be understood alongside the document versions that supported it."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The graph retains semantic records, evidence and decision history under stable contracts."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Agents need explainable context rather than disconnected copies of files."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR assigns semantic context to Neo4j and operations to SQLite."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "cb1d78ac6ac28aec56b51d3c13220facc30aa6f9d6d4d82296dfa65d97a49bfe"
+}

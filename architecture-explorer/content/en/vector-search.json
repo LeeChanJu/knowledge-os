@@ -1,0 +1,48 @@
+{
+  "id": "vector-search",
+  "title": "Vector Search",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Retrieval by distance between numeric representations."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "It looks for nearby meanings rather than requiring the exact same words."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A question and a document passage can be compared after compatible embeddings are produced."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The vector index is inside Neo4j; it is not a second external vector database."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "It provides an additional retrieval signal when lexical overlap is weak."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Index support does not imply active provider population or proven retrieval quality. Model compatibility and current authorization still matter."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "722c7184a5c2310f405a576e614fd71ab159dedcff64817fa041004933770bd9"
+}

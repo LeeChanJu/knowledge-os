@@ -1,0 +1,48 @@
+{
+  "id": "search-methods",
+  "title": "Three ways to find context",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Combining complementary retrieval signals to find useful evidence."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A name index and a similarity map can help in different ways."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An exact product name helps keyword search; a paraphrased question may benefit from vector similarity."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Hybrid retrieval combines keyword and semantic results; graph traversal remains a distinct available contract path."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Different queries need different signals; no single retrieval method is always best."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Do not depict vector, full-text and graph as one automatically fused three-way runtime pipeline. Provider inactivity and evaluation limits remain visible."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "1e16c8c307ca648390e4c46c68000d496eab1bc831236501e0f776dcf50111e6"
+}

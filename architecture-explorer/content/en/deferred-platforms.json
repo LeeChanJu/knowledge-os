@@ -1,0 +1,48 @@
+{
+  "id": "deferred-platforms",
+  "title": "Why defer ReBAC and providers?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Use measured requirements before adding infrastructure. The current boundary is source-derived authorization; provider activation needs reproducible quality evidence. A new authorization engine is not implied by this site."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start with responsibility and evidence before choosing technology."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Follow the linked document journey to see this boundary in practice."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Use measured requirements before adding infrastructure. The current boundary is source-derived authorization; provider activation needs reproducible quality evidence. A new authorization engine is not implied by this site."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries protect provenance and reduce unnecessary infrastructure."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR is the authority. Where it gives no further rationale, this page makes no additional claim."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "4b24eaf64f61984d48bf245f9220b1af3f5988fb8530a3fd3d8e59ff9780c378"
+}

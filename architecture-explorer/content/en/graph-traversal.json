@@ -1,0 +1,48 @@
+{
+  "id": "graph-traversal",
+  "title": "Graph Traversal",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Following allowed relationships from one known thing to another."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start at a person and follow a connection to the project they work on."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "After finding a tool, inspect its authorized related entities and supporting assertions."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Graph reads are bounded and enforce workspace and evidence authorization."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Relationships answer connected questions rather than only locating similar text."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Accessible entity counts distinguish graph support from actual authorized data readiness. This is not unlimited Cypher access."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "0017e724e0b6a894501d252a4038aa05610fa180ec01e33c96c4caf720cde46d"
+}

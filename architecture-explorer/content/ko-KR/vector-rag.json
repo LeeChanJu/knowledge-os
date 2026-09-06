@@ -1,0 +1,48 @@
+{
+  "id": "vector-rag",
+  "title": "벡터 RAG",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "벡터 유사도로 근거를 검색하는 RAG 방식입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "비슷한 의미를 찾은 뒤 해당 문단을 모델에 전달합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "에이전트 도구에 관한 질문으로 의미가 비슷한 문단을 찾습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "저장소는 의미 검색을 지원하지만 운영 임베딩 채우기는 유보되어 있습니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "단어 일치 검색이 놓치는 표현 차이를 보완할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "별도 배포 서비스나 검증 완료된 모델 파이프라인이 아니라 검색 패턴을 가리키는 용어입니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "350424674af016fda0ba9ae60e2e863ac2c7e5b75c8d8d18f84b0fb9ce3708ac"
+}

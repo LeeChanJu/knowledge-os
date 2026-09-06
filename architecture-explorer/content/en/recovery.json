@@ -1,0 +1,48 @@
+{
+  "id": "recovery",
+  "title": "Backup / Recovery",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Preserving and verifying artifacts needed to restore the system."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Preserving and verifying artifacts needed to restore the system. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A recovery set contains Neo4j and SQLite backups with checksums."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Recovery records a bounded capture window and verifies artifacts. It is not a cross-store distributed transaction."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "A backup file is useful only when its integrity and restoration limits are understood."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a7caeb8513e90029d6126489c9b7ea412b35975e9e1cb314b15298c80ba89a3d"
+}

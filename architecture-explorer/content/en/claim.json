@@ -1,0 +1,48 @@
+{
+  "id": "claim",
+  "title": "Claim",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Something presented as true that still needs supporting evidence."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "“Our tool is faster” is a claim; a measured comparison would be evidence."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A model may suggest that Joule Studio belongs to a particular ecosystem; a reviewer must inspect the source."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Claim is educational vocabulary here, not an additional canonical database object. Proposed statements use the existing Proposal/Assertion path."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "The word helps distinguish a candidate statement from accepted knowledge."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Verification claims such as F1 concern implementation correctness; they are not domain assertions."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "5d2d636778fcf87dbfd2b14e34bcc69fc450bae3deae10515d7f4ba43ba3f825"
+}

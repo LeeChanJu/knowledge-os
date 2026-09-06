@@ -1,0 +1,48 @@
+{
+  "id": "event",
+  "title": "Event",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A record of something that happened."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A record of something that happened. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A business launch is a semantic event; a source deletion observation is operational."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Semantic Events go through Proposal/Approval and retain evidence. Operational events have a separate class and provenance."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Mixing business events with synchronization events would obscure meaning."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "d7653321c0c0c226480045c761ac63313d1131fa453ef68ba96e356a934abb67"
+}

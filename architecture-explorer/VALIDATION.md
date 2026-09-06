@@ -58,3 +58,32 @@ npm run dev -- --host 127.0.0.1
 ```
 
 Open [the local Explorer](http://127.0.0.1:5173). See [README](README.md) for synchronization, explicit verification reconciliation, optional hook activation, CI, and removal.
+
+## Bilingual learning extension
+
+- 77 curated pages in each language (154 localized pages), including a ten-lesson learning path,
+  6 walkthroughs, core concepts, capabilities, operations, verification and architecture rationale.
+- The technical map remains 29 overview nodes / 38 overview edges; 214 total nodes / 372 edges.
+  All 45 curated component explanations, 9 verification records and relationship labels have paired
+  English/Korean presentation. Canonical code identifiers and status IDs are retained.
+- 35 Node documentation/graph/synchronization tests passed, including missing and stale translations,
+  structural mismatches, broken routes and implementation references, GitHub fingerprint mismatches,
+  non-mutating checks, staged-index behavior and verification invalidation.
+- 3 static Python inspector tests and Ruff passed. No production suites were run.
+- 6 Chromium scenarios passed: existing graph controls, legacy/deep links, all 154 localized pages,
+  document-to-graph-to-document navigation, reference links, language/theme persistence, search/filter
+  empty states, contextual definitions, keyboard dismissal and mobile layout. No requests reached
+  Knowledge OS, Neo4j or another external runtime during local browser checks.
+- TypeScript and production static build passed. The main bundle includes both languages and is
+  approximately 162 kB gzip; Cytoscape is loaded only when Explore is entered.
+- Visual inspection covered the Korean home, ontology chapter, selected graph node, light theme
+  and narrow viewport. Screenshots are ignored test artifacts.
+
+The extension deliberately uses the previously published production evidence, not the separate local
+`7fd0353` temporal remediation. That newer checkout's stale F1/F2 fingerprints still require explicit
+reconciliation; the documentation does not manufacture new verification or close F3–F8.
+
+Added groups: `content/{en,ko-KR,locales,architecture}/`, manifest/page schema/public-link records,
+`data/learning.json`, `src/docs/`, `src/i18n/`, `scripts/check-content.mjs`, content unit tests and
+learning browser tests. Existing Explorer entry, map strings, routing, synchronization, README and
+browser fixtures were extended. No production paths or existing production tests were modified.

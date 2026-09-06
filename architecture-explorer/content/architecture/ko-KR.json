@@ -1,0 +1,965 @@
+{
+  "systems": {
+    "name": "원본 시스템 (Systems of Record)",
+    "description": "Notion·Google Drive·로컬 파일·회의 내보내기는 원본 내용의 권위를 유지합니다. Knowledge OS는 출처가 있는 파생 맥락을 보관합니다.",
+    "responsibilities": [
+      "원본 개정과 권한 관찰을 제공합니다. 별도로 권한을 받은 관리 대상 Action 어댑터만 변경을 수행합니다."
+    ],
+    "inputs": [
+      "사용자가 작성한 원본 내용과 원본의 공유 결정."
+    ],
+    "outputs": [
+      "제공자 스냅샷, 파일 바이트, 개정 메타데이터, ACL 관찰."
+    ],
+    "owns": [
+      "Knowledge OS 밖의 원본 기록."
+    ],
+    "invariants": [
+      "수집이 원본 내용을 조용히 다시 쓰지 않습니다. 파생 지식은 원본 시스템을 대체하지 않습니다."
+    ],
+    "gaps": [
+      "외부 공유 의미는 제공자마다 다릅니다. Notion은 사람·그룹 ACL의 완전한 일치를 주장하지 않습니다."
+    ],
+    "deferrals": []
+  },
+  "source": {
+    "name": "원본 등록 (Source Registry)",
+    "description": "Source는 작업공간 범위의 원본 모음과 결합된 연결기 인스턴스를 식별합니다. 별도 등록 서비스가 아니라 GraphStore의 일부입니다.",
+    "responsibilities": [
+      "원본 식별과 체크포인트를 결합해 재시도와 원본 목록이 같은 모음을 가리키게 합니다."
+    ],
+    "inputs": [
+      "작업공간, 원본 유형, 불투명 외부 ID, 연결기 ID."
+    ],
+    "outputs": [
+      "안정된 Source 식별과 권한 있는 목록·체크포인트 요약."
+    ],
+    "owns": [
+      "Source 노드, 연결기 결합, 커밋된 동기화 커서."
+    ],
+    "invariants": [
+      "다른 연결기가 소유권을 조용히 가져갈 수 없습니다. 항목 수집만으로 완료 실행의 체크포인트를 전진시키지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "connectors": {
+    "name": "연결기 (Connectors)",
+    "description": "파일·Drive·Notion 어댑터가 제공자별 관찰을 제공자 중립적인 manifest 계약으로 바꿉니다.",
+    "responsibilities": [
+      "삭제를 선언하기 전에 전체 목록을 완성합니다. 그래프 커밋 성공 후에만 로컬 체크포인트를 기록합니다."
+    ],
+    "inputs": [
+      "제공자 목록, 원본 권한, 이전 연결기 체크포인트."
+    ],
+    "outputs": [
+      "결정적인 UPSERT/TOMBSTONE manifest와 다음 체크포인트 후보."
+    ],
+    "owns": [
+      "어댑터 로컬 체크포인트 파일. 정식 의미 지식은 소유하지 않습니다."
+    ],
+    "invariants": [
+      "재시도는 같은 의미 상태를 재현해야 합니다. 제공자 실패를 성공한 빈 목록으로 해석하면 안 됩니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "parsing": {
+    "name": "문서 읽기 (Parsing)",
+    "description": "파일에서 텍스트와 파서 버전을 얻습니다. 제공자 어댑터는 지원하는 원본 구조를 펼쳐 manifest 수집에 넘깁니다.",
+    "responsibilities": [
+      "지원 형식을 정규화하면서 유용한 근거 텍스트와 출처를 유지합니다."
+    ],
+    "inputs": [
+      "지원하는 파일 바이트 또는 제공자 블록·속성."
+    ],
+    "outputs": [
+      "텍스트, 제목, URI, 파서 버전."
+    ],
+    "owns": [
+      "별도 저장소 없이 수집으로 텍스트를 전달합니다."
+    ],
+    "invariants": [
+      "처리 버전은 근거 식별에 참여합니다. 대화록의 시간 표시는 근거 텍스트에 남깁니다."
+    ],
+    "gaps": [
+      "파서 충실도는 형식마다 다릅니다. 모든 외부 내보내기 도구를 입증한 것은 아닙니다."
+    ],
+    "deferrals": []
+  },
+  "ingestion": {
+    "name": "수집 (Ingestion)",
+    "description": "텍스트·manifest·삭제 관찰·체크포인트가 REST 또는 로컬 연결기 명령을 통해 기존 GraphStore 트랜잭션 경계로 들어갑니다.",
+    "responsibilities": [
+      "불변 근거 버전을 만들고 재시도 식별을 보존합니다. Source 직렬화 아래 전체 manifest를 원자적으로 커밋합니다."
+    ],
+    "inputs": [
+      "권한과 처리 메타데이터가 있는 타입 지정 텍스트 요청 또는 순서가 정해진 manifest."
+    ],
+    "outputs": [
+      "문서·버전·Chunk 식별, 삭제 Event, 커밋된 체크포인트."
+    ],
+    "owns": [
+      "Neo4j의 근거 수명주기와 원본 실행 완료 기록."
+    ],
+    "invariants": [
+      "조건부 갱신으로 현재 버전과 커서를 보호합니다. manifest 실패 시 앞선 기록과 체크포인트를 되돌립니다. F1/F2 정정은 전체 출시 승인이 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "document": {
+    "name": "문서 (Document)",
+    "description": "안정된 문서 식별이 원본 기록을 현재 버전과 보존된 과거 버전에 연결합니다.",
+    "responsibilities": [
+      "과거 근거를 덮어쓰지 않고 수명주기와 CURRENT_VERSION 기준점을 제공합니다."
+    ],
+    "inputs": [
+      "Source 식별과 외부 문서 ID."
+    ],
+    "outputs": [
+      "안정된 문서 ID, 현재 버전 포인터, 버전 이력."
+    ],
+    "owns": [
+      "문서 식별, 활성·삭제 상태, 현재 버전 관계."
+    ],
+    "invariants": [
+      "식별은 작업공간·원본 범위입니다. 삭제 관찰은 버전 이력을 남기며 직접 갱신에는 현재 버전 전제조건이 필요합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "version": {
+    "name": "문서 버전 (DocumentVersion)",
+    "description": "불변 원본·처리·권한 스냅샷으로 수집 당시 문서의 정확한 계보를 보존합니다.",
+    "responsibilities": [
+      "달라진 원본 관찰을 안정된 Document 식별과 구분하고 대체 계보를 유지합니다."
+    ],
+    "inputs": [
+      "내용, 원본 개정, 메타데이터, ACL 스냅샷, 파서·분할 계약."
+    ],
+    "outputs": [
+      "내용 기반 버전 식별과 버전에 연결된 Chunk."
+    ],
+    "owns": [
+      "과거 메타데이터, 권한 스냅샷, 해시, 처리 계보."
+    ],
+    "invariants": [
+      "메타데이터 해시는 저장된 제목·URI와 일치해야 합니다. 같은 개정에 충돌하는 메타데이터를 넣으면 거부합니다. 과거 ACL은 영구 접근권이 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "chunking": {
+    "name": "문서 나누기 (Chunking)",
+    "description": "수집 모듈의 paragraph-v1 split_text가 정규화된 원문을 검색 크기의 근거 단위로 나눕니다.",
+    "responsibilities": [
+      "DocumentVersion에 귀속되는 결정적 근거 경계를 만듭니다."
+    ],
+    "inputs": [
+      "추출한 텍스트와 선언된 chunk_size."
+    ],
+    "outputs": [
+      "순서가 있는 텍스트 조각."
+    ],
+    "owns": [
+      "별도 서비스나 저장소가 없습니다."
+    ],
+    "invariants": [
+      "크기 제한을 맞추기 위해 근거를 잃으면 안 됩니다. F6은 긴 문단이 의도한 상한을 넘는 문제를 기록합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "chunk": {
+    "name": "문서 조각 (Chunk)",
+    "description": "검색·근거 묶음·관리 대상 제안에 사용하는 정확한 근거 단위입니다. 각 Chunk는 과거 DocumentVersion에 속합니다.",
+    "responsibilities": [
+      "진술에 안정되고 확인 가능한 근거를 제공하며 현재 원본 권한 아래에서만 노출합니다."
+    ],
+    "inputs": [
+      "버전 식별, 조각 순서, 텍스트, 처리 메타데이터."
+    ],
+    "outputs": [
+      "권한이 허용하는 정확한 근거와 검색 후보."
+    ],
+    "owns": [
+      "근거 텍스트, 버전 연결, 수명주기 표시, 선택적인 임베딩 계보."
+    ],
+    "invariants": [
+      "현재 ACL과 활성 Document 수명주기가 읽기를 통제합니다. 원본이 삭제되어도 과거 Chunk 계보는 유지합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "embedding": {
+    "name": "임베딩 (Embedding)",
+    "description": "기존 인터페이스가 모델·버전 계보가 있는 외부 벡터를 받습니다. 계약 지원이며 활성 운영 임베딩 제공자가 아닙니다.",
+    "responsibilities": [
+      "권한 있는 현재 Chunk에 불변 벡터 계보를 기록해 모델이 구분된 검색을 지원합니다."
+    ],
+    "inputs": [
+      "Chunk ID, 벡터, 모델·버전, 인증된 접근 맥락."
+    ],
+    "outputs": [
+      "멱등적 임베딩 기록 또는 충돌 내용 거부."
+    ],
+    "owns": [
+      "기존 Chunk의 임베딩 벡터와 지문."
+    ],
+    "invariants": [
+      "현재 활성 상태이며 권한이 있는 근거에만 기록합니다. 다른 내용으로 조용히 덮어쓸 수 없습니다."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "운영 제공자 활성화는 유보되었습니다. 과거 개인 스냅샷에는 현재 Chunk 벡터가 채워져 있지 않습니다."
+    ]
+  },
+  "extraction": {
+    "name": "지식 후보 추출 (Extraction)",
+    "description": "버전이 있는 진술·Decision·Event 프롬프트와 온톨로지 맥락이 외부 후보 생성을 안내합니다. 자동 추출 제공자는 유보 상태입니다.",
+    "responsibilities": [
+      "추출 맥락을 찾을 수 있게 하면서 모든 제안 지식을 검토 절차로 보냅니다."
+    ],
+    "inputs": [
+      "권한 있는 근거 묶음, 온톨로지 버전, 프롬프트 버전·체크섬."
+    ],
+    "outputs": [
+      "교체 가능한 어댑터가 만드는 타입 지정 Proposal 후보."
+    ],
+    "owns": [
+      "Git 관리 프롬프트. 후보는 Proposal 계약으로 저장합니다."
+    ],
+    "invariants": [
+      "프롬프트 결과가 바로 정식 지식이 되지 않습니다. 모델 SDK나 자율 추출 파이프라인을 뜻하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "자동 추출 제공자와 운영 임베딩 제공자 통합."
+    ]
+  },
+  "ontology": {
+    "name": "온톨로지 (Ontology)",
+    "description": "Git 관리 어휘가 후보 검증에 사용할 엔터티 유형과 허용 주어·객체 관계 조합을 정의합니다.",
+    "responsibilities": [
+      "의미 이름과 관계 제약을 명시하고 버전으로 관리합니다."
+    ],
+    "inputs": [
+      "EntityRef와 AssertionChange 후보."
+    ],
+    "outputs": [
+      "검증된 타입 관계 또는 검증 오류."
+    ],
+    "owns": [
+      "config/ontology.yaml의 버전과 어휘."
+    ],
+    "invariants": [
+      "알 수 없는 유형과 객체 관계는 거부해야 합니다. F5는 스칼라 값 경로가 관계 검증을 우회하는 문제입니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "resolution": {
+    "name": "대상 식별 (Entity Resolution)",
+    "description": "승인에서 작업공간·엔터티 유형·대소문자 정규화 이름으로 ID를 만들고 병합합니다. 결정적 식별 매칭이며 유사도 해소가 아닙니다.",
+    "responsibilities": [
+      "승인된 그래프에서 이름 있는 엔터티를 재사용하고 진술 정정 시 주어 식별을 보존합니다."
+    ],
+    "inputs": [
+      "승인된 주어·객체 EntityRef 값."
+    ],
+    "outputs": [
+      "안정된 Entity ID와 정식 병합."
+    ],
+    "owns": [
+      "별도 해소 데이터베이스나 제공자가 없습니다."
+    ],
+    "invariants": [
+      "식별은 작업공간·유형·이름 범위입니다. 별칭이 있다고 유사도 매칭 시스템이 구현된 것은 아닙니다."
+    ],
+    "gaps": [
+      "실제 모호성 해소 품질 평가나 자동 별칭 조정의 전용 근거는 찾지 못했습니다."
+    ],
+    "deferrals": []
+  },
+  "governance": {
+    "name": "제안과 승인 (Proposal / Approval)",
+    "description": "제안이 지식 후보와 정확한 근거를 모읍니다. 별도의 인증된 검토 결정이 거절하거나 정식 기록으로 반영합니다.",
+    "responsibilities": [
+      "추출과 사실을 구별하고 불변 검토 결과를 남깁니다. 쓰기 트랜잭션 안에서 근거 접근을 재검사합니다."
+    ],
+    "inputs": [
+      "타입 지정 후보, 생성자 접근 맥락, 검토자 식별과 결정."
+    ],
+    "outputs": [
+      "불변 승인·거절 결과 하나와 승인 시 정식 기록."
+    ],
+    "owns": [
+      "Proposal 식별·내용, SUPPORTED_BY 계보, Approval 이력."
+    ],
+    "invariants": [
+      "MCP는 승인·거절할 수 없습니다. 대기 제안에 충돌하는 결과를 만들 수 없습니다. 현재 근거 ACL로 권한을 판단합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "entity": {
+    "name": "엔터티 (Entity)",
+    "description": "승인된 Assertion·Event·Decision이 공유하는 정식 타입 대상 또는 개념입니다.",
+    "responsibilities": [
+      "근거 기반 발견과 그래프 이웃 읽기에 안정된 지점을 제공합니다."
+    ],
+    "inputs": [
+      "승인된 EntityRef와 근거를 가진 정식 관계."
+    ],
+    "outputs": [
+      "권한 있는 엔터티 요약과 이웃."
+    ],
+    "owns": [
+      "정식 이름·유형·별칭과 작업공간 소속."
+    ],
+    "invariants": [
+      "발견에는 관련된 허용 근거가 필요합니다. ID를 안다고 접근권이 생기지 않습니다. 운영 VERIFIED는 지식 상태이며 Explorer 구현 검증과 다릅니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "assertion": {
+    "name": "진술 (Assertion)",
+    "description": "승인된 주장이 주어를 객체나 스칼라 값에 연결하며 정확한 근거와 시간적 유효성을 갖습니다.",
+    "responsibilities": [
+      "검사할 수 있는 의미 진술을 표현하고 정정·대체 이력을 유지합니다."
+    ],
+    "inputs": [
+      "근거·관계·시간 필드가 있는 승인된 AssertionChange."
+    ],
+    "outputs": [
+      "정식 진술 읽기와 그래프 관계."
+    ],
+    "owns": [
+      "관계·값, 근거 연결, 신뢰도, 시간·추출 계보."
+    ],
+    "invariants": [
+      "정식 반영에는 승인이 필요합니다. 대체 진술은 주어와 관계를 보존하고 이전 기록을 조용히 지우지 않습니다."
+    ],
+    "gaps": [
+      "시간 대체 회귀 사례가 있습니다. 이 문서 단계는 출시 관문 통과를 주장하지 않습니다."
+    ],
+    "deferrals": []
+  },
+  "event": {
+    "name": "사건 (Event)",
+    "description": "event_class로 의미 사건과 운영 계보를 구분합니다. 의미 Event만 후보 검토를 사용합니다.",
+    "responsibilities": [
+      "발생·정정 이력과 원본 동기화·삭제 관찰을 의미가 섞이지 않게 보존합니다."
+    ],
+    "inputs": [
+      "승인된 Event 제안 또는 원본 작업."
+    ],
+    "outputs": [
+      "의미 Event 읽기 또는 원본 운영 이력."
+    ],
+    "owns": [
+      "발생·기록 시각, 참여자·근거 또는 원본 부모 연결."
+    ],
+    "invariants": [
+      "운영 Event에는 정확히 하나의 Source/Document 계보 부모가 있습니다. 삭제 관찰의 원본 시각은 로컬 기록 시각과 별도로 보존합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "decision": {
+    "name": "결정 (Decision)",
+    "description": "승인된 사람·조직의 결정이 근거·참여자·시간 유효성·대체 이력을 보존합니다.",
+    "responsibilities": [
+      "추출이나 운영 로그를 사람의 결정으로 취급하지 않고 결정 이력을 검색 가능하게 합니다."
+    ],
+    "inputs": [
+      "관리 대상 DecisionProposalCreate와 근거."
+    ],
+    "outputs": [
+      "권한 있는 정식 Decision과 선택적인 시점 조회."
+    ],
+    "owns": [
+      "결정 내용, 참여자, 근거, 시간 유효성, 이전 기록 계보."
+    ],
+    "invariants": [
+      "후속 결정은 덮어쓰지 않고 대체합니다. 모든 근거에 대한 현재 권한이 필요합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "action": {
+    "name": "실행 요청 (Action)",
+    "description": "범위가 제한된 외부 기능의 관리 대상 요청입니다. 승인만으로 실행하지 않으며 별도 권한 어댑터가 점유하고 불변 결과를 기록합니다.",
+    "responsibilities": [
+      "정책·검토자·기능·임대·원본 권한 경계 뒤에서 운영 쓰기를 수행합니다."
+    ],
+    "inputs": [
+      "Action 요청, 지정 검토자·실행자, 정책 버전, 명시적 승인."
+    ],
+    "outputs": [
+      "실행 점유, 제공자 작업, 불변 실행 근거."
+    ],
+    "owns": [
+      "Neo4j의 Action 스냅샷, 검토 결정, 점유 임대, 실행 기록."
+    ],
+    "invariants": [
+      "MCP는 승인·실행할 수 없습니다. 임대 만료는 인수 허가가 아닙니다. 제공자가 멱등성을 무시하면 정확히 한 번 전달을 보장하지 않습니다. F4/F8은 열려 있습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "neo4j": {
+    "name": "Neo4j",
+    "description": "로컬 그래프가 맥락 시스템으로 원본 계보·승인된 지식·관리 기록·검색 인덱스를 저장합니다.",
+    "responsibilities": [
+      "기존 저장 경계 하나에서 그래프·근거 관계와 트랜잭션 상태 전이를 유지합니다."
+    ],
+    "inputs": [
+      "관리 대상 GraphStore 쓰기와 버전 마이그레이션."
+    ],
+    "outputs": [
+      "권한 있는 근거, 정식 읽기, 검색 결과, 운영 계보."
+    ],
+    "owns": [
+      "맥락 그래프, 전문·벡터 인덱스, 마이그레이션 원장."
+    ],
+    "invariants": [
+      "원본 시스템의 권위를 유지합니다. 외부 벡터 저장소나 두 번째 지식 데이터베이스를 도입하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "vector": {
+    "name": "벡터 인덱스 (Vector Index)",
+    "description": "Neo4j chunk_embedding_vector가 모델·버전과 활성 필터를 가진 1,536차원 Chunk 임베딩을 색인합니다.",
+    "responsibilities": [
+      "기존 그래프 저장소 안에서 의미 검색 후보를 제공합니다."
+    ],
+    "inputs": [
+      "모델·버전 정보가 있는 권한 있는 현재 Chunk 벡터."
+    ],
+    "outputs": [
+      "필터링한 의미 검색 후보."
+    ],
+    "owns": [
+      "Chunk 임베딩의 Neo4j 인덱스."
+    ],
+    "invariants": [
+      "제공자 활성화만을 위해 차원을 바꾸지 않습니다. 모델·버전은 질문과 일치해야 합니다. 인덱스가 있다고 벡터가 채워진 것은 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "fulltext": {
+    "name": "전문 인덱스 (Full-text Index)",
+    "description": "Neo4j가 Chunk 텍스트·절과 Entity 이름·설명을 색인해 키워드와 엔터티 발견을 지원합니다.",
+    "responsibilities": [
+      "별도 검색 서비스 없이 기본 인덱스 후보를 권한 있는 검색에 제공합니다."
+    ],
+    "inputs": [
+      "색인된 Chunk/Entity 텍스트와 문자 그대로 처리한 검색어."
+    ],
+    "outputs": [
+      "키워드·엔터티 후보 행."
+    ],
+    "owns": [
+      "chunk_text_fulltext와 entity_name_fulltext 인덱스."
+    ],
+    "invariants": [
+      "사용자 검색어가 Lucene 문법이 되어서는 안 됩니다. 후보 순위가 원본 권한을 우회하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "graph-retrieval": {
+    "name": "그래프 검색 (Graph Retrieval)",
+    "description": "권한 있는 엔터티 발견·이웃 탐색·정식 기록 읽기를 안정 계약으로 제한된 범위 안에서 제공합니다.",
+    "responsibilities": [
+      "접근·시간 제약을 보존하며 검색 근거와 승인된 의미 관계를 연결합니다."
+    ],
+    "inputs": [
+      "엔터티·기록 ID 또는 검색어, 접근 맥락, 선택적인 시점."
+    ],
+    "outputs": [
+      "범위가 제한된 허용 기록과 추적된 발견 결과."
+    ],
+    "owns": [
+      "별도 데이터베이스 없이 추적 기록은 운영 저장소에 둡니다."
+    ],
+    "invariants": [
+      "ID를 안다고 ACL을 우회하지 않습니다. 정식 읽기는 모든 근거에 계속 접근할 수 있어야 합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "api": {
+    "name": "지식 API (Knowledge API)",
+    "description": "FastAPI REST 인터페이스가 안정 계약을 제공합니다. 전송 엔드포인트는 지식 서비스 구현을 감싸는 교체 가능한 어댑터입니다.",
+    "responsibilities": [
+      "타입 요청 검증, 접근 맥락 적용, 제한된 서비스 기능 제공."
+    ],
+    "inputs": [
+      "어댑터가 도출한 인증 식별이 있는 REST 요청."
+    ],
+    "outputs": [
+      "계약 응답, 의도된 거부, 추적, 제한된 오류."
+    ],
+    "owns": [
+      "별도 저장소 없이 GraphStore·OpsStore가 저장을 소유합니다."
+    ],
+    "invariants": [
+      "인증은 경계 어댑터의 책임입니다. 표시 이름만으로 관리를 허가하지 않습니다. 계약이 전송 방식보다 우선합니다."
+    ],
+    "gaps": [
+      "이 로컬 경계를 입증된 기업 인증 배포로 표현해서는 안 됩니다."
+    ],
+    "deferrals": []
+  },
+  "mcp": {
+    "name": "MCP",
+    "description": "stdio MCP 어댑터가 호스트 고정 식별로 지식 서비스를 통해 권한 있는 읽기와 Proposal/Action 요청을 제공합니다.",
+    "responsibilities": [
+      "직접 데이터베이스 권한 없이 에이전트가 맥락을 사용하고 검토를 요청하게 합니다."
+    ],
+    "inputs": [
+      "제한된 MCP 인자와 호스트 소유 작업공간·주체."
+    ],
+    "outputs": [
+      "지식 서비스 결과 또는 관리 대상 요청 접수."
+    ],
+    "owns": [
+      "호스트 어댑터 설정만 소유하며 별도 지식 저장소는 없습니다."
+    ],
+    "invariants": [
+      "직접 Cypher·수집·승인·Action 실행·외부 변경 도구는 없습니다. 관리 대상 요청을 제출할 수 있으므로 MCP 전체가 읽기 전용은 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "telemetry": {
+    "name": "관측과 평가 (Telemetry / Evaluation)",
+    "description": "제한된 관측·추적·피드백·평가·감사·안전한 오류로 측정 기반 정확성과 검색 품질 작업을 돕습니다.",
+    "responsibilities": [
+      "정식 지식이 되거나 원시 주체·원문 내용이 오류 기록으로 새지 않게 운영 근거를 기록합니다."
+    ],
+    "inputs": [
+      "어댑터 시간, 접근 결합 추적 ID, 평가 사례, 피드백."
+    ],
+    "outputs": [
+      "운영 행, 측정한 검색 지표, 진단 기록."
+    ],
+    "owns": [
+      "기존 로컬 SQLite의 운영 근거."
+    ],
+    "invariants": [
+      "권한 거부 검사는 제외 처리 전에 유출 결과로 실패해야 합니다. F7이 열려 있습니다. 그래프·감사 복구는 분산 트랜잭션이 아니며 F8이 열려 있습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "sqlite": {
+    "name": "SQLite 운영 저장소",
+    "description": "기존 로컬 SQLite가 관측·감사·추적·평가·피드백·안전한 운영 오류를 저장합니다.",
+    "responsibilities": [
+      "최소한의 인프라로 정식 맥락 그래프 밖에서 로컬 운영 근거를 유지합니다."
+    ],
+    "inputs": [
+      "제한된 애플리케이션 관찰과 추적 연결 평가·피드백."
+    ],
+    "outputs": [
+      "운영 진단과 온라인 백업 산출물."
+    ],
+    "owns": [
+      "운영 테이블만 소유하며 원문·정식 지식 저장소는 아닙니다."
+    ],
+    "invariants": [
+      "운영 데이터로 정식 사실을 만들 수 없습니다. 그래프 커밋과 SQLite 쓰기는 원자적 분산 트랜잭션이 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "migration": {
+    "name": "마이그레이션 (Migration)",
+    "description": "번호가 있는 Cypher가 그래프 제약·인덱스·명시적인 계보 보완을 정의합니다. 적용 원장은 체크섬으로 보호합니다.",
+    "responsibilities": [
+      "스키마를 명시적으로 발전시키고 누락·변경·예상 밖 마이그레이션을 감지합니다."
+    ],
+    "inputs": [
+      "Git 관리 Cypher와 현재 SchemaMigration 원장."
+    ],
+    "outputs": [
+      "적용한 스키마·보완 작업과 기록한 체크섬."
+    ],
+    "owns": [
+      "Neo4j의 SchemaMigration 기록. Git의 마이그레이션 파일이 기준입니다."
+    ],
+    "invariants": [
+      "적용된 마이그레이션을 조용히 수정하지 않습니다. Explorer는 파일을 읽지만 실행하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "recovery": {
+    "name": "백업과 복구 (Backup / Recovery)",
+    "description": "복구 세트가 공식 Neo4j 백업·SQLite 온라인 백업·계약과 Git 계보·산출물 해시를 묶습니다.",
+    "responsibilities": [
+      "저장소 간 캡처 구간을 분산 트랜잭션으로 취급하지 않고 복구와 산출물을 검사 가능하게 합니다."
+    ],
+    "inputs": [
+      "기존 그래프·운영 저장소와 명시적인 관리 백업 도구."
+    ],
+    "outputs": [
+      "복구 manifest, 데이터베이스 산출물, 해시, 검사 결과."
+    ],
+    "owns": [
+      "커밋한 문서 밖의 보호된 로컬 백업 파일."
+    ],
+    "invariants": [
+      "복원 전에 해시와 아카이브 일관성을 검사합니다. 같은 DBMS의 로컬 복원 근거는 호스트 손실 복구나 외부 보관을 입증하지 않습니다."
+    ],
+    "gaps": [
+      "호스트 손실 복구와 장치 밖 보관은 기록된 증명 범위 밖입니다."
+    ],
+    "deferrals": []
+  },
+  "proposal": {
+    "name": "제안 (Proposal)",
+    "description": "Assertion·Decision·Event 지식을 위한 내용 기반 식별 후보입니다.",
+    "responsibilities": [
+      "사람의 검토 전에 제안 내용과 전체 근거를 보존합니다."
+    ],
+    "inputs": [
+      "후보, 생성자 식별, 온톨로지 버전."
+    ],
+    "outputs": [
+      "검토 가능한 불변 후보 식별."
+    ],
+    "owns": [
+      "내용 해시와 SUPPORTED_BY Chunk 연결."
+    ],
+    "invariants": [
+      "재시도로 승인·거절된 내용을 다시 열지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "approval": {
+    "name": "승인 (Approval)",
+    "description": "Proposal 또는 Action 하나가 소유하는 불변 결정입니다.",
+    "responsibilities": [
+      "인증된 사람의 결정과 그 계보를 기록합니다."
+    ],
+    "inputs": [
+      "검토 식별, 결정, 이유, 허용 근거."
+    ],
+    "outputs": [
+      "승인·거절 결과 하나."
+    ],
+    "owns": [
+      "정확히 하나의 관리 부모를 가진 결정 기록."
+    ],
+    "invariants": [
+      "승인 자체가 외부 Action을 실행하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "doctor": {
+    "name": "읽기 전용 점검 (Doctor)",
+    "description": "무결성 검사로 그래프 계보·마이그레이션·인덱스 상태·운영 계보를 살펴봅니다.",
+    "responsibilities": [
+      "이력을 지우는 정규화 없이 위반을 감지합니다."
+    ],
+    "inputs": [
+      "기존 그래프, 마이그레이션 파일, 운영 저장소."
+    ],
+    "outputs": [
+      "범위가 제한된 무결성 보고서."
+    ],
+    "owns": [
+      "복구 상태를 소유하지 않습니다."
+    ],
+    "invariants": [
+      "탐지와 정정을 구분합니다. F3에는 검사 범위·호환성 미해결 사례가 있습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "files": {
+    "name": "파일 연결기 (Filesystem Connector)",
+    "description": "공통 원자적 manifest 계약을 만드는 원본별 어댑터입니다.",
+    "responsibilities": [
+      "완전한 원본 목록과 이전 체크포인트를 결정적 관찰로 바꿉니다."
+    ],
+    "inputs": [
+      "허용된 목록과 이전 연결기 상태."
+    ],
+    "outputs": [
+      "manifest와 다음 체크포인트."
+    ],
+    "owns": [
+      "원본에 결합된 로컬 체크포인트."
+    ],
+    "invariants": [
+      "그래프 커밋 성공 전에 체크포인트를 전진시키지 않습니다. 제공자 계보와 ACL 한계를 보존합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "drive": {
+    "name": "Google Drive 연결기",
+    "description": "공통 원자적 manifest 계약을 만드는 원본별 어댑터입니다.",
+    "responsibilities": [
+      "완전한 원본 목록과 이전 체크포인트를 결정적 관찰로 바꿉니다."
+    ],
+    "inputs": [
+      "허용된 목록과 이전 연결기 상태."
+    ],
+    "outputs": [
+      "manifest와 다음 체크포인트."
+    ],
+    "owns": [
+      "원본에 결합된 로컬 체크포인트."
+    ],
+    "invariants": [
+      "그래프 커밋 성공 전에 체크포인트를 전진시키지 않습니다. 제공자 계보와 ACL 한계를 보존합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "notion": {
+    "name": "Notion 연결기",
+    "description": "공통 원자적 manifest 계약을 만드는 원본별 어댑터입니다.",
+    "responsibilities": [
+      "완전한 원본 목록과 이전 체크포인트를 결정적 관찰로 바꿉니다."
+    ],
+    "inputs": [
+      "허용된 목록과 이전 연결기 상태."
+    ],
+    "outputs": [
+      "manifest와 다음 체크포인트."
+    ],
+    "owns": [
+      "원본에 결합된 로컬 체크포인트."
+    ],
+    "invariants": [
+      "그래프 커밋 성공 전에 체크포인트를 전진시키지 않습니다. 제공자 계보와 ACL 한계를 보존합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "keyword": {
+    "name": "키워드·혼합 검색 (Keyword / Hybrid)",
+    "description": "문자 그대로의 전문 검색에 제한된 제목 재정렬을 적용하며 호환 질문 임베딩이 있으면 혼합 순위 결합을 사용합니다.",
+    "responsibilities": [
+      "순위를 설명 가능하게 하고 모델 구분을 명시합니다."
+    ],
+    "inputs": [
+      "검색어, 모드, 접근 맥락, 선택적인 벡터·모델·버전."
+    ],
+    "outputs": [
+      "순위가 있는 근거와 추적 ID."
+    ],
+    "owns": [
+      "추가 인덱스 서비스가 없습니다."
+    ],
+    "invariants": [
+      "결합 과정에서 권한 요구를 버릴 수 없습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "provider": {
+    "name": "운영 임베딩 제공자",
+    "description": "제공자 승인 전까지 운영 벡터 채우기를 의도적으로 비활성화합니다.",
+    "responsibilities": [
+      "측정 기반 제공자 선택과 지원되는 의미 검색 계약을 구분합니다."
+    ],
+    "inputs": [
+      "새 제공자 평가와 허용 문서 모음."
+    ],
+    "outputs": [
+      "이 범위에서 활성화한 운영 제공자가 없습니다."
+    ],
+    "owns": [
+      "새 제공자 배포가 없습니다."
+    ],
+    "invariants": [
+      "온라인 벡터 인덱스만으로 의미 검색 준비를 입증하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": [
+      "운영 채우기 전에 새로운 승인 근거가 필요합니다."
+    ]
+  },
+  "automated-extraction": {
+    "name": "자동 추출 제공자",
+    "description": "자동 제공자는 의도적으로 유보되어 있으며 프롬프트와 Proposal 계약은 이미 있습니다.",
+    "responsibilities": [
+      "관리 인터페이스 뒤에 후보 생성을 둡니다."
+    ],
+    "inputs": [
+      "별도로 필요가 입증된 제공자 기능."
+    ],
+    "outputs": [
+      "v1에는 자동 추출 실행 기능이 없습니다."
+    ],
+    "owns": [
+      "없음."
+    ],
+    "invariants": [
+      "추출 결과는 검토를 우회할 수 없습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "future-adapters": {
+    "name": "향후 A2A / 제품 UI",
+    "description": "운영 A2A 통합과 제품용 사용자 그래프 UI는 유보 상태입니다. Explorer는 제거 가능한 개발 문서입니다.",
+    "responsibilities": [
+      "교체 가능한 어댑터가 안정 설계를 다시 정의하지 않도록 합니다."
+    ],
+    "inputs": [
+      "별도 요청과 측정 근거가 있는 기능 요구."
+    ],
+    "outputs": [
+      "이 단계에서 운영 어댑터를 제공하지 않습니다."
+    ],
+    "owns": [
+      "없음."
+    ],
+    "invariants": [
+      "Explorer는 운영 의존성이나 제품 기능이 아닙니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-source": {
+    "name": "Source 계약",
+    "description": "원본 식별·연결기 관찰·버전·삭제·체크포인트 의미를 정의합니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "안정 식별과 권한이 있는 제공자 관찰."
+    ],
+    "outputs": [
+      "버전 근거와 커밋된 원본 실행 이력."
+    ],
+    "owns": [
+      "Source 계약 버전. 운영 데이터는 Neo4j에 있습니다."
+    ],
+    "invariants": [
+      "제공자 재시도로 의미 상태가 중복되면 안 됩니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-evidence": {
+    "name": "Evidence 계약",
+    "description": "불변 DocumentVersion·Source 계보가 있는 정확한 허용 근거입니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "안정된 Chunk ID와 현재 접근 맥락."
+    ],
+    "outputs": [
+      "범위가 제한되고 전부 반환하거나 거부하는 근거 묶음."
+    ],
+    "owns": [
+      "Evidence 계약 버전."
+    ],
+    "invariants": [
+      "과거 ACL 스냅샷이 현재 권한을 대체하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-knowledge": {
+    "name": "Knowledge 계약",
+    "description": "정식 Entity·Assertion·Event·Decision 읽기와 추출 맥락 발견을 제공합니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "기록 ID, 조회 맥락, 온톨로지·프롬프트 이름."
+    ],
+    "outputs": [
+      "허용된 의미 기록과 버전 추출 맥락."
+    ],
+    "owns": [
+      "Knowledge 계약 버전."
+    ],
+    "invariants": [
+      "지식에는 승인된 계보가 필요합니다. 어댑터가 정식 사실을 다시 정의하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-governance": {
+    "name": "Governance 계약",
+    "description": "후보 검증·인증 검토·거절·정식 반영을 정의합니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "근거 있는 후보와 명시적인 검토 맥락."
+    ],
+    "outputs": [
+      "불변 결정과 승인된 정식 기록."
+    ],
+    "owns": [
+      "Governance 계약 버전."
+    ],
+    "invariants": [
+      "Proposal → 검증 → Approval/거절 → 정식 그래프."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-retrieval": {
+    "name": "Retrieval 계약",
+    "description": "접근에 결합된 운영 근거와 키워드·벡터·혼합·그래프 발견을 제공합니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "검색어, 의미 검색의 정확한 모델·버전, 인증 접근."
+    ],
+    "outputs": [
+      "제한된 순위 맥락, 기능, 추적, 평가 근거."
+    ],
+    "owns": [
+      "Retrieval 계약 버전."
+    ],
+    "invariants": [
+      "순위와 벡터 검색이 근거 권한을 우회하지 않습니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  },
+  "contract-action": {
+    "name": "Action 계약",
+    "description": "관리 대상 기능 생성·검토·점유·실행 근거를 정의합니다.",
+    "responsibilities": [
+      "REST·MCP·저장 어댑터·UI와 독립적인 안정 경계를 정의합니다."
+    ],
+    "inputs": [
+      "명시적인 기능·정책, 주체, 원본 권한."
+    ],
+    "outputs": [
+      "승인된 요청, 제한된 점유, 불변 실행 기록."
+    ],
+    "owns": [
+      "Action 계약 버전."
+    ],
+    "invariants": [
+      "별도로 인증과 권한을 받은 어댑터만 외부 쓰기를 수행합니다."
+    ],
+    "gaps": [],
+    "deferrals": []
+  }
+}

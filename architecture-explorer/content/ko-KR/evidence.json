@@ -1,0 +1,48 @@
+{
+  "id": "evidence",
+  "title": "근거 (Evidence)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "진술이나 답변을 뒷받침하는 원본 자료입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "답변이 의지한 문단을 직접 볼 수 있으면 그 답변을 판단하기 쉬워집니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "예시의 Joule Studio 문장이 들어 있는 정확한 Chunk가 근거가 됩니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "근거 묶음은 정확한 Chunk ID와 변경 불가능한 버전·원본 계보를 반환하며, 현재 접근 권한을 검사합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "유창한 문장만 믿는 대신 근거를 확인해 답변을 판단할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "요청한 조각 중 하나라도 반환할 수 없으면 전체 근거 묶음을 거부하는 방식입니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "13c938af4ece2ac32d93697f27ba41f31d574ab2d20c733745dcbd3ce6924d09"
+}

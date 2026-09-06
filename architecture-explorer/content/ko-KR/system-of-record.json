@@ -1,0 +1,48 @@
+{
+  "id": "system-of-record",
+  "title": "원본 시스템 (System of Record)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "업무 원본을 관리하는 책임이 있는 시스템입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "학교 성적부가 공식 성적을 관리합니다. 학생이 따로 만든 요약 노트가 성적부를 대신하지는 않습니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "Knowledge OS가 Drive 파일을 읽어도 그 파일의 원본은 계속 Drive에 있습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "읽기 전용 수집기는 제공자의 내용과 권한을 관찰한 뒤 근거 스냅샷을 보관합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "원본 책임을 분명히 해야 파생된 그래프가 별도의 업무 원장처럼 사용되는 일을 막을 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "원본 시스템과 Source 계약은 다릅니다. 전자는 원본을 소유하고, 후자는 연결 규칙을 정의합니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "c42d6356d2cbe207eeb36538979367aabda30b8da4022065069f9261a03967a7"
+}

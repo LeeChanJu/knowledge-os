@@ -1,0 +1,73 @@
+{
+  "id": "document-changes",
+  "title": "The document changes",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Follow one change from its origin to its evidence and outcome."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read the steps in order. Each stage has a different responsibility; arrows do not mean every stage runs automatically."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Teaching scenario: an authorized Drive document contains “Joule Studio is an environment for developing AI agents at SAP.” The sentence is illustrative source text, not a fact verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Follow the diagram below and open a stage to inspect its architecture."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Preserving identity, history and authorization makes later explanations traceable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This is a guided explanation of the checked snapshot, not an executed integration test. Open findings and deferred providers still apply."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "before",
+      "nodeId": "version",
+      "title": "Keep version 1",
+      "body": "Old assertions keep their original evidence links."
+    },
+    {
+      "id": "observe",
+      "nodeId": "connectors",
+      "title": "Observe a new state",
+      "body": "A genuine source revision distinguishes the new observation."
+    },
+    {
+      "id": "after",
+      "nodeId": "version",
+      "title": "Create version 2",
+      "body": "New content or metadata must not silently overwrite version 1."
+    },
+    {
+      "id": "active",
+      "nodeId": "chunk",
+      "title": "Use current evidence",
+      "body": "Current reads enforce the latest authorization while history remains preserved."
+    }
+  ],
+  "reviewedPeerDigest": "03ec7cfd6ee20b1539799722577badf73389ff842e95f0ecf660d8f8b181d4e4"
+}

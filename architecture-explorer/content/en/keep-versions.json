@@ -1,0 +1,48 @@
+{
+  "id": "keep-versions",
+  "title": "Why versions instead of overwriting?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Evidence used yesterday must remain identifiable after a file changes. Immutable versions preserve that earlier state."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Start with responsibility and evidence before choosing technology."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Follow the linked document journey to see this boundary in practice."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Evidence used yesterday must remain identifiable after a file changes. Immutable versions preserve that earlier state."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable boundaries protect provenance and reduce unnecessary infrastructure."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The accepted ADR is the authority. Where it gives no further rationale, this page makes no additional claim."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "d1723ed41af19c91b018a869ae09fbf6612e943049d9015ed6c00cf7b30ab2d2"
+}

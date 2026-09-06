@@ -1,0 +1,48 @@
+{
+  "id": "relationship",
+  "title": "Relationship",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A labeled connection expressing how two things relate."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "“Uses” says more than drawing an unlabeled line between two tools."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An illustrative Technology USES Technology statement must obey the registered endpoint rules."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Semantic predicates belong to the ontology; lineage edges such as supported-by serve a different structural role."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Labels make graph traversal interpretable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "An assertion retains the predicate, evidence and time; a bare entity-to-entity link cannot replace that record."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "2a3d932ae900e356a0e695f46760551feabe03f4820bc28d71b28825efe6792a"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "telemetry",
+  "title": "Telemetry",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Bounded records describing how operations behaved."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A stopwatch and error counter help diagnose a process without copying the whole document."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A connector run records duration and success or failure."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "SQLite stores operational traces and bounded metadata. Adapter traces exclude document content and credentials."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Measured behavior helps diagnose failures and justify changes."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "F8 concerns graph/audit failure recovery. Separate stores do not imply a distributed transaction."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "0f347cb1604131c176e650ba22decfe53c0369d413c1e00ac905043fc88c2a1c"
+}

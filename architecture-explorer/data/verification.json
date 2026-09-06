@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "policy": [
     "This curated file is the Explorer verification state authority. It cites repository decisions and executable evidence; neither code existence nor Git messages supply proof.",
-    "sync only writes evidence.json and architecture.json. It never edits this file, changes states, closes findings, or refreshes accepted fingerprints.",
+    "sync only writes evidence.json, architecture.json and learning.json. It never edits this file, changes states, closes findings, or refreshes accepted fingerprints.",
     "Changed authorities or covered behavior fail check and sync until an explicit reviewed reconciliation. A new hash alone is not new verification evidence.",
     "Generated reference nodes use IMPLEMENTED to denote present documentation artifacts, not successful behavior tests.",
     "Existing F1/F2 states import the explicit repository remediation decision. Raw execution transcripts and current release acceptance are not claimed.",

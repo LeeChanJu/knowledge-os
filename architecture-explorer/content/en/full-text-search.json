@@ -1,0 +1,48 @@
+{
+  "id": "full-text-search",
+  "title": "Full-text Search",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Finding text using words indexed from the content."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Like a book index, it helps locate passages mentioning a term."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Searching “Joule Studio” can find passages containing those terms."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Neo4j full-text candidates are permission-filtered and ranked by the existing retrieval path."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Exact names and distinctive terms often provide useful retrieval signals."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "User text is treated as literal terms, not arbitrary Lucene syntax. Keyword ranking also includes title signals and early document diversity."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "e4bc2b11b17ad81ee1feaa627c66d0d85bb157557ad42eacce0253d0b48772d1"
+}

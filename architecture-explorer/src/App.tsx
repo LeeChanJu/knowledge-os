@@ -1,3 +1,5 @@
+import { t, language, route } from "./i18n";
+import { docForNode, githubLink } from "./docs/helpers";
 import {
   lazy,
   Suspense,
@@ -69,6 +71,12 @@ export default function App({ data }: { data: Architecture }) {
   const controls = useRef<GraphControls | null>(null);
   const onReady = useCallback((value: GraphControls) => {
     controls.current = value;
+  }, []);
+  useEffect(() => {
+    const update = () =>
+      setTheme(localStorage.getItem("architecture-theme") || "dark");
+    window.addEventListener("architecture-theme", update);
+    return () => window.removeEventListener("architecture-theme", update);
   }, []);
   const [panelTab, setPanelTab] = useState<"overview" | "evidence">("overview");
   const applySelection = useCallback(
@@ -147,7 +155,7 @@ export default function App({ data }: { data: Architecture }) {
   const selectLink = (n: ArchitectureNode) => (
     <button className="reference-link" key={n.id} onClick={() => select(n.id)}>
       <span>{n.name}</span>
-      <small>{n.resource?.path || n.category}</small>
+      <small>{n.resource?.path || t(n.category)}</small>
       <span className="link-arrow" aria-hidden="true">
         ↗
       </span>
@@ -158,15 +166,18 @@ export default function App({ data }: { data: Architecture }) {
       <header className="topbar">
         <a href="#/overview" className="brand" onClick={reset}>
           <span className="brand-mark" aria-hidden="true">
-            K<span>·</span>
+            {t("K")}
+            <span>·</span>
           </span>
           <span>
-            Knowledge OS<small>ARCHITECTURE EXPLORER</small>
+            {t("Knowledge OS")}
+            <small>{t("ARCHITECTURE EXPLORER")}</small>
           </span>
         </a>
         <div className="topbar-center">
-          <span className="live-dot" /> Read-only documentation{" "}
-          <span className="separator">/</span> Local-first system of context
+          <span className="live-dot" />
+          {t("Read-only documentation")} <span className="separator">/</span>
+          {t("Local-first system of context")}
         </div>
         <button
           className="theme-button"
@@ -174,32 +185,38 @@ export default function App({ data }: { data: Architecture }) {
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
         >
           {theme === "dark" ? "☀" : "☾"}
-          <span>{theme === "dark" ? "Light" : "Dark"}</span>
+          <span>{theme === "dark" ? t("Light") : t("Dark")}</span>
         </button>
       </header>
       <div className="workspace">
-        <aside className="sidebar" aria-label="Explore and filter">
-          <div className="eyebrow">EXPLORE THE SYSTEM</div>
+        <aside className="sidebar" aria-label={t("Explore and filter")}>
+          <div className="eyebrow">{t("EXPLORE THE SYSTEM")}</div>
           <label className="search-label" htmlFor="search">
-            Find a component or reference
+            {t("Find a component or reference")}
           </label>
           <div className="search-box">
             <span aria-hidden="true">⌕</span>
             <input
               id="search"
-              placeholder="Search architecture…"
+              placeholder={t("Search architecture…")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             {query && (
-              <button aria-label="Clear search" onClick={() => setQuery("")}>
+              <button
+                aria-label={t("Clear search")}
+                onClick={() => setQuery("")}
+              >
                 ×
               </button>
             )}
           </div>
           {query.trim() && (
-            <div className="search-results" aria-label="Search results">
-              <p className="muted">{results.length} matching results</p>
+            <div className="search-results" aria-label={t("Search results")}>
+              <p className="muted">
+                {results.length}
+                {t("matching results")}
+              </p>
               {results.slice(0, 25).map((n) => (
                 <button
                   key={n.id}
@@ -210,22 +227,24 @@ export default function App({ data }: { data: Architecture }) {
                 >
                   {n.name}
                   <small>
-                    {n.category} · {n.status}
+                    {t(n.category)} · {n.status}
                   </small>
                 </button>
               ))}
-              {!results.length && <p>No matches within these filters.</p>}
+              {!results.length && (
+                <p>{t("No matches within these filters.")}</p>
+              )}
             </div>
           )}
           <label className="filter-label" htmlFor="domain">
-            Architectural domain
+            {t("Architectural domain")}
           </label>
           <select
             id="domain"
             value={domain}
             onChange={(e) => setDomain(e.target.value)}
           >
-            <option value="">All domains</option>
+            <option value="">{t("All domains")}</option>
             {data.domains.map((d) => (
               <option value={d.id} key={d.id}>
                 {d.name}
@@ -233,7 +252,7 @@ export default function App({ data }: { data: Architecture }) {
             ))}
           </select>
           <fieldset>
-            <legend>Implementation state</legend>
+            <legend>{t("Implementation state")}</legend>
             {STATES.map((status) => (
               <label key={status} className="status-filter">
                 <input
@@ -252,14 +271,14 @@ export default function App({ data }: { data: Architecture }) {
             ))}
           </fieldset>
           <button className="text-button" onClick={clearFilters}>
-            Clear filters
+            {t("Clear filters")}
           </button>
           <div className="sidebar-divider" />
           <div className="list-heading">
-            <span className="eyebrow">ON THE MAP</span>
+            <span className="eyebrow">{t("ON THE MAP")}</span>
             <span>{visible.length}</span>
           </div>
-          <nav className="node-list" aria-label="Visible nodes">
+          <nav className="node-list" aria-label={t("Visible nodes")}>
             {visible.map((n) => (
               <button
                 key={n.id}
@@ -279,41 +298,50 @@ export default function App({ data }: { data: Architecture }) {
             ))}
             {!visible.length && (
               <p className="muted">
-                No visible nodes. Clear filters or search an unexpanded
-                component.
+                {t(
+                  "No visible nodes. Clear filters or search an unexpanded component.",
+                )}
               </p>
             )}
           </nav>
           <div className="sidebar-footer">
-            DOCUMENTATION, NOT RUNTIME
+            {t("DOCUMENTATION, NOT RUNTIME")}
             <br />
-            <span>No service or database connection</span>
+            <span>{t("No service or database connection")}</span>
           </div>
         </aside>
         <main className="map-pane">
           <div className="map-heading">
             <div className="breadcrumb">
-              <button onClick={reset}>Architecture</button>
+              <button onClick={reset}>{t("Architecture")}</button>
               <span>/</span>
-              <span>{node?.name || "Overview"}</span>
+              <span>{node?.name || t("Overview")}</span>
             </div>
             <div className="map-title">
               <div>
                 <h1>
-                  {node ? "Follow the connections." : "A map of the system."}
+                  {node
+                    ? t("Follow the connections.")
+                    : t("A map of the system.")}
                 </h1>
                 <p>
                   {node
-                    ? "One neighborhood at a time. Every claim leads back to repository evidence."
-                    : "From source records to governed context. Select a node to see what happens around it."}
+                    ? t(
+                        "One neighborhood at a time. Every claim leads back to repository evidence.",
+                      )
+                    : t(
+                        "From source records to governed context. Select a node to see what happens around it.",
+                      )}
                 </p>
               </div>
-              <span className="version-label">v0.1 · milestone 1</span>
+              <span className="version-label">{t("v0.1 · milestone 1")}</span>
             </div>
           </div>
           <div className="graph-shell">
             <Suspense
-              fallback={<div className="empty-map">Loading architecture…</div>}
+              fallback={
+                <div className="empty-map">{t("Loading architecture…")}</div>
+              }
             >
               <Graph
                 resetTick={resetTick}
@@ -328,122 +356,143 @@ export default function App({ data }: { data: Architecture }) {
             </Suspense>
             {!visible.length && (
               <div className="empty-map">
-                <h2>No nodes match these filters</h2>
-                <p>The map retains your expansion state.</p>
+                <h2>{t("No nodes match these filters")}</h2>
+                <p>{t("The map retains your expansion state.")}</p>
                 <button className="primary" onClick={clearFilters}>
-                  Show all states and domains
+                  {t("Show all states and domains")}
                 </button>
               </div>
             )}
             <div className="map-meta" aria-live="polite">
-              <span>{visible.length} nodes</span>
-              <span>{edges.length} relationships</span>
               <span>
-                {expanded.size ? "Expanded view" : "Architecture overview"}
+                {visible.length}
+                {t("nodes")}
+              </span>
+              <span>
+                {edges.length}
+                {t("relationships")}
+              </span>
+              <span>
+                {expanded.size
+                  ? t("Expanded view")
+                  : t("Architecture overview")}
               </span>
             </div>
             <div className="map-controls">
               <button
-                aria-label="Zoom out"
+                aria-label={t("Zoom out")}
                 onClick={() => controls.current?.zoom(0.8)}
               >
                 −
               </button>
               <button
-                aria-label="Zoom in"
+                aria-label={t("Zoom in")}
                 onClick={() => controls.current?.zoom(1.25)}
               >
                 +
               </button>
               <span />
-              <button onClick={() => controls.current?.fit()}>Fit</button>
-              <button onClick={reset}>Reset overview</button>
+              <button onClick={() => controls.current?.fit()}>
+                {t("Fit")}
+              </button>
+              <button onClick={reset}>{t("Reset overview")}</button>
             </div>
           </div>
           <div className="graph-legend">
             <span>
               <i className="legend-line incoming" />
-              Incoming
+              {t("Incoming")}
             </span>
             <span>
               <i className="legend-line outgoing" />
-              Outgoing
+              {t("Outgoing")}
             </span>
             <span>
               <i className="legend-box" />
-              Component / concept
+              {t("Component / concept")}
             </span>
             <span>
               <i className="legend-box dashed" />
-              Deferred
+              {t("Deferred")}
             </span>
-            <span className="graph-hint">Drag to pan · Scroll to zoom</span>
+            <span className="graph-hint">
+              {t("Drag to pan · Scroll to zoom")}
+            </span>
           </div>
           <footer className="freshness">
             <div>
               <span className="live-dot" />
               {__BUILD_INFO__.state}
-              <span className="muted"> · schema {data.schemaVersion}</span>
+              <span className="muted">
+                {t("· schema")}
+                {data.schemaVersion}
+              </span>
             </div>
             <div title={data.baselineRevision}>
-              Evidence <code>{data.baselineRevision.slice(0, 7)}</code>
+              {t("Evidence")}
+              <code>{data.baselineRevision.slice(0, 7)}</code>
             </div>
             <div title={__BUILD_INFO__.checkoutRevision}>
-              Checkout{" "}
+              {t("Checkout")}{" "}
               <code>{__BUILD_INFO__.checkoutRevision.slice(0, 7)}</code>
-              {__BUILD_INFO__.dirty ? " + tracked changes" : ""}
+              {__BUILD_INFO__.dirty ? t(" + tracked changes") : ""}
             </div>
             <span className="freshness-note">
-              Checked at build/start; not a live monitor
+              {t("Checked at build/start; not a live monitor")}
             </span>
           </footer>
         </main>
         <aside
           className="detail-panel"
-          aria-label="Component details"
+          aria-label={t("Component details")}
           key={selected || "overview"}
         >
           {!selected ? (
             <>
-              <div className="eyebrow">YOUR GUIDE TO THE GRAPH</div>
-              <h2>Context, with a paper trail.</h2>
+              <div className="eyebrow">{t("YOUR GUIDE TO THE GRAPH")}</div>
+              <h2>{t("Context, with a paper trail.")}</h2>
               <p className="intro">
-                Understand what the system owns, how its boundaries fit
-                together, and where the evidence stops.
+                {t(
+                  "Understand what the system owns, how its boundaries fit together, and where the evidence stops.",
+                )}
               </p>
               <div className="guide-path">
                 <span>01</span>
                 <div>
-                  <h3>Start with the architecture</h3>
+                  <h3>{t("Start with the architecture")}</h3>
                   <p>
-                    The initial map shows {overviewIds(data.nodes).length} major
-                    concepts, not every implementation detail.
+                    {t("The initial map shows")}
+                    {overviewIds(data.nodes).length}
+                    {t("major concepts, not every implementation detail.")}
                   </p>
                 </div>
                 <span>02</span>
                 <div>
-                  <h3>Expand a neighborhood</h3>
+                  <h3>{t("Expand a neighborhood")}</h3>
                   <p>
-                    Click a node to reveal direct connections, then follow a
-                    contract, symbol or test.
+                    {t(
+                      "Click a node to reveal direct connections, then follow a contract, symbol or test.",
+                    )}
                   </p>
                 </div>
                 <span>03</span>
                 <div>
-                  <h3>Inspect the evidence</h3>
+                  <h3>{t("Inspect the evidence")}</h3>
                   <p>
-                    Verification is a scoped claim with recorded provenance.
-                    Existing code alone is not proof.
+                    {t(
+                      "Verification is a scoped claim with recorded provenance. Existing code alone is not proof.",
+                    )}
                   </p>
                 </div>
               </div>
               <div className="audit-card">
-                <div className="eyebrow">CURRENT REMEDIATION</div>
-                <h3>Acceptance is still open.</h3>
+                <div className="eyebrow">{t("CURRENT REMEDIATION")}</div>
+                <h3>{t("Acceptance is still open.")}</h3>
                 <p>
-                  {statusCount("VERIFIED")} recorded verified findings ·{" "}
-                  {statusCount("KNOWN ISSUE") - 1} unresolved findings · 1
-                  release gate
+                  {statusCount("VERIFIED")}
+                  {t("recorded verified findings ·")}{" "}
+                  {statusCount("KNOWN ISSUE") - 1}
+                  {t("unresolved findings · 1 release gate")}
                 </p>
                 <div className="finding-grid">
                   {data.verification.map((c) => (
@@ -452,24 +501,25 @@ export default function App({ data }: { data: Architecture }) {
                       onClick={() => select(c.id)}
                       className={statusClass(c.status)}
                     >
-                      {c.id === "release-gate" ? "Release gate" : c.id}
+                      {c.id === "release-gate" ? t("Release gate") : c.id}
                       <span>{c.status === "VERIFIED" ? "✓" : "↗"}</span>
                     </button>
                   ))}
                 </div>
                 <p className="small muted">
-                  F1/F2 import the explicit repository remediation decision. No
-                  production tests were run by this Explorer.
+                  {t(
+                    "F1/F2 import the explicit repository remediation decision. No production tests were run by this Explorer.",
+                  )}
                 </p>
               </div>
               <section className="detail-section">
-                <h3>Follow a starting point</h3>
+                <h3>{t("Follow a starting point")}</h3>
                 {["systems", "ingestion", "governance", "graph-retrieval"].map(
                   (id) => selectLink(byId.get(id)!),
                 )}
               </section>
               <section className="detail-section">
-                <h3>Eight documentation domains</h3>
+                <h3>{t("Eight documentation domains")}</h3>
                 <div className="domain-legend">
                   {data.domains.map((d) => (
                     <div key={d.id}>
@@ -485,18 +535,21 @@ export default function App({ data }: { data: Architecture }) {
             </>
           ) : !node ? (
             <>
-              <h2>Unknown documentation node</h2>
-              <p>This link does not exist in this snapshot.</p>
-              <button onClick={reset}>Return to overview</button>
+              <h2>{t("Unknown documentation node")}</h2>
+              <p>{t("This link does not exist in this snapshot.")}</p>
+              <button onClick={reset}>{t("Return to overview")}</button>
             </>
           ) : (
             <>
               <div className="detail-kicker">
                 <span className="eyebrow">
-                  {node.category} /{" "}
+                  {t(node.category)} /{" "}
                   {data.domains.find((d) => d.id === node.domain)?.name}
                 </span>
-                <button aria-label="Close component details" onClick={reset}>
+                <button
+                  aria-label={t("Close component details")}
+                  onClick={reset}
+                >
                   ×
                 </button>
               </div>
@@ -505,43 +558,60 @@ export default function App({ data }: { data: Architecture }) {
               <p className="intro">{node.description}</p>
               {!visible.some((n) => n.id === node.id) && (
                 <div className="notice">
-                  This selection is hidden by the active filters.{" "}
-                  <button onClick={clearFilters}>Clear filters</button>
+                  {t("This selection is hidden by the active filters.")}{" "}
+                  <button onClick={clearFilters}>{t("Clear filters")}</button>
                 </div>
               )}
               <div
                 className="panel-tabs"
                 role="tablist"
-                aria-label="Detail sections"
+                aria-label={t("Detail sections")}
               >
                 <button
                   role="tab"
                   aria-selected={panelTab === "overview"}
                   onClick={() => setPanelTab("overview")}
                 >
-                  Overview
+                  {t("Overview")}
                 </button>
                 <button
                   role="tab"
                   aria-selected={panelTab === "evidence"}
                   onClick={() => setPanelTab("evidence")}
                 >
-                  Evidence <span>{node.references.length}</span>
+                  {t("Evidence")}
+                  <span>{node.references.length}</span>
                 </button>
               </div>
+              {node && (
+                <div className="detail-section doc-links">
+                  <a href={route(language(), "learn/" + docForNode(node.id))}>
+                    {t("Read the explanation")} ↗
+                  </a>
+                  {node.resource && (
+                    <a
+                      href={githubLink(node.id)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {t("Evidence revision on GitHub")} ↗
+                    </a>
+                  )}
+                </div>
+              )}
               {panelTab === "overview" ? (
                 <>
                   <TextList
-                    title="Why it exists / responsibility"
+                    title={t("Why it exists / responsibility")}
                     items={node.responsibilities}
                   />
-                  <TextList title="Inputs" items={node.inputs} />
-                  <TextList title="Outputs" items={node.outputs} />
-                  <TextList title="What it owns" items={node.owns} />
-                  <TextList title="Invariants" items={node.invariants} />
+                  <TextList title={t("Inputs")} items={node.inputs} />
+                  <TextList title={t("Outputs")} items={node.outputs} />
+                  <TextList title={t("What it owns")} items={node.owns} />
+                  <TextList title={t("Invariants")} items={node.invariants} />
                   {node.resource && (
                     <section className="detail-section">
-                      <h3>Exact repository reference</h3>
+                      <h3>{t("Exact repository reference")}</h3>
                       <code className="source-path">
                         {node.resource.path}
                         {node.resource.symbol
@@ -555,19 +625,19 @@ export default function App({ data }: { data: Architecture }) {
                       )}
                       {node.resource.fields?.length ? (
                         <>
-                          <h3>Declared fields</h3>
+                          <h3>{t("Declared fields")}</h3>
                           <pre>{node.resource.fields.join("\n")}</pre>
                         </>
                       ) : null}
                       {node.resource.decorators?.length ? (
                         <>
-                          <h3>Decorators / surface</h3>
+                          <h3>{t("Decorators / surface")}</h3>
                           <pre>{node.resource.decorators.join("\n")}</pre>
                         </>
                       ) : null}
                       {node.resource.objects?.length ? (
                         <TextList
-                          title="Schema objects"
+                          title={t("Schema objects")}
                           items={node.resource.objects}
                         />
                       ) : null}
@@ -577,78 +647,93 @@ export default function App({ data }: { data: Architecture }) {
                         </pre>
                       ) : null}
                       <p className="small muted">
-                        Compact generated reference. Source bodies are not
-                        copied into the Explorer.
+                        {t(
+                          "Compact generated reference. Source bodies are not copied into the Explorer.",
+                        )}
                       </p>
                       {node.resource.fingerprint && (
                         <code className="fingerprint">
-                          SHA-256 {node.resource.fingerprint}
+                          {t("SHA-256")}
+                          {node.resource.fingerprint}
                         </code>
                       )}
                     </section>
                   )}
                   {claim && (
                     <section className="detail-section claim">
-                      <h3>Verification scope</h3>
+                      <h3>{t("Verification scope")}</h3>
                       <p>{claim.recordedOutcome}</p>
                       {claim.environment && <p>{claim.environment}</p>}
                       {claim.revision && (
                         <p className="small">
-                          Correction revision{" "}
+                          {t("Correction revision")}{" "}
                           <code>{claim.revision.slice(0, 12)}</code>
                         </p>
                       )}
-                      {claim.revisionScope === "original-source-history" && <p className="small muted">Revision from original source history; the public snapshot may not retain this Git object. Verification is tied to the recorded remediation decision and content fingerprints.</p>}
-                    {claim.resolutionRequired && (
+                      {claim.revisionScope === "original-source-history" && (
+                        <p className="small muted">
+                          {t(
+                            "Revision from original source history; the public snapshot may not retain this Git object. Verification is tied to the recorded remediation decision and content fingerprints.",
+                          )}
+                        </p>
+                      )}
+                      {claim.resolutionRequired && (
                         <>
-                          <h3>Required resolution</h3>
+                          <h3>{t("Required resolution")}</h3>
                           <p>{claim.resolutionRequired}</p>
                         </>
                       )}
                       <p className="small muted">{claim.limitations}</p>
                       <p className="small">
-                        {claim.tests.length} executable references ·{" "}
-                        {Object.keys(claim.dependencies).length} pinned
-                        dependencies
+                        {claim.tests.length}
+                        {t("executable references ·")}{" "}
+                        {Object.keys(claim.dependencies).length}
+                        {t("pinned dependencies")}
                       </p>
                     </section>
                   )}
                   {!claim && (
                     <section className="detail-section">
-                      <h3>Verification status</h3>
+                      <h3>{t("Verification status")}</h3>
                       <p>
                         {node.status === "KNOWN ISSUE"
-                          ? "An open finding affects this scope. Inspect the finding for its exact invariant and required proof."
+                          ? t(
+                              "An open finding affects this scope. Inspect the finding for its exact invariant and required proof.",
+                            )
                           : node.status === "DEFERRED"
-                            ? "This capability is intentionally deferred, not an implemented runtime service."
-                            : "Implementation or repository evidence is present. This node does not claim independently verified behavior."}
+                            ? t(
+                                "This capability is intentionally deferred, not an implemented runtime service.",
+                              )
+                            : t(
+                                "Implementation or repository evidence is present. This node does not claim independently verified behavior.",
+                              )}
                       </p>
                     </section>
                   )}
                   {!!node.knownIssues.length && (
                     <section className="detail-section">
-                      <h3>Known findings</h3>
+                      <h3>{t("Known findings")}</h3>
                       {node.knownIssues.map((id) => selectLink(byId.get(id)!))}
                     </section>
                   )}
                   <TextList
-                    title="Unknowns / documentation gaps"
+                    title={t("Unknowns / documentation gaps")}
                     items={node.gaps}
                   />
                   <TextList
-                    title="Intentional deferrals"
+                    title={t("Intentional deferrals")}
                     items={node.deferrals}
                   />
                   {!!node.contracts.length && (
                     <section className="detail-section">
-                      <h3>Stable contracts</h3>
+                      <h3>{t("Stable contracts")}</h3>
                       {node.contracts.map((c) =>
                         selectLink(byId.get("contract-" + c)!),
                       )}
                     </section>
                   )}
                   <section className="detail-section">
-                    <h3>Before, after & related components</h3>
+                    <h3>{t("Before, after & related components")}</h3>
                     {neighbors
                       .filter(
                         (e) =>
@@ -671,7 +756,7 @@ export default function App({ data }: { data: Architecture }) {
                                 e.source === node.id ? "outgoing" : "incoming"
                               }
                             >
-                              {e.source === node.id ? "OUT →" : "← IN"}{" "}
+                              {e.source === node.id ? t("OUT →") : t("← IN")}{" "}
                               {e.label}
                             </small>
                             <span>{other.name}</span>
@@ -683,24 +768,25 @@ export default function App({ data }: { data: Architecture }) {
               ) : (
                 <>
                   <section className="detail-section">
-                    <h3>Repository evidence</h3>
+                    <h3>{t("Repository evidence")}</h3>
                     <p className="small muted">
-                      References identify exact objects. A test reference does
-                      not mean it passed. Select a finding to inspect recorded
-                      verification.
+                      {t(
+                        "References identify exact objects. A test reference does not mean it passed. Select a finding to inspect recorded verification.",
+                      )}
                     </p>
                     {references?.length ? (
                       references.map(selectLink)
                     ) : (
                       <p>
-                        Reach supporting components using the incoming
-                        relationships in Overview.
+                        {t(
+                          "Reach supporting components using the incoming relationships in Overview.",
+                        )}
                       </p>
                     )}
                   </section>
                   {claim && (
                     <section className="detail-section">
-                      <h3>Pinned verification dependencies</h3>
+                      <h3>{t("Pinned verification dependencies")}</h3>
                       {Object.entries(claim.dependencies).map(
                         ([path, digest]) => (
                           <div key={path} className="dependency">

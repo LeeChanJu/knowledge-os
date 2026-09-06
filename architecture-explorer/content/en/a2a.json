@@ -1,0 +1,48 @@
+{
+  "id": "a2a",
+  "title": "Future A2A",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A deferred agent-to-agent integration direction."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A deferred agent-to-agent integration direction. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Different agents might communicate through a future adapter."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "A2A production integration is intentionally deferred; current access uses existing API/MCP boundaries."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "A new protocol needs a measured requirement, not only availability."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "77f1ea1c03170b51d91d0f5d0254a259654b7013ce9d6210cc6e3ba1905434f2"
+}

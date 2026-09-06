@@ -1,0 +1,67 @@
+{
+  "id": "ontology-basics",
+  "title": "05. Ontology란?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "어떤 종류의 대상이 있고, 서로 어떤 관계를 맺을 수 있는지 정하는 규칙입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "데이터는 적어 놓은 내용이고, 그래프는 그 내용을 연결한 구조입니다. 온톨로지는 연결의 의미와 허용되는 조합을 정합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "이 저장소에서는 Technology USES Technology가 허용되지만 Document USES Person은 허용되지 않습니다. Joule Studio와 SAP BTP는 설명용 이름이며 이 사이트가 검증한 사실 주장이 아닙니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Ontology.load가 config/ontology.yaml을 읽습니다. Ontology.validate는 주어 유형을 확인하고, 객체 엔터티가 있으면 객체 유형·관계 이름·양 끝의 허용 유형을 검사합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "그래프에 선을 저장할 수 있다고 해서 그 의미가 올바른 것은 아닙니다. 규칙은 잘못된 조합이 정식 지식이 되기 전에 거르는 데 필요합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "현재 검증기는 객체가 스칼라 값이면 일찍 반환합니다. 이때의 관계 검증 공백은 F5로 남아 있습니다. 온톨로지 1.0.0에는 RUNS_ON과 Platform이 등록되어 있지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [
+    {
+      "id": "data",
+      "nodeId": "entity",
+      "title": "데이터 (Data)",
+      "body": "Joule Studio라는 이름을 적습니다. 아직 관계나 허용 규칙을 설명하지는 않습니다."
+    },
+    {
+      "id": "graph",
+      "nodeId": "neo4j",
+      "title": "그래프 (Graph)",
+      "body": "두 대상을 선으로 연결합니다. 예: Technology → USES → Technology. 이는 설명용 구조이지 검증된 제품 사실이 아닙니다."
+    },
+    {
+      "id": "rules",
+      "nodeId": "ontology",
+      "title": "온톨로지 (Ontology)",
+      "body": "어떤 연결이 허용되는지 정합니다. Technology USES Technology는 허용하지만 Document USES Person은 거부합니다."
+    }
+  ],
+  "reviewedPeerDigest": "179d07640f0b3a7c980aef7c779061c582758fd2eaaecab01d169980dd996a7f"
+}

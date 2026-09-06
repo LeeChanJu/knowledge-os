@@ -1,0 +1,73 @@
+{
+  "id": "document-changes",
+  "title": "문서가 바뀌면",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "변경 하나를 원본부터 근거와 결과까지 따라가 봅니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "단계를 순서대로 읽어 보세요. 각 단계의 책임은 다르며 화살표가 모든 단계의 자동 실행을 뜻하지는 않습니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "교육용 상황: 열람 권한이 있는 Drive 문서에 “Joule Studio는 SAP에서 AI Agent를 개발하기 위한 환경이다”라고 적혀 있습니다. 이 문장은 예시 원문이며 사이트가 검증한 사실이 아닙니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "아래 흐름을 따라가며 각 단계를 열어 아키텍처를 확인하세요."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "식별·이력·권한을 보존해야 나중의 설명을 추적할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "확인된 스냅샷을 설명하는 안내이며 실행한 통합 테스트가 아닙니다. 미해결 항목과 유보된 제공자의 한계가 그대로 적용됩니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [
+    {
+      "id": "before",
+      "nodeId": "version",
+      "title": "1번 버전 유지",
+      "body": "기존 진술은 원래 근거 연결을 유지합니다."
+    },
+    {
+      "id": "observe",
+      "nodeId": "connectors",
+      "title": "새 상태 관찰",
+      "body": "실제 원본 개정으로 새로운 관찰을 구분합니다."
+    },
+    {
+      "id": "after",
+      "nodeId": "version",
+      "title": "2번 버전 생성",
+      "body": "새 내용이나 메타데이터가 1번 버전을 조용히 덮어쓰면 안 됩니다."
+    },
+    {
+      "id": "active",
+      "nodeId": "chunk",
+      "title": "현재 근거 사용",
+      "body": "이력을 보존하면서 현재 읽기에는 최신 권한을 적용합니다."
+    }
+  ],
+  "reviewedPeerDigest": "6b18fdd42d4f951c62b646a03c7aafbdf7c1e00057b6d0e448743c5009983d2f"
+}

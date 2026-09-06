@@ -1,3 +1,4 @@
+import { t } from "./i18n";
 import { useEffect, useRef } from "react";
 import cytoscape from "cytoscape";
 import type { ArchitectureNode, Edge } from "./model";
@@ -288,7 +289,9 @@ export default function Graph({
       ref={container}
       className="graph-canvas"
       role="application"
-      aria-label="Architecture graph. Drag to pan, scroll to zoom. Use the node list for keyboard selection."
+      aria-label={t(
+        "Architecture graph. Drag to pan, scroll to zoom. Use the node list for keyboard selection.",
+      )}
     />
   );
 }

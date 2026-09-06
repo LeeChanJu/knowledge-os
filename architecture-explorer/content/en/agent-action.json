@@ -1,0 +1,73 @@
+{
+  "id": "agent-action",
+  "title": "An agent wants to change something",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Follow one change from its origin to its evidence and outcome."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read the steps in order. Each stage has a different responsibility; arrows do not mean every stage runs automatically."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Teaching scenario: an authorized Drive document contains “Joule Studio is an environment for developing AI agents at SAP.” The sentence is illustrative source text, not a fact verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Follow the diagram below and open a stage to inspect its architecture."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Preserving identity, history and authorization makes later explanations traceable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This is a guided explanation of the checked snapshot, not an executed integration test. Open findings and deferred providers still apply."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "request",
+      "nodeId": "mcp",
+      "title": "Propose an Action",
+      "body": "A tool may submit a governed request, not execute it."
+    },
+    {
+      "id": "review",
+      "nodeId": "action",
+      "title": "Policy and review",
+      "body": "The designated reviewer decides within the policy snapshot."
+    },
+    {
+      "id": "claim",
+      "nodeId": "action",
+      "title": "Authorized execution claim",
+      "body": "A designated executor must claim the approved Action before provider access."
+    },
+    {
+      "id": "external",
+      "nodeId": "systems",
+      "title": "System-of-Record adapter",
+      "body": "Only an independently authorized adapter performs the external operation and records the outcome."
+    }
+  ],
+  "reviewedPeerDigest": "c2987c614f1be95234838e33ff2610f7b63493f6756e13a330007f5730bef6d8"
+}

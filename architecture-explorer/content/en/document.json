@@ -1,0 +1,48 @@
+{
+  "id": "document",
+  "title": "Document",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The stable identity of one source document across its versions."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Your notebook remains the same notebook even after you edit a page."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Renaming a Drive file does not necessarily mean it is a different document."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Source-scoped external identity identifies the Document; CURRENT_VERSION points to its current snapshot."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable identity connects updates and deletion observations to one history."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Document identity is not the same as content hash. Metadata and permissions participate in versioning."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "3ae41b5ce7c0fff572439233f76a691913da41fc600a299eb9268ec1321c1b75"
+}

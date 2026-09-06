@@ -221,7 +221,7 @@ test("staged check sees old generated metadata despite synchronized working tree
   stageCommit();
   alterJson(
     curated,
-    (m) => (m.nodes[0].description += " Clarified curated boundary."),
+    (m) => (m.nodes[0].position.x += 10),
   );
   git("add", curated);
   run("sync", root);
@@ -271,7 +271,7 @@ test("direct Vite build rejects stale generated metadata", () => {
           stdio: "pipe",
           env: {
             ...process.env,
-            PYTHON: execFileSync(
+            PYTHON: process.env.PYTHON || execFileSync(
               "python3",
               ["-c", "import sys;print(sys.executable)"],
               { encoding: "utf8" },

@@ -1,0 +1,48 @@
+{
+  "id": "action",
+  "title": "실행 요청 (Action)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "원본 시스템의 어댑터를 통해 무언가를 변경하려는 관리 대상 요청입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "변경을 제안할 권한과 승인하거나 실행할 권한은 다릅니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "에이전트가 Notion 페이지 생성을 요청해도 지정된 검토자와 실행자는 별도 역할을 맡습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Action에는 정책·주체 스냅샷, 승인, 실행 전 점유, 실행 근거를 보존합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "지식에 접근할 수 있다고 외부 기록을 변경할 권한까지 생겨서는 안 됩니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "승인된 Action도 권한 있는 어댑터가 수행하기 전에는 미실행 상태입니다. 멱등성을 무시하는 외부 API에 정확히 한 번 실행을 보장하지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "67f6fc9c4e1a9b857d25a701bbe07199dca9ac89167a63c7895a23dba4486d78"
+}

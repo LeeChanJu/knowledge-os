@@ -1,0 +1,48 @@
+{
+  "id": "embedding",
+  "title": "Embedding",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A numeric representation used to compare text by similarity."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Imagine placing sentences on a map where related meanings tend to be nearby. The map is imperfect."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "“Agent development environment” may be near related wording even without identical keywords."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "An authorized adapter can annotate eligible current chunks with a vector and explicit model/version metadata."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Similarity can complement exact word matching, especially when wording differs."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Production population remains inactive in this snapshot. Exact embedding retries are idempotent; changing a stored payload requires an explicit versioned contract."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "0674fd5bab8ff0e274a803a261327bf96ef587ae0efb20d8d917076a2b8407ca"
+}

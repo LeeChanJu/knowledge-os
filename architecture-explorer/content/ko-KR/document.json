@@ -1,0 +1,48 @@
+{
+  "id": "document",
+  "title": "문서 (Document)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "여러 버전에 걸쳐 같은 원본 문서를 가리키는 안정된 식별입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "페이지를 고쳐도 노트 자체는 같은 노트인 것과 비슷합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "Drive 파일의 이름을 바꿨다고 반드시 다른 문서가 되는 것은 아닙니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "원본 범위 안의 외부 식별자로 Document를 구분하고 CURRENT_VERSION으로 현재 스냅샷을 가리킵니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "안정된 식별자가 있어야 갱신과 삭제 관찰을 하나의 이력으로 연결할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "문서 식별과 내용 해시는 다릅니다. 메타데이터와 권한도 버전 관리에 참여합니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "9881e2204c962766b508d559aeff2ed9b5f87b5943aad177e809516a2465c37a"
+}

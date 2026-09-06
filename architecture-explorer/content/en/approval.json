@@ -1,0 +1,48 @@
+{
+  "id": "approval",
+  "title": "Approval",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "An authorized recorded decision about a proposed change."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A reviewer signs off after checking the proposal and its evidence."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A reviewer checks the original passage before accepting the Joule Studio assertion."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Approval rechecks evidence lifecycle and access inside the graph transaction before promotion."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "The record explains who decided and prevents extraction from bypassing governance."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "F4 concerns reviewer-policy enforcement. An implemented access check is not proof that every intended policy restriction is enforced."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "e94b8f71989a4b373821f7ded3dffc8bf633f11a422bec1e9169d0203cca39b5"
+}

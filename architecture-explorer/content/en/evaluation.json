@@ -1,0 +1,48 @@
+{
+  "id": "evaluation",
+  "title": "Evaluation",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A recorded comparison between expected and observed behavior."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A test paper needs both questions and a scoring rule; a high score on one paper is not universal mastery."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Retrieval suites measure whether expected documents are found and how highly they rank."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Evaluation records use the existing retrieval contract and SQLite, scoped by workspace and access fingerprint."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Evidence should guide architectural changes and expose limits, not merely decorate a success claim."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "F7 concerns authorization evaluation exclusions. Historical PROVEN entries are not automatic current VERIFIED status."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "49e8ebc53aae4a625a5d2f9f1e55065c915f19fb3af9712df45ac4dfb23400ce"
+}

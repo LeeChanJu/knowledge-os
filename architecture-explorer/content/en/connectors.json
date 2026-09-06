@@ -1,0 +1,48 @@
+{
+  "id": "connectors",
+  "title": "Connectors",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Adapters that translate source observations into the ingestion contract."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Adapters that translate source observations into the ingestion contract. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Drive, Notion and files use the same manifest boundary."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Provider snapshots become manifest-v2 upserts and tombstones. Provider ACL limitations remain explicit."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Provider SDKs should not redefine the knowledge model."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "34a1603e704322b22b2e4b28eff9e6bdbd628cf49eaa7bd263891bbff364e4fe"
+}

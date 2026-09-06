@@ -1,0 +1,48 @@
+{
+  "id": "valid-from",
+  "title": "valid_from",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "When a statement starts to apply."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Ask a different clock question for validity, observation and recording."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A policy begins on January 1."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Temporal metadata is preserved with governed records rather than inferred from document ordering."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Distinguishing clocks prevents misleading historical answers."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The lower bound is included in as-of interval checks."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "3e16376d95abb3754b8d60b94afdfb77efb6509bc1812c2a06fe9a9442166fb4"
+}

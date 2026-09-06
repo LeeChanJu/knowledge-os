@@ -1,0 +1,48 @@
+{
+  "id": "knowledge-api",
+  "title": "지식 API (Knowledge API)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "범위가 정해진 지식·근거 작업을 제공하는 서비스 인터페이스입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "정해진 신청서가 있는 창구처럼 저장소에 무제한 접근하는 대신 특정 작업을 제공합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "호출자가 근거 묶음이나 권한이 허용하는 진술을 ID로 요청합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "REST가 안정 계약의 작업을 노출하고 어댑터가 인증된 접근 맥락을 구성합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "사용자는 그래프 저장 방식의 내부에 의존하지 않고 지식을 사용할 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "읽기에는 작업공간과 원본 기반 권한이 적용됩니다. 이 문서 사이트는 해당 엔드포인트를 호출하지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "70be85a32d420c82f425a7c6f6aeb54c817241d3fab100c520b9622d41fb8e43"
+}

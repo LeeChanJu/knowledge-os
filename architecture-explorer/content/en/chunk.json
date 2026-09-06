@@ -1,0 +1,48 @@
+{
+  "id": "chunk",
+  "title": "Chunk",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A bounded piece of document text used as addressable evidence."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Instead of pointing to an entire textbook, point to the relevant passage."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "The paragraph containing the Joule Studio description becomes a retrievable evidence unit."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Chunks belong to an immutable DocumentVersion and are generated under a versioned chunking contract."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Small evidence units make retrieval and citations more precise."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "F6 tracks hard chunk-bound correctness. A configured limit is not proof that every input obeys it."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "afa7a0d46e6e429c1bb5c51565c924e2fb24f4619e630fe3f33d0a70c0993727"
+}

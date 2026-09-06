@@ -1,0 +1,48 @@
+{
+  "id": "agent",
+  "title": "Agent",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A software consumer that can use tools while pursuing a task."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "An assistant can look up information before deciding what to say or request next."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An agent asks what Joule Studio is and receives authorized supporting evidence."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The repository exposes knowledge to agents through adapters; it does not make every consumer a built-in autonomous agent."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Separating consumers from contracts allows different agent frameworks to use the same context."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Agent requests cannot bypass policy, source authorization or human approval. A2A production integration remains deferred."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a3725d224a5904902b7d2c90a6140facf223a0cd4249296957b698ccd1faf091"
+}

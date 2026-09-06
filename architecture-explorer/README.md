@@ -77,7 +77,7 @@ F3–F8 remain open. F3's metadata-hash subcase overlaps the F1 correction, but 
 
 ### Synchronization and explicit reconciliation
 
-`npm run explorer:sync` reads authoritative inputs, validates the schema and references, and writes **only** `data/evidence.json` and `data/architecture.json`. It never edits curated states, closes findings, refreshes accepted verification fingerprints, runs production tests, or stages files. Stale verification blocks sync before either generated file is written.
+`npm run explorer:sync` reads authoritative inputs, validates the schema and references, and writes **only** `data/evidence.json`, `data/architecture.json` and `data/learning.json`. It never edits curated states, closes findings, refreshes accepted verification fingerprints, runs production tests, or stages files. Stale verification blocks sync before either generated file is written.
 
 `npm run explorer:check` independently computes the expected projection in memory and exits nonzero for stale/missing generated files, malformed schemas, broken file/symbol/test/heading/migration/contract references, unrepresented numbered findings, changed status authorities, new/changed evaluation evidence documents, or stale reviewed verification dependencies. It never writes files or uses timestamps as freshness evidence.
 
@@ -142,3 +142,68 @@ The existing workflow deploys **only `architecture-explorer/dist`** to [GitHub P
 This GitHub repository is a public snapshot mirror with its own Git history. Its source tree was confirmed identical to the local source tree before the Explorer was added. Historical correction IDs such as F1's `a2b36ea` and F2's `f3bcaa1` refer to the original source history; the public mirror need not contain those objects. Their curated `revisionScope` makes that provenance explicit. The check still requires the recorded remediation authority, executable references and exact accepted dependency fingerprints; a Git message or missing historical object does not supply proof. Repository-scoped revision claims continue to require a resolvable commit.
 
 Generated metadata is synchronized against the history of the checkout being published. The public evidence baseline can therefore differ from the local baseline while documenting identical source content. No local/private history is pushed to make the histories match.
+
+
+## Learn, Explore and Reference (bilingual documentation)
+
+The default entrance is a learning home, not the graph. Learn provides a ten-lesson path,
+77 paired English/Korean pages, six guided data journeys and architecture rationale.
+Explore retains the original map, one-hop expansion, filters, search and detail panel.
+Reference offers files, symbols, model fields, contracts, migrations, tests and scoped findings.
+The four implementation states remain unchanged. No new production verification was executed.
+
+Routes use `#/en/learn/ontology`, `#/ko-KR/explore/node/ontology` and
+`#/en/reference/item/<encoded-reference-id>`. Old `#/overview` and `#/node/...` links remain
+supported. Language switching preserves the current page/node; browser back/forward, persisted
+language/theme choices, keyboard-readable node lists and contextual definitions are supported.
+Technical identifiers, source code, signatures, protocol names and status IDs retain their canonical
+spelling. Korean descriptions explain them rather than translating executable identifiers.
+
+### Content ownership and authoring
+
+- `content/manifest.json`: stable page IDs, categories, section/step identities, learning sequence,
+  related pages, architecture references, source references and verification claim references.
+- `content/en/*.json`, `content/ko-KR/*.json`: human-authored explanations in eight stable sections.
+  The first five sections are visible; technical details and implementation references are collapsible.
+- `content/schema.json`: JSON Schema for educational pages; no executable MDX or repository-analysis framework.
+- `content/locales/*.json`: paired UI strings, labels and relationship vocabulary.
+- `content/architecture/*.json`: full paired architecture explanations and claim prose, independently
+  reviewed against curated architecture/verification. These files do not own verification states.
+- `content/github.json`: public repository revision and validated file/reference fingerprints.
+- `data/learning.json`: deterministic generated projection, never an authoring surface.
+
+To edit a concept, update the relevant paired pages while preserving the shared section IDs and
+references. Review the other language for the same meaning. Each page's `reviewedPeerDigest` is
+SHA-256 of its peer's recursively key-sorted JSON payload, excluding `reviewedPeerDigest` itself
+(UTF-8, no whitespace; `digest` in `scripts/check-content.mjs`). Only after reviewing, explicitly
+record that digest. Architecture, claim and UI translations have explicit reviewed content digests in
+`content/architecture/review.json`. There is deliberately no auto-translation or auto-approval command.
+`explorer:sync` and `explorer:check` cannot update any review digest, curated text or verification state.
+
+Checks reject missing/extra language pages, unmatched sections or diagram steps, broken localized
+routes, removed node/test/claim references, stale peer review, missing UI keys, changed architecture
+source text and stale GitHub fingerprints. Exact source symbols continue through the existing AST
+reference validator. These checks identify structure and reviewed changes; they cannot prove semantic
+translation quality or that a human actually reviewed a digest. Review prose when its architectural
+meaning changes; comments and line movements alone do not require translated prose changes.
+
+### Public evidence and later remediation
+
+Implementation links point at the public snapshot revision in `content/github.json`, never an
+unpublished local Git SHA. Its files are checked against Git objects and its reference fingerprints
+against the generated repository model. Separate links explicitly navigate to `main`. No line anchors
+are guessed: exact qualified symbols are shown beside revision-pinned file links.
+
+This documentation extension was developed from `6ed9680`, whose production evidence matches the
+published `5275071` snapshot. The separate local temporal remediation commit `7fd0353` is not included
+or reverified. Its changed verified dependencies correctly block synchronization in that newer checkout
+until explicit reconciliation. Neither this task nor synchronization closes later findings or silently
+refreshes F1/F2 proof. Preserve this distinction when integrating the documentation with newer code.
+
+### Validation
+
+`npm test` includes translation, route, reference, determinism and mutation fixtures.
+`npm run test:browser` exercises the existing graph plus both languages of every page, theme and
+language persistence, search, empty states, contextual definitions, GitHub link targets, reference
+filters and document/graph navigation. `EXPLORER_PORT=5174 npm run test:browser` supports an isolated
+local test server when 5173 is occupied. No production service is required or contacted.

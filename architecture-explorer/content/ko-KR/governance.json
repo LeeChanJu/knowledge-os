@@ -1,0 +1,48 @@
+{
+  "id": "governance",
+  "title": "지식 관리 절차 (Governance)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "어떤 변경을 받아들일지 통제하는 규칙과 결정 기록입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "공동 노트에는 중요한 결론을 추가하거나 정정하는 규칙이 필요합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "새 진술은 권한 있는 검토 경로에서 받아들일 때까지 제안으로 남습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Proposal → 검증 → 승인/거절로 후보와 정식 지식을 분리합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "근거, 접근 경계, 결정 이력을 보호하기 위해 필요합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "Action 실행에는 별도의 권한 있는 어댑터 경계가 있습니다. 승인만으로 외부 시스템이 변경되지는 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "1ba097ed63df82f9458cb9b2a7d057a6b0a79ae1e97191cee95247151bdda627"
+}

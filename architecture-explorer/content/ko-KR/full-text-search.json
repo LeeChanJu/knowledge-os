@@ -1,0 +1,48 @@
+{
+  "id": "full-text-search",
+  "title": "전문 검색 (Full-text Search)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "내용에서 색인한 단어로 텍스트를 찾는 검색입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "책의 찾아보기처럼 특정 용어가 나오는 부분을 찾도록 돕습니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "“Joule Studio”를 검색하면 해당 단어가 들어 있는 부분을 찾을 수 있습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Neo4j 전문 검색 후보에 권한 필터와 기존 검색 경로의 순위 처리를 적용합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "정확한 이름이나 특징적인 단어는 유용한 검색 신호가 됩니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "사용자 입력은 임의의 Lucene 문법이 아니라 단어로 취급합니다. 키워드 순위에는 제목 신호와 초기 문서 다양성도 반영합니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a42f119ec984e458c9f70841c2bd64c0f7cb4e059b07f22fecea5914fdde1853"
+}

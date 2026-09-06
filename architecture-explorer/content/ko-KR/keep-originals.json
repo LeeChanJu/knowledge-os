@@ -1,0 +1,48 @@
+{
+  "id": "keep-originals",
+  "title": "왜 Drive가 원본으로 남나요?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "Knowledge OS는 맥락을 파생합니다. 원본 시스템의 권위를 유지하면 소유 책임을 보존하고 경쟁하는 업무 원장을 만들지 않을 수 있습니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "기술을 고르기 전에 책임과 근거부터 살펴보세요."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "연결된 문서 여정에서 이 경계가 어떻게 작동하는지 확인하세요."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Knowledge OS는 맥락을 파생합니다. 원본 시스템의 권위를 유지하면 소유 책임을 보존하고 경쟁하는 업무 원장을 만들지 않을 수 있습니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "안정된 경계는 계보를 보호하고 불필요한 인프라를 줄입니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "승인된 ADR이 기준입니다. ADR에 추가 이유가 없다면 이 페이지도 더 나아간 주장을 하지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "5984955d2162db5f352ee91b0465eb9de90b12c6c684ee5ab713efcd3c9af62a"
+}

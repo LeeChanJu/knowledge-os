@@ -1,0 +1,48 @@
+{
+  "id": "verification",
+  "title": "Verification status",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A scoped statement about implementation evidence, not a product-completion badge."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A scoped statement about implementation evidence, not a product-completion badge. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A corrected hash defect does not prove every ingestion behavior."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "VERIFIED: accepted scoped evidence. IMPLEMENTED: code exists without sufficient executed proof. KNOWN ISSUE: an open finding or acceptance gate. DEFERRED: deliberately inactive."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Readers must distinguish evidence from implementation presence."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "ec9ed6b59c74f9880474912a5385bb69933a7fa72b0b3a0a1f3ce7804720cba5"
+}

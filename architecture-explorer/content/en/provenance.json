@@ -1,0 +1,48 @@
+{
+  "id": "provenance",
+  "title": "Provenance",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The trace of where information came from and how it reached this record."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A quotation needs a book, edition and page—not just the author’s name."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An answer points to a chunk, its document version, the document and the original source."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "The Source → Document → DocumentVersion → Chunk → Assertion lineage is preserved."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Without lineage, a changed or deleted original makes old answers difficult to explain."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Historical authorization snapshots are evidence of past context, not permanent access grants. Reads check current authorization."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "c733dd200e3efdf4956803f4afa0bb932f3ae1418c7f68de92c7f33842465780"
+}

@@ -40,12 +40,21 @@ export function visibleEdges(edges, nodes, expanded) {
   );
 }
 export function nodeHash(id) {
-  return id ? "#/node/" + encodeURIComponent(id) : "#/overview";
+  const match =
+    typeof location !== "undefined" &&
+    location.hash.match(/^#\/(en|ko-KR)(?:\/|$)/);
+  const prefix = match ? "#/" + match[1] + "/explore" : "#";
+  return id
+    ? prefix + "/node/" + encodeURIComponent(id)
+    : match
+      ? prefix
+      : "#/overview";
 }
 export function fromHash(hash) {
-  if (!hash.startsWith("#/node/")) return null;
+  const match = hash.match(/^#\/(?:(?:en|ko-KR)\/explore\/)?node\/(.+)$/);
+  if (!match) return null;
   try {
-    return decodeURIComponent(hash.slice(7));
+    return decodeURIComponent(match[1]);
   } catch {
     return null;
   }

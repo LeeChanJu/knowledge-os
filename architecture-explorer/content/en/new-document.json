@@ -1,0 +1,127 @@
+{
+  "id": "new-document",
+  "title": "A new Drive document",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Follow one change from its origin to its evidence and outcome."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read the steps in order. Each stage has a different responsibility; arrows do not mean every stage runs automatically."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Teaching scenario: an authorized Drive document contains “Joule Studio is an environment for developing AI agents at SAP.” The sentence is illustrative source text, not a fact verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Follow the diagram below and open a stage to inspect its architecture."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Preserving identity, history and authorization makes later explanations traceable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This is a guided explanation of the checked snapshot, not an executed integration test. Open findings and deferred providers still apply."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "original",
+      "nodeId": "systems",
+      "title": "Original source",
+      "body": "Drive retains the original. This example is illustrative, not a live provider run."
+    },
+    {
+      "id": "observe",
+      "nodeId": "drive",
+      "title": "Observe and translate",
+      "body": "The connector reads an authorized folder snapshot and prepares a manifest."
+    },
+    {
+      "id": "source",
+      "nodeId": "source",
+      "title": "Bind the source",
+      "body": "The source has a stable identity and connector binding."
+    },
+    {
+      "id": "document",
+      "nodeId": "document",
+      "title": "Identify the document",
+      "body": "The external file identity becomes a stable Document identity."
+    },
+    {
+      "id": "version",
+      "nodeId": "version",
+      "title": "Preserve this version",
+      "body": "Content, metadata and authorization belong to a preserved snapshot."
+    },
+    {
+      "id": "parse",
+      "nodeId": "parsing",
+      "title": "Parse and chunk",
+      "body": "Supported text is parsed and deterministically split; F6 remains open."
+    },
+    {
+      "id": "chunk",
+      "nodeId": "chunk",
+      "title": "Keep exact evidence",
+      "body": "Each chunk points to its immutable version."
+    },
+    {
+      "id": "extract",
+      "nodeId": "extraction",
+      "title": "Suggest knowledge",
+      "body": "A separate producer may use versioned prompts. Automated extraction is deferred."
+    },
+    {
+      "id": "proposal",
+      "nodeId": "proposal",
+      "title": "Submit a proposal",
+      "body": "The candidate and its evidence enter review, not canonical truth."
+    },
+    {
+      "id": "approve",
+      "nodeId": "approval",
+      "title": "Validate and approve",
+      "body": "An authorized review checks evidence and ontology; open F4/F5 limits remain."
+    },
+    {
+      "id": "canonical",
+      "nodeId": "assertion",
+      "title": "Store governed knowledge",
+      "body": "Entities and assertions retain evidence lineage in Neo4j."
+    },
+    {
+      "id": "retrieve",
+      "nodeId": "keyword",
+      "title": "Find supporting context",
+      "body": "Keyword/semantic retrieval and separate graph reads serve authorized consumers."
+    },
+    {
+      "id": "consume",
+      "nodeId": "mcp",
+      "title": "Use the evidence",
+      "body": "API/MCP deliver context. A consuming human or agent interprets it; answer generation is external."
+    }
+  ],
+  "reviewedPeerDigest": "4e6e1e699054293e1a7d774097f387fe984cd57b8e4da36501e24bbb0c9e0ead"
+}

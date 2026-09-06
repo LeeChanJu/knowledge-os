@@ -1,0 +1,48 @@
+{
+  "id": "evidence",
+  "title": "Evidence",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Source material that supports a statement or answer."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "An answer is easier to trust when you can inspect the paragraph it relied on."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "The exact chunk containing the illustrative Joule Studio sentence is supporting evidence."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Evidence bundles resolve exact chunk IDs with immutable version and source provenance, subject to current access checks."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Evidence lets a reader check an answer instead of trusting fluent text alone."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "A mixed-access evidence bundle fails closed when any requested chunk cannot be returned."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "e78e3f64eec13600fc586b398850476907a46973596276caefa5d860a2aa1a47"
+}

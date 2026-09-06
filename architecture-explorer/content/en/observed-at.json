@@ -1,0 +1,48 @@
+{
+  "id": "observed-at",
+  "title": "observed_at",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "When information was observed."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Ask a different clock question for validity, observation and recording."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A January policy is noticed during a February import."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Temporal metadata is preserved with governed records rather than inferred from document ordering."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Distinguishing clocks prevents misleading historical answers."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Observation is distinct from real-world validity and database recording time."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "962c2359934681ad6ce8af07eb957714cdfd5ad7462ed11800e70eca6fce4d53"
+}

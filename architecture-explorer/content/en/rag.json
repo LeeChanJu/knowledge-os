@@ -1,0 +1,48 @@
+{
+  "id": "rag",
+  "title": "RAG",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Providing retrieved evidence to a model before it generates an answer."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "An open-book answer can consult a passage instead of relying only on memory."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A model receives authorized Joule Studio passages before drafting an explanation."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Knowledge OS supplies retrieval and evidence contracts; a consuming agent or model produces the answer."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Retrieval makes relevant source context available, but cannot guarantee a correct generated answer."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Do not confuse retrieval traces with execution of an answer-generation service in this repository."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "72ccbf7db94b4aeaf9807aef99a24d6d90889d1ca5383ce6a02cb326aed2f01f"
+}

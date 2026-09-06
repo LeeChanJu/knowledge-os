@@ -1,0 +1,48 @@
+{
+  "id": "start-here",
+  "title": "01. Knowledge OS가 왜 필요한가",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "정보를 의미와 근거에 연결하고, 지식으로 받아들이는 절차를 관리하는 시스템입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "어떤 결론을 적었는지뿐 아니라 그 결론의 근거가 책 몇 쪽에 있는지도 알려 주는 학습 노트를 떠올려 보세요. 원본 책은 여전히 중요합니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "팀이 자신에게 열람 권한이 있는 문서와 검토한 지식을 바탕으로 “Joule Studio가 무엇인가요?”에 답하려 합니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "원본 시스템의 권위를 유지합니다. Neo4j에는 연결된 근거와 승인된 지식을, SQLite에는 운영 기록을 보관합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "문장을 찾는 것만으로는 부족합니다. 어디서 왔는지, 언제 바뀌었는지, 누가 읽을 수 있는지도 알아야 합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "Source, Evidence, Knowledge, Governance, Retrieval, Action의 여섯 계약으로 경계를 나눕니다. 이 문서 사이트 자체가 운영 시스템은 아닙니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "fc75cc27afb62a568a39eb10cb3f79544f40baeac28071620e098e7e285029c8"
+}

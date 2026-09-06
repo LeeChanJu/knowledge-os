@@ -1,0 +1,48 @@
+{
+  "id": "sqlite",
+  "title": "SQLite Operations",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Local storage for operational records rather than canonical knowledge."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Local storage for operational records rather than canonical knowledge. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A retrieval trace and feedback record live outside the semantic graph."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "SQLite owns local audit, telemetry, errors, feedback and evaluations under the ADR."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "This keeps operational bookkeeping separate without adding another knowledge database."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "1c78bba97edfdb4f14e0391e730155f669ed48afba941f24a48352baaa376745"
+}

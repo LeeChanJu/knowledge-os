@@ -1,3 +1,4 @@
+import { checkContent } from "./check-content.mjs";
 import {
   readFileSync,
   writeFileSync,
@@ -515,7 +516,8 @@ export function generate(root = defaultRoot) {
     verification: verification.claims,
   };
   validateSchema(root, architecture, "architecture");
-  return { evidence, architecture };
+  const learning = checkContent(root, architecture);
+  return { evidence, architecture, learning };
 }
 export function run(mode = "check", root = defaultRoot) {
   if (!["check", "sync"].includes(mode)) throw Error(`Unknown command ${mode}`);

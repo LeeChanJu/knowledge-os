@@ -1,0 +1,48 @@
+{
+  "id": "knowledge-api",
+  "title": "Knowledge API",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "The service interface for bounded knowledge and evidence operations."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Like a counter with defined request forms, it offers specific operations instead of unrestricted storage access."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A caller requests an evidence bundle or an authorized assertion by ID."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "REST exposes stable contract operations; adapters derive authenticated access context."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Consumers can use knowledge without depending on graph storage internals."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Workspace and source-derived authorization apply to reads. This documentation site calls none of these endpoints."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a7ade728a73e62d4b3ce6dfb44e7ffc85544fa9a67ff07d84b09e76175427a7d"
+}

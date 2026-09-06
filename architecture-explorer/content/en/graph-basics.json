@@ -1,0 +1,48 @@
+{
+  "id": "graph-basics",
+  "title": "Read a knowledge graph",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A representation of things and the connections between them."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Think of people and places on a map, with labeled lines explaining how they relate."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Joule Studio and SAP can be represented as distinct entities connected through an evidence-backed assertion."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Neo4j stores entities alongside document lineage, assertions and governed records."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Connections support questions that a list of isolated paragraphs cannot directly express."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The Explorer graph is a documentation map; its nodes and edges are not the runtime ontology."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "818434012e3fba4ed7e3245f85b36889a5d398b38b0e871c50c5883b47af38d6"
+}

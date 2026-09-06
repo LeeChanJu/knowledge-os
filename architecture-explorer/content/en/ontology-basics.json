@@ -1,0 +1,67 @@
+{
+  "id": "ontology-basics",
+  "title": "Understand ontology",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Rules defining what kinds of things and relationships the model allows."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Data is what you write down. A graph connects it. An ontology defines what those connections mean and which combinations are allowed."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "In this repository, Technology USES Technology is allowed, while Document USES Person is not. Joule Studio and SAP BTP are illustrative names, not claims verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Ontology.load reads config/ontology.yaml. Ontology.validate checks subject type, and for entity objects checks object type, predicate and allowed endpoints."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "A graph can store a connection even when it makes no sense. Rules help reject invalid combinations before promotion."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The current validator returns early for scalar values. F5 records the unresolved predicate-validation gap. RUNS_ON and Platform are not registered in ontology 1.0.0."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "data",
+      "nodeId": "entity",
+      "title": "Data",
+      "body": "Record the name Joule Studio. A name alone does not describe a connection or an allowed rule."
+    },
+    {
+      "id": "graph",
+      "nodeId": "neo4j",
+      "title": "Graph",
+      "body": "Connect two things: Technology → USES → Technology. This illustrates structure, not a verified product fact."
+    },
+    {
+      "id": "rules",
+      "nodeId": "ontology",
+      "title": "Ontology",
+      "body": "Define allowed connections: Technology USES Technology is allowed; Document USES Person is rejected."
+    }
+  ],
+  "reviewedPeerDigest": "02d44ff0601fc0ae61b64d725c54500ec44abd1ebe5fc11fa74b9b71c4b828c0"
+}

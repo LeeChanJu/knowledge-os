@@ -1,0 +1,48 @@
+{
+  "id": "proposal",
+  "title": "Proposal",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A candidate knowledge change waiting for governed review."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A draft correction is not the same as an accepted correction."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "An extraction suggests a new relationship and attaches the chunks supporting it."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Proposal creation binds payload identity and evidence; approval or rejection records an immutable outcome."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "An AI suggestion must not silently become canonical truth."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Exact payload retries resolve to the same lifecycle record. Evidence must belong to the workspace and be currently authorized."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "13efb297b193ccf30724a68d0ffd2be53e76db1b3f9b172ef893240660f3ddcf"
+}

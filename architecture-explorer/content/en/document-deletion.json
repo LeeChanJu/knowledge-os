@@ -1,0 +1,73 @@
+{
+  "id": "document-deletion",
+  "title": "The document disappears",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Follow one change from its origin to its evidence and outcome."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read the steps in order. Each stage has a different responsibility; arrows do not mean every stage runs automatically."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Teaching scenario: an authorized Drive document contains “Joule Studio is an environment for developing AI agents at SAP.” The sentence is illustrative source text, not a fact verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Follow the diagram below and open a stage to inspect its architecture."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Preserving identity, history and authorization makes later explanations traceable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This is a guided explanation of the checked snapshot, not an executed integration test. Open findings and deferred providers still apply."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "missing",
+      "nodeId": "drive",
+      "title": "Observe absence",
+      "body": "A completed source snapshot identifies the missing file."
+    },
+    {
+      "id": "tombstone",
+      "nodeId": "ingestion",
+      "title": "Record a tombstone",
+      "body": "A tombstone records deletion; it does not erase historical content."
+    },
+    {
+      "id": "inactive",
+      "nodeId": "chunk",
+      "title": "Deactivate current evidence",
+      "body": "Current chunks become inactive and dependent evidence is marked deleted."
+    },
+    {
+      "id": "retry",
+      "nodeId": "F2",
+      "title": "Replay deterministically",
+      "body": "The same observation must replay unchanged, without inventing a new deletion event each time. That is F2’s narrow correction scope."
+    }
+  ],
+  "reviewedPeerDigest": "badbc93b83ebd5b643f7e4a967789207955ba8e4d408f7d0745df1347ac98527"
+}

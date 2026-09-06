@@ -1,0 +1,48 @@
+{
+  "id": "vector-search",
+  "title": "벡터 검색 (Vector Search)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "숫자 표현 사이의 거리를 이용해 찾는 검색입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "정확히 같은 단어만 찾는 대신 가까운 의미를 찾습니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "질문과 문서 조각을 호환되는 임베딩으로 만들면 서로 비교할 수 있습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "벡터 인덱스는 Neo4j 안에 있으며 외부 벡터 데이터베이스를 따로 두지 않습니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "단어가 많이 겹치지 않을 때 추가 검색 신호를 제공합니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "인덱스 지원이 운영 벡터 채우기나 검색 품질 검증을 뜻하지는 않습니다. 모델 호환성과 현재 권한도 중요합니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a2fb3c254a98b96848e94ac511b41c39f1163c2e171f616c08656ec927488bb2"
+}

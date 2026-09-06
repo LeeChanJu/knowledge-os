@@ -1,0 +1,48 @@
+{
+  "id": "mcp",
+  "title": "모델 컨텍스트 프로토콜 (MCP)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "AI 호스트가 공개된 도구를 호출하는 데 사용하는 어댑터 프로토콜입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "어시스턴트와 도구를 잇는 연결 장치이지 데이터베이스의 규칙 자체는 아닙니다."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "에이전트가 지식 도구를 호출해 권한이 허용하는 근거를 가져옵니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "stdio 어댑터는 호스트가 정한 작업공간과 주체로 서비스 계약을 제공합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "MCP를 교체 가능하게 두면 특정 AI 프로토콜이 지식의 핵심 의미를 결정하지 않게 됩니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "어댑터는 관리 절차를 따르는 요청을 제출할 수 있지만 Action을 승인하거나 실행할 수는 없습니다. 임의의 Cypher도 제공하지 않습니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "495cff9d18ff2f2dd9b26eb993a1dced654a40985a16a7bbd5f9a57b749cab20"
+}

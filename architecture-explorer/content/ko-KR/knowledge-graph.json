@@ -1,0 +1,48 @@
+{
+  "id": "knowledge-graph",
+  "title": "지식 그래프 (Knowledge Graph)",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "한 줄 설명",
+      "body": "대상과 그 사이의 연결을 표현하는 방식입니다."
+    },
+    {
+      "id": "plain-language",
+      "title": "쉽게 설명하면",
+      "body": "지도에 사람과 장소를 표시하고, 선에 관계를 적었다고 생각해 보세요."
+    },
+    {
+      "id": "example",
+      "title": "실제 예시",
+      "body": "Joule Studio와 SAP를 별개 대상으로 표현하고, 근거를 가진 진술을 통해 연결할 수 있습니다."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "Knowledge OS에서는",
+      "body": "Neo4j에 엔터티뿐 아니라 문서 계보, 진술, 승인된 기록도 저장합니다."
+    },
+    {
+      "id": "why",
+      "title": "왜 필요한가",
+      "body": "연결을 이용하면 문단 목록만으로 표현하기 어려운 질문을 다룰 수 있습니다."
+    },
+    {
+      "id": "related",
+      "title": "다른 개념과의 관계",
+      "body": "다음 개념을 함께 읽으면 이해가 이어집니다."
+    },
+    {
+      "id": "technical",
+      "title": "기술적으로는",
+      "body": "Explorer 그래프는 문서용 지도입니다. 여기의 노드와 선이 운영 온톨로지인 것은 아닙니다."
+    },
+    {
+      "id": "implementation",
+      "title": "실제 구현 위치",
+      "body": "아래에서 확인된 구현·테스트·계약·마이그레이션을 열 수 있습니다. 링크는 근거 위치를 가리키며 새로운 검증을 뜻하지 않습니다."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "a8d1493ffc8786859bc59b360df450bc9d1cc854b14091008cc3e3d5eeb51657"
+}

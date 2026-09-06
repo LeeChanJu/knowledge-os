@@ -1,0 +1,48 @@
+{
+  "id": "entity",
+  "title": "Entity",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "An identifiable thing the system can talk about."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "A person, tool or organization is a thing; what someone says about it is a separate statement."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "SAP can be an Organization; Joule Studio can be a Technology in an illustrative proposal."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Canonical entities are created or reused when governed assertions are approved."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Stable identity lets multiple statements refer to the same thing."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Identity uses workspace, type and normalized name. This is not fuzzy matching or a general entity-resolution service."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "fc26ec9866760f383b63122c1a87c288f4036e33ad2cd6f91d234244db1babd7"
+}

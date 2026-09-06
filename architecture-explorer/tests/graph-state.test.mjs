@@ -77,3 +77,10 @@ test('curated graph preserves evidence lineage and separate governance promotion
     assert.ok(model.edges.some(e=>e.source===source&&e.target===target&&e.label===label),`${source} → ${target}: ${label}`);
   }
 });
+
+test('localized node routes preserve exact identifiers and reject malformed escapes',()=>{
+ assert.equal(fromHash('#/ko-KR/explore/node/ref%3Asrc%2Fknowledge_os%2Fontology.py%3A%3AOntology.validate'),'ref:src/knowledge_os/ontology.py::Ontology.validate');
+ assert.equal(fromHash('#/en/explore/node/ontology'),'ontology');
+ assert.equal(fromHash('#/ko-KR/explore/node/%XX'),null);
+ assert.equal(fromHash('#/en/learn/ontology'),null);
+});

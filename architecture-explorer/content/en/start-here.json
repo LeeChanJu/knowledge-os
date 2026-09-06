@@ -1,0 +1,48 @@
+{
+  "id": "start-here",
+  "title": "Why Knowledge OS?",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "A governed system that connects information to its meaning and evidence."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Imagine a study notebook that can tell you which page supports each conclusion. The original books still matter."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A team wants to answer “What is Joule Studio?” using its own approved, accessible documents."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Source systems retain authority. Neo4j holds connected evidence and governed knowledge; SQLite holds operational records."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Finding text is insufficient when you also need its origin, history and permission boundaries."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Six stable contracts separate Source, Evidence, Knowledge, Governance, Retrieval and Action. This documentation is not the runtime system."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "c86b172048c17600f60052b84f75508c10b0293bce8e60bb53f52bab049995e8"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "resolution",
+  "title": "Entity Resolution",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Deciding whether a statement refers to an existing entity identity."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Deciding whether a statement refers to an existing entity identity. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Normalized forms of the same name within one type and workspace resolve consistently."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Current identity is workspace/type/name based. No fuzzy matching service or cross-customer merge is claimed."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Shared references need stable identity without merging unrelated customers."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "60c4911874f8a21e91e6f5efeb82f9a0efe1c7ebfd01c2b2eb88038471756b07"
+}

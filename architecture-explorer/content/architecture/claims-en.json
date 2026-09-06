@@ -1,0 +1,74 @@
+{
+  "F1": {
+    "title": "Immutable metadata hash integrity",
+    "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
+    "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F1 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
+    "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+    "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+    "resolutionRequired": ""
+  },
+  "F2": {
+    "title": "Deterministic deletion replay",
+    "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
+    "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F2 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
+    "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+    "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+    "resolutionRequired": ""
+  },
+  "F3": {
+    "title": "Doctor integrity coverage",
+    "scope": "Doctor must accept the current governance contract and detect corrupt metadata, missing constraints/indexes, and multi-node supersession cycles.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "The metadata-hash subcase overlaps the F1 correction. That does not establish that the complete F3 finding is resolved.",
+    "resolutionRequired": "Execute and reconcile all F3 cases against isolated real Neo4j, then record scoped acceptance."
+  },
+  "F4": {
+    "title": "Policy reviewer enforcement",
+    "scope": "The Notion executor must reject any reviewer other than the exact policy reviewer before acquiring a claim or contacting the provider.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Demonstrate zero claims and zero provider calls for unauthorized reviewers; run affected executor tests and record remediation acceptance."
+  },
+  "F5": {
+    "title": "Scalar predicate validation",
+    "scope": "Scalar-valued Assertion changes currently return before relation validation; an unregistered predicate must be rejected.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Prove rejection for scalar values, preserve valid typed relations, and record the corrected invariant."
+  },
+  "F6": {
+    "title": "Hard chunk bounds",
+    "scope": "Long unbroken or oversized paragraphs must honor chunk_size without losing evidence text.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Pass long ASCII, Korean and mixed-paragraph regressions without truncating source content and reconcile processing identity implications."
+  },
+  "F7": {
+    "title": "Authorization evaluation exclusions",
+    "scope": "Denied-result checks must inspect raw retrieval output before ignored-document exclusions can hide a leak.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Prove a leaked raw result fails the denial gate despite exclusions; run affected evaluation tests and record acceptance."
+  },
+  "F8": {
+    "title": "Graph / audit failure recovery",
+    "scope": "A committed graph mutation must not permanently lose its SQLite audit evidence or be reported as an unqualified failure when the operational store fails.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Use real Neo4j plus an injected operational-store outage to prove truthful commit outcomes and exactly one reconciled audit record on retry."
+  },
+  "release-gate": {
+    "title": "v0.1 release acceptance",
+    "scope": "v0.1 remains under correctness verification. Earlier operational evidence is not a completed current release gate.",
+    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "environment": "",
+    "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer.",
+    "resolutionRequired": "Resolve remaining findings through regression-driven remediation and explicitly execute the full release acceptance gate."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "valid-to",
+  "title": "valid_to",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "When a statement stops applying."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Ask a different clock question for validity, observation and recording."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A policy ending March 1 does not apply at the March 1 boundary."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Temporal metadata is preserved with governed records rather than inferred from document ordering."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Distinguishing clocks prevents misleading historical answers."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "The upper bound is excluded; absence may represent an open end under the model."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "729a66db6ddb1464e07d274a926dd2465c9eae5dbc12134733eb7a1622227bae"
+}

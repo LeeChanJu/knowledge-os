@@ -1,0 +1,48 @@
+{
+  "id": "chunking",
+  "title": "Chunking",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Splitting parsed text into addressable evidence pieces."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Splitting parsed text into addressable evidence pieces. It is one part of the larger document journey."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A long document becomes multiple ordered chunks."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Chunking is versioned and deterministic; F6 leaves hard-bound enforcement unresolved."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Repeatable processing avoids duplicate semantic state on retries."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Follow the exact repository references below. Their presence does not constitute a fresh execution result."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "b9db42d08377b3b6548b8421b9ba72f4c2e09286b2e9ea8a587da3bc48a205fb"
+}

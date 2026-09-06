@@ -1,0 +1,73 @@
+{
+  "id": "knowledge-changes",
+  "title": "Knowledge changes over time",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "Follow one change from its origin to its evidence and outcome."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Read the steps in order. Each stage has a different responsibility; arrows do not mean every stage runs automatically."
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "Teaching scenario: an authorized Drive document contains “Joule Studio is an environment for developing AI agents at SAP.” The sentence is illustrative source text, not a fact verified by this site."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Follow the diagram below and open a stage to inspect its architecture."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Preserving identity, history and authorization makes later explanations traceable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "This is a guided explanation of the checked snapshot, not an executed integration test. Open findings and deferred providers still apply."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [
+    {
+      "id": "old",
+      "nodeId": "assertion",
+      "title": "Assertion A",
+      "body": "An earlier statement has evidence and a validity interval."
+    },
+    {
+      "id": "propose",
+      "nodeId": "proposal",
+      "title": "Propose correction B",
+      "body": "The correction cites evidence and the record it supersedes."
+    },
+    {
+      "id": "review",
+      "nodeId": "approval",
+      "title": "Review the successor",
+      "body": "The governance path validates the correction target."
+    },
+    {
+      "id": "new",
+      "nodeId": "assertion",
+      "title": "Preserve A and B",
+      "body": "B supersedes A explicitly. Historical questions still need time and authorization checks."
+    }
+  ],
+  "reviewedPeerDigest": "003fb94d288344daf0c8b44ef5248ec2c33fe3977cc9334c4536dac4a4799723"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "entity-assertion",
+  "title": "Things and statements",
+  "sections": [
+    {
+      "id": "one-sentence",
+      "title": "One sentence",
+      "body": "An evidence-backed statement about a subject."
+    },
+    {
+      "id": "plain-language",
+      "title": "In plain language",
+      "body": "Separate “this is what the document says” from “this must be universally true.”"
+    },
+    {
+      "id": "example",
+      "title": "Concrete example",
+      "body": "A document says a tool is part of an ecosystem; an assertion records that statement and its supporting chunk."
+    },
+    {
+      "id": "in-knowledge-os",
+      "title": "In this Knowledge OS",
+      "body": "Candidate assertion changes enter a Proposal and become canonical only through the approval path."
+    },
+    {
+      "id": "why",
+      "title": "Why it exists",
+      "body": "Keeping statements separate allows evidence, validity and corrections to remain explainable."
+    },
+    {
+      "id": "related",
+      "title": "Related concepts",
+      "body": "Learn these connected concepts next."
+    },
+    {
+      "id": "technical",
+      "title": "Technical detail",
+      "body": "Assertions have source evidence and temporal bounds. Runtime knowledge status is different from the Explorer’s implementation verification status."
+    },
+    {
+      "id": "implementation",
+      "title": "Implementation",
+      "body": "Open the checked implementation, tests, contracts and migrations below. These links identify evidence, not new verification."
+    }
+  ],
+  "steps": [],
+  "reviewedPeerDigest": "8bd7a3163e03165a7b651c5876c093e281c0fe7449be64f32c7c0cdb5c893ff0"
+}
