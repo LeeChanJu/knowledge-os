@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+root=$(git rev-parse --show-toplevel)
+if [ ! -f "$root/architecture-explorer/scripts/check-staged.mjs" ]; then
+  echo 'Explorer hook remains configured but Explorer was removed. Disable core.hooksPath as documented.' >&2
+  exit 1
+fi
+node "$root/architecture-explorer/scripts/check-staged.mjs"

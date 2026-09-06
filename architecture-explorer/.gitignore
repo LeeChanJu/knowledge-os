@@ -1,0 +1,12 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+# The repository ignores every data/ directory; this one is committed documentation.
+!data/
+!data/**
+# Also ignore a dependency-directory symlink in isolated test fixtures.
+node_modules

@@ -1,0 +1,35 @@
+{
+  "name": "knowledge-os-architecture-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "explorer:sync": "node scripts/explorer.mjs sync",
+    "explorer:check": "node scripts/explorer.mjs check",
+    "explorer:check-staged": "node scripts/check-staged.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "cytoscape": "3.34.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "ajv": "8.20.0",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "yaml": "2.9.0"
+  }
+}

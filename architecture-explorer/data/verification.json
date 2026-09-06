@@ -1,0 +1,517 @@
+{
+  "schemaVersion": "1.0.0",
+  "policy": [
+    "This curated file is the Explorer verification state authority. It cites repository decisions and executable evidence; neither code existence nor Git messages supply proof.",
+    "sync only writes evidence.json and architecture.json. It never edits this file, changes states, closes findings, or refreshes accepted fingerprints.",
+    "Changed authorities or covered behavior fail check and sync until an explicit reviewed reconciliation. A new hash alone is not new verification evidence.",
+    "Generated reference nodes use IMPLEMENTED to denote present documentation artifacts, not successful behavior tests.",
+    "Existing F1/F2 states import the explicit repository remediation decision. Raw execution transcripts and current release acceptance are not claimed.",
+    "Correction revision identifiers belong to the original local source history. A public snapshot mirror may not contain those Git objects. VERIFIED remains grounded in the explicit repository remediation decision, executable references and pinned content, not commit existence."
+  ],
+  "authorities": [
+    {
+      "path": "AGENT.md",
+      "anchor": "current-remediation-workflow",
+      "fingerprint": "cd733d750bad72d37893801feabbf984652e5b7237ac3b16c7975ae0a2a64c53",
+      "rationale": "Current explicit remediation decision: F1/F2 verified; remaining findings open; release gate unexecuted."
+    },
+    {
+      "path": "docs/architecture/north-star-conformance.md",
+      "fingerprint": "702ee89cedcd9261554073d752a9ea5adb5a9d14e15e1f9366893b6cf2a88dc8",
+      "rationale": "Historical conformance ledger: changes can alter status/deferral claims and require explicit reconciliation."
+    }
+  ],
+  "claims": [
+    {
+      "id": "F1",
+      "title": "Immutable metadata hash integrity",
+      "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
+      "status": "VERIFIED",
+      "affects": [
+        "ingestion",
+        "version"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f1_manifest_hash_matches_immutable_document_metadata"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f1_manifest_rejects_document_uri_drift_under_same_revision"
+        },
+        {
+          "path": "tests/test_metadata_correction.py",
+          "symbol": "test_ingestion_paths_share_exact_persisted_metadata_contract"
+        },
+        {
+          "path": "tests/test_metadata_correction.py",
+          "symbol": "test_correction_preserves_history_and_audits_exactly_once"
+        },
+        {
+          "path": "tests/test_metadata_correction.py",
+          "symbol": "test_stale_correction_rolls_back_prior_changes_and_audit"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "config/contracts.yaml": "3d5d62893ae84c9372f9c6b8933bc13a552234a5c1987de82557bf07d5b47099",
+        "config/ontology.yaml": "9069df0e6b15954cc3a9181bfdd9bddb724fed7b4426fc95235df28ac1423584",
+        "config/prompts.yaml": "49584cec687d023671d246365994a095121c7b1df6d2db1bd744b3ec61c885b8",
+        "migrations/001_core.cypher": "ac2c372f7098f6887a00134f052ba69c007645a6088bc0379f02e61c4a493919",
+        "migrations/002_chunk_vector.cypher": "30a785e67ad5446798f55f8ddc32fb4f8d3e30d5c779273c8bf3c8c718989202",
+        "migrations/003_vector_search_filters.cypher": "5db584373feae09730c83be697ac641b840715b7416eaa2ef4d09e2ef865849f",
+        "migrations/004_action_execution.cypher": "a075e8f8c9e892335da6b2f53e0131854dcd0001579db6f78326e55cca2cc924",
+        "migrations/005_proposal_evidence_lineage.cypher": "7535b75c170aa1b8d78e73f8d1ee63bfdc3c46047bb87b7aa217c72f3c7e754b",
+        "migrations/006_action_capability_principals.cypher": "bdcda4aec1af83c5a447d929d4a23c01d7a6617cab0fe5ecddb020f679bbf1ca",
+        "migrations/007_action_execution_claim.cypher": "75a2c8ce5205af570255c1cc03e0593f547dd202225baa479f6dc0c07d774596",
+        "migrations/008_action_contract_provenance.cypher": "1e03754c521371894e532a5cc5ddcab867996df5ea3271ccfd4361bdc72bbc6b",
+        "migrations/009_action_contract_required.cypher": "3395a5d82b4387b0204a38fb7cb9c315788f00675ada40d0e255c9cf88293034",
+        "pyproject.toml": "5a530010a5eea9bae9ae9458edb4b1a7b6f28f024c89b226094991f31dda8f6c",
+        "src/knowledge_os/__init__.py": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+        "src/knowledge_os/api.py": "fabc215f7c58a7db39a5a2cc54e6b6b7a0a81eff1100f3d168063e2daf417ce2",
+        "src/knowledge_os/config.py": "4c9df1e0b3d0807e15b0c89570a249c4ec94433fae989192a8f510ecf465e7ae",
+        "src/knowledge_os/connector_observation.py": "d9fdb9de54748b24cb9360ce97264830aaa8a02bddb0839d14acb4fad14a8fa1",
+        "src/knowledge_os/contracts.py": "45f84ef9b8c3cb21304bff0e4336a775c7ed6ef44dce5d8a265eaa3b02b851a5",
+        "src/knowledge_os/dependencies.py": "1d0d45352c0fde23b6697ff9e0aeffd613480b592ab6901fb0fbedb01098ffc2",
+        "src/knowledge_os/doctor.py": "828e2facfb5c2d04c4219888ee9cb88bc1b7733c17c0cc21e4eeeeda1af8701b",
+        "src/knowledge_os/evaluate.py": "8412f5cd6172503ec7a58c217ab1b657a1d5c5f0396fa9413fdc06db25f6ca5b",
+        "src/knowledge_os/file_connector.py": "9174c600cff3ac22c06c13871b3379150bd28486aed3f20f917e426fb8ef4adc",
+        "src/knowledge_os/google_drive_connector.py": "2252f3d3ec0cf599c63b2d29982e29921daba43a5603622705eb1e77b2113c6f",
+        "src/knowledge_os/graph.py": "96af399e21246865731d432b52c4ff07536ead18706802ed00f2d1e86632db3f",
+        "src/knowledge_os/ids.py": "d8d37cb991eac1c051fb30452412233310cb3cc8fd92875996963d661d6d120d",
+        "src/knowledge_os/ingest_manifest.py": "136276152d98a77022448da4c69e6a08d22f0131ee30e5505ee6300ca8033f70",
+        "src/knowledge_os/mcp_server.py": "d1880b6cce9e79f8356ed5b8c293c20473c282747a31f4ea312015540cfd355e",
+        "src/knowledge_os/metadata_correction.py": "600be88eba989f6710395e031dc49b98403f45df4b7e9512b7e4cf5c813c1e0a",
+        "src/knowledge_os/migrate.py": "4057f13f12c47ef8cdbec796a944420f3aace3cc3e72dc7d39a85425d0746ebf",
+        "src/knowledge_os/models.py": "64c677427dff1bd0edfe4678d759afee45111cf36992400bf825ea96998a3234",
+        "src/knowledge_os/notion_action_executor.py": "9f90dc764414552d686aa45997dabf9111c74947ee71b4e06ba5220e8d38415f",
+        "src/knowledge_os/notion_connector.py": "c3148b5dcd3deb3739d62715b3e9e7ca38e7b2a45a14af8d5b2576516af3a06b",
+        "src/knowledge_os/ontology.py": "8951c8924014edd8a6fb943551d40ba121baf21ff6d80aeae0a52a99ec4c7e02",
+        "src/knowledge_os/ops.py": "e51167e674d7a30f27a9ae7169cc55fadb2e7f5f7df56abf0561f7159417b751",
+        "src/knowledge_os/prompts.py": "18f90ed24bcd34bc383878769ad51a088f7f2cf2a7a5ec14a3267b82961de6b7",
+        "src/knowledge_os/recovery.py": "44fbc59f765dd55400ada090312b0916c9903ce58528ceab8a9613cf1aedf7cc",
+        "src/knowledge_os/review_cli.py": "895bfc56382a72840ab8bc83cc57b005f1b68e1d588305a50ebe4b2ea7d55e67",
+        "tests/test_contracts.py": "7c973bf77a5359aafdfebdbe535f2e3f93ca2d0c0ccf03a1f5092973f020e5e2",
+        "tests/test_deletion_replay.py": "83a7490e44ede8710f6a697ff3d0a52fec5c874a6d23126d2b1598dc90e88d24",
+        "tests/test_metadata_correction.py": "8282d4783bb5464d124ead62da12fcb40640b3a720182efad1a19b4a070c69d2",
+        "tests/test_notion_action_executor.py": "cc98bdfabd51c2975857058e5552cd3b18c405f8c56b927d506b8a63b3bfb627",
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
+        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
+      },
+      "revision": "a2b36eab0113114f6d80a440ad258691dd3d17e0",
+      "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F1 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
+      "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+      "resolutionRequired": "",
+      "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+      "revisionScope": "original-source-history"
+    },
+    {
+      "id": "F2",
+      "title": "Deterministic deletion replay",
+      "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
+      "status": "VERIFIED",
+      "affects": [
+        "connectors",
+        "ingestion",
+        "event"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_correctness_regressions.py",
+          "symbol": "test_f2_rebuilt_deletion_manifest_is_byte_identical"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f2_replay_after_graph_commit_before_checkpoint_file"
+        },
+        {
+          "path": "tests/test_deletion_replay.py",
+          "symbol": "test_crash_restart_replay_and_later_deletion"
+        },
+        {
+          "path": "tests/test_deletion_replay.py",
+          "symbol": "test_legacy_replay_requires_exact_original_full_hash"
+        },
+        {
+          "path": "tests/test_deletion_replay.py",
+          "symbol": "test_source_deletion_time_is_preserved_and_bound_to_hash"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "config/contracts.yaml": "3d5d62893ae84c9372f9c6b8933bc13a552234a5c1987de82557bf07d5b47099",
+        "config/ontology.yaml": "9069df0e6b15954cc3a9181bfdd9bddb724fed7b4426fc95235df28ac1423584",
+        "config/prompts.yaml": "49584cec687d023671d246365994a095121c7b1df6d2db1bd744b3ec61c885b8",
+        "migrations/001_core.cypher": "ac2c372f7098f6887a00134f052ba69c007645a6088bc0379f02e61c4a493919",
+        "migrations/002_chunk_vector.cypher": "30a785e67ad5446798f55f8ddc32fb4f8d3e30d5c779273c8bf3c8c718989202",
+        "migrations/003_vector_search_filters.cypher": "5db584373feae09730c83be697ac641b840715b7416eaa2ef4d09e2ef865849f",
+        "migrations/004_action_execution.cypher": "a075e8f8c9e892335da6b2f53e0131854dcd0001579db6f78326e55cca2cc924",
+        "migrations/005_proposal_evidence_lineage.cypher": "7535b75c170aa1b8d78e73f8d1ee63bfdc3c46047bb87b7aa217c72f3c7e754b",
+        "migrations/006_action_capability_principals.cypher": "bdcda4aec1af83c5a447d929d4a23c01d7a6617cab0fe5ecddb020f679bbf1ca",
+        "migrations/007_action_execution_claim.cypher": "75a2c8ce5205af570255c1cc03e0593f547dd202225baa479f6dc0c07d774596",
+        "migrations/008_action_contract_provenance.cypher": "1e03754c521371894e532a5cc5ddcab867996df5ea3271ccfd4361bdc72bbc6b",
+        "migrations/009_action_contract_required.cypher": "3395a5d82b4387b0204a38fb7cb9c315788f00675ada40d0e255c9cf88293034",
+        "pyproject.toml": "5a530010a5eea9bae9ae9458edb4b1a7b6f28f024c89b226094991f31dda8f6c",
+        "src/knowledge_os/__init__.py": "3543b4693a36a1098850b8bc928887694ed59a6deb7d3dfd0339de01f55a77b6",
+        "src/knowledge_os/api.py": "fabc215f7c58a7db39a5a2cc54e6b6b7a0a81eff1100f3d168063e2daf417ce2",
+        "src/knowledge_os/config.py": "4c9df1e0b3d0807e15b0c89570a249c4ec94433fae989192a8f510ecf465e7ae",
+        "src/knowledge_os/connector_observation.py": "d9fdb9de54748b24cb9360ce97264830aaa8a02bddb0839d14acb4fad14a8fa1",
+        "src/knowledge_os/contracts.py": "45f84ef9b8c3cb21304bff0e4336a775c7ed6ef44dce5d8a265eaa3b02b851a5",
+        "src/knowledge_os/dependencies.py": "1d0d45352c0fde23b6697ff9e0aeffd613480b592ab6901fb0fbedb01098ffc2",
+        "src/knowledge_os/doctor.py": "828e2facfb5c2d04c4219888ee9cb88bc1b7733c17c0cc21e4eeeeda1af8701b",
+        "src/knowledge_os/evaluate.py": "8412f5cd6172503ec7a58c217ab1b657a1d5c5f0396fa9413fdc06db25f6ca5b",
+        "src/knowledge_os/file_connector.py": "9174c600cff3ac22c06c13871b3379150bd28486aed3f20f917e426fb8ef4adc",
+        "src/knowledge_os/google_drive_connector.py": "2252f3d3ec0cf599c63b2d29982e29921daba43a5603622705eb1e77b2113c6f",
+        "src/knowledge_os/graph.py": "96af399e21246865731d432b52c4ff07536ead18706802ed00f2d1e86632db3f",
+        "src/knowledge_os/ids.py": "d8d37cb991eac1c051fb30452412233310cb3cc8fd92875996963d661d6d120d",
+        "src/knowledge_os/ingest_manifest.py": "136276152d98a77022448da4c69e6a08d22f0131ee30e5505ee6300ca8033f70",
+        "src/knowledge_os/mcp_server.py": "d1880b6cce9e79f8356ed5b8c293c20473c282747a31f4ea312015540cfd355e",
+        "src/knowledge_os/metadata_correction.py": "600be88eba989f6710395e031dc49b98403f45df4b7e9512b7e4cf5c813c1e0a",
+        "src/knowledge_os/migrate.py": "4057f13f12c47ef8cdbec796a944420f3aace3cc3e72dc7d39a85425d0746ebf",
+        "src/knowledge_os/models.py": "64c677427dff1bd0edfe4678d759afee45111cf36992400bf825ea96998a3234",
+        "src/knowledge_os/notion_action_executor.py": "9f90dc764414552d686aa45997dabf9111c74947ee71b4e06ba5220e8d38415f",
+        "src/knowledge_os/notion_connector.py": "c3148b5dcd3deb3739d62715b3e9e7ca38e7b2a45a14af8d5b2576516af3a06b",
+        "src/knowledge_os/ontology.py": "8951c8924014edd8a6fb943551d40ba121baf21ff6d80aeae0a52a99ec4c7e02",
+        "src/knowledge_os/ops.py": "e51167e674d7a30f27a9ae7169cc55fadb2e7f5f7df56abf0561f7159417b751",
+        "src/knowledge_os/prompts.py": "18f90ed24bcd34bc383878769ad51a088f7f2cf2a7a5ec14a3267b82961de6b7",
+        "src/knowledge_os/recovery.py": "44fbc59f765dd55400ada090312b0916c9903ce58528ceab8a9613cf1aedf7cc",
+        "src/knowledge_os/review_cli.py": "895bfc56382a72840ab8bc83cc57b005f1b68e1d588305a50ebe4b2ea7d55e67",
+        "tests/test_contracts.py": "7c973bf77a5359aafdfebdbe535f2e3f93ca2d0c0ccf03a1f5092973f020e5e2",
+        "tests/test_deletion_replay.py": "83a7490e44ede8710f6a697ff3d0a52fec5c874a6d23126d2b1598dc90e88d24",
+        "tests/test_metadata_correction.py": "8282d4783bb5464d124ead62da12fcb40640b3a720182efad1a19b4a070c69d2",
+        "tests/test_notion_action_executor.py": "cc98bdfabd51c2975857058e5552cd3b18c405f8c56b927d506b8a63b3bfb627",
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
+        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
+      },
+      "revision": "f3bcaa1c6697c6a10f126c283820495f4c3269e0",
+      "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F2 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
+      "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+      "resolutionRequired": "",
+      "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+      "revisionScope": "original-source-history"
+    },
+    {
+      "id": "F3",
+      "title": "Doctor integrity coverage",
+      "scope": "Doctor must accept the current governance contract and detect corrupt metadata, missing constraints/indexes, and multi-node supersession cycles.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "doctor",
+        "migration"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f3_doctor_accepts_proposal_with_current_governance_contract"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f3_doctor_detects_corrupted_metadata_hash"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f3_doctor_detects_missing_schema_object"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f3_doctor_detects_multi_node_supersession_cycle"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
+        "src/knowledge_os/doctor.py": "828e2facfb5c2d04c4219888ee9cb88bc1b7733c17c0cc21e4eeeeda1af8701b"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Execute and reconcile all F3 cases against isolated real Neo4j, then record scoped acceptance.",
+      "limitations": "The metadata-hash subcase overlaps the F1 correction. That does not establish that the complete F3 finding is resolved."
+    },
+    {
+      "id": "F4",
+      "title": "Policy reviewer enforcement",
+      "scope": "The Notion executor must reject any reviewer other than the exact policy reviewer before acquiring a claim or contacting the provider.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "action"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_correctness_regressions.py",
+          "symbol": "test_f4_wrong_policy_reviewer_never_reaches_claim_or_provider"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "src/knowledge_os/notion_action_executor.py": "9f90dc764414552d686aa45997dabf9111c74947ee71b4e06ba5220e8d38415f"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Demonstrate zero claims and zero provider calls for unauthorized reviewers; run affected executor tests and record remediation acceptance.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    },
+    {
+      "id": "F5",
+      "title": "Scalar predicate validation",
+      "scope": "Scalar-valued Assertion changes currently return before relation validation; an unregistered predicate must be rejected.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "ontology",
+        "assertion"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_correctness_regressions.py",
+          "symbol": "test_f5_scalar_assertions_reject_unregistered_predicate"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "src/knowledge_os/ontology.py": "8951c8924014edd8a6fb943551d40ba121baf21ff6d80aeae0a52a99ec4c7e02",
+        "src/knowledge_os/models.py": "64c677427dff1bd0edfe4678d759afee45111cf36992400bf825ea96998a3234"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Prove rejection for scalar values, preserve valid typed relations, and record the corrected invariant.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    },
+    {
+      "id": "F6",
+      "title": "Hard chunk bounds",
+      "scope": "Long unbroken or oversized paragraphs must honor chunk_size without losing evidence text.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "chunking",
+        "chunk"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_correctness_regressions.py",
+          "symbol": "test_f6_chunk_size_is_a_hard_bound_without_content_loss"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "src/knowledge_os/graph.py": "96af399e21246865731d432b52c4ff07536ead18706802ed00f2d1e86632db3f",
+        "src/knowledge_os/ids.py": "d8d37cb991eac1c051fb30452412233310cb3cc8fd92875996963d661d6d120d"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Pass long ASCII, Korean and mixed-paragraph regressions without truncating source content and reconcile processing identity implications.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    },
+    {
+      "id": "F7",
+      "title": "Authorization evaluation exclusions",
+      "scope": "Denied-result checks must inspect raw retrieval output before ignored-document exclusions can hide a leak.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "telemetry",
+        "keyword"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_correctness_regressions.py",
+          "symbol": "test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
+        "src/knowledge_os/evaluate.py": "8412f5cd6172503ec7a58c217ab1b657a1d5c5f0396fa9413fdc06db25f6ca5b",
+        "src/knowledge_os/ops.py": "e51167e674d7a30f27a9ae7169cc55fadb2e7f5f7df56abf0561f7159417b751"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Prove a leaked raw result fails the denial gate despite exclusions; run affected evaluation tests and record acceptance.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    },
+    {
+      "id": "F8",
+      "title": "Graph / audit failure recovery",
+      "scope": "A committed graph mutation must not permanently lose its SQLite audit evidence or be reported as an unqualified failure when the operational store fails.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "action",
+        "sqlite",
+        "telemetry"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f8_retry_reconciles_audit_missing_after_graph_commit"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_f8_committed_mutation_is_not_reported_as_unqualified_sqlite_failure"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
+        "src/knowledge_os/graph.py": "96af399e21246865731d432b52c4ff07536ead18706802ed00f2d1e86632db3f",
+        "src/knowledge_os/ops.py": "e51167e674d7a30f27a9ae7169cc55fadb2e7f5f7df56abf0561f7159417b751"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Use real Neo4j plus an injected operational-store outage to prove truthful commit outcomes and exactly one reconciled audit record on retry.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    },
+    {
+      "id": "release-gate",
+      "title": "v0.1 release acceptance",
+      "scope": "v0.1 remains under correctness verification. Earlier operational evidence is not a completed current release gate.",
+      "status": "KNOWN ISSUE",
+      "affects": [
+        "neo4j"
+      ],
+      "tests": [
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_manifest_failure_rolls_back_prior_record_and_checkpoint"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_concurrent_stale_document_updates_have_one_winner"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_concurrent_approve_reject_has_one_immutable_outcome"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_supersession_cannot_invert_or_overlap_validity"
+        },
+        {
+          "path": "tests/test_v01_neo4j_regressions.py",
+          "symbol": "test_action_execution_claim_is_exclusive"
+        }
+      ],
+      "sources": [
+        {
+          "path": "AGENT.md",
+          "anchor": "current-remediation-workflow"
+        }
+      ],
+      "dependencies": {
+        "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
+        "src/knowledge_os/graph.py": "96af399e21246865731d432b52c4ff07536ead18706802ed00f2d1e86632db3f"
+      },
+      "revision": "",
+      "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+      "environment": "",
+      "resolutionRequired": "Resolve remaining findings through regression-driven remediation and explicitly execute the full release acceptance gate.",
+      "limitations": "These executable regressions define unresolved remediation scope. Their current outcome was not rerun by the Explorer."
+    }
+  ],
+  "reviewedEvaluationDocuments": {
+    "docs/evaluations/2026-09-05-action-creation-idempotency.md": "2e305e949379b199025403765b5ab41d33e0c6d49fb185ee6303d36fb941f199",
+    "docs/evaluations/2026-09-05-action-execution-claim.md": "e14343d7a5d297e04ccd7803dbca556aaf6a5e8eb5ee0b888d5d671efdff65ce",
+    "docs/evaluations/2026-09-05-adapter-path-boundary.md": "e1e864d10b14df4a6e4efbff335f13d6586af91ba942c08c9598d9a7b0256b2e",
+    "docs/evaluations/2026-09-05-approval-parent-integrity.md": "fca16797e1d7d6ed54f67b2387da0014bf9f61fbb229d585b2d86f20a69a8673",
+    "docs/evaluations/2026-09-05-as-of-knowledge-reads.md": "30ecbf1bfd028e4a5508bcd61cc524020c1e4eec51b081b594e2ad0d46ed55bc",
+    "docs/evaluations/2026-09-05-atomic-manifest-ingestion.md": "c259a4fabc8ead88c0a695113041852523f2a3ced298756f121161efa19901b1",
+    "docs/evaluations/2026-09-05-authenticated-creation-boundary.md": "3f346a3f232d7ba4847c291298f327d7f3cd657099bd89f6f55a0af7ea02d75a",
+    "docs/evaluations/2026-09-05-authorized-entity-discovery.md": "2964c68deff0aa0c2fd9b51a27a0043aba91dc44276b5199cae792447c831f72",
+    "docs/evaluations/2026-09-05-authorized-evidence-bundle.md": "48cf0074272c85b51070112fa26934af02c9d590bc1bec87d72acf11205b736e",
+    "docs/evaluations/2026-09-05-canonical-assertion-read.md": "72c46da4f0254203f49e6e97d3e323ca3fb39f8845ecd023d40e92ac33a9257a",
+    "docs/evaluations/2026-09-05-canonical-time-contract.md": "ade8818d3c86696b661b8c7fbaae3090e75852e718ab96835748fa8ffdd1df84",
+    "docs/evaluations/2026-09-05-content-addressed-proposals.md": "fb5b7d6341f20bf966ff03218f1c1090fa64ca26e81aad76e1cc7723c6be8b71",
+    "docs/evaluations/2026-09-05-decision-day-precision.md": "8a3e67ff6be140266affd73bb2323b42416a78479a5f02df8ae78832efe63b66",
+    "docs/evaluations/2026-09-05-document-version-cas.md": "7c6a94f55e9c7107d446693d2ea1873114fdef6e41e3d2f14f89430781e4e435",
+    "docs/evaluations/2026-09-05-embedding-provenance.md": "0257a9289543c1565e56fa06a1315e92c8fcd7e099594fb397733b36886137e4",
+    "docs/evaluations/2026-09-05-evaluation-access-provenance.md": "ce230c2fc3caa3506924be449cddf8e2646d0d9ab0220e91853416698cca2049",
+    "docs/evaluations/2026-09-05-extraction-context-service.md": "8fd1c0e15675fca3ffaaea58274df3ec17e7fba2ddbbaf1b34ab510511a0fd58",
+    "docs/evaluations/2026-09-05-feedback-access-provenance.md": "6912e71b7a6ad4f9c8daddb8d1c54ad96e87d363ae71672c8ca9039708f6ec3d",
+    "docs/evaluations/2026-09-05-feedback-actor-provenance.md": "70472b9ec01e2e24563b61c0c173ab4554708b1ac15b9b1c2460495f6e899464",
+    "docs/evaluations/2026-09-05-google-drive-connector.md": "4d2d4536324db1ff6342f972badd8a8743f4f61f91836955aba6473553dde29b",
+    "docs/evaluations/2026-09-05-governed-mcp-actions.md": "21ee910b34d23b1687ad0336981a36671bf8504aba6b3f74bb743b107b105418",
+    "docs/evaluations/2026-09-05-governed-mcp-proposals.md": "6340464d9af79e1a419934f91906d3ea6d5d64f5163c1e3281535fe49184302e",
+    "docs/evaluations/2026-09-05-graph-capability-readiness.md": "62677029b93f8e296e30d461e509451bc0ec8f1792d848b0a9e9c0002cb03cbf",
+    "docs/evaluations/2026-09-05-held-out-golden-questions.md": "be862a130740255c55454f40d3a65be08d41c2304f68ae785946f9e70547c861",
+    "docs/evaluations/2026-09-05-local-action-review.md": "04b8976b6981252c40bd67f567d10a148115098ef81d2f3627d75f22adebfb9f",
+    "docs/evaluations/2026-09-05-local-human-review.md": "85788ce75a7ef1312408d0c4d1f1f037187c1e89dceef138f8e65b1e70c1c3b7",
+    "docs/evaluations/2026-09-05-local-mcp-adapter.md": "f31cb3592bf6d6edabefd3eaa305739ac467a3f733a32a2e00c984c969508562",
+    "docs/evaluations/2026-09-05-mcp-canonical-reads.md": "0fd29103684debf619d01a888ef4c1d8234800c3c5e64601376823fb91311ebb",
+    "docs/evaluations/2026-09-05-mcp-contract-discovery.md": "188087843c6fcf9295ef8c2a563feb3b83d0f23bec449cb7690a9f6a877f8e98",
+    "docs/evaluations/2026-09-05-mcp-retrieval-feedback.md": "32737e5e75f0be7cf481929d79c29553f35a23b6557d85654408d820696ecd67",
+    "docs/evaluations/2026-09-05-mcp-semantic-retrieval.md": "f506dab953e7c2293c0eeb4b4274c04e7d7731471bd86a1a82e71d7ab24e7987",
+    "docs/evaluations/2026-09-05-mcp-source-catalog.md": "cf81cb427e8db9ba35c41e85125d5c49acf6209f7cd04bd2982bf76b661faec6",
+    "docs/evaluations/2026-09-05-meeting-transcript-ingestion.md": "92c58a6ad16ad6de9a7d7993ce9409eb294894a14ea5906564b142f986af299e",
+    "docs/evaluations/2026-09-05-notion-page-tree-connector.md": "ffec15bac644d9965e0546c719e699449868ae612b7424471680b7ea972617f3",
+    "docs/evaluations/2026-09-05-operational-error-coverage.md": "3cd775e8b6616a9af2bf4198495e96e661d52ef78d53728def1760d3d2fe2665",
+    "docs/evaluations/2026-09-05-operational-event-parent-integrity.md": "8bb81370ab94808c5a47597958987316d0902ee38bcf5d64528c0d38438a365f",
+    "docs/evaluations/2026-09-05-personal-keyword-baseline.md": "1ba57aa10aff9c5b94e80fef1b1a49db613c407d4615c21b67f03f03e28ce347",
+    "docs/evaluations/2026-09-05-personal-semantic-seed.md": "01fa0b80aadc6093ea96941fc0114260dbaa9842496c525a94aa3a872600ba12",
+    "docs/evaluations/2026-09-05-recovery-set-verification.md": "750cbf2aa72f67780ba3b9005e1162877cc50465aa60f6f2e2026913e1544030",
+    "docs/evaluations/2026-09-05-retrieval-capability-discovery.md": "6377365e0519cc0190905cf9e02d0e8a28cf4c69c1978b4c3e333268e060918b",
+    "docs/evaluations/2026-09-05-semantic-readiness.md": "e51139bbfc650c6e6d57d8e53adbf3f26e88a62de49a5b33e04cb0906bed82da",
+    "docs/evaluations/2026-09-05-source-authorization.md": "b56e6e7d58bdd5daa2a60679889361dc69ef5e3ca278af6c2d439a97ef73f1ba",
+    "docs/evaluations/2026-09-05-source-metadata-provenance.md": "71f02124845c42b97e7db8749a1ff9e2c1af8f61da28f8da42e1d810175f3d1d",
+    "docs/evaluations/2026-09-05-wheel-runtime-configuration.md": "079e6687bff7a228d5b80f36e1db6e6551c6899cc79c8dd2630078593da68386",
+    "docs/evaluations/2026-09-06-bge-m3-isolated-evaluation.md": "8d5b9a95d276354eb0084e2f30344e8a2294a0e8951acbd45824a6e57eafef33",
+    "docs/evaluations/2026-09-06-cross-lingual-semantic-selection.md": "4086f61d4cbec829a6a28748797c58bf9b6b932b6f3c2dcbdd576f6282e38afe",
+    "docs/evaluations/2026-09-06-google-drive-adc-refresh.md": "a621686075bd2363c2f1d0c6dc0c1b5dab6e010833e33e9936450135bc116c2c",
+    "docs/evaluations/2026-09-06-governed-notion-action-executor.md": "a2ea95d0432aca27b6c83552fbe4d8a49f5e0321386034d96eabf61cd196cfab",
+    "docs/evaluations/2026-09-06-meeting-corpus-discovery.md": "e95d23c08b2e74ecc8b555fd149952c5afafd5d35a6db6d1ea22f572c0a692e9",
+    "docs/evaluations/2026-09-06-multilingual-e5-development-evaluation.md": "0eb6265b77086c7ff4a41b13d91d00123ccb646db4c5a3136c636cbdefbc06e3",
+    "docs/evaluations/2026-09-06-notion-mcp-round-trip.md": "13a1ec12912b4cd713b78fb6dc0f2d04d83ab3d2ad7220442f394cc890d1e04b",
+    "docs/evaluations/2026-09-06-notion-provider-replay.md": "57e4ca5c3abac88adc62b6fdd094fbc646f7ad8032e665ed3003a71ef9859852",
+    "docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md": "e758b24a1d2c9bb6729f0a2d078531140c18c42f3abeaf6337b054e45360babd",
+    "docs/evaluations/2026-09-06-personal-notion-mcp-consumption.md": "7fab724b4db90580dbdd4596fee1831f413ac5743738fdfb64179e1b8cbfc2eb",
+    "docs/evaluations/2026-09-06-personal-recovery-point.md": "0861a78afc14188be2e799e1744a612a259a9bf7f34b383f3b2ed4695abaabe5",
+    "docs/evaluations/2026-09-06-post-action-recovery-drill.md": "046eb3dd48c47b9896c475d6e286cd423ba93da58169d22d63f8ee5d91164cf7"
+  }
+}
