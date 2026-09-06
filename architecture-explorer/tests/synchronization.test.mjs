@@ -70,10 +70,13 @@ beforeEach(() => {
 });
 afterEach(() => rmSync(root, { recursive: true, force: true }));
 function stageCommit() {
+  // A clean checkout already contains the Explorer; make a real documentation change.
+  writeFileSync(file("architecture-explorer/fixture-note.md"), "Explorer-only fixture revision.\n");
   git("add", "architecture-explorer");
   git("commit", "--quiet", "-m", "Explorer fixture");
 }
 test("sync twice produces identical bytes; check never writes; only generated artifacts change", () => {
+  const initialDiff = git("diff", "--name-only");
   const before = readFileSync(file(curated), "utf8"),
     states = readFileSync(file(verification), "utf8");
   run("sync", root);
@@ -83,7 +86,7 @@ test("sync twice produces identical bytes; check never writes; only generated ar
   assert.equal(readFileSync(file(generated), "utf8"), once);
   assert.equal(readFileSync(file(curated), "utf8"), before);
   assert.equal(readFileSync(file(verification), "utf8"), states);
-  assert.equal(git("diff", "--name-only"), "");
+  assert.equal(git("diff", "--name-only"), initialDiff);
 });
 test("tampered generated metadata fails independently and check leaves tampering untouched", () => {
   run("sync", root);
