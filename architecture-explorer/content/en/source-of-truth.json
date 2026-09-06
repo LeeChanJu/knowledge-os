@@ -1,6 +1,6 @@
 {
   "id": "source-of-truth",
-  "title": "Who owns the original?",
+  "title": "02. Source of Truth vs System of Context",
   "sections": [
     {
       "id": "one-sentence",
@@ -44,5 +44,5 @@
     }
   ],
   "steps": [],
-  "reviewedPeerDigest": "3f64894bcbf54af7d2382f93e4abecb3c448310b15226958dfad07819f29f5f9"
+  "reviewedPeerDigest": "21d414c93ccd3e9c99bfef8da700fc9eb101a8ba4631a35beb46e330a17ef2d2"
 }

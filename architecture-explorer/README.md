@@ -194,11 +194,7 @@ unpublished local Git SHA. Its files are checked against Git objects and its ref
 against the generated repository model. Separate links explicitly navigate to `main`. No line anchors
 are guessed: exact qualified symbols are shown beside revision-pinned file links.
 
-This documentation extension was developed from `6ed9680`, whose production evidence matches the
-published `5275071` snapshot. The separate local temporal remediation commit `7fd0353` is not included
-or reverified. Its changed verified dependencies correctly block synchronization in that newer checkout
-until explicit reconciliation. Neither this task nor synchronization closes later findings or silently
-refreshes F1/F2 proof. Preserve this distinction when integrating the documentation with newer code.
+The public source snapshot excludes the separate local temporal remediation. F1/F2 were explicitly rerun against both the local source HEAD and the public snapshot before this deployment. The execution record keeps those revisions distinct. Only Explorer files are published by this change; F3–F8 and release acceptance remain open.
 
 ### Validation
 
@@ -207,3 +203,52 @@ refreshes F1/F2 proof. Preserve this distinction when integrating the documentat
 language persistence, search, empty states, contextual definitions, GitHub link targets, reference
 filters and document/graph navigation. `EXPLORER_PORT=5174 npm run test:browser` supports an isolated
 local test server when 5173 is occupied. No production service is required or contacted.
+
+## Four flagship lessons — review milestone
+
+Only `start-here`, `source-of-truth`, `document-journey`, and `ontology-basics`
+use the new long-form reading experience. Their Korean and English prose lives in
+`content/{ko-KR,en}/*.md`. The other 73 articles remain the previous edition until
+these four are reviewed. Existing short JSON records remain compatible metadata
+for navigation; the flagship renderer and search read the Markdown bodies.
+No long-form prose is added to the generated architecture or learning JSON.
+
+`content/flagships.json` declares prerequisites, next lessons, section IDs,
+repository reference IDs, separately categorized conceptual references, and
+reviewed Markdown digests. After editing either language, review both texts for
+semantic parity before explicitly updating their hashes. Sync checks the reviewed
+hashes; it never accepts changed prose or verification on its own.
+
+Markdown uses standard paragraphs, headings, tables and blockquotes. Level-two
+headings carry stable `{#section-id}` suffixes. Two small fenced block conventions
+are supported: `flow` contains one `label | explanation` per line; `question`
+contains a substantive question, a line `---`, and its optional revealed answer.
+Raw HTML is not enabled. Diagrams represent teaching responsibilities, not runtime
+ontology or automatic execution. External sources render under Conceptual
+references; repository references render under Knowledge OS implementation evidence.
+
+The explicit current-HEAD F1/F2 results are recorded in
+`verification/current-head-regressions.json`: F1 9 passed, F2 11 passed, zero
+failures/skips, against source HEAD `2a730fff3fe29bebc9b0d00acf724cc7cc0d2672`.
+Existing tests created disposable UUID databases with temporary SQLite and removed
+them in their finalizers. No application data was changed. This is scoped evidence,
+not renewed release acceptance. F3–F8 remain open. The public GitHub source snapshot
+and the current local verification revision are explicitly distinguished in the UI.
+
+Use a supported Node runtime (>=20.19; this milestone was built with bundled Node):
+
+```sh
+npm ci
+npm run explorer:check
+npm test
+npm run test:browser
+npm run build
+npm run dev -- --host 127.0.0.1
+```
+
+Routes: `/#/{ko-KR|en}/learn/{start-here|source-of-truth|document-journey|ontology-basics}`.
+Browser tests save dark/light full-page screenshots and mobile screenshots under
+`test-results/`. The next content milestone remains blocked on user review of these
+four lessons, not on automatic expansion to the remaining syllabus.
+
+Public deployment verification: the same F1/F2 selectors also passed against public source revision dc86d0e (20 passed, 54.84 seconds). Curated fingerprints apply to that public source; local-HEAD results remain historical evidence in the same execution record.

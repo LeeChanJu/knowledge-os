@@ -1,0 +1,44 @@
+{
+  "revision": "2a730fff3fe29bebc9b0d00acf724cc7cc0d2672",
+  "python": "3.12.11",
+  "pytest": "8.4.2",
+  "platform": "darwin",
+  "source": "PYTHONPATH=src; uv run --no-sync python; current checkout source, not installed wheel",
+  "isolation": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database.",
+  "runs": [
+    {
+      "claim": "F1",
+      "selectors": [
+        "tests/test_v01_neo4j_regressions.py::test_f1_manifest_hash_matches_immutable_document_metadata",
+        "tests/test_v01_neo4j_regressions.py::test_f1_manifest_rejects_document_uri_drift_under_same_revision",
+        "tests/test_metadata_correction.py"
+      ],
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 27.76
+    },
+    {
+      "claim": "F2",
+      "selectors": [
+        "tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "tests/test_deletion_replay.py"
+      ],
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 28.25
+    }
+  ],
+  "commandPrefix": "PYTHONPATH=src KNOWLEDGE_OS_TEST_NEO4J=1 uv run --no-sync python -m pytest",
+  "limitations": "Agent-recorded results from the executed commands, not a raw transcript. No release gate or other finding was executed or closed.",
+  "publicSnapshotExecution": {
+    "revision": "dc86d0e9b0b5c57b0ed51d911b6245e8704e1b23",
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 54.84,
+    "scope": "F1 9 cases and F2 11 cases, same selectors as runs above executed together against explicit public snapshot PYTHONPATH; isolated UUID Neo4j databases and temporary SQLite; all tests and finalizers passed."
+  }
+}

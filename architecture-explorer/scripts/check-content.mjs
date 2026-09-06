@@ -1,3 +1,4 @@
+import { checkFlagships } from "./check-flagships.mjs";
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
@@ -211,6 +212,7 @@ export function checkContent(root, architecture) {
     if (!locales.en[e.label] || !locales["ko-KR"][e.label])
       throw Error(`Missing relationship translation: ${e.label}`);
   return {
+    flagships: checkFlagships(root, architecture, ids),
     schemaVersion: manifest.schemaVersion,
     manifest,
     documents: all,

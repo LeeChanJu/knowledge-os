@@ -5,7 +5,7 @@
     "sync only writes evidence.json, architecture.json and learning.json. It never edits this file, changes states, closes findings, or refreshes accepted fingerprints.",
     "Changed authorities or covered behavior fail check and sync until an explicit reviewed reconciliation. A new hash alone is not new verification evidence.",
     "Generated reference nodes use IMPLEMENTED to denote present documentation artifacts, not successful behavior tests.",
-    "Existing F1/F2 states import the explicit repository remediation decision. Raw execution transcripts and current release acceptance are not claimed.",
+    "F1/F2 have explicit isolated regression results for the public source snapshot and separately retained local-HEAD evidence. No other finding is closed.",
     "Correction revision identifiers belong to the original local source history. A public snapshot mirror may not contain those Git objects. VERIFIED remains grounded in the explicit repository remediation decision, executable references and pinned content, not commit existence."
   ],
   "authorities": [
@@ -103,14 +103,15 @@
         "tests/test_notion_action_executor.py": "cc98bdfabd51c2975857058e5552cd3b18c405f8c56b927d506b8a63b3bfb627",
         "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
         "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
-        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
+        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff",
+        "architecture-explorer/verification/current-head-regressions.json": "9b12924d38b1860f4d0d0f6220f41ffcf51aa0ac6ab0f15e888335ca4ffea3ce"
       },
-      "revision": "a2b36eab0113114f6d80a440ad258691dd3d17e0",
-      "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F1 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-      "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+      "revision": "dc86d0e9b0b5c57b0ed51d911b6245e8704e1b23",
+      "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+      "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
       "resolutionRequired": "",
-      "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
-      "revisionScope": "original-source-history"
+      "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
+      "revisionScope": "repository"
     },
     {
       "id": "F2",
@@ -194,14 +195,15 @@
         "tests/test_notion_action_executor.py": "cc98bdfabd51c2975857058e5552cd3b18c405f8c56b927d506b8a63b3bfb627",
         "tests/test_v01_correctness_regressions.py": "8d91bb1a39ac0cfd0d1b2ddfbfe1d82fc1ed72d625de4376b8749d8041c74110",
         "tests/test_v01_neo4j_regressions.py": "1abf4baaa9efb9a55a2fb6874c3912d7820b2f14d05a72268abb3d607f8c31cc",
-        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
+        "uv.lock": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff",
+        "architecture-explorer/verification/current-head-regressions.json": "9b12924d38b1860f4d0d0f6220f41ffcf51aa0ac6ab0f15e888335ca4ffea3ce"
       },
-      "revision": "f3bcaa1c6697c6a10f126c283820495f4c3269e0",
-      "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F2 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-      "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
+      "revision": "dc86d0e9b0b5c57b0ed51d911b6245e8704e1b23",
+      "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+      "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
       "resolutionRequired": "",
-      "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
-      "revisionScope": "original-source-history"
+      "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
+      "revisionScope": "repository"
     },
     {
       "id": "F3",

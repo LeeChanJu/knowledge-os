@@ -60,7 +60,7 @@ test("learning entry, bilingual reading, implementation links and graph round tr
   ).toBeVisible();
   await expect(page.locator(".node-list button")).toHaveCount(36);
   await page.getByRole("link", { name: /Read the explanation/ }).click();
-  await expect(page).toHaveURL(/learn\/ontology$/);
+  await expect(page).toHaveURL(/learn\/ontology-basics$/);
   await page.getByRole("button", { name: "한국어", exact: true }).click();
   await page.getByRole("button", { name: "테마 바꾸기" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -82,9 +82,12 @@ test("all paired pages and walkthroughs render; search, empty states and invalid
       await expect(page.locator("h1")).toHaveText(
         content.documents[lang][entry.id].title,
       );
-      await expect(page.locator(".teaching-flow li")).toHaveCount(
-        content.documents[lang][entry.id].steps.length,
-      );
+      if (entry.id in content.flagships.pages) {
+        await expect(page.locator(".lesson-diagram")).not.toHaveCount(0);
+        await expect(page.locator(".comprehension")).toHaveCount(entry.id === "ontology-basics" ? 4 : 3);
+      } else {
+        await expect(page.locator(".teaching-flow li")).toHaveCount(content.documents[lang][entry.id].steps.length);
+      }
     }
   await page.goto("/#/en/learn/start-here");
   await page

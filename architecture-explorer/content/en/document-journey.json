@@ -1,6 +1,6 @@
 {
   "id": "document-journey",
-  "title": "From documents to knowledge",
+  "title": "03. Follow One Document End-to-End",
   "sections": [
     {
       "id": "one-sentence",
@@ -123,5 +123,5 @@
       "body": "API/MCP deliver context. A consuming human or agent interprets it; answer generation is external."
     }
   ],
-  "reviewedPeerDigest": "08f8c7487f58de5afaf4f788c7689ce6c112c7bc80831724c39985af2adacd33"
+  "reviewedPeerDigest": "70b54103e9f9ad482408586a48301e2a2c73c08cda171c7022296f561f3ee336"
 }

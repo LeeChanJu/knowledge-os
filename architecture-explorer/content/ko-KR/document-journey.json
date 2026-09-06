@@ -1,6 +1,6 @@
 {
   "id": "document-journey",
-  "title": "03. 문서가 지식이 되는 과정",
+  "title": "03. 문서 하나의 전체 여정",
   "sections": [
     {
       "id": "one-sentence",
@@ -123,5 +123,5 @@
       "body": "API/MCP가 맥락을 전달합니다. 사람이나 외부 에이전트가 해석하며 답변 생성은 외부 단계입니다."
     }
   ],
-  "reviewedPeerDigest": "0ff21b03cc3d180ef286f1354546278fa789fd21d18bf3d7dcd5d60576ed1a43"
+  "reviewedPeerDigest": "c8065744f61651d71363af1e8958d2209d6bafd16aad9fed902bdfeebee66780"
 }

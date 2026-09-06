@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "1.0.0",
+  "sources": {
+    "palantir": {
+      "title": "Palantir · Ontology core concepts",
+      "url": "https://www.palantir.com/docs/foundry/ontology/core-concepts"
+    },
+    "sap": {
+      "title": "SAP · Foundation Layer",
+      "url": "https://architecture.learning.sap.com/docs/ai-native-north-star-architecture/foundation-layer"
+    },
+    "neo4j": {
+      "title": "Neo4j · Graph database concepts",
+      "url": "https://neo4j.com/docs/getting-started/appendix/graphdb-concepts/"
+    },
+    "diataxis": {
+      "title": "Diátaxis · Documentation modes",
+      "url": "https://diataxis.fr/start-here/"
+    }
+  },
+  "pages": {
+    "start-here": {
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "nodeIds": [
+        "neo4j",
+        "source",
+        "proposal"
+      ],
+      "prerequisites": [],
+      "next": "source-of-truth",
+      "conceptualSources": [
+        "sap",
+        "neo4j",
+        "diataxis"
+      ],
+      "sections": [
+        "begin",
+        "objectives",
+        "example",
+        "problem",
+        "mental-model",
+        "adds",
+        "retrieval",
+        "governance",
+        "journey",
+        "current",
+        "checks"
+      ],
+      "hashes": {
+        "en": "e0a6fb0feda7ebfadf2ae9068b3bf8fc64354dacb1b05bdf820dc0572eadb623",
+        "ko-KR": "18825c264cb7fcf42d6ed4029baea32861e882c481b7194dad25694955689187"
+      }
+    },
+    "source-of-truth": {
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/ids.py::source_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.source",
+        "ref:src/knowledge_os/graph.py::GraphStore.commit_sync_checkpoint",
+        "ref:tests/test_contracts.py::test_source_and_document_identity_is_workspace_scoped_and_delimiter_safe",
+        "ref:migrations/001_core.cypher"
+      ],
+      "nodeIds": [
+        "systems",
+        "source",
+        "sqlite"
+      ],
+      "prerequisites": [
+        "start-here"
+      ],
+      "next": "document-journey",
+      "conceptualSources": [
+        "sap"
+      ],
+      "sections": [
+        "begin",
+        "objectives",
+        "example",
+        "comparison",
+        "changes",
+        "permissions",
+        "why",
+        "current",
+        "checks"
+      ],
+      "hashes": {
+        "en": "cfb59d344a6943a8b4e1e634d42b16de08b6515666f9178c2713de2966a686dd",
+        "ko-KR": "3d51bf12100590978eb7591c3ec69c5a2606ffe799aa41f659062cf9a6c704d9"
+      }
+    },
+    "document-journey": {
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "nodeIds": [
+        "ingestion",
+        "version",
+        "chunk",
+        "proposal"
+      ],
+      "prerequisites": [
+        "start-here",
+        "source-of-truth"
+      ],
+      "next": "ontology-basics",
+      "conceptualSources": [
+        "neo4j"
+      ],
+      "sections": [
+        "begin",
+        "objectives",
+        "example",
+        "observe",
+        "lineage",
+        "proposal",
+        "retrieval",
+        "timeline",
+        "action",
+        "current",
+        "checks"
+      ],
+      "hashes": {
+        "en": "e6a299749c875931ca9443cf23217ccd01bd17e3d6362adc7dcb83a8d3dcc5bc",
+        "ko-KR": "e8358cb01804bf3f85357cc82c15fdd30a9135a8d20ee05ca2c21e7bbca23705"
+      }
+    },
+    "ontology-basics": {
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate",
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "nodeIds": [
+        "ontology",
+        "assertion"
+      ],
+      "prerequisites": [
+        "document-journey"
+      ],
+      "next": null,
+      "conceptualSources": [
+        "palantir",
+        "neo4j"
+      ],
+      "sections": [
+        "begin",
+        "objectives",
+        "spreadsheet",
+        "comparison",
+        "example",
+        "implementation",
+        "why",
+        "conceptual",
+        "current",
+        "checks"
+      ],
+      "hashes": {
+        "en": "2a53a577e25d1b4c269ea5b7dc39e553148c47d741463d051a2b7e5ce5edda68",
+        "ko-KR": "3aa2377d699768a37b620227d4d3fcee795500c12883a0816a1256b95576e856"
+      }
+    }
+  }
+}

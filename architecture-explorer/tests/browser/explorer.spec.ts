@@ -147,7 +147,7 @@ test("every visible control works; architecture remains a static local document"
       exact: true,
     }),
   ).toBeVisible();
-  await expect(page.getByText(/not a fresh test execution/)).toBeVisible();
+  await expect(page.getByText(/Executed at current HEAD: 9 passed/)).toBeVisible();
   await page.getByRole("tab", { name: /Evidence/ }).click();
   await expect(
     page.getByRole("heading", { name: "Pinned verification dependencies" }),

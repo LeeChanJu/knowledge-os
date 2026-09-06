@@ -2,17 +2,17 @@
   "F1": {
     "title": "Immutable metadata hash integrity",
     "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
-    "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F1 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-    "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
-    "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+    "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+    "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
+    "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
     "resolutionRequired": ""
   },
   "F2": {
     "title": "Deterministic deletion replay",
     "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
-    "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F2 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-    "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
-    "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+    "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+    "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
+    "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
     "resolutionRequired": ""
   },
   "F3": {

@@ -1,3 +1,4 @@
+import {Flagship, isFlagship, flagshipText} from "./Flagship";
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import learning from "../../data/learning.json";
 import type { Architecture, ArchitectureNode } from "../model";
@@ -325,7 +326,7 @@ export default function Site({ data }: { data: Architecture }) {
                     (
                       docs[p.id].title +
                       " " +
-                      docs[p.id].sections.map((s) => s.body).join(" ")
+                      (isFlagship(p.id) ? flagshipText(lang,p.id) : docs[p.id].sections.map((s) => s.body).join(" "))
                     )
                       .toLocaleLowerCase()
                       .includes(query.toLocaleLowerCase()),
@@ -339,7 +340,7 @@ export default function Site({ data }: { data: Architecture }) {
                   (
                     docs[p.id].title +
                     " " +
-                    docs[p.id].sections.map((s) => s.body).join(" ")
+                    (isFlagship(p.id) ? flagshipText(lang,p.id) : docs[p.id].sections.map((s) => s.body).join(" "))
                   )
                     .toLocaleLowerCase()
                     .includes(query.toLocaleLowerCase()),
@@ -379,6 +380,8 @@ export default function Site({ data }: { data: Architecture }) {
               <p>{t("This route is not in this snapshot.")}</p>
               <a href={href("learn/start-here")}>{t("Start learning")}</a>
             </main>
+          ) : isFlagship(page.id) ? (
+            <Flagship id={page.id} lang={lang} title={page.title} />
           ) : (
             <>
               <main className="docs-article" key={page.id}>

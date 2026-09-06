@@ -1,6 +1,6 @@
 {
   "id": "source-of-truth",
-  "title": "02. Source of Truth란?",
+  "title": "02. 원본 시스템과 맥락 시스템",
   "sections": [
     {
       "id": "one-sentence",
@@ -44,5 +44,5 @@
     }
   ],
   "steps": [],
-  "reviewedPeerDigest": "de2ac3823a452f675b7f20a74c7f8a23edf2a1e57bacbb9a2919b9a47e346ba1"
+  "reviewedPeerDigest": "a74aafc2165dfa9f9ad8d27a94edfe656ef6d0682fc318dedcaff37c45d57c65"
 }

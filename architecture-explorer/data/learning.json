@@ -1,4 +1,189 @@
 {
+  "flagships": {
+    "schemaVersion": "1.0.0",
+    "sources": {
+      "palantir": {
+        "title": "Palantir · Ontology core concepts",
+        "url": "https://www.palantir.com/docs/foundry/ontology/core-concepts"
+      },
+      "sap": {
+        "title": "SAP · Foundation Layer",
+        "url": "https://architecture.learning.sap.com/docs/ai-native-north-star-architecture/foundation-layer"
+      },
+      "neo4j": {
+        "title": "Neo4j · Graph database concepts",
+        "url": "https://neo4j.com/docs/getting-started/appendix/graphdb-concepts/"
+      },
+      "diataxis": {
+        "title": "Diátaxis · Documentation modes",
+        "url": "https://diataxis.fr/start-here/"
+      }
+    },
+    "pages": {
+      "start-here": {
+        "referenceIds": [
+          "ref:src/knowledge_os/graph.py::GraphStore",
+          "ref:migrations/001_core.cypher",
+          "ref:migrations/003_vector_search_filters.cypher",
+          "ref:docs/architecture/0001-stable-context-contracts.md",
+          "ref:config/contracts.yaml",
+          "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+        ],
+        "nodeIds": [
+          "neo4j",
+          "source",
+          "proposal"
+        ],
+        "prerequisites": [],
+        "next": "source-of-truth",
+        "conceptualSources": [
+          "sap",
+          "neo4j",
+          "diataxis"
+        ],
+        "sections": [
+          "begin",
+          "objectives",
+          "example",
+          "problem",
+          "mental-model",
+          "adds",
+          "retrieval",
+          "governance",
+          "journey",
+          "current",
+          "checks"
+        ],
+        "hashes": {
+          "en": "e0a6fb0feda7ebfadf2ae9068b3bf8fc64354dacb1b05bdf820dc0572eadb623",
+          "ko-KR": "18825c264cb7fcf42d6ed4029baea32861e882c481b7194dad25694955689187"
+        }
+      },
+      "source-of-truth": {
+        "referenceIds": [
+          "ref:docs/architecture/0001-stable-context-contracts.md",
+          "ref:src/knowledge_os/file_connector.py::build_manifest",
+          "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+          "ref:src/knowledge_os/ids.py::source_id",
+          "ref:src/knowledge_os/graph.py::GraphStore.source",
+          "ref:src/knowledge_os/graph.py::GraphStore.commit_sync_checkpoint",
+          "ref:tests/test_contracts.py::test_source_and_document_identity_is_workspace_scoped_and_delimiter_safe",
+          "ref:migrations/001_core.cypher"
+        ],
+        "nodeIds": [
+          "systems",
+          "source",
+          "sqlite"
+        ],
+        "prerequisites": [
+          "start-here"
+        ],
+        "next": "document-journey",
+        "conceptualSources": [
+          "sap"
+        ],
+        "sections": [
+          "begin",
+          "objectives",
+          "example",
+          "comparison",
+          "changes",
+          "permissions",
+          "why",
+          "current",
+          "checks"
+        ],
+        "hashes": {
+          "en": "cfb59d344a6943a8b4e1e634d42b16de08b6515666f9178c2713de2966a686dd",
+          "ko-KR": "3d51bf12100590978eb7591c3ec69c5a2606ffe799aa41f659062cf9a6c704d9"
+        }
+      },
+      "document-journey": {
+        "referenceIds": [
+          "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+          "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+          "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+          "ref:tests/test_metadata_correction.py",
+          "ref:migrations/001_core.cypher",
+          "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+          "ref:src/knowledge_os/graph.py::proposal_identity",
+          "ref:migrations/005_proposal_evidence_lineage.cypher",
+          "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+          "ref:docs/architecture/0001-stable-context-contracts.md"
+        ],
+        "nodeIds": [
+          "ingestion",
+          "version",
+          "chunk",
+          "proposal"
+        ],
+        "prerequisites": [
+          "start-here",
+          "source-of-truth"
+        ],
+        "next": "ontology-basics",
+        "conceptualSources": [
+          "neo4j"
+        ],
+        "sections": [
+          "begin",
+          "objectives",
+          "example",
+          "observe",
+          "lineage",
+          "proposal",
+          "retrieval",
+          "timeline",
+          "action",
+          "current",
+          "checks"
+        ],
+        "hashes": {
+          "en": "e6a299749c875931ca9443cf23217ccd01bd17e3d6362adc7dcb83a8d3dcc5bc",
+          "ko-KR": "e8358cb01804bf3f85357cc82c15fdd30a9135a8d20ee05ca2c21e7bbca23705"
+        }
+      },
+      "ontology-basics": {
+        "referenceIds": [
+          "ref:src/knowledge_os/ontology.py::Ontology.validate",
+          "ref:config/ontology.yaml",
+          "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+          "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate",
+          "ref:config/contracts.yaml",
+          "ref:docs/architecture/0001-stable-context-contracts.md",
+          "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+        ],
+        "nodeIds": [
+          "ontology",
+          "assertion"
+        ],
+        "prerequisites": [
+          "document-journey"
+        ],
+        "next": null,
+        "conceptualSources": [
+          "palantir",
+          "neo4j"
+        ],
+        "sections": [
+          "begin",
+          "objectives",
+          "spreadsheet",
+          "comparison",
+          "example",
+          "implementation",
+          "why",
+          "conceptual",
+          "current",
+          "checks"
+        ],
+        "hashes": {
+          "en": "2a53a577e25d1b4c269ea5b7dc39e553148c47d741463d051a2b7e5ce5edda68",
+          "ko-KR": "3aa2377d699768a37b620227d4d3fcee795500c12883a0816a1256b95576e856"
+        }
+      }
+    }
+  },
   "schemaVersion": "1.0.0",
   "manifest": {
     "schemaVersion": "1.0.0",
@@ -5139,7 +5324,7 @@
       },
       "source-of-truth": {
         "id": "source-of-truth",
-        "title": "Who owns the original?",
+        "title": "02. Source of Truth vs System of Context",
         "sections": [
           {
             "id": "one-sentence",
@@ -5183,11 +5368,11 @@
           }
         ],
         "steps": [],
-        "reviewedPeerDigest": "3f64894bcbf54af7d2382f93e4abecb3c448310b15226958dfad07819f29f5f9"
+        "reviewedPeerDigest": "21d414c93ccd3e9c99bfef8da700fc9eb101a8ba4631a35beb46e330a17ef2d2"
       },
       "document-journey": {
         "id": "document-journey",
-        "title": "From documents to knowledge",
+        "title": "03. Follow One Document End-to-End",
         "sections": [
           {
             "id": "one-sentence",
@@ -5310,7 +5495,7 @@
             "body": "API/MCP deliver context. A consuming human or agent interprets it; answer generation is external."
           }
         ],
-        "reviewedPeerDigest": "08f8c7487f58de5afaf4f788c7689ce6c112c7bc80831724c39985af2adacd33"
+        "reviewedPeerDigest": "70b54103e9f9ad482408586a48301e2a2c73c08cda171c7022296f561f3ee336"
       },
       "graph-basics": {
         "id": "graph-basics",
@@ -9158,7 +9343,7 @@
       },
       "source-of-truth": {
         "id": "source-of-truth",
-        "title": "02. Source of Truth란?",
+        "title": "02. 원본 시스템과 맥락 시스템",
         "sections": [
           {
             "id": "one-sentence",
@@ -9202,11 +9387,11 @@
           }
         ],
         "steps": [],
-        "reviewedPeerDigest": "de2ac3823a452f675b7f20a74c7f8a23edf2a1e57bacbb9a2919b9a47e346ba1"
+        "reviewedPeerDigest": "a74aafc2165dfa9f9ad8d27a94edfe656ef6d0682fc318dedcaff37c45d57c65"
       },
       "document-journey": {
         "id": "document-journey",
-        "title": "03. 문서가 지식이 되는 과정",
+        "title": "03. 문서 하나의 전체 여정",
         "sections": [
           {
             "id": "one-sentence",
@@ -9329,7 +9514,7 @@
             "body": "API/MCP가 맥락을 전달합니다. 사람이나 외부 에이전트가 해석하며 답변 생성은 외부 단계입니다."
           }
         ],
-        "reviewedPeerDigest": "0ff21b03cc3d180ef286f1354546278fa789fd21d18bf3d7dcd5d60576ed1a43"
+        "reviewedPeerDigest": "c8065744f61651d71363af1e8958d2209d6bafd16aad9fed902bdfeebee66780"
       },
       "graph-basics": {
         "id": "graph-basics",
@@ -13905,17 +14090,17 @@
       "F1": {
         "title": "Immutable metadata hash integrity",
         "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
-        "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F1 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-        "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
-        "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+        "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+        "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
+        "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
         "resolutionRequired": ""
       },
       "F2": {
         "title": "Deterministic deletion replay",
         "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
-        "recordedOutcome": "The repository's Current Remediation Workflow explicitly records F2 as corrected and verified. This curated record imports that scoped remediation decision and links the executable regressions; it is not a fresh test execution.",
-        "environment": "Recorded remediation: isolated real Neo4j regressions and fixture/unit coverage. The Explorer never runs database tests.",
-        "limitations": "No raw execution transcript or passing-test count is stored with the remediation instruction. Verification is attributed to that explicit repository decision. The revision locates the correction; its commit message is not proof. Dependency coverage conservatively includes all production modules, configuration, migrations, dependency locks and existing tests.",
+        "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+        "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
+        "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
         "resolutionRequired": ""
       },
       "F3": {
@@ -13979,18 +14164,18 @@
       "F1": {
         "title": "불변 메타데이터 해시 무결성",
         "scope": "manifest 메타데이터 해시는 실제 저장된 DocumentVersion의 제목·문서 URI에 결합되어야 합니다. 명시적인 정정은 과거 계보와 감사 가능한 멱등성을 보존합니다.",
-        "recordedOutcome": "저장소의 현재 정정 지침은 F1을 정정·검증 완료로 명시합니다. 이 기록은 해당 범위의 결정과 실행 가능한 회귀 참조를 반영하며 새 테스트 실행은 아닙니다.",
-        "environment": "저장소의 명시적인 정정 결정에서 가져온 기록입니다. Explorer가 운영 검증을 새로 실행하지 않았습니다.",
+        "recordedOutcome": "공개 소스 스냅샷에서 9개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다.",
+        "environment": "Python 3.12.11, pytest 8.4.2, Darwin. 명시적 PYTHONPATH로 공개 소스를 실행하고 테스트별 UUID Neo4j 데이터베이스와 임시 SQLite를 사용·제거했습니다.",
         "resolutionRequired": "",
-        "limitations": "정정 지침에 원시 실행 기록이나 통과 테스트 수가 없습니다. 명시적인 저장소 결정에 검증을 귀속합니다. 리비전은 정정 위치를 가리킬 뿐 커밋 메시지는 증거가 아닙니다. 모든 운영 모듈·설정·마이그레이션·잠금 파일·기존 테스트를 보수적으로 의존성에 포함합니다."
+        "limitations": "해당 범위만 재검증했습니다. 공개 소스는 별도의 로컬 시간 처리 수정을 포함하지 않습니다. 두 실행 revision을 구분하며 F3–F8과 출시 관문은 열려 있습니다."
       },
       "F2": {
         "title": "결정적인 삭제 재시도",
         "scope": "그래프 커밋 후 로컬 체크포인트 저장 전에 삭제를 재구성해도 정확히 같은 manifest를 재현하고 이력을 중복시키지 않아야 합니다. 이후 독립적인 삭제는 구분합니다.",
-        "recordedOutcome": "저장소의 현재 정정 지침은 F2을 정정·검증 완료로 명시합니다. 이 기록은 해당 범위의 결정과 실행 가능한 회귀 참조를 반영하며 새 테스트 실행은 아닙니다.",
-        "environment": "저장소의 명시적인 정정 결정에서 가져온 기록입니다. Explorer가 운영 검증을 새로 실행하지 않았습니다.",
+        "recordedOutcome": "공개 소스 스냅샷에서 11개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다.",
+        "environment": "Python 3.12.11, pytest 8.4.2, Darwin. 명시적 PYTHONPATH로 공개 소스를 실행하고 테스트별 UUID Neo4j 데이터베이스와 임시 SQLite를 사용·제거했습니다.",
         "resolutionRequired": "",
-        "limitations": "정정 지침에 원시 실행 기록이나 통과 테스트 수가 없습니다. 명시적인 저장소 결정에 검증을 귀속합니다. 리비전은 정정 위치를 가리킬 뿐 커밋 메시지는 증거가 아닙니다. 모든 운영 모듈·설정·마이그레이션·잠금 파일·기존 테스트를 보수적으로 의존성에 포함합니다."
+        "limitations": "해당 범위만 재검증했습니다. 공개 소스는 별도의 로컬 시간 처리 수정을 포함하지 않습니다. 두 실행 revision을 구분하며 F3–F8과 출시 관문은 열려 있습니다."
       },
       "F3": {
         "title": "Doctor 무결성 검사 범위",
