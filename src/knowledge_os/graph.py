@@ -625,7 +625,8 @@ class GraphStore:
                 d.deletion_source_version=$source_version
             CREATE (e:Event {
                 id:$event_id, event_type:'SOURCE_DOCUMENT_DELETED', status:'OBSERVED',
-                source_version:$source_version, observed_at:$deleted_at,
+                source_version:$source_version, deleted_at:$deleted_at,
+                observation_cursor:$sync_cursor, sync_run_id:$sync_run_id,
                 recorded_at:$now, recorded_by:$recorded_by, reason:$reason
             })
             MERGE (d)-[:HAS_EVENT]->(e)
@@ -643,7 +644,7 @@ class GraphStore:
             event_id=event_id,
             expected_current_version_id=expected_current_version_id,
             source_version=request.source_version,
-            deleted_at=request.deleted_at.isoformat(),
+            deleted_at=request.deleted_at.isoformat() if request.deleted_at else None,
             sync_cursor=request.sync_cursor,
             sync_run_id=request.sync_run_id,
             recorded_by=request.recorded_by,
@@ -877,7 +878,10 @@ class GraphStore:
         if completed:
             if completed["id"] != checkpoint_event_id or completed["cursor"] != manifest.cursor:
                 raise ValueError("sync_run_id is already bound to a different cursor")
-            if completed["manifest_hash"] not in (None, manifest_hash):
+            if completed["manifest_hash"] not in (None, manifest_hash) and (
+                cls._legacy_deletion_manifest_hash(tx, manifest, source_identifier)
+                != completed["manifest_hash"]
+            ):
                 raise ValueError("sync_run_id is already bound to a different manifest payload")
             stats = json.loads(completed["stats_json"])
             return cls._manifest_result(
@@ -1002,7 +1006,9 @@ class GraphStore:
             {"owner": request.owner, "visibility": request.visibility, "acl": request.acl},
         )
         version_id = stable_id("document-version", document_identifier, fingerprint)
-        metadata_hash = source_metadata_fingerprint(request.title, request.source_uri)
+        metadata_hash = source_metadata_fingerprint(
+            request.title, request.document_source_uri or request.source_uri
+        )
         existing = tx.run(
             """
             MATCH (d:Document {id:$id})-[:CURRENT_VERSION]->(v)
@@ -1078,11 +1084,53 @@ class GraphStore:
             unchanged=False,
         ).model_dump(mode="json")
 
+    @staticmethod
+    def _legacy_deletion_manifest_hash(tx, manifest, source_identifier):
+        """Verify an old payload exactly using its persisted pre-F2 observation times.
+
+        Read-only compatibility: never ignore a hash field or rewrite an old ledger.
+        Only unknown deletion times may be reconstructed; explicit times remain bound.
+        """
+        payload = manifest.model_dump(mode="json", exclude={"manifest_version"})
+        restored = False
+        for record in payload["records"]:
+            if record["operation"] != "TOMBSTONE" or record["deleted_at"] is not None:
+                continue
+            document_identifier = document_id(source_identifier, record["document_external_id"])
+            event_id = stable_id(
+                "event", document_identifier, "SOURCE_DOCUMENT_DELETED", record["source_version"]
+            )
+            event = tx.run(
+                "MATCH (:Source {id:$source})-[:HAS_DOCUMENT]->(:Document {id:$document})"
+                "-[:HAS_EVENT]->(e:Event {id:$event, event_type:'SOURCE_DOCUMENT_DELETED'}) "
+                "RETURN properties(e)['observed_at'] AS observed_at",
+                source=source_identifier,
+                document=document_identifier,
+                event=event_id,
+            ).single()
+            if event is None or event["observed_at"] is None:
+                return None
+            record["deleted_at"] = event["observed_at"]
+            restored = True
+        if not restored:
+            return None
+        # Canonicalize exactly as the original manifest serialization did (UTC/Z).
+        canonical = SyncManifest.model_validate(payload).model_dump(
+            mode="json", exclude={"manifest_version"}
+        )
+        return stable_id("sync-manifest", canonical)
+
     @classmethod
     def _write_manifest_tombstone(cls, tx, request, source_identifier):
         document_identifier = document_id(source_identifier, request.document_external_id)
+        # A later snapshot may delete the same content revision after reactivation.
+        # Scope the transition to its stable sync, never to a local clock instant.
         event_id = stable_id(
-            "event", document_identifier, "SOURCE_DOCUMENT_DELETED", request.source_version
+            "event",
+            document_identifier,
+            "SOURCE_DOCUMENT_DELETED",
+            request.source_version,
+            request.sync_run_id,
         )
         existing = tx.run(
             "MATCH (e:Event {id:$event_id}) RETURN e.id AS id", event_id=event_id

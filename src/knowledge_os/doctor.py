@@ -1,3 +1,4 @@
+import hashlib
 import json
 import sqlite3
 from pathlib import Path
@@ -411,10 +412,47 @@ def audit_feedback_access(db: sqlite3.Connection) -> dict:
     }
 
 
+def persisted_metadata_hash(title: str, source_uri: str | None) -> str:
+    """Independently verify the persisted title/URI contract, not ingestion output."""
+    canonical = json.dumps(
+        {"title": title, "source_uri": source_uri},
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def audit_metadata_hashes(rows) -> dict:
+    violations = 0
+    samples = []
+    for row in rows:
+        if row["source_metadata_hash"] != persisted_metadata_hash(row["title"], row["source_uri"]):
+            violations += 1
+            if len(samples) < 10:
+                samples.append(row["id"])
+    return {
+        "name": "immutable_metadata_hash_matches_persisted_version",
+        "status": "PASS" if violations == 0 else "FAIL",
+        "violations": violations,
+        "samples": samples,
+    }
+
+
 def run_doctor(graph, migrations: Path | None = None) -> dict:
     migrations = migrations or get_settings().migrations_path
     checks = []
     with graph.driver.session(database=graph.database) as session:
+        checks.append(
+            audit_metadata_hashes(
+                session.run(
+                    "MATCH (v:DocumentVersion) "
+                    "WHERE v.source_contract_version IS NOT NULL OR v.source_metadata_hash IS NOT NULL "
+                    "RETURN v.id AS id, v.title AS title, v.source_uri AS source_uri, "
+                    "v.source_metadata_hash AS source_metadata_hash"
+                )
+            )
+        )
         for name, query in GRAPH_CHECKS.items():
             row = session.run(query).single()
             violations = int(row["violations"])

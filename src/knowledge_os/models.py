@@ -72,7 +72,8 @@ class DocumentTombstoneRequest(BaseModel):
     document_external_id: str = Field(min_length=1)
     source_version: str = Field(min_length=1)
     expected_current_version_id: str | None = Field(default=None, min_length=1)
-    deleted_at: CanonicalDatetime = Field(default_factory=utc_now)
+    # Effective source deletion time; an absent inventory item has no known instant.
+    deleted_at: CanonicalDatetime | None = None
     sync_cursor: str | None = None
     sync_run_id: str | None = None
     reason: str | None = None
@@ -126,7 +127,8 @@ class ManifestTombstoneRecord(BaseModel):
     operation: Literal["TOMBSTONE"]
     document_external_id: str = Field(min_length=1)
     source_version: str = Field(min_length=1)
-    deleted_at: CanonicalDatetime = Field(default_factory=utc_now)
+    # Never manufacture remote deletion time from the manifest builder's clock.
+    deleted_at: CanonicalDatetime | None = None
     reason: str | None = None
 
 
