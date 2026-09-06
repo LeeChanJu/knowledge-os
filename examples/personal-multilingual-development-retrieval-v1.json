@@ -1,0 +1,68 @@
+{
+  "suite_version": "1",
+  "suite_id": "personal-cross-lingual-development-2026-09-06",
+  "evaluator_version": "cross-lingual-development-v1",
+  "minimum_mean_recall": 0.8,
+  "cases": [
+    {
+      "id": "KO-DEV-001",
+      "question": "이 시스템을 스타트업 제품이 아니라 개인이 장기간 사용하는 지식 저장소로 정의한 문서는 무엇인가?",
+      "request": {"query": "개인이 장기간 사용하는 지식 저장소 스타트업 제품 아님", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"]
+    },
+    {
+      "id": "KO-DEV-002",
+      "question": "승인 절차 없이 Note와 RELATES_TO만 사용했던 과거 온톨로지는 어느 문서에 있는가?",
+      "request": {"query": "승인 절차 없이 Note RELATES_TO 사용한 과거 온톨로지", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:fd4c3c19aeaf2f6a35678f828120bebcc3760084a83dfd6003d6e5203f3cf64c"]
+    },
+    {
+      "id": "KO-DEV-003",
+      "question": "SourceSnapshot을 SHA-256과 추출기 프로필로 식별되는 불변 콘텐츠라고 정의한 온톨로지는 무엇인가?",
+      "request": {"query": "SourceSnapshot SHA-256 추출기 프로필 불변 콘텐츠 온톨로지", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:082d0cb560cbb88380b19af154265b7c459069e35b10673852f4cb3698971b44"]
+    },
+    {
+      "id": "KO-DEV-004",
+      "question": "지금은 Neo4j를 사용하고 Palantir는 통합 온톨로지 운영환경의 아키텍처 기준으로 삼으라고 권고한 비교 문서는?",
+      "request": {"query": "Neo4j 사용 Palantir 통합 온톨로지 운영환경 아키텍처 기준 비교", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:6f20b301186f653957199366b76f82f86314e3ea2445e7da53f4bebf0db4c2c0"]
+    },
+    {
+      "id": "KO-DEV-005",
+      "question": "Notion은 사람의 작업 공간으로, Neo4j는 승인된 의미 기억으로 역할을 구분한 문서는 무엇인가?",
+      "request": {"query": "Notion 사람 작업 공간 Neo4j 승인된 의미 기억 역할", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:0b65ad79fecdf9836a6ba9365013fe15de12ea18b55290df44dc700f17eb260c"]
+    },
+    {
+      "id": "KO-DEV-006",
+      "question": "Drive watch channel은 알림일 뿐이어서 커서 저장과 주기적 재조정이 계속 필요하다고 설명한 소스 정책은?",
+      "request": {"query": "Drive watch channel 알림 커서 저장 주기적 재조정 소스 정책", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:056366a0611b813ebe15e54ed5cf0ced508e3dff9c85cb1cbb87048f81e2cc93"]
+    },
+    {
+      "id": "KO-DEV-007",
+      "question": "가장 최신 결정이 자동으로 정답은 아니며 승인되고 대체되거나 취소되지 않아야 한다는 규칙은 어느 로그에 있는가?",
+      "request": {"query": "최신 결정 자동 정답 아님 승인 대체 취소 규칙 로그", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:eba2c16e5d2a1d5fb9516f69ce690084ec36ee6329d24a55e6acf5702a529b2e"]
+    },
+    {
+      "id": "KO-DEV-008",
+      "question": "작은 코퍼스에서 출처 추적, 승인, 평가를 먼저 한 뒤 SAP delivery agent를 도입하라는 로드맵은?",
+      "request": {"query": "작은 코퍼스 출처 추적 승인 평가 이후 SAP delivery agent 로드맵", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8d26e1b51baaf665992d2b30cd265b06f061cc350f3640fe2020d4a280c6353b"]
+    },
+    {
+      "id": "KO-DEV-009",
+      "question": "ADK, CrewAI, n8n, SAP Cloud SDK for AI가 서로 대체 가능한 동일 종류의 프레임워크가 아니라고 설명한 문서는?",
+      "request": {"query": "ADK CrewAI n8n SAP Cloud SDK for AI 서로 다른 종류 프레임워크", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8efd6a40cf24be9ae03e1b2083552e15952a4c82609d52d927e04c891aeafe2c"]
+    },
+    {
+      "id": "KO-DEV-010",
+      "question": "커서 누락과 만료된 watch가 소스 변경을 놓치는 문제로 이어진다는 위험 항목은 어디에 있는가?",
+      "request": {"query": "커서 누락 만료 watch 소스 변경 놓침 위험", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "manifest_version": "2",
+  "workspace_id": "personal",
+  "source_type": "notion",
+  "source_external_id": "notion-workspace-example",
+  "source_uri": "https://www.notion.so/example",
+  "sync_run_id": "example-run-001",
+  "cursor": "example-cursor-001",
+  "connector_id": "notion-export-adapter-v1",
+  "records": [
+    {
+      "operation": "UPSERT",
+      "document_external_id": "page-example-001",
+      "source_version": "last-edited-time-or-provider-version",
+      "title": "Example governed source document",
+      "content": "Trusted source text exported by the connector.",
+      "owner": "user:local-owner",
+      "visibility": "PRIVATE",
+      "acl": ["user:local-owner"],
+      "parser_version": "notion-export-v1",
+      "chunker_version": "paragraph-v1",
+      "chunk_size": 1200
+    }
+  ]
+}

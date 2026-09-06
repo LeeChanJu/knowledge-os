@@ -1,0 +1,27 @@
+version: "1.37.0"
+contracts:
+  source: "source-v12"
+  evidence: "evidence-v2"
+  knowledge: "knowledge-v5"
+  governance: "governance-v8"
+  retrieval: "retrieval-v11"
+  action: "action-v6"
+
+change_control:
+  highest_order_rule: >-
+    Do not redesign working foundations without evidence. Extend stable contracts
+    rather than replacing the architecture.
+  required_evidence:
+    - measured correctness failure
+    - measured quality gap
+    - measured performance limit
+    - security or authorization requirement
+    - source-system contract change
+  decision_priority:
+    - data_integrity_and_provenance
+    - long_term_architectural_stability
+    - retrieval_and_knowledge_quality
+    - simplicity_and_maintainability
+    - measurable_performance
+    - extensibility
+    - new_technology_adoption

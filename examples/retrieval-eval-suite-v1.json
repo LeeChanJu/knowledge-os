@@ -1,0 +1,22 @@
+{
+  "suite_version": "1",
+  "suite_id": "personal-knowledge-baseline",
+  "evaluator_version": "retrieval-eval-v1",
+  "minimum_mean_recall": 0.8,
+  "cases": [
+    {
+      "id": "system-of-context-document",
+      "question": "Which document explains the System of Context architecture?",
+      "request": {
+        "query": "System of Context architecture",
+        "mode": "keyword",
+        "limit": 10,
+        "access": {
+          "workspace_id": "personal",
+          "principals": ["local-user"]
+        }
+      },
+      "expected_document_ids": ["document:replace-with-a-known-stable-id"]
+    }
+  ]
+}

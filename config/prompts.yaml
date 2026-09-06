@@ -1,0 +1,17 @@
+version: "1.2.0"
+prompts:
+  assertion_extraction:
+    version: "1"
+    path: "../prompts/assertion-extraction-v1.md"
+    sha256: "1b36cf4f96e76645e516b13f07f4e55d30a879bdfe9fe901e640814e8ad9ee55"
+    output_contract: "ProposalCreate"
+  decision_extraction:
+    version: "2"
+    path: "../prompts/decision-extraction-v2.md"
+    sha256: "ad793ccb749687a2b50d8d3ae847e0334c3608d6192e61665a08a16af46e9e83"
+    output_contract: "DecisionProposalCreate"
+  event_extraction:
+    version: "1"
+    path: "../prompts/event-extraction-v1.md"
+    sha256: "a0d0384832e1f3b0eda553ac95a12807d60ccb270ecca521c5c960e0f777b10a"
+    output_contract: "EventProposalCreate"

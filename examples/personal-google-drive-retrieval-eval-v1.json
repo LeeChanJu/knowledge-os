@@ -1,0 +1,68 @@
+{
+  "suite_version": "1",
+  "suite_id": "personal-google-drive-baseline-2026-09-05",
+  "evaluator_version": "human-grounded-keyword-v1",
+  "minimum_mean_recall": 0.9,
+  "cases": [
+    {
+      "id": "architecture-purpose",
+      "question": "Which document defines the system as a personal long-term knowledge store rather than a startup product?",
+      "request": {"query": "personal long-term knowledge store startup product", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"]
+    },
+    {
+      "id": "historical-ontology",
+      "question": "Which historical ontology used Note and RELATES_TO without an approval boundary?",
+      "request": {"query": "historical ontology Note RELATES_TO approval boundary absent", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:fd4c3c19aeaf2f6a35678f828120bebcc3760084a83dfd6003d6e5203f3cf64c"]
+    },
+    {
+      "id": "evidence-ontology",
+      "question": "Which ontology defines SourceSnapshot as immutable fetched content identified by SHA-256 and an extractor profile?",
+      "request": {"query": "SourceSnapshot immutable fetched content SHA-256 extractor input profile", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:082d0cb560cbb88380b19af154265b7c459069e35b10673852f4cb3698971b44"]
+    },
+    {
+      "id": "palantir-benchmark",
+      "question": "Which comparison recommends Neo4j now and Palantir as an architectural benchmark?",
+      "request": {"query": "Neo4j now Palantir architectural benchmark integrated ontology operating environment", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:6f20b301186f653957199366b76f82f86314e3ea2445e7da53f4bebf0db4c2c0"]
+    },
+    {
+      "id": "notion-neo4j-roles",
+      "question": "Which document assigns Notion the human workspace role and Neo4j approved semantic memory?",
+      "request": {"query": "Notion human workspace Neo4j approved semantic memory narrative documents multi-hop", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:0b65ad79fecdf9836a6ba9365013fe15de12ea18b55290df44dc700f17eb260c"]
+    },
+    {
+      "id": "drive-reconciliation",
+      "question": "Which source policy says Drive watch channels are notifications and cursors plus reconciliation remain necessary?",
+      "request": {"query": "Drive watch channels notifications permanent ingestion state persist cursors periodically reconcile", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:056366a0611b813ebe15e54ed5cf0ced508e3dff9c85cb1cbb87048f81e2cc93"]
+    },
+    {
+      "id": "decision-reading-rule",
+      "question": "Which log says the latest decision is not automatically correct and must be accepted and not superseded or revoked?",
+      "request": {"query": "latest decision not automatically correct accepted superseded revoked", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:eba2c16e5d2a1d5fb9516f69ce690084ec36ee6329d24a55e6acf5702a529b2e"]
+    },
+    {
+      "id": "sap-roadmap-gate",
+      "question": "Which roadmap places SAP delivery agents after provenance, approval, and evaluation on a small corpus?",
+      "request": {"query": "SAP delivery agents after provenance approval evaluation small corpus", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8d26e1b51baaf665992d2b30cd265b06f061cc350f3640fe2020d4a280c6353b"]
+    },
+    {
+      "id": "agent-category-correction",
+      "question": "Which comparison explains that ADK, CrewAI, n8n, and SAP Cloud SDK for AI are not interchangeable frameworks?",
+      "request": {"query": "ADK CrewAI n8n SAP Cloud SDK AI not interchangeable agent frameworks", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8efd6a40cf24be9ae03e1b2083552e15952a4c82609d52d927e04c891aeafe2c"]
+    },
+    {
+      "id": "risk-cursor-gap",
+      "question": "Which risk register links cursor gaps and expired watches to missed source changes?",
+      "request": {"query": "risk cursor gap expired watch reconciliation mismatch missed source change", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "suite_version": "1",
+  "suite_id": "personal-held-out-golden-questions-2026-09-05",
+  "evaluator_version": "held-out-golden-question-keyword-v1",
+  "minimum_mean_recall": 0.9,
+  "cases": [
+    {
+      "id": "GQ-001",
+      "question": "What is the primary goal of the Knowledge OS?",
+      "request": {"query": "What is the primary goal of the Knowledge OS?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-002",
+      "question": "What is the current ontology?",
+      "request": {"query": "What is the current ontology?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:082d0cb560cbb88380b19af154265b7c459069e35b10673852f4cb3698971b44"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-003",
+      "question": "Where is a Drive-native PDF authoritative?",
+      "request": {"query": "Where is a Drive-native PDF authoritative?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:056366a0611b813ebe15e54ed5cf0ced508e3dff9c85cb1cbb87048f81e2cc93"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-004",
+      "question": "Where is a Notion-native meeting note authoritative?",
+      "request": {"query": "Where is a Notion-native meeting note authoritative?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:056366a0611b813ebe15e54ed5cf0ced508e3dff9c85cb1cbb87048f81e2cc93"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-005",
+      "question": "What does Neo4j store?",
+      "request": {"query": "What does Neo4j store?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:082d0cb560cbb88380b19af154265b7c459069e35b10673852f4cb3698971b44"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-006",
+      "question": "Can an extractor directly modify canonical knowledge?",
+      "request": {"query": "Can an extractor directly modify canonical knowledge?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-007",
+      "question": "Why is RELATES_TO insufficient?",
+      "request": {"query": "Why is RELATES_TO insufficient?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:fd4c3c19aeaf2f6a35678f828120bebcc3760084a83dfd6003d6e5203f3cf64c"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-008",
+      "question": "Which decision superseded the simple Note/Concept ontology?",
+      "request": {"query": "Which decision superseded the simple Note/Concept ontology?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:eba2c16e5d2a1d5fb9516f69ce690084ec36ee6329d24a55e6acf5702a529b2e"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-009",
+      "question": "Is a vector index authoritative?",
+      "request": {"query": "Is a vector index authoritative?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-010",
+      "question": "Why not call the Neo4j build Palantir for free?",
+      "request": {"query": "Why not call the Neo4j build Palantir for free?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:6f20b301186f653957199366b76f82f86314e3ea2445e7da53f4bebf0db4c2c0"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-011",
+      "question": "When should A2A be added?",
+      "request": {"query": "When should A2A be added?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:e06e036adcd8995bd0b94beef4fbed21e763c47c78bd65cdbfc0a44639f962e5"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-012",
+      "question": "Is SAP Cloud SDK for AI an agent framework?",
+      "request": {"query": "Is SAP Cloud SDK for AI an agent framework?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8efd6a40cf24be9ae03e1b2083552e15952a4c82609d52d927e04c891aeafe2c"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-013",
+      "question": "What is the first SAP AX agent slice?",
+      "request": {"query": "What is the first SAP AX agent slice?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:8d26e1b51baaf665992d2b30cd265b06f061cc350f3640fe2020d4a280c6353b"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-014",
+      "question": "What happens when a source is deleted?",
+      "request": {"query": "What happens when a source is deleted?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:082d0cb560cbb88380b19af154265b7c459069e35b10673852f4cb3698971b44"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    },
+    {
+      "id": "GQ-015",
+      "question": "Which logs prove why an answer was produced?",
+      "request": {"query": "Which logs prove why an answer was produced?", "mode": "keyword", "limit": 5, "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}},
+      "expected_document_ids": ["document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"],
+      "excluded_document_ids": ["document:c56b317894d7b5f16141116121f3dba7a178caecb09dcf50b0a89c9e15770de9"]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+[project]
+name = "knowledge-os"
+version = "0.1.0"
+description = "Evidence-first Neo4j knowledge service"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "mcp>=2,<3",
+  "neo4j>=5.28,<6",
+  "pydantic-settings>=2.10,<3",
+  "pyyaml>=6.0,<7",
+  "uvicorn[standard]>=0.35,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4,<9", "ruff>=0.12,<1"]
+connectors = ["pypdf>=5,<7", "python-docx>=1.1,<2"]
+
+[project.scripts]
+knowledge-os-ingest = "knowledge_os.ingest_manifest:main"
+knowledge-os-ingest-files = "knowledge_os.file_connector:main"
+knowledge-os-ingest-notion = "knowledge_os.notion_connector:main"
+knowledge-os-ingest-google-drive = "knowledge_os.google_drive_connector:main"
+knowledge-os-evaluate = "knowledge_os.evaluate:main"
+knowledge-os-doctor = "knowledge_os.doctor:main"
+knowledge-os-recovery = "knowledge_os.recovery:main"
+knowledge-os-mcp = "knowledge_os.mcp_server:main"
+knowledge-os-review = "knowledge_os.review_cli:main"
+knowledge-os-execute-notion-action = "knowledge_os.notion_action_executor:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

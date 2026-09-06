@@ -1,0 +1,43 @@
+{
+  "suite_version": "1",
+  "suite_id": "personal-source-authorization-2026-09-05",
+  "evaluator_version": "source-authorization-policy-v1",
+  "minimum_mean_recall": 1.0,
+  "cases": [
+    {
+      "id": "authorized-control",
+      "question": "The source principal can retrieve its architecture evidence.",
+      "request": {
+        "query": "personal long-term knowledge store startup product",
+        "mode": "keyword",
+        "limit": 5,
+        "access": {"workspace_id": "personal", "principals": ["google-drive:me"]}
+      },
+      "expected_document_ids": [
+        "document:23d746b085f84af6d564b4fdf62ab47efef7b16277c1307c3fa6c41ce72bff27"
+      ]
+    },
+    {
+      "id": "wrong-principal-denied",
+      "question": "An unrelated principal receives no private Google Drive evidence.",
+      "request": {
+        "query": "Neo4j Knowledge OS",
+        "mode": "keyword",
+        "limit": 100,
+        "access": {"workspace_id": "personal", "principals": ["user:unrelated"]}
+      },
+      "expected_no_results": true
+    },
+    {
+      "id": "wrong-workspace-denied",
+      "question": "A valid source principal cannot cross the workspace boundary.",
+      "request": {
+        "query": "Neo4j Knowledge OS",
+        "mode": "keyword",
+        "limit": 100,
+        "access": {"workspace_id": "customer-other", "principals": ["google-drive:me"]}
+      },
+      "expected_no_results": true
+    }
+  ]
+}

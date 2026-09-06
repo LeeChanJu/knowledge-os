@@ -1,0 +1,33 @@
+version: "1.0.0"
+entity_types:
+  - Concept
+  - Technology
+  - Person
+  - Organization
+  - Project
+  - Document
+  - Decision
+  - Event
+  - Tool
+relation_types:
+  RELATED_TO:
+    subjects: [Concept, Technology, Person, Organization, Project, Decision, Event, Tool]
+    objects: [Concept, Technology, Person, Organization, Project, Decision, Event, Tool]
+  USES:
+    subjects: [Person, Organization, Project, Technology, Tool]
+    objects: [Technology, Tool]
+  DEPENDS_ON:
+    subjects: [Project, Technology, Tool]
+    objects: [Technology, Tool]
+  PART_OF:
+    subjects: [Concept, Technology, Project, Tool]
+    objects: [Concept, Technology, Organization, Project, Tool]
+  WORKS_FOR:
+    subjects: [Person]
+    objects: [Organization]
+  DECIDED_IN:
+    subjects: [Decision]
+    objects: [Document, Event]
+  CONTRADICTS:
+    subjects: [Concept, Technology, Decision]
+    objects: [Concept, Technology, Decision]
