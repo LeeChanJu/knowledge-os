@@ -194,7 +194,11 @@ unpublished local Git SHA. Its files are checked against Git objects and its ref
 against the generated repository model. Separate links explicitly navigate to `main`. No line anchors
 are guessed: exact qualified symbols are shown beside revision-pinned file links.
 
-The public source snapshot excludes the separate local temporal remediation. F1/F2 were explicitly rerun against both the local source HEAD and the public snapshot before this deployment. The execution record keeps those revisions distinct. Only Explorer files are published by this change; F3–F8 and release acceptance remain open.
+This documentation extension was developed from `6ed9680`, whose production evidence matches the
+published `5275071` snapshot. The separate local temporal remediation commit `7fd0353` is not included
+or reverified. Its changed verified dependencies correctly block synchronization in that newer checkout
+until explicit reconciliation. Neither this task nor synchronization closes later findings or silently
+refreshes F1/F2 proof. Preserve this distinction when integrating the documentation with newer code.
 
 ### Validation
 
@@ -248,7 +252,74 @@ npm run dev -- --host 127.0.0.1
 
 Routes: `/#/{ko-KR|en}/learn/{start-here|source-of-truth|document-journey|ontology-basics}`.
 Browser tests save dark/light full-page screenshots and mobile screenshots under
-`test-results/`. The next content milestone remains blocked on user review of these
-four lessons, not on automatic expansion to the remaining syllabus.
+`test-results/`. That milestone retained the four lessons for review. The subsequently approved
+capability-based IA is described below; their detailed content remains available.
 
-Public deployment verification: the same F1/F2 selectors also passed against public source revision dc86d0e (20 passed, 54.84 seconds). Curated fingerprints apply to that public source; local-HEAD results remain historical evidence in the same execution record.
+### Flow-first learning milestone
+
+The four flagship lessons have a visual layer in `content/flow/{ko-KR,en}/*.md`.
+The previous long-form Markdown remains intact inside **Technical implementation**.
+`content/flow/model.json` owns the shared map, human labels, experience scopes and
+repository references; these scopes are not verification states. `glossary.json`
+owns beginner explanations and stage links. `review.json` records first term
+introductions, prerequisites and explicitly reviewed bilingual fingerprints.
+
+`explorer:check` checks both editions, source links, visual-section density,
+comprehension checks and the term-introduction gate. It never updates review hashes.
+Technical names in beginner prose must have a preceding inline definition such as
+`[a tracked subject](term:entity)` or be taught in a prerequisite. Canonical labels
+and explicitly registered aliases are checked; ordinary lowercase words and product
+names are not classified as jargon. Technical reference is outside this gate.
+The first-screen comprehension criterion still requires a real novice review;
+automated UI checks are not evidence that a 16-year-old understood it in a minute.
+
+### Capability-based Learn IA
+
+The current Learn entry is `/#/{ko-KR|en}/learn/start-here`: one whole-system map
+and six complete journeys, not a 77-item chapter list. Google Drive / Notion / Files
+remain visibly outside Knowledge OS. The six routes are:
+
+| Route after `learn/` | Korean | English |
+| --- | --- | --- |
+| `remember` | 기억시키기 | Remember something |
+| `find` | 찾아보기 | Find something |
+| `relationships` | 관계 묻기 | Ask about relationships |
+| `sources` | 근거 확인하기 | Check the source |
+| `correct` | 정정하기 | Correct knowledge |
+| `act` | 행동 제안하기 | Propose an action |
+
+The 26 steps each introduce one question, one diagram and a short explanation.
+Choose a step, open its human-language concept label, then follow **Learn in the
+flow** to an inline concept branch. Deeper documents, code evidence and Explore
+carry `journey`, `step` and optional `concept` in the hash URL. The persistent
+learning-position trail returns to the same stage. Browser back/forward and
+language switching retain this context. Target experience is explicitly labeled;
+current implementation, authorization/human boundaries and deferred/unverified
+scope remain separate from the curated verification states.
+
+- `content/ia/catalog.json`: classification and preserved aliases for all 77 old
+  pages — 1 flow entry, 34 deep dives, 19 explanations and 23 references.
+- `content/ia/journeys.json`: six paths, 26 stages, contextual branches and exact
+  repository evidence IDs. These are documentation relationships only.
+- `content/journeys/{ko-KR,en}/*.md`: twelve new educational bodies.
+- `content/ia/review.json`: reviewed bilingual prose/metadata fingerprints and
+  first-introduction mappings; independent of production verification evidence.
+- `review/learn-ia-audit.md`: every old page's classification, rationale and route.
+
+Existing 77 JSON bodies are preserved. The 76 old non-entry `learn/{id}` URLs
+redirect to their classified reference routes without losing learning context.
+The former full Start Here remains at `reference/deep-dives/start-here`. No pages
+were destructively merged: related introductions remain reference branches until
+an editorial merge can preserve every useful explanation and incoming link.
+Operational introductions are not presented as executable how-to procedures.
+This IA milestone supersedes the earlier four-page-only navigation; it does not
+bulk-rewrite the remaining legacy content.
+
+`explorer:check` additionally rejects lost aliases, altered legacy bodies without
+review, broken stage/reference links, stale bilingual review records and incorrect
+term-introduction mappings. It never changes verification states. Browser tests
+cover both languages, all six paths and 26 steps, hover-to-link movement, outside
+and keyboard dismissal, source/Explore return paths, old URLs, search/filter empty
+states and narrow layouts. Screenshots are written to ignored `test-results/`.
+The hover panel keeps a safe pointer corridor to its link; selecting that link
+closes the panel so it cannot cover the destination content.

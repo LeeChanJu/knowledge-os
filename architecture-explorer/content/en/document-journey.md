@@ -73,7 +73,7 @@ Retry Day 4 | Replay the same observation deterministically rather than invent a
 
 Source versioning describes document states. Supersession describes a governed replacement of accepted knowledge. A change in one does not automatically perform the other. Domain validity, observation time and system recording time answer different questions; not every object carries the same time fields.
 
-Deletion also differs from erasure. Preserving history does not promise continued retrieval: the current lifecycle and permissions still govern reads. F2's executed regressions cover deterministic deletion replay and related correction scope, not every integration failure. Separate local temporal remediation is not included in this public source snapshot. This lesson does not make a fresh VERIFIED claim about temporal behavior.
+Deletion also differs from erasure. Preserving history does not promise continued retrieval: the current lifecycle and permissions still govern reads. F2's executed regressions cover deterministic deletion replay and related correction scope, not every integration failure. New temporal implementation exists, but this lesson does not promote it to a fresh VERIFIED claim.
 
 ## From context to an Action {#action}
 

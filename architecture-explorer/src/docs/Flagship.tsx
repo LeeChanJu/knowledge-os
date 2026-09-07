@@ -1,3 +1,6 @@
+import {ContextTrail} from './LearnIA';
+import {classification,capability,contextualHref} from './ia';
+import {LearnFlow} from './LearnFlow';
 import executionRecordUrl from "../../verification/current-head-regressions.json?url";
 import learning from "../../data/learning.json";
 import { Children, isValidElement, type ReactNode } from 'react';
@@ -11,8 +14,8 @@ export const isFlagship=(id:string)=>id in metadata.pages;
 export const flagshipText=(lang:Language,id:string)=>texts[`../../content/${lang}/${id}.md`]||'';
 export function Flagship({id,lang,title}:{id:string;lang:Language;title:string}){
  const p=metadata.pages[id as keyof typeof metadata.pages], ko=lang==='ko-KR';
- const href=(path:string)=>`#/${lang}/${path}`;
- const headings=[...flagshipText(lang,id).matchAll(/^## (.+) \{#([a-z-]+)\}$/gm)];
+ const href=(path:string)=>contextualHref(lang,path);
+
  const label=(en:string,kr:string)=>ko?kr:en;
  const block=(className:string|undefined,children:ReactNode)=>{
    const text=String(children).trim();
@@ -25,8 +28,8 @@ export function Flagship({id,lang,title}:{id:string;lang:Language;title:string})
  };
  return <>
  <main className="docs-article flagship" key={`${lang}/${id}`}>
-  <div className="eyebrow">{label('LEARN · FOUR FLAGSHIP LESSONS','LEARN · 대표 학습 문서 4편')}</div><h1>{title}</h1>
-  <nav className="flagship-prerequisites" aria-label={label('Prerequisites','먼저 읽기')}><strong>{label('Before this lesson: ','먼저 읽기: ')}</strong>{p.prerequisites.length?p.prerequisites.map(x=><a key={x} href={href('learn/'+x)}>{label(({ 'start-here':'Start Here','source-of-truth':'Source of Truth vs Context','document-journey':'One document journey'} as Record<string,string>)[x],({'start-here':'왜 Knowledge OS인가','source-of-truth':'원본과 맥락','document-journey':'문서 하나의 여정'} as Record<string,string>)[x])}</a>):label('No prior technical knowledge needed.','기술 배경지식이 없어도 됩니다.')}</nav>
+  <ContextTrail lang={lang}/><div className="eyebrow">{label('REFERENCE · CONTEXTUAL DEEP DIVE','REFERENCE · 흐름에서 여는 깊이 보기')}</div><h1>{({"start-here":label("Remember and find","원본은 그대로, 기억하고 찾아보기"),"source-of-truth":label("Where originals stay","원본은 어디에 남을까요?"),"document-journey":label("Follow one note","메모 하나를 따라가 보기"),"ontology-basics":label("Subjects, statements and connection rules","대상과 말, 그리고 연결의 규칙")} as Record<string,string>)[id]||title}</h1>
+  <LearnFlow id={id} lang={lang}/><details className="technical-layer" id="technical-layer"><summary>{label("Technical implementation and preserved reference","기술적으로 보기 · 구현과 기존 상세 설명")}</summary><nav className="flagship-prerequisites" aria-label={label('Prerequisites','먼저 읽기')}><strong>{label('Before this lesson: ','먼저 읽기: ')}</strong>{p.prerequisites.length?p.prerequisites.map(x=><a key={x} href={href('learn/'+x)}>{label(({ 'start-here':'Start Here','source-of-truth':'Source of Truth vs Context','document-journey':'One document journey'} as Record<string,string>)[x],({'start-here':'왜 Knowledge OS인가','source-of-truth':'원본과 맥락','document-journey':'문서 하나의 여정'} as Record<string,string>)[x])}</a>):label('No prior technical knowledge needed.','기술 배경지식이 없어도 됩니다.')}</nav>
   <Markdown remarkPlugins={[remarkGfm]} components={{
     h2:({children})=>{const raw=Children.toArray(children).join('');const match=raw.match(/^(.*) \{#([a-z-]+)\}$/);return <h2 id={match?.[2]}>{match?.[1]||children}</h2>},
     pre:({children})=>{const child=Children.toArray(children)[0];if(isValidElement<{className?:string;children?:ReactNode}>(child))return block(child.props.className,child.props.children);return <pre>{children}</pre>},
@@ -36,8 +39,8 @@ export function Flagship({id,lang,title}:{id:string;lang:Language;title:string})
   <section className="implementation-evidence" id="implementation-evidence"><h2>{label('Knowledge OS implementation evidence','Knowledge OS 구현 근거')}</h2><p>{label('Repository evidence identifies the implementation, tests and accepted contracts. A test link is not a passing result. F1/F2 have scoped executed evidence; F3–F8 and release acceptance remain open.','저장소 근거는 구현·테스트·승인된 계약을 식별합니다. 테스트 링크 자체가 통과 결과는 아닙니다. F1/F2에는 한정된 실행 근거가 있으며 F3–F8과 출시 관문은 열려 있습니다.')}</p>
   <p className="evidence-revision-note">{label("GitHub links below show the public evidence snapshot ","아래 GitHub 링크는 공개 근거 스냅샷 ")}{learning.github.revision.slice(0,12)}{label(". Current-HEAD F1/F2 execution is recorded separately; these links do not claim that the public snapshot contains the latest local code.","을 보여줍니다. 현재 HEAD의 F1/F2 실행은 별도 기록이며, 공개 스냅샷에 최신 로컬 코드가 포함됐다는 뜻은 아닙니다.")} <a href={executionRecordUrl} target="_blank" rel="noreferrer">{label("Executed regression record (JSON)","회귀 실행 기록 (JSON)")} ↗</a></p><div className="evidence-grid">{p.referenceIds.map(ref=><div className="evidence-item" key={ref}><a className="evidence-card" href={href('reference/item/'+encodeURIComponent(ref))}><span>{label(ref.includes('tests/')?'Test':ref.includes('src/')?'Implementation':'Contract / ADR / migration',ref.includes('tests/')?'테스트':ref.includes('src/')?'구현':'계약 / ADR / 마이그레이션')}</span><code>{ref.slice(4)}</code></a><a className="file-action" target="_blank" rel="noreferrer" href={githubLink(ref)}>{label('Pinned evidence on GitHub','고정된 GitHub 근거')} ↗</a></div>)}</div>
   <div className="related-concepts">{p.nodeIds.map(node=><a key={node} href={href('explore/node/'+node)}>{label('Explore','구조 살펴보기')}: {node} ↗</a>)}{['F1','F2','F5','release-gate'].map(claim=><a key={claim} href={href('reference/item/'+claim)}>{claim} · {label('verification scope','검증 범위')}</a>)}</div></section>
-  <footer className="lesson-finish"><p>{label(`Flagship lesson ${Object.keys(metadata.pages).indexOf(id)+1} of 4. Other lessons remain the previous edition pending review.`,`대표 수업 ${Object.keys(metadata.pages).indexOf(id)+1}/4. 나머지 수업은 검토 전의 기존 문서입니다.`)}</p>{p.next?<a href={href('learn/'+p.next)}>{label('Next flagship lesson','다음 대표 수업')} →</a>:<a href={href('explore/node/ontology')}>{label('Locate this concept in Explore','Explore에서 이 개념 찾아보기')} →</a>}</footer>
+  </details><footer className="lesson-finish"><p>{label('Return to a capability flow','행동 흐름으로 돌아가기')}</p>{classification(id)?.journeys.map(j=><a key={j} href={href('learn/'+j)}>{capability(j)?.title[lang]} ↑</a>)}</footer>
  </main>
- <aside className="article-toc"><span className="eyebrow">{label('On this page','이 페이지에서')}</span>{headings.map((h)=><button key={h[2]} onClick={()=>document.getElementById(h[2])?.scrollIntoView({behavior:'smooth'})}>{h[1]}</button>)}<button onClick={()=>document.getElementById('conceptual-references')?.scrollIntoView()}>{label('Conceptual references','개념 참고자료')}</button><button onClick={()=>document.getElementById('implementation-evidence')?.scrollIntoView()}>{label('Implementation evidence','구현 근거')}</button><a className="toc-explore" href={href('explore/node/'+p.nodeIds[0])}>Explore ↗</a></aside>
+ <aside className="article-toc"><span className="eyebrow">{label('FLOW FIRST','전체 흐름에서 출발')}</span><a href={`#/${lang}/learn/start-here`}>{label('Whole system','전체 시스템')} ↑</a><button onClick={()=>{const el=document.getElementById('technical-layer') as HTMLDetailsElement;el.open=true;el.scrollIntoView({behavior:'smooth'});}}>{label('Technical implementation','실제 구현 보기')}</button><a className="toc-explore" href={href('explore/node/'+p.nodeIds[0])}>Explore ↗</a></aside>
  </>;
 }

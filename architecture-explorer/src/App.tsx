@@ -1,3 +1,4 @@
+import {docHref} from './docs/ia';
 import { t, language, route } from "./i18n";
 import { docForNode, githubLink } from "./docs/helpers";
 import {
@@ -585,7 +586,7 @@ export default function App({ data }: { data: Architecture }) {
               </div>
               {node && (
                 <div className="detail-section doc-links">
-                  <a href={route(language(), "learn/" + docForNode(node.id))}>
+                  <a href={docHref(language(), docForNode(node.id))}>
                     {t("Read the explanation")} ↗
                   </a>
                   {node.resource && (

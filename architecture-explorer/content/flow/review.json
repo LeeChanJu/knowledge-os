@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "Only the four flow-first lessons; technical reference is excluded from the beginner terminology gate.",
+  "pages": {
+    "start-here": {
+      "prerequisites": [],
+      "introduces": [
+        "proposal",
+        "approval",
+        "mcp",
+        "canonical"
+      ],
+      "hashes": {
+        "en": "ab807d36af8d64aeeee925613322475a244067a71426ff8d733ed005ea81f020",
+        "ko-KR": "8338b7122bb2b4dea4ca4cc9893614c5c971d83d899a53a0d5888c6bd6abe0a5"
+      }
+    },
+    "source-of-truth": {
+      "prerequisites": [
+        "start-here"
+      ],
+      "introduces": [
+        "version",
+        "action"
+      ],
+      "hashes": {
+        "en": "66273a0f04a3d78eff2678b59fadc968af6dded6bab45223920fb4c8eb21e7d0",
+        "ko-KR": "3c207eb73c68b133495494f6f734acd2ee53c7bb7eef93518af6f41fd1684fc2"
+      }
+    },
+    "document-journey": {
+      "prerequisites": [
+        "source-of-truth"
+      ],
+      "introduces": [
+        "provenance",
+        "evidence",
+        "document",
+        "chunk",
+        "fulltext",
+        "vector",
+        "embedding",
+        "retrieval"
+      ],
+      "hashes": {
+        "en": "faba73a48ca9a58eb71cefc1d12480ad6391d23d86218b3ba04b8b7eb430e284",
+        "ko-KR": "4566cdf1c822441d903c6b5d1f35da953ab50a5981918893cd03b66471b5b00d"
+      }
+    },
+    "ontology-basics": {
+      "prerequisites": [
+        "document-journey"
+      ],
+      "introduces": [
+        "entity",
+        "assertion",
+        "ontology",
+        "graph"
+      ],
+      "hashes": {
+        "en": "dbbd1ee81f6f3432eea1678b391183875cb16eecb9f9036c6bcb53facadedec1",
+        "ko-KR": "79f9d29f574671869c61a55d0d80d2e194b0daaa99fcab3d9afa9e628f0ae68e"
+      }
+    }
+  },
+  "fingerprints": {
+    "model.json": "99ace38ba24b8bd732e9f9def3d444fda86afdc6afc0de68f78ea2d84185530a",
+    "glossary.json": "6d175052ff8c0933eba0ab349cbed95fb924ad6c70e82d2550c37a9cf04b585d"
+  },
+  "optionalIntroductions": {
+    "agent": {
+      "lesson": "start-here",
+      "stage": "interface",
+      "surface": "inline stage glossary"
+    },
+    "rag": {
+      "lesson": "start-here",
+      "stage": "answer",
+      "surface": "inline stage glossary"
+    }
+  }
+}

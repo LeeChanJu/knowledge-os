@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {checkFlow,validateTerms} from '../scripts/check-flow.mjs';
+const g=JSON.parse(readFileSync('content/flow/glossary.json'));
+test('flow lessons are bilingual, reviewed, bounded and fully linked',()=>assert.equal(Object.keys(checkFlow('..',JSON.parse(readFileSync('data/architecture.json'))).pages).length,4));
+test('unintroduced jargon fails with an actionable location',()=>assert.throws(()=>validateTerms('A new idea.\nEntity appears too soon.',g,[],'en/start-here'),/en\/start-here:2: Entity/));
+test('inline explanations and prerequisite introductions allow technical names',()=>{validateTerms('[a subject](term:entity), then Entity',g);validateTerms('Entity',g,['entity']);});
+test('later definition cannot excuse jargon appearing earlier',()=>assert.throws(()=>validateTerms('Entity comes first. [subject](term:entity)',g),/before introduction/));
+test('unknown glossary links fail and ordinary language is not jargon',()=>{assert.throws(()=>validateTerms('[what](term:unknown)',g),/unknown glossary/);validateTerms('Evidence matters to a student.',{...g,evidence:{...g.evidence,aliases:[]}});validateTerms('This is evidence about SAP and ChatGPT.',g);});

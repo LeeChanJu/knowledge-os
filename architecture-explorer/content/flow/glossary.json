@@ -1,0 +1,380 @@
+{
+  "entity": {
+    "name": "Entity",
+    "aliases": [
+      "Entity",
+      "entity",
+      "엔터티"
+    ],
+    "stage": "knowledge",
+    "lesson": "ontology-basics",
+    "ko-KR": {
+      "label": "추적할 대상",
+      "definition": "여러 문서에 나와도 같은 대상으로 연결해 두려는 사람·제품·조직 등입니다.",
+      "example": "예: Joule Studio, SAP, 특정 프로젝트"
+    },
+    "en": {
+      "label": "A tracked subject",
+      "definition": "A person, product or organization we want to recognize as the same subject across documents.",
+      "example": "Examples: Joule Studio, SAP, a particular project"
+    }
+  },
+  "assertion": {
+    "name": "Assertion",
+    "aliases": [
+      "Assertion",
+      "assertion",
+      "어설션"
+    ],
+    "stage": "knowledge",
+    "lesson": "ontology-basics",
+    "ko-KR": {
+      "label": "근거 있는 진술",
+      "definition": "어떤 대상에 관해 하는 말에 근거와 적용 시점을 붙인 기록입니다. 후보는 검토를 거쳐야 승인된 지식이 됩니다.",
+      "example": "예: 메모가 실제로 뒷받침하는 제품 간 관계"
+    },
+    "en": {
+      "label": "A supported statement",
+      "definition": "A recorded statement about something, linked to supporting material and when it applies. A candidate needs review before it becomes accepted knowledge.",
+      "example": "Example: a relationship actually supported by a note"
+    }
+  },
+  "ontology": {
+    "name": "Ontology",
+    "aliases": [
+      "Ontology",
+      "ontology",
+      "온톨로지"
+    ],
+    "stage": "review",
+    "lesson": "ontology-basics",
+    "ko-KR": {
+      "label": "관계의 규칙",
+      "definition": "어떤 종류의 대상끼리 어떤 말로 연결할 수 있는지 정하는 규칙입니다. 그 말이 사실인지까지 보장하지는 않습니다.",
+      "example": "예: 사람은 회사에서 근무할 수 있지만 PDF는 근무하지 않음 (교육용)"
+    },
+    "en": {
+      "label": "Rules for connections",
+      "definition": "Rules for which kinds of things can be connected in which ways. Rules alone do not establish that a statement is true.",
+      "example": "Example: a person can work for a company; a PDF cannot (teaching example)"
+    }
+  },
+  "chunk": {
+    "name": "Chunk",
+    "aliases": [
+      "Chunk",
+      "chunk",
+      "청크"
+    ],
+    "stage": "evidence",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "근거가 되는 문단",
+      "definition": "긴 문서에서 따로 찾아 인용할 수 있도록 나눈 조각입니다. 항상 문단 하나와 일치하는 것은 아닙니다.",
+      "example": "예: SAP AI 공부 메모의 두 번째 문단"
+    },
+    "en": {
+      "label": "A supporting passage",
+      "definition": "A piece of a longer document that can be found and cited separately. It is not always exactly one paragraph.",
+      "example": "Example: a passage from the SAP AI study note"
+    }
+  },
+  "version": {
+    "name": "DocumentVersion",
+    "aliases": [
+      "DocumentVersion",
+      "documentversion"
+    ],
+    "stage": "evidence",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "그때의 문서 버전",
+      "definition": "문서를 읽어 들였을 때의 내용을 구별하는 기록입니다. 나중에 원본이 바뀌어도 이전 근거를 구분합니다.",
+      "example": "예: 수정 전 버전과 수정 후 버전"
+    },
+    "en": {
+      "label": "The document at that time",
+      "definition": "A record identifying the document as it was read at a particular version, so later changes do not erase the identity of earlier evidence.",
+      "example": "Example: versions before and after an edit"
+    }
+  },
+  "evidence": {
+    "name": "Evidence",
+    "aliases": [
+      "Evidence"
+    ],
+    "stage": "evidence",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "판단의 근거",
+      "definition": "어떤 말을 왜 믿을지 확인할 때 직접 찾아볼 수 있는 자료입니다.",
+      "example": "예: 답변이 인용한 원문 구절"
+    },
+    "en": {
+      "label": "Supporting material",
+      "definition": "Material you can inspect when deciding whether a statement is supported.",
+      "example": "Example: the original passage cited by an answer"
+    }
+  },
+  "provenance": {
+    "name": "Provenance",
+    "aliases": [
+      "Provenance",
+      "provenance"
+    ],
+    "stage": "evidence",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "출처 추적",
+      "definition": "어떤 정보가 어느 자료에서 왔고 어떤 기록을 거쳤는지 따라갈 수 있는 연결입니다.",
+      "example": "예: 진술 → 문단 → 당시 문서 → 원본"
+    },
+    "en": {
+      "label": "Trace back to the source",
+      "definition": "The recorded connections that let you trace information back to where it came from.",
+      "example": "Example: statement → passage → document version → original"
+    }
+  },
+  "proposal": {
+    "name": "Proposal",
+    "aliases": [
+      "Proposal"
+    ],
+    "stage": "review",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "지식 후보",
+      "definition": "바로 받아들이지 않고 검토해 달라고 제출한 내용입니다.",
+      "example": "예: AI가 문서에서 읽어낸 관계 후보"
+    },
+    "en": {
+      "label": "A candidate for review",
+      "definition": "Content submitted for review rather than accepted immediately.",
+      "example": "Example: a possible relationship suggested by AI"
+    }
+  },
+  "approval": {
+    "name": "Approval",
+    "aliases": [
+      "Approval"
+    ],
+    "stage": "review",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "검토와 승인",
+      "definition": "권한을 가진 검토자가 후보를 받아들이기로 한 결정을 기록합니다.",
+      "example": "예: 근거를 확인한 뒤 승인하거나 거절"
+    },
+    "en": {
+      "label": "Review and acceptance",
+      "definition": "A recorded decision by an authorized reviewer to accept a candidate.",
+      "example": "Example: inspect the evidence, then accept or reject"
+    }
+  },
+  "embedding": {
+    "name": "Embedding",
+    "aliases": [
+      "Embedding",
+      "embedding",
+      "임베딩"
+    ],
+    "stage": "retrieval",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "뜻 비교를 위한 숫자 표현",
+      "definition": "글의 특징을 숫자로 바꿔 다른 글과 비슷한지 비교하도록 하는 표현입니다. 숫자가 비슷해도 사실이라는 뜻은 아닙니다.",
+      "example": "예: 표현이 다른 두 질문의 비슷함 비교"
+    },
+    "en": {
+      "label": "Numbers for comparing meaning",
+      "definition": "A numerical representation used to compare text. Similar numbers do not mean a statement is true.",
+      "example": "Example: comparing differently worded questions"
+    }
+  },
+  "vector": {
+    "name": "Vector Search",
+    "aliases": [
+      "Vector Search",
+      "vector search",
+      "벡터 검색"
+    ],
+    "stage": "retrieval",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "의미가 비슷한 내용 찾기",
+      "definition": "질문과 글의 숫자 표현을 비교해 비슷한 내용을 찾는 방법입니다.",
+      "example": "예: 통신 기술이라는 질문으로 관련 메모 찾기"
+    },
+    "en": {
+      "label": "Find similar meaning",
+      "definition": "Finding text by comparing numerical representations of the question and passages.",
+      "example": "Example: finding a related note from a question about communication"
+    }
+  },
+  "graph": {
+    "name": "Graph",
+    "aliases": [
+      "Graph"
+    ],
+    "stage": "knowledge",
+    "lesson": "ontology-basics",
+    "ko-KR": {
+      "label": "연결된 지식 지도",
+      "definition": "대상들과 그 사이의 연결을 함께 나타내는 방식입니다.",
+      "example": "예: 제품 → 관련 기술 → 근거 문서"
+    },
+    "en": {
+      "label": "A map of connections",
+      "definition": "A way to represent things together with the connections between them.",
+      "example": "Example: product → related technology → supporting document"
+    }
+  },
+  "retrieval": {
+    "name": "Retrieval",
+    "aliases": [
+      "Retrieval",
+      "retrieval"
+    ],
+    "stage": "retrieval",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "필요한 자료 찾기",
+      "definition": "질문에 답할 때 쓸 수 있는 자료를 찾아 돌려주는 과정입니다. 답변을 쓰는 것과는 다릅니다.",
+      "example": "예: 읽기 권한이 있는 관련 문단 반환"
+    },
+    "en": {
+      "label": "Find useful material",
+      "definition": "Finding and returning useful material for a question. This is distinct from writing the answer.",
+      "example": "Example: returning relevant passages the reader may access"
+    }
+  },
+  "rag": {
+    "name": "RAG",
+    "aliases": [
+      "RAG",
+      "rag"
+    ],
+    "stage": "answer",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "찾은 근거를 보고 답하기",
+      "definition": "AI에게 먼저 찾은 자료를 함께 주어 그 자료를 참고해 답하게 하는 방식입니다.",
+      "example": "예: 메모 구절과 질문을 함께 전달"
+    },
+    "en": {
+      "label": "Answer using retrieved material",
+      "definition": "Giving AI retrieved material to consult while composing an answer.",
+      "example": "Example: provide the question together with passages from a note"
+    }
+  },
+  "mcp": {
+    "name": "MCP",
+    "aliases": [
+      "MCP",
+      "mcp"
+    ],
+    "stage": "interface",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "연결 창구",
+      "definition": "Claude 같은 프로그램이 정해진 도구를 호출하도록 연결하는 약속입니다. 이 연결 자체가 승인 권한을 주지는 않습니다.",
+      "example": "예: 자료 조회나 검토 요청 도구. Knowledge API도 별도 연결 창구입니다."
+    },
+    "en": {
+      "label": "Connection tools",
+      "definition": "A protocol through which a program such as Claude calls defined tools. Connecting does not grant approval authority.",
+      "example": "Example: tools for reading material or submitting a request. The Knowledge API is another interface."
+    }
+  },
+  "agent": {
+    "name": "Agent",
+    "aliases": [
+      "Agent"
+    ],
+    "stage": "interface",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "도구를 쓰는 AI 프로그램",
+      "definition": "질문에 답하려고 허용된 도구를 선택하고 호출하는 프로그램입니다. 모든 일을 할 권한이 생기는 것은 아닙니다.",
+      "example": "예: Claude가 자료 조회 도구 호출"
+    },
+    "en": {
+      "label": "An AI program using tools",
+      "definition": "A program that selects and calls permitted tools to help answer a request. It does not gain unlimited authority.",
+      "example": "Example: Claude calls a material lookup tool"
+    }
+  },
+  "action": {
+    "name": "Action",
+    "aliases": [
+      "Action"
+    ],
+    "stage": "review",
+    "lesson": "source-of-truth",
+    "ko-KR": {
+      "label": "외부 변경 요청",
+      "definition": "문서를 만들거나 바꾸는 등 외부 시스템에 영향을 주려는 요청의 기록입니다. 검토와 별도 실행 권한이 필요합니다.",
+      "example": "예: 허용된 Notion 위치에 페이지 만들기 요청"
+    },
+    "en": {
+      "label": "A request to change an outside system",
+      "definition": "A recorded request to affect an outside system, such as creating a page. Review and separate execution authority are required.",
+      "example": "Example: request a page in an allowed Notion location"
+    }
+  },
+  "canonical": {
+    "name": "Canonical",
+    "aliases": [
+      "Canonical",
+      "canonical"
+    ],
+    "stage": "knowledge",
+    "lesson": "start-here",
+    "ko-KR": {
+      "label": "승인된 지식",
+      "definition": "정해진 검토 절차를 통해 이 시스템이 받아들인 기록입니다. 영원히 틀리지 않는 진리라는 뜻은 아닙니다.",
+      "example": "예: 근거와 승인 이력을 가진 진술"
+    },
+    "en": {
+      "label": "Accepted knowledge",
+      "definition": "A record accepted through the system’s review process, not a guarantee of timeless truth.",
+      "example": "Example: a statement with evidence and an approval record"
+    }
+  },
+  "fulltext": {
+    "name": "Full-text Search",
+    "aliases": [
+      "Full-text Search"
+    ],
+    "stage": "retrieval",
+    "lesson": "document-journey",
+    "ko-KR": {
+      "label": "단어로 찾기",
+      "definition": "입력한 단어가 들어 있거나 관련 단어로 일치하는 글을 찾는 방법입니다.",
+      "example": "예: A2A라는 단어가 들어간 메모"
+    },
+    "en": {
+      "label": "Find matching words",
+      "definition": "Finding text using matching words.",
+      "example": "Example: notes containing A2A"
+    }
+  },
+  "document": {
+    "name": "Document",
+    "aliases": [
+      "Document"
+    ],
+    "stage": "source",
+    "lesson": "source-of-truth",
+    "ko-KR": {
+      "label": "원본 문서의 연결 기록",
+      "definition": "원본 문서를 계속 같은 문서로 추적하기 위한 기록입니다. 원본을 편집하는 업무 시스템을 대신하지 않습니다.",
+      "example": "예: SAP AI 공부 메모라는 문서"
+    },
+    "en": {
+      "label": "A link to the original document",
+      "definition": "A record for tracking the same source document over time. It does not replace the system where the original is edited.",
+      "example": "Example: the SAP AI study note"
+    }
+  }
+}

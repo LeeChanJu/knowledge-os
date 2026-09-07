@@ -1,3 +1,4 @@
+import {checkFlow} from './check-flow.mjs';
 import {readFileSync, readdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -31,5 +32,6 @@ export function checkFlagships(root, architecture, pageIds) {
     for(const n of p.nodeIds)if(!nodes.has(n))throw Error(`Broken flagship Explore node: ${n}`);
     for(const s of p.conceptualSources)if(!metadata.sources[s])throw Error(`Broken conceptual source: ${s}`);
   }
+  checkFlow(root, architecture);
   return metadata;
 }

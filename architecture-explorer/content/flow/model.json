@@ -1,0 +1,423 @@
+{
+  "schemaVersion": "1.0.0",
+  "pages": {
+    "start-here": {
+      "stage": "interface",
+      "ko-KR": {
+        "question": "내 원본은 어디 있고, AI는 어떻게 기억하고 찾을까요?"
+      },
+      "en": {
+        "question": "Where are my originals, and how does AI remember or find?"
+      }
+    },
+    "source-of-truth": {
+      "stage": "source",
+      "ko-KR": {
+        "question": "원본을 옮기지 않고 무엇을 연결할까요?"
+      },
+      "en": {
+        "question": "What do we connect without moving the original?"
+      }
+    },
+    "document-journey": {
+      "stage": "evidence",
+      "ko-KR": {
+        "question": "답변에서 원래 메모까지 어떻게 돌아갈까요?"
+      },
+      "en": {
+        "question": "How do we get from an answer back to the note?"
+      }
+    },
+    "ontology-basics": {
+      "stage": "knowledge",
+      "ko-KR": {
+        "question": "연결된 말 중 무엇을 받아들여도 될까요?"
+      },
+      "en": {
+        "question": "Which connections should we accept?"
+      }
+    }
+  },
+  "stages": [
+    {
+      "id": "source",
+      "ko-KR": "원본 문서",
+      "en": "Original documents",
+      "state": "current",
+      "terms": [
+        "document"
+      ],
+      "lesson": "source-of-truth",
+      "before": {
+        "ko-KR": "문서 작성",
+        "en": "Write a document"
+      },
+      "after": {
+        "ko-KR": "근거 보존",
+        "en": "Preserve evidence"
+      },
+      "explanation": {
+        "ko-KR": "원본은 외부 시스템에 남습니다. 허용된 자료에서 근거를 가져오며, 읽기 권한이 쓰기 권한이 되지는 않습니다.",
+        "en": "Originals stay outside. Evidence comes from permitted material; read permission is not write permission."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "interface",
+      "ko-KR": "연결 창구",
+      "en": "Connection tools",
+      "state": "current",
+      "terms": [
+        "mcp",
+        "agent"
+      ],
+      "lesson": "start-here",
+      "before": {
+        "ko-KR": "나와 Claude/GPT",
+        "en": "Me and Claude/GPT"
+      },
+      "after": {
+        "ko-KR": "조회 또는 제안",
+        "en": "Read or propose"
+      },
+      "explanation": {
+        "ko-KR": "요청을 정해진 도구로 전달합니다. 현재 읽기와 제안은 가능하지만 이 창구가 승인하거나 외부 변경을 실행하지는 않습니다.",
+        "en": "Requests go through defined tools. These support bounded reads and proposals, but do not approve or execute outside changes."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "evidence",
+      "ko-KR": "근거 보존",
+      "en": "Preserve evidence",
+      "state": "current",
+      "terms": [
+        "version",
+        "chunk",
+        "evidence",
+        "provenance"
+      ],
+      "lesson": "document-journey",
+      "before": {
+        "ko-KR": "원본 문서",
+        "en": "Original document"
+      },
+      "after": {
+        "ko-KR": "후보 작성 또는 검색",
+        "en": "Propose or search"
+      },
+      "explanation": {
+        "ko-KR": "나중에 확인할 수 있게 그때의 문서와 필요한 조각을 구분합니다. 문서를 가져온 것만으로 지식이 승인되지는 않습니다.",
+        "en": "Keep the document version and its pieces identifiable for later inspection. Importing a document does not approve knowledge."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "review",
+      "ko-KR": "후보 만들기 · 검토",
+      "en": "Propose · review",
+      "state": "partial",
+      "terms": [
+        "proposal",
+        "approval",
+        "ontology",
+        "action"
+      ],
+      "lesson": "ontology-basics",
+      "before": {
+        "ko-KR": "원본 근거 또는 변경 요청",
+        "en": "Evidence or a change request"
+      },
+      "after": {
+        "ko-KR": "승인 또는 거절",
+        "en": "Accept or reject"
+      },
+      "explanation": {
+        "ko-KR": "근거보다 강한 말을 AI가 만들어낼 수 있습니다. 후보 제출과 승인 경계는 구현되어 있지만 자동 추출부터 승인까지 이어지는 제품은 아닙니다.",
+        "en": "AI can overstate what evidence says. Proposal and approval boundaries exist, but extraction through approval is not an automated product."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "ko-KR": "연결된 지식",
+      "en": "Connected knowledge",
+      "state": "current",
+      "terms": [
+        "entity",
+        "assertion",
+        "graph",
+        "canonical"
+      ],
+      "lesson": "ontology-basics",
+      "before": {
+        "ko-KR": "권한 있는 승인",
+        "en": "Authorized approval"
+      },
+      "after": {
+        "ko-KR": "검색과 출처 확인",
+        "en": "Search and inspect sources"
+      },
+      "explanation": {
+        "ko-KR": "검토해 받아들인 내용과 대상·근거를 연결합니다. 연결을 저장하는 기능이 모든 내용의 사실성을 보장하지는 않습니다.",
+        "en": "Connect accepted statements, subjects and evidence. Storing connections does not guarantee their factual truth."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "retrieval",
+      "ko-KR": "근거 · 관계 찾기",
+      "en": "Find evidence · connections",
+      "state": "partial",
+      "terms": [
+        "retrieval",
+        "fulltext",
+        "vector",
+        "embedding"
+      ],
+      "lesson": "document-journey",
+      "before": {
+        "ko-KR": "읽을 수 있는 자료와 지식",
+        "en": "Readable evidence and knowledge"
+      },
+      "after": {
+        "ko-KR": "Claude/GPT에 자료 반환",
+        "en": "Return material to Claude/GPT"
+      },
+      "explanation": {
+        "ko-KR": "단어 검색과 제한된 관계 조회를 제공합니다. 의미 검색 인터페이스는 있으나 운영용 숫자 표현을 자동으로 채우는 제공자는 보류되어 있습니다.",
+        "en": "Word search and bounded relationship reads exist. Meaning-search interfaces exist, but the provider that populates production representations remains deferred."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    },
+    {
+      "id": "answer",
+      "ko-KR": "근거 자료 반환",
+      "en": "Return supporting material",
+      "state": "current",
+      "terms": [
+        "rag"
+      ],
+      "lesson": "start-here",
+      "before": {
+        "ko-KR": "찾은 자료",
+        "en": "Retrieved material"
+      },
+      "after": {
+        "ko-KR": "Claude/GPT의 답변 → 나",
+        "en": "Claude/GPT answers → me"
+      },
+      "explanation": {
+        "ko-KR": "Knowledge OS는 자료를 돌려줍니다. Claude/GPT가 이를 바탕으로 답변하는 완전한 대화 경험은 외부 연결에 달려 있으며 이 저장소만의 자동 기능이 아닙니다.",
+        "en": "Knowledge OS returns material. A complete conversation in which Claude/GPT composes a grounded answer depends on the external integration."
+      },
+      "evidence": [
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "save",
+      "stage": "review",
+      "ko-KR": {
+        "label": "기억시키기",
+        "request": "“이 내용 기억해둬.”",
+        "steps": [
+          "나 → Claude/GPT",
+          "연결 창구 → 근거 준비",
+          "후보 → 별도 검토",
+          "승인 → 연결된 지식"
+        ],
+        "boundary": "목표 경험입니다. 현재 근거 읽기와 후보 제출 경계가 있으며, 자동 추출 제공자는 보류되어 있고 승인은 별도입니다."
+      },
+      "en": {
+        "label": "Remember",
+        "request": "“Remember this.”",
+        "steps": [
+          "Me → Claude/GPT",
+          "Connection tools → prepare evidence",
+          "Candidate → separate review",
+          "Accept → connected knowledge"
+        ],
+        "boundary": "This is a target experience. Evidence reads and proposal boundaries exist; automated extraction providers are deferred, and approval is separate."
+      }
+    },
+    {
+      "id": "find",
+      "stage": "retrieval",
+      "ko-KR": {
+        "label": "찾아보기",
+        "request": "“전에 저장한 SAP A2A 내용 찾아줘.”",
+        "steps": [
+          "나 → Claude/GPT → 연결 창구",
+          "읽기 권한 확인 → 관련 자료 찾기",
+          "원본 근거와 함께 반환 → Claude/GPT → 나"
+        ],
+        "boundary": "현재 제한된 검색·근거 읽기가 구현되어 있습니다. 자료를 읽는 것과 AI가 답을 작성하는 것은 별도 단계입니다."
+      },
+      "en": {
+        "label": "Find",
+        "request": "“Find my saved notes about SAP A2A.”",
+        "steps": [
+          "Me → Claude/GPT → connection tools",
+          "Check read access → find material",
+          "Return source evidence → Claude/GPT → me"
+        ],
+        "boundary": "Bounded search and evidence reads are implemented. Reading material and composing an AI answer are separate steps."
+      }
+    },
+    {
+      "id": "relations",
+      "stage": "knowledge",
+      "ko-KR": {
+        "label": "관계 묻기",
+        "request": "“Joule Studio와 A2A가 어떻게 연결돼?”",
+        "steps": [
+          "질문 → 기록된 대상 찾기",
+          "허용된 관계 조회 → 연결의 근거 확인",
+          "근거가 없으면 관계를 단정하지 않음"
+        ],
+        "boundary": "현재 제한된 관계 조회가 있습니다. 임의의 질문을 자동으로 해석해 모든 연결을 추론한다는 뜻은 아닙니다."
+      },
+      "en": {
+        "label": "Ask about connections",
+        "request": "“How are Joule Studio and A2A connected?”",
+        "steps": [
+          "Question → find tracked subjects",
+          "Bounded relationship read → inspect support",
+          "No evidence → do not assert a connection"
+        ],
+        "boundary": "Bounded relationship reads exist. This does not imply unrestricted natural-language reasoning over every connection."
+      }
+    },
+    {
+      "id": "trace",
+      "stage": "evidence",
+      "ko-KR": {
+        "label": "근거 확인",
+        "request": "“이 정보는 어디서 나온 거야?”",
+        "steps": [
+          "근거 있는 진술 → 근거 문단",
+          "그때의 문서 버전 → 원본 문서",
+          "현재 읽기 권한을 확인하고 자료 반환"
+        ],
+        "boundary": "현재 정확한 문서 조각과 출처를 읽는 경계가 있습니다. 예전 권한 기록은 영구 열람권이 아닙니다."
+      },
+      "en": {
+        "label": "Check sources",
+        "request": "“Where did this information come from?”",
+        "steps": [
+          "Supported statement → supporting passage",
+          "Document version → original document",
+          "Check current read access before returning material"
+        ],
+        "boundary": "Exact evidence reads exist. A historical access record is not permanent permission to read."
+      }
+    },
+    {
+      "id": "correct",
+      "stage": "knowledge",
+      "ko-KR": {
+        "label": "정정하기",
+        "request": "“예전에 저장한 내용이 이제 틀렸어.”",
+        "steps": [
+          "기존 근거와 진술 확인",
+          "새 근거 → 변경 후보 → 검토",
+          "이전 기록을 지우지 않고 변경 이력 연결"
+        ],
+        "boundary": "일부 구현입니다. 변경·시간 이력의 경계는 있으나 미해결 검증 항목이 남습니다. 자동으로 모든 오류를 고치는 기능은 아닙니다."
+      },
+      "en": {
+        "label": "Correct",
+        "request": "“What I saved is now wrong.”",
+        "steps": [
+          "Inspect the old evidence and statement",
+          "New evidence → proposed correction → review",
+          "Connect the change without erasing history"
+        ],
+        "boundary": "Partially implemented. Correction and time-history boundaries exist, with unresolved verification findings. This is not automatic repair of every error."
+      }
+    },
+    {
+      "id": "act",
+      "stage": "review",
+      "ko-KR": {
+        "label": "행동 제안",
+        "request": "“검토한 내용을 외부 시스템에 반영하고 싶어.”",
+        "steps": [
+          "변경 요청 → 정책과 사람의 승인",
+          "별도 권한을 가진 실행자 → 허용된 원본 시스템",
+          "실행 결과 기록 → 다시 읽어 확인"
+        ],
+        "boundary": "일부 구현입니다. 제한된 Notion 실행 경로가 있으며, 연결 창구는 승인·실행하지 않습니다. 범용 자율 변경 기능은 아닙니다."
+      },
+      "en": {
+        "label": "Propose a change",
+        "request": "“Apply the reviewed result to an outside system.”",
+        "steps": [
+          "Change request → policy and human approval",
+          "Separately authorized executor → permitted source system",
+          "Record outcome → read it back"
+        ],
+        "boundary": "Partially implemented. A bounded Notion executor exists; connection tools do not approve or execute. This is not general autonomous editing."
+      }
+    }
+  ],
+  "labels": {
+    "target": {
+      "ko-KR": "목표 경험",
+      "en": "Target experience"
+    },
+    "current": {
+      "ko-KR": "현재 구현",
+      "en": "Implemented boundary"
+    },
+    "partial": {
+      "ko-KR": "일부 구현",
+      "en": "Partly implemented"
+    },
+    "deferred": {
+      "ko-KR": "의도적 보류",
+      "en": "Intentionally deferred"
+    }
+  },
+  "evidence": [
+    "ref:docs/architecture/0001-stable-context-contracts.md",
+    "ref:config/contracts.yaml",
+    "ref:src/knowledge_os/ontology.py::Ontology.validate",
+    "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+    "ref:src/knowledge_os/mcp_server.py",
+    "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests"
+  ],
+  "stateMeaning": {
+    "ko-KR": "학습용 기능 범위 표시이며 VERIFIED 같은 구현 검증 상태가 아닙니다.",
+    "en": "These describe experience scope, not implementation verification states such as VERIFIED."
+  }
+}

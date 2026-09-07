@@ -84,3 +84,19 @@ test('localized node routes preserve exact identifiers and reject malformed esca
  assert.equal(fromHash('#/ko-KR/explore/node/%XX'),null);
  assert.equal(fromHash('#/en/learn/ontology'),null);
 });
+
+test('graph node decoding excludes learning context query parameters',()=>{
+ assert.equal(fromHash('#/en/explore/node/proposal?journey=remember&step=propose'),'proposal');
+ assert.equal(fromHash('#/ko-KR/explore/node/ref%3Asrc%2Fexample.py?journey=find&step=words'),'ref:src/example.py');
+});
+
+test('selecting and resetting graph nodes preserve the return journey',()=>{
+ const prior=globalThis.location;
+ try{
+  globalThis.location={hash:'#/en/explore/node/proposal?journey=remember&step=propose&concept=proposal'};
+  assert.equal(nodeHash('entity'),'#/en/explore/node/entity?journey=remember&step=propose&concept=proposal');
+  assert.equal(nodeHash(null),'#/en/explore?journey=remember&step=propose&concept=proposal');
+  globalThis.location={hash:'#/en/explore?journey=unknown&step=propose'};
+  assert.equal(nodeHash('entity'),'#/en/explore/node/entity');
+ }finally{if(prior===undefined)delete globalThis.location;else globalThis.location=prior;}
+});

@@ -44,14 +44,18 @@ export function nodeHash(id) {
     typeof location !== "undefined" &&
     location.hash.match(/^#\/(en|ko-KR)(?:\/|$)/);
   const prefix = match ? "#/" + match[1] + "/explore" : "#";
-  return id
+  const q = typeof location !== "undefined" ? new URLSearchParams(location.hash.split("?")[1]) : new URLSearchParams();
+  const context = new URLSearchParams();
+  if (["remember","find","relationships","sources","correct","act"].includes(q.get("journey"))) for (const key of ["journey","step","concept"]) if(q.get(key)) context.set(key,q.get(key));
+  const suffix = context.size ? "?" + context.toString() : "";
+  return (id
     ? prefix + "/node/" + encodeURIComponent(id)
     : match
       ? prefix
-      : "#/overview";
+      : "#/overview") + suffix;
 }
 export function fromHash(hash) {
-  const match = hash.match(/^#\/(?:(?:en|ko-KR)\/explore\/)?node\/(.+)$/);
+  const match = hash.split("?")[0].match(/^#\/(?:(?:en|ko-KR)\/explore\/)?node\/(.+)$/);
   if (!match) return null;
   try {
     return decodeURIComponent(match[1]);

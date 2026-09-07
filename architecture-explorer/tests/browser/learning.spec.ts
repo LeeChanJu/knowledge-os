@@ -20,13 +20,13 @@ test("learning entry, bilingual reading, implementation links and graph round tr
   });
   await page.goto("/#/ko-KR");
   await expect(page.locator("html")).toHaveAttribute("lang", "ko-KR");
-  await expect(page.locator(".lesson-grid a")).toHaveCount(10);
-  await page.getByRole("link", { name: /처음부터 배우기/ }).click();
-  await expect(page.locator("h1")).toContainText("01.");
+  await expect(page.locator(".journey-card-grid a")).toHaveCount(6);
+  await page.locator(".ia-nav a").first().click();
+  await expect(page.locator("h1")).toContainText("Knowledge OS로 무엇");
   await page.goto("/#/ko-KR/learn/ontology");
   await expect(page.locator("h1")).toHaveText("온톨로지 (Ontology)");
   await page.getByRole("button", { name: "English", exact: true }).click();
-  await expect(page).toHaveURL(/#\/en\/learn\/ontology$/);
+  await expect(page).toHaveURL(/#\/en\/reference\/deep-dives\/ontology$/);
   await expect(page.locator("h1")).toHaveText("Ontology");
   await page.getByRole("tab", { name: "3. Implementation" }).click();
   await expect(page.locator("#technical")).toBeVisible();
@@ -60,7 +60,7 @@ test("learning entry, bilingual reading, implementation links and graph round tr
   ).toBeVisible();
   await expect(page.locator(".node-list button")).toHaveCount(36);
   await page.getByRole("link", { name: /Read the explanation/ }).click();
-  await expect(page).toHaveURL(/learn\/ontology-basics$/);
+  await expect(page).toHaveURL(/reference\/deep-dives\/ontology-basics$/);
   await page.getByRole("button", { name: "한국어", exact: true }).click();
   await page.getByRole("button", { name: "테마 바꾸기" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -79,17 +79,15 @@ test("all paired pages and walkthroughs render; search, empty states and invalid
   for (const lang of ["en", "ko-KR"])
     for (const entry of content.manifest.pages) {
       await page.goto(`/#/${lang}/learn/${entry.id}`);
-      await expect(page.locator("h1")).toHaveText(
-        content.documents[lang][entry.id].title,
-      );
-      if (entry.id in content.flagships.pages) {
-        await expect(page.locator(".lesson-diagram")).not.toHaveCount(0);
+      if (!(entry.id in content.flagships.pages)) await expect(page.locator("h1")).toHaveText(content.documents[lang][entry.id].title);
+      if (entry.id === "start-here") { await expect(page.locator(".journey-card-grid a")).toHaveCount(6); } else if (entry.id in content.flagships.pages) {
+        await expect(page.locator(".mental-model")).toBeVisible();
         await expect(page.locator(".comprehension")).toHaveCount(entry.id === "ontology-basics" ? 4 : 3);
       } else {
         await expect(page.locator(".teaching-flow li")).toHaveCount(content.documents[lang][entry.id].steps.length);
       }
     }
-  await page.goto("/#/en/learn/start-here");
+  await page.goto("/#/en/reference");
   await page
     .getByLabel("Search documentation", { exact: true })
     .fill("ontology");
@@ -97,14 +95,14 @@ test("all paired pages and walkthroughs render; search, empty states and invalid
   await page
     .getByLabel("Search documentation", { exact: true })
     .fill("zz-no-document-zz");
-  await expect(page.getByText("No documents match.")).toBeVisible();
+  await expect(page.getByText("No documents match.").first()).toBeVisible();
   await page.goto("/#/en/reference");
   await page.getByLabel("Reference type").selectOption("test");
   await expect(page.locator(".evidence-card")).not.toHaveCount(0);
   await page
     .getByRole("textbox", { name: "Search results" })
     .fill("zz-no-test-zz");
-  await expect(page.getByText("No documents match.")).toBeVisible();
+  await expect(page.getByText("No documents match.").first()).toBeVisible();
   await page.goto("/#/en/learn/not-real");
   await expect(
     page.getByRole("heading", { name: "Page not found" }),
@@ -128,7 +126,7 @@ test("term definitions, keyboard dismissal and mobile learning navigation", asyn
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#/ko-KR");
   await expect(
-    page.getByRole("link", { name: /처음부터 배우기/ }),
+    page.locator(".ia-nav a").first(),
   ).toBeVisible();
   expect(
     await page.evaluate(

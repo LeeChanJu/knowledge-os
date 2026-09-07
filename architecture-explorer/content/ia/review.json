@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "ia/catalog.json": "0a9e42b5787887933baffd2279f9ee9f2cd386b1130b2a18da6e308977ef62ef",
+    "ia/journeys.json": "6b65cbf01dc950a82e9dad587af179d93b2d8af3f01cdcf5f2a10383b5e5341b"
+  },
+  "prose": {
+    "en/act": "7dff8fe209877de16d0f448bd507e7a03dc851a8f7f4dd86ca1e559b26d97c46",
+    "en/correct": "a75a0a901a95411204e84f672f2b99a5901df9f3b05892d2e2bba0be8c4b50b0",
+    "en/find": "cf97d25fcb70aa9103a8e963f5d0fa80ec32bc2506acc9495b64ff52566af7bd",
+    "en/relationships": "c3e8837dcd0f7ad2857639ed8fe7da01e4968801a92aa9cf31b5b8fc63cab104",
+    "en/remember": "89af9374cbb1595a5def6ba4a7f6b3630c4fc8ca6e7edea1252968e31681763f",
+    "en/sources": "20e7ed5470f515a1c74032aca8fd7defd4bb16912a6fcf1ad3068381aa41154e",
+    "ko-KR/act": "80cb38fd069fd174b76a037b4482f6307ea10237b64e31d339971aa35d6f0af3",
+    "ko-KR/correct": "7faf819dae9a66c9f000d3f3d1ad1d0be8bff6c1957d24e88a9063960254643d",
+    "ko-KR/find": "e25ae28a8855be603a4adacffe875202cc14e2a6b303b4b55571dbc7ffbce737",
+    "ko-KR/relationships": "6d5da79d2d06f89ff02e6b0fb09cce4f9f9b78e3bef657a3711d38b1e90f9a0e",
+    "ko-KR/remember": "e2780a130a5e2ec785323eb95353a3770139345eb9ca11525628fa617c281116",
+    "ko-KR/sources": "1cc4f7c40a0d1bc029aa13857ea192ff0eeedef8d5cab8f8c2c462b94c46424d"
+  },
+  "termIntroductions": {
+    "remember": {
+      "document": "prepare",
+      "version": "prepare",
+      "chunk": "prepare",
+      "evidence": "prepare",
+      "entity": "recognize",
+      "assertion": "recognize",
+      "proposal": "propose",
+      "ontology": "propose",
+      "approval": "review",
+      "canonical": "review",
+      "graph": "store",
+      "provenance": "store"
+    },
+    "find": {
+      "fulltext": "words",
+      "retrieval": "words",
+      "embedding": "meaning",
+      "vector": "meaning",
+      "entity": "connections",
+      "graph": "connections",
+      "evidence": "answer",
+      "rag": "answer",
+      "mcp": "answer"
+    },
+    "relationships": {
+      "entity": "subjects",
+      "assertion": "statements",
+      "graph": "statements",
+      "ontology": "rules",
+      "provenance": "support",
+      "evidence": "support"
+    },
+    "sources": {
+      "assertion": "statement",
+      "chunk": "passage",
+      "evidence": "passage",
+      "version": "version",
+      "provenance": "version",
+      "document": "original"
+    },
+    "correct": {
+      "document": "inspect",
+      "assertion": "inspect",
+      "version": "version",
+      "proposal": "review",
+      "approval": "review",
+      "provenance": "history"
+    },
+    "act": {
+      "action": "intent",
+      "agent": "intent",
+      "approval": "approve",
+      "provenance": "record",
+      "evidence": "record"
+    }
+  }
+}

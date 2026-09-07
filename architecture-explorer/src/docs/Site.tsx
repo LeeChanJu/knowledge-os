@@ -1,5 +1,8 @@
+import {LearnHome, Journey, CapabilityNav, ContextTrail, ReferenceCatalog} from './LearnIA';
+import {catalog, classification, capability, contextQuery, docHref, contextualHref} from './ia';
+import {flowText} from './LearnFlow';
 import {Flagship, isFlagship, flagshipText} from "./Flagship";
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState, useRef } from "react";
 import learning from "../../data/learning.json";
 import type { Architecture, ArchitectureNode } from "../model";
 import { language, route, t, type Language } from "../i18n";
@@ -28,9 +31,10 @@ const categories: Record<string, string> = {
 };
 const initialRoute = () => location.hash || route(language());
 function currentPath(hash: string) {
-  return hash.replace(/^#\/(?:en|ko-KR)\/?/, "");
+  return hash.replace(/^#\/(?:en|ko-KR)\/?/, "").split("?")[0];
 }
 export default function Site({ data }: { data: Architecture }) {
+  const previousPath=useRef(location.hash.split("?")[0]);
   const [hash, setHash] = useState(initialRoute),
     [lang, setLang] = useState<Language>(language),
     [theme, setTheme] = useState(
@@ -47,7 +51,9 @@ export default function Site({ data }: { data: Architecture }) {
       setQuery("");
       setDepth("understand");
       setTerm(null);
-      window.scrollTo(0, 0);
+      const nextPath=location.hash.split("?")[0];
+      if(nextPath!==previousPath.current)window.scrollTo(0,0);
+      previousPath.current=nextPath;
     };
     window.addEventListener("hashchange", change);
     return () => window.removeEventListener("hashchange", change);
@@ -102,7 +108,7 @@ export default function Site({ data }: { data: Architecture }) {
   )[lang];
   const path = currentPath(hash),
     legacy = hash.startsWith("#/node/") || hash === "#/overview";
-  const mode =
+  let mode =
     legacy || path === "explore" || path.startsWith("explore/")
       ? "explore"
       : path.startsWith("reference")
@@ -114,17 +120,32 @@ export default function Site({ data }: { data: Architecture }) {
   } catch {
     /*invalid route below*/
   }
+  const routeEntry=catalog.entries.find(e=>e.path===path||('archivePath' in e&&e.archivePath===path));
+  if(routeEntry) slug=routeEntry.id;
+  const classified=classification(slug);
+  if(classified&&slug!=='start-here'&&!capability(slug))mode='reference';
+  const learnSurface=(!path||path==='learn'||path==='learn/start-here'||!!capability(slug))&&!path.startsWith('reference');
+  useEffect(()=>{
+    if(path.startsWith('learn/')&&classified&&classified.id!=='start-here'){
+      const query=hash.includes('?')?'?'+hash.split('?')[1]:'';
+      location.replace(`#/${lang}/${classified.path}${query}`);
+    }
+  },[path,hash,lang,classified]);
   const page = docs[slug],
     entry = manifest.pages.find((p) => p.id === slug);
   const home = !path;
   useEffect(() => {
-    document.title = `${page?.title || t(mode[0].toUpperCase() + mode.slice(1))} · Knowledge OS`;
+    document.title = `${capability(slug)?.title[lang] || page?.title || t(mode[0].toUpperCase() + mode.slice(1))} · Knowledge OS`;
   }, [page?.title, mode, lang]);
-  const href = (s: string) => route(lang, s);
+  const href = (s: string) => {
+    if(s.startsWith('learn/')&&classification(s.slice(6)))return docHref(lang,s.slice(6));
+    const query=contextQuery();
+    return route(lang,s)+((s.startsWith('reference')||s.startsWith('explore'))&&query?'?'+query:'');
+  };
   const changeLanguage = (next: Language) => {
     const suffix = legacy
       ? "explore" + (hash.startsWith("#/node/") ? hash.slice(1) : "")
-      : path;
+      : path + (hash.includes("?") ? "?" + hash.split("?")[1] : "");
     location.hash = route(next, suffix);
   };
   const referenceLinks = (ids: string[]) =>
@@ -237,137 +258,22 @@ export default function Site({ data }: { data: Architecture }) {
         </div>
       </header>
       {mode === "explore" ? (
-        <div className="embedded-explorer">
+        <div className="embedded-explorer"><ContextTrail lang={lang}/>
           <Suspense fallback={<p>{t("Loading architecture…")}</p>}>
             <Explorer key={lang} data={architecture} />
           </Suspense>
         </div>
-      ) : home ? (
-        <main className="learning-home">
-          <div className="home-copy">
-            <div className="eyebrow">
-              KNOWLEDGE OS / {t("A GUIDE TO UNDERSTANDING")}
-            </div>
-            <h1>
-              {t("Your information.")}
-              <br />
-              {t("Connected to meaning.")}
-            </h1>
-            <p>
-              {t(
-                "Learn how source documents become traceable evidence and governed knowledge—one idea at a time. No graph experience required.",
-              )}
-            </p>
-            <div className="home-actions">
-              <a className="primary" href={href("learn/start-here")}>
-                {t("Start learning")} <span>→</span>
-              </a>
-              <a href={href("explore")}>{t("View architecture")} ↗</a>
-            </div>
-            <div className="home-note">
-              {t(
-                "Read-only learning documentation · v0.1 correctness verification remains open.",
-              )}
-            </div>
-          </div>
-          <div
-            className="journey-preview"
-            aria-label={t("Document to knowledge journey")}
-          >
-            <div className="eyebrow">{t("How it works")}</div>
-            {[
-              "system-of-record",
-              "document-version",
-              "chunk",
-              "proposal",
-              "approval",
-              "assertion",
-            ].map((id, i) => (
-              <a href={href("learn/" + id)} key={id}>
-                <span className="step-index">0{i + 1}</span>
-                <span>
-                  <strong>{docs[id].title}</strong>
-                  <small>{docs[id].sections[0].body}</small>
-                </span>
-                <span>↓</span>
-              </a>
-            ))}
-          </div>
-          <section className="home-curriculum">
-            <div>
-              <span className="eyebrow">{t("Learning path")}</span>
-              <h2>{t("Begin with the idea. End with the map.")}</h2>
-            </div>
-            <div className="lesson-grid">
-              {manifest.learningPath.map((id, i) => (
-                <a href={href("learn/" + id)} key={id}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <strong>{docs[id].title.replace(/^\d+\. /, "")}</strong>
-                  <span>↗</span>
-                </a>
-              ))}
-            </div>
-          </section>
-        </main>
+      ) : learnSurface ? (
+        <div className="documentation-layout flow-layout ia-layout"><aside className="docs-sidebar"><CapabilityNav lang={lang} active={capability(slug)?.id||'start-here'}/><a className="ia-reference-link" href={href('reference')}>{lang==='en'?'Concepts and technical reference':'개념·기술 참조'} ↗</a></aside>{capability(slug)?<Journey id={slug} lang={lang}/>:<LearnHome lang={lang}/>}</div>
       ) : (
-        <div className="documentation-layout">
+        <div className={`documentation-layout ${isFlagship(slug)?"flow-layout":""}`}>
           <aside className="docs-sidebar">
-            <label htmlFor="docs-search">{t("Search documentation")}</label>
-            <input
-              id="docs-search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t("Search documentation") + "…"}
-            />
-            {query ? (
-              <nav aria-label={t("Search results")}>
-                {manifest.pages
-                  .filter((p) =>
-                    (
-                      docs[p.id].title +
-                      " " +
-                      (isFlagship(p.id) ? flagshipText(lang,p.id) : docs[p.id].sections.map((s) => s.body).join(" "))
-                    )
-                      .toLocaleLowerCase()
-                      .includes(query.toLocaleLowerCase()),
-                  )
-                  .map((p) => (
-                    <a key={p.id} href={href("learn/" + p.id)}>
-                      {docs[p.id].title}
-                    </a>
-                  ))}
-                {!manifest.pages.some((p) =>
-                  (
-                    docs[p.id].title +
-                    " " +
-                    (isFlagship(p.id) ? flagshipText(lang,p.id) : docs[p.id].sections.map((s) => s.body).join(" "))
-                  )
-                    .toLocaleLowerCase()
-                    .includes(query.toLocaleLowerCase()),
-                ) && <p>{t("No documents match.")}</p>}
-              </nav>
-            ) : (
-              Object.entries(categories).map(([cat, label]) => (
-                <nav key={cat} aria-label={t(label)}>
-                  <h2>{t(label)}</h2>
-                  {manifest.pages
-                    .filter((p) => p.category === cat)
-                    .map((p) => (
-                      <a
-                        key={p.id}
-                        className={slug === p.id ? "active" : ""}
-                        aria-current={slug === p.id ? "page" : undefined}
-                        href={href("learn/" + p.id)}
-                      >
-                        {docs[p.id].title}
-                      </a>
-                    ))}
-                </nav>
-              ))
-            )}
+            <nav className="reference-nav" aria-label={lang==='en'?'Reference navigation':'참조 탐색'}><a href={href('reference')}>{lang==='en'?'Concepts and explanations':'개념과 설명'}</a><a href={href('reference/objects')}>{lang==='en'?'Contracts, code, tests and migrations':'계약·코드·테스트·마이그레이션'}</a><a href={href('learn/start-here')}>{lang==='en'?'Back to capability journeys':'행동 흐름으로 돌아가기'}</a></nav>
+            <label htmlFor="docs-search">{t('Search documentation')}</label><input id="docs-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={t('Search documentation')}/>
+            {query&&<nav aria-label={t('Search results')}>{manifest.pages.filter(p=>(docs[p.id].title+' '+docs[p.id].sections.map(s=>s.body).join(' ')+' '+(isFlagship(p.id)?flowText(lang,p.id)+' '+flagshipText(lang,p.id):'')).toLowerCase().includes(query.toLowerCase())).map(p=><a key={p.id} href={docHref(lang,p.id)}>{docs[p.id].title}</a>)}{!manifest.pages.some(p=>(docs[p.id].title+' '+docs[p.id].sections.map(s=>s.body).join(' ')+' '+(isFlagship(p.id)?flowText(lang,p.id)+' '+flagshipText(lang,p.id):'')).toLowerCase().includes(query.toLowerCase()))&&<p>{t('No documents match.')}</p>}</nav>}
           </aside>
-          {mode === "reference" ? (
-            <main className="docs-article reference-article">
+          {mode === "reference" && !page ? (
+            <main className="docs-article reference-article"><ContextTrail lang={lang}/>{path==='reference'&&<><h1>{t('Reference')}</h1><ReferenceCatalog lang={lang}/></>}
               <ReferenceView
                 path={path}
                 architecture={architecture}
@@ -384,9 +290,9 @@ export default function Site({ data }: { data: Architecture }) {
             <Flagship id={page.id} lang={lang} title={page.title} />
           ) : (
             <>
-              <main className="docs-article" key={page.id}>
+              <main className="docs-article" key={page.id}><ContextTrail lang={lang}/><p className="classified-role">{classified?.role} · {lang==='en'?'A contextual branch, not the next required lesson':'필요할 때 여는 가지 문서'}</p>
                 <div className="eyebrow">
-                  {t(categories[entry.category])} / {t("FIELD NOTES")}
+                  {classified?.role} / {t("FIELD NOTES")}
                 </div>
                 <h1>{page.title}</h1>
                 <p className="article-lead">{page.sections[0].body}</p>
@@ -528,33 +434,7 @@ export default function Site({ data }: { data: Architecture }) {
                     </a>
                   ))}
                 </section>
-                <div className="article-navigation">
-                  {(() => {
-                    const seq =
-                      entry.category === "getting-started"
-                        ? manifest.learningPath
-                        : manifest.pages
-                            .filter((p) => p.category === entry.category)
-                            .map((p) => p.id);
-                    const i = seq.indexOf(page.id);
-                    return (
-                      <>
-                        {i > 0 && (
-                          <a href={href("learn/" + seq[i - 1])}>
-                            ← {t("Previous")}
-                            <strong>{docs[seq[i - 1]].title}</strong>
-                          </a>
-                        )}
-                        {i < seq.length - 1 && (
-                          <a href={href("learn/" + seq[i + 1])}>
-                            {t("Next")} →
-                            <strong>{docs[seq[i + 1]].title}</strong>
-                          </a>
-                        )}
-                      </>
-                    );
-                  })()}
-                </div>
+                <div className="article-navigation">{classified?.journeys.map(id=><a key={id} href={href('learn/'+id)}>{capability(id)?.title[lang]} ↑</a>)}</div>
               </main>
               <aside className="article-toc">
                 <span className="eyebrow">{t("On this page")}</span>
@@ -667,7 +547,7 @@ function ReferenceView({
     return (
       <>
         <h1>{t("Page not found")}</h1>
-        <a href={route(lang, "reference")}>{t("Reference")}</a>
+        <a href={contextualHref(lang, "reference")}>{t("Reference")}</a>
       </>
     );
   if (n) {
@@ -676,7 +556,7 @@ function ReferenceView({
     );
     return (
       <>
-        <a href={route(lang, "reference")}>← {t("Reference")}</a>
+        <a href={contextualHref(lang, "reference")}>← {t("Reference")}</a>
         <h1>{n.name}</h1>
         <p className="article-lead">{n.description}</p>
         <span
@@ -685,10 +565,10 @@ function ReferenceView({
           {n.status}
         </span>
         <div className="reference-actions">
-          <a href={route(lang, "explore/node/" + encodeURIComponent(n.id))}>
+          <a href={contextualHref(lang, "explore/node/" + encodeURIComponent(n.id))}>
             {t("View in Architecture")} ↗
           </a>
-          <a href={route(lang, "learn/" + docForNode(n.id))}>
+          <a href={contextualHref(lang, "learn/" + docForNode(n.id))}>
             {t("Read the explanation")} ↗
           </a>
         </div>
@@ -752,7 +632,7 @@ function ReferenceView({
         <h2>{t("Repository evidence")}</h2>
         {n.references.map((id) => (
           <p key={id}>
-            <a href={route(lang, "reference/item/" + encodeURIComponent(id))}>
+            <a href={contextualHref(lang, "reference/item/" + encodeURIComponent(id))}>
               {architecture.nodes.find((n) => n.id === id)?.name} ↗
             </a>
           </p>
@@ -775,7 +655,7 @@ function ReferenceView({
   return (
     <>
       <div className="eyebrow">{t("Repository evidence")}</div>
-      <h1>{t("Reference")}</h1>
+      {path==='reference'?<h2>{lang==='en'?'Implementation objects':'구현 객체'}</h2>:<h1>{t("Reference")}</h1>}
       <p className="article-lead">
         {t(
           "The exact contracts, files and verification records behind the explanations.",
@@ -806,7 +686,7 @@ function ReferenceView({
           <a
             key={n.id}
             className="evidence-card"
-            href={route(lang, "reference/item/" + encodeURIComponent(n.id))}
+            href={contextualHref(lang, "reference/item/" + encodeURIComponent(n.id))}
           >
             <small>{t(classify(n))}</small>
             <strong>{n.name}</strong>

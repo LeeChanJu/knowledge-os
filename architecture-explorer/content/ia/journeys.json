@@ -1,0 +1,923 @@
+{
+  "schemaVersion": "1.0.0",
+  "journeys": [
+    {
+      "id": "remember",
+      "job": "save",
+      "title": {
+        "ko-KR": "기억시키기",
+        "en": "Remember something"
+      },
+      "request": {
+        "ko-KR": "“이런 지식이 있어. 기억해둬.”",
+        "en": "“Here is something I learned. Remember it.”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "한마디로 지식을 기억시키는 경험.",
+          "en": "Remember knowledge with one message."
+        },
+        "current": {
+          "ko-KR": "근거 조회, 구조화된 후보 제출, 별도 승인과 저장 경계가 있습니다.",
+          "en": "Evidence reads, structured proposals and separate approval/storage boundaries exist."
+        },
+        "human": {
+          "ko-KR": "승인은 에이전트 연결 창구 밖에서 권한 있는 검토자가 합니다.",
+          "en": "An authorized reviewer approves outside the agent adapter."
+        },
+        "deferred": {
+          "ko-KR": "자동 추출 제공자와 완전한 대화 자동화는 활성화된 기능으로 보지 않습니다.",
+          "en": "Automated extraction providers and a complete automatic conversation are not assumed active."
+        }
+      },
+      "stages": [
+        {
+          "id": "prepare",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "먼저 근거 준비",
+            "en": "Prepare support"
+          },
+          "terms": [
+            "document",
+            "version",
+            "chunk",
+            "evidence"
+          ],
+          "deepDives": [
+            "document-journey",
+            "new-document"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+            "ref:tests/test_contracts.py::test_google_drive_connector_is_deterministic_replay_safe_and_tombstones",
+            "ref:docs/operations/google-drive.md"
+          ]
+        },
+        {
+          "id": "recognize",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "무엇에 관한 말인지 확인",
+            "en": "Recognize the subjects"
+          },
+          "terms": [
+            "entity",
+            "assertion"
+          ],
+          "deepDives": [
+            "entity",
+            "assertion",
+            "resolution"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+            "ref:src/knowledge_os/graph.py::GraphStore.entity",
+            "ref:src/knowledge_os/models.py::EntityRef",
+            "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:src/knowledge_os/models.py::AssertionChange",
+            "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+            "ref:src/knowledge_os/ids.py::stable_id",
+            "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+          ]
+        },
+        {
+          "id": "propose",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "새 내용을 후보로 제출",
+            "en": "Submit a candidate"
+          },
+          "terms": [
+            "proposal",
+            "ontology"
+          ],
+          "deepDives": [
+            "proposal",
+            "ontology-basics"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+            "ref:src/knowledge_os/graph.py::proposal_identity",
+            "ref:migrations/005_proposal_evidence_lineage.cypher",
+            "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+            "ref:src/knowledge_os/ontology.py::Ontology.validate",
+            "ref:config/ontology.yaml",
+            "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+            "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+          ]
+        },
+        {
+          "id": "review",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "근거와 맞는지 검토",
+            "en": "Review against the source"
+          },
+          "terms": [
+            "approval",
+            "canonical"
+          ],
+          "deepDives": [
+            "approval",
+            "review-gate"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+            "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+            "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+            "ref:migrations/005_proposal_evidence_lineage.cypher",
+            "ref:docs/architecture/0001-stable-context-contracts.md"
+          ]
+        },
+        {
+          "id": "store",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "검토한 내용을 연결",
+            "en": "Connect accepted statements"
+          },
+          "terms": [
+            "graph",
+            "provenance"
+          ],
+          "deepDives": [
+            "knowledge-graph",
+            "provenance"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore",
+            "ref:migrations/001_core.cypher",
+            "ref:migrations/003_vector_search_filters.cypher",
+            "ref:docs/architecture/0001-stable-context-contracts.md",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F1",
+        "F2",
+        "F5",
+        "F6",
+        "F8",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "find",
+      "job": "find",
+      "title": {
+        "ko-KR": "찾아보기",
+        "en": "Find something"
+      },
+      "request": {
+        "ko-KR": "“전에 공부한 SAP Agent 내용 찾아줘.”",
+        "en": "“Find what I studied about SAP agents.”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "표현이 다른 질문도 근거와 함께 답받기.",
+          "en": "Receive supported answers even with different wording."
+        },
+        "current": {
+          "ko-KR": "단어 검색, 의미 검색 인터페이스, 제한된 관계·근거 읽기가 있습니다.",
+          "en": "Word search, meaning-search interfaces and bounded relationship/evidence reads exist."
+        },
+        "human": {
+          "ko-KR": "조회마다 현재 원본 기반 권한을 적용합니다. 답변은 외부 AI가 작성합니다.",
+          "en": "Reads use current source-based permissions. The external AI composes the answer."
+        },
+        "deferred": {
+          "ko-KR": "운영용 의미 검색 자료를 자동 채우는 제공자와 범용 자동 질의 계획은 가정하지 않습니다.",
+          "en": "Do not assume production embedding population or general automatic query planning."
+        }
+      },
+      "stages": [
+        {
+          "id": "words",
+          "anchor": "retrieval",
+          "title": {
+            "ko-KR": "기억나는 단어로 찾기",
+            "en": "Use remembered words"
+          },
+          "terms": [
+            "fulltext",
+            "retrieval"
+          ],
+          "deepDives": [
+            "full-text-search",
+            "search-methods"
+          ],
+          "referenceIds": [
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::literal_fulltext_query",
+            "ref:src/knowledge_os/graph.py::GraphStore.search",
+            "ref:tests/test_contracts.py::test_user_search_text_cannot_become_lucene_query_syntax",
+            "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+            "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+            "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+            "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+          ]
+        },
+        {
+          "id": "meaning",
+          "anchor": "retrieval",
+          "title": {
+            "ko-KR": "표현이 달라도 찾아보기",
+            "en": "Try similar meaning"
+          },
+          "terms": [
+            "embedding",
+            "vector"
+          ],
+          "deepDives": [
+            "embedding",
+            "vector-search"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.upsert_chunk_embedding",
+            "ref:src/knowledge_os/models.py::EmbeddingUpsert",
+            "ref:tests/test_contracts.py::test_embedding_fingerprint_binds_vector_model_and_version",
+            "ref:docs/evaluations/2026-09-05-embedding-provenance.md",
+            "ref:migrations/002_chunk_vector.cypher",
+            "ref:migrations/003_vector_search_filters.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+            "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+          ]
+        },
+        {
+          "id": "connections",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "기록된 연결 따라가기",
+            "en": "Follow recorded connections"
+          },
+          "terms": [
+            "entity",
+            "graph"
+          ],
+          "deepDives": [
+            "graph-traversal",
+            "hybrid-retrieval"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+            "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+            "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md",
+            "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+            "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+            "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+            "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+          ]
+        },
+        {
+          "id": "answer",
+          "anchor": "answer",
+          "title": {
+            "ko-KR": "근거를 전달하고 답하기",
+            "en": "Return material for an answer"
+          },
+          "terms": [
+            "evidence",
+            "rag",
+            "mcp"
+          ],
+          "deepDives": [
+            "agent-question",
+            "agent-access"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/mcp_server.py",
+            "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+            "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+            "ref:docs/operations/mcp-adapter.md",
+            "ref:src/knowledge_os/mcp_server.py::get_contracts",
+            "ref:src/knowledge_os/mcp_server.py::get_evidence",
+            "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+            "ref:src/knowledge_os/mcp_server.py::request_action",
+            "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F7",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "relationships",
+      "job": "relations",
+      "title": {
+        "ko-KR": "관계 묻기",
+        "en": "Understand relationships"
+      },
+      "request": {
+        "ko-KR": "“Joule Studio와 A2A는 어떻게 연결돼?”",
+        "en": "“How are Joule Studio and A2A connected?”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "자연어로 관계를 질문하고 근거까지 이해하기.",
+          "en": "Ask naturally about a connection and understand its support."
+        },
+        "current": {
+          "ko-KR": "등록된 대상과 제한된 연결 조회, 관계 형식 검사가 있습니다.",
+          "en": "Registered subjects, bounded connection reads and relationship-shape validation exist."
+        },
+        "human": {
+          "ko-KR": "형식이 맞아도 사실 여부는 근거와 검토가 필요합니다.",
+          "en": "A valid shape still needs supporting material and review."
+        },
+        "deferred": {
+          "ko-KR": "범용 자동 대상 병합·모든 관계 추론을 가정하지 않습니다. 규칙 검사에도 미해결 항목이 있습니다.",
+          "en": "Do not assume universal identity merging or relationship inference. Validation has unresolved findings."
+        }
+      },
+      "stages": [
+        {
+          "id": "subjects",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "어떤 대상을 묻는지 확인",
+            "en": "Identify the subjects"
+          },
+          "terms": [
+            "entity"
+          ],
+          "deepDives": [
+            "entity",
+            "resolution"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+            "ref:src/knowledge_os/graph.py::GraphStore.entity",
+            "ref:src/knowledge_os/models.py::EntityRef",
+            "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/ids.py::stable_id",
+            "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+          ]
+        },
+        {
+          "id": "statements",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "둘 사이에 기록된 말 보기",
+            "en": "Inspect recorded statements"
+          },
+          "terms": [
+            "assertion",
+            "graph"
+          ],
+          "deepDives": [
+            "relationship",
+            "assertion"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/ontology.py::Ontology.validate",
+            "ref:config/ontology.yaml",
+            "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+            "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate",
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:src/knowledge_os/models.py::AssertionChange",
+            "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+            "ref:migrations/001_core.cypher"
+          ]
+        },
+        {
+          "id": "rules",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "어떤 연결이 말이 될까?",
+            "en": "Which connections make sense?"
+          },
+          "terms": [
+            "ontology"
+          ],
+          "deepDives": [
+            "ontology-basics",
+            "ontology"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/ontology.py::Ontology.validate",
+            "ref:config/ontology.yaml",
+            "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+            "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+          ]
+        },
+        {
+          "id": "support",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "연결의 근거까지 따라가기",
+            "en": "Trace support for the connection"
+          },
+          "terms": [
+            "provenance",
+            "evidence"
+          ],
+          "deepDives": [
+            "graph-traversal",
+            "provenance"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+            "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+            "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py",
+            "ref:migrations/001_core.cypher"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F5",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "sources",
+      "job": "trace",
+      "title": {
+        "ko-KR": "근거 확인하기",
+        "en": "Verify the source"
+      },
+      "request": {
+        "ko-KR": "“이 정보 어디서 나온 거야?”",
+        "en": "“Where did this information come from?”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "답변의 어느 말이 어디서 왔는지 바로 확인하기.",
+          "en": "Immediately trace each statement in an answer to its source."
+        },
+        "current": {
+          "ko-KR": "정확한 문서 조각과 버전·출처를 읽는 제한된 경계가 있습니다.",
+          "en": "Bounded reads resolve exact passages, versions and source lineage."
+        },
+        "human": {
+          "ko-KR": "과거 근거가 있어도 현재 열람 권한이 필요합니다.",
+          "en": "Historical evidence still requires current permission to read."
+        },
+        "deferred": {
+          "ko-KR": "모든 외부 AI 답변에 출처가 자동으로 붙는 통합 제품은 가정하지 않습니다.",
+          "en": "Do not assume a finished integration automatically cites every external AI answer."
+        }
+      },
+      "stages": [
+        {
+          "id": "statement",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "확인할 말 고르기",
+            "en": "Choose a statement"
+          },
+          "terms": [
+            "assertion"
+          ],
+          "deepDives": [
+            "assertion"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:src/knowledge_os/models.py::AssertionChange",
+            "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+            "ref:migrations/001_core.cypher"
+          ]
+        },
+        {
+          "id": "passage",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "실제 근거 부분 읽기",
+            "en": "Read the supporting passage"
+          },
+          "terms": [
+            "chunk",
+            "evidence"
+          ],
+          "deepDives": [
+            "chunk",
+            "evidence"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/models.py::EvidenceBundleRequest",
+            "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic",
+            "ref:migrations/001_core.cypher",
+            "ref:config/contracts.yaml",
+            "ref:docs/architecture/0001-stable-context-contracts.md",
+            "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+          ]
+        },
+        {
+          "id": "version",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "그때의 문서 확인",
+            "en": "Identify the document version"
+          },
+          "terms": [
+            "version",
+            "provenance"
+          ],
+          "deepDives": [
+            "document-version",
+            "document-journey"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py",
+            "ref:migrations/001_core.cypher"
+          ]
+        },
+        {
+          "id": "original",
+          "anchor": "source",
+          "title": {
+            "ko-KR": "원본의 위치와 권한 확인",
+            "en": "Check the source and access"
+          },
+          "terms": [
+            "document"
+          ],
+          "deepDives": [
+            "source-of-truth",
+            "system-of-record"
+          ],
+          "referenceIds": [
+            "ref:docs/architecture/0001-stable-context-contracts.md",
+            "ref:src/knowledge_os/file_connector.py::build_manifest",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F1",
+        "F2",
+        "F6",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "correct",
+      "job": "correct",
+      "title": {
+        "ko-KR": "정정하기",
+        "en": "Correct knowledge"
+      },
+      "request": {
+        "ko-KR": "“이 내용은 이제 틀렸어.”",
+        "en": "“This is now wrong.”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "잘못되거나 오래된 내용을 안전하게 정정하기.",
+          "en": "Safely correct wrong or outdated information."
+        },
+        "current": {
+          "ko-KR": "버전 보존과 검토된 지식 변경·대체 이력 경계가 있습니다.",
+          "en": "Version preservation and reviewed changes/replacement-history boundaries exist."
+        },
+        "human": {
+          "ko-KR": "기존 기록을 조용히 덮어쓰지 않고 변경을 검토해야 합니다.",
+          "en": "Review changes without silently overwriting the earlier record."
+        },
+        "deferred": {
+          "ko-KR": "자동 오류 수정과 모든 시간·정정 동작의 검증 완료를 가정하지 않습니다. 미해결 발견 사항이 남습니다.",
+          "en": "Do not assume automatic error repair or completed verification of every temporal/correction path; findings remain open."
+        }
+      },
+      "stages": [
+        {
+          "id": "inspect",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "어떤 기록이 바뀌었나?",
+            "en": "What has changed?"
+          },
+          "terms": [
+            "document",
+            "assertion"
+          ],
+          "deepDives": [
+            "document-changes",
+            "knowledge-changes"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:src/knowledge_os/models.py::AssertionChange",
+            "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity"
+          ]
+        },
+        {
+          "id": "version",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "새 상태를 따로 기록",
+            "en": "Keep a new version"
+          },
+          "terms": [
+            "version"
+          ],
+          "deepDives": [
+            "document-version",
+            "keep-versions"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+            "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+            "ref:tests/test_metadata_correction.py",
+            "ref:migrations/001_core.cypher"
+          ]
+        },
+        {
+          "id": "review",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "변경 내용을 검토",
+            "en": "Review a correction"
+          },
+          "terms": [
+            "proposal",
+            "approval"
+          ],
+          "deepDives": [
+            "proposal",
+            "governance"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+            "ref:src/knowledge_os/graph.py::proposal_identity",
+            "ref:migrations/005_proposal_evidence_lineage.cypher",
+            "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+            "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+            "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+            "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+            "ref:docs/architecture/0001-stable-context-contracts.md"
+          ]
+        },
+        {
+          "id": "history",
+          "anchor": "knowledge",
+          "title": {
+            "ko-KR": "이전 기록과 변경 연결",
+            "en": "Link the change to its history"
+          },
+          "terms": [
+            "assertion",
+            "provenance"
+          ],
+          "deepDives": [
+            "temporal-validity",
+            "supersession",
+            "knowledge-changes",
+            "document-deletion"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._approve",
+            "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+            "ref:src/knowledge_os/models.py::AssertionChange",
+            "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+            "ref:migrations/001_core.cypher",
+            "ref:AGENT.md#current-remediation-workflow",
+            "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+            "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+            "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+            "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+            "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F1",
+        "F2",
+        "F3",
+        "F5",
+        "F8",
+        "release-gate"
+      ]
+    },
+    {
+      "id": "act",
+      "job": "act",
+      "title": {
+        "ko-KR": "행동 제안하기",
+        "en": "Propose an action"
+      },
+      "request": {
+        "ko-KR": "“이 결과를 외부 시스템에 반영하고 싶어.”",
+        "en": "“Apply this result to an outside system.”"
+      },
+      "boundaries": {
+        "target": {
+          "ko-KR": "검토한 결과를 원본 시스템에 반영하기.",
+          "en": "Apply a reviewed result to a source system."
+        },
+        "current": {
+          "ko-KR": "제한된 Notion 실행자와 변경 요청·정책·실행 결과 기록이 있습니다.",
+          "en": "A bounded Notion executor, requests, policy and execution records exist."
+        },
+        "human": {
+          "ko-KR": "별도 사람의 승인과 권한 있는 실행자가 필요합니다. 연결 창구는 승인하거나 실행하지 않습니다.",
+          "en": "Separate human approval and an authorized executor are required. The connection adapter does not approve or execute."
+        },
+        "deferred": {
+          "ko-KR": "범용 자율 변경, 모든 원본 쓰기 어댑터, 실행·복구 전부의 검증 완료를 가정하지 않습니다.",
+          "en": "Do not assume general autonomous editing, write adapters for every source, or completed execution/recovery verification."
+        }
+      },
+      "stages": [
+        {
+          "id": "intent",
+          "anchor": "interface",
+          "title": {
+            "ko-KR": "결정과 실행 요청 구분",
+            "en": "Separate a decision from a request"
+          },
+          "terms": [
+            "action",
+            "agent"
+          ],
+          "deepDives": [
+            "decision",
+            "action"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._approve_decision",
+            "ref:src/knowledge_os/graph.py::GraphStore.decision",
+            "ref:src/knowledge_os/models.py::DecisionProposalCreate",
+            "ref:tests/test_contracts.py::test_decision_proposal_deduplicates_evidence_and_validates_time",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+            "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+            "ref:src/knowledge_os/models.py::ActionCreate",
+            "ref:migrations/004_action_execution.cypher",
+            "ref:migrations/006_action_capability_principals.cypher",
+            "ref:migrations/007_action_execution_claim.cypher",
+            "ref:migrations/008_action_contract_provenance.cypher",
+            "ref:migrations/009_action_contract_required.cypher",
+            "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+          ]
+        },
+        {
+          "id": "policy",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "허용된 범위 확인",
+            "en": "Check the allowed scope"
+          },
+          "terms": [
+            "action"
+          ],
+          "deepDives": [
+            "agent-action",
+            "action"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+            "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+            "ref:src/knowledge_os/models.py::ActionCreate",
+            "ref:migrations/004_action_execution.cypher",
+            "ref:migrations/006_action_capability_principals.cypher",
+            "ref:migrations/007_action_execution_claim.cypher",
+            "ref:migrations/008_action_contract_provenance.cypher",
+            "ref:migrations/009_action_contract_required.cypher",
+            "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+          ]
+        },
+        {
+          "id": "approve",
+          "anchor": "review",
+          "title": {
+            "ko-KR": "사람의 승인 받기",
+            "en": "Obtain human approval"
+          },
+          "terms": [
+            "approval"
+          ],
+          "deepDives": [
+            "approval",
+            "agent-action"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+            "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+            "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+            "ref:src/knowledge_os/models.py::ActionCreate",
+            "ref:migrations/004_action_execution.cypher",
+            "ref:migrations/006_action_capability_principals.cypher",
+            "ref:migrations/007_action_execution_claim.cypher",
+            "ref:migrations/008_action_contract_provenance.cypher",
+            "ref:migrations/009_action_contract_required.cypher",
+            "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+          ]
+        },
+        {
+          "id": "execute",
+          "anchor": "source",
+          "title": {
+            "ko-KR": "별도 실행자가 원본 변경",
+            "en": "A separate executor changes the source"
+          },
+          "terms": [
+            "action"
+          ],
+          "deepDives": [
+            "agent-action",
+            "system-of-record"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+            "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+            "ref:src/knowledge_os/models.py::ActionCreate",
+            "ref:migrations/004_action_execution.cypher",
+            "ref:migrations/006_action_capability_principals.cypher",
+            "ref:migrations/007_action_execution_claim.cypher",
+            "ref:migrations/008_action_contract_provenance.cypher",
+            "ref:migrations/009_action_contract_required.cypher",
+            "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive",
+            "ref:docs/architecture/0001-stable-context-contracts.md",
+            "ref:src/knowledge_os/file_connector.py::build_manifest"
+          ]
+        },
+        {
+          "id": "record",
+          "anchor": "evidence",
+          "title": {
+            "ko-KR": "결과와 다시 읽은 근거 연결",
+            "en": "Record and read back the result"
+          },
+          "terms": [
+            "provenance",
+            "evidence"
+          ],
+          "deepDives": [
+            "event",
+            "agent-action"
+          ],
+          "referenceIds": [
+            "ref:src/knowledge_os/graph.py::GraphStore._approve_event",
+            "ref:src/knowledge_os/graph.py::GraphStore._write_tombstone",
+            "ref:src/knowledge_os/models.py::EventProposalCreate",
+            "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_source_parent_per_operational_event",
+            "ref:migrations/001_core.cypher",
+            "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+            "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+            "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+            "ref:src/knowledge_os/models.py::ActionCreate",
+            "ref:migrations/004_action_execution.cypher",
+            "ref:migrations/006_action_capability_principals.cypher",
+            "ref:migrations/007_action_execution_claim.cypher",
+            "ref:migrations/008_action_contract_provenance.cypher",
+            "ref:migrations/009_action_contract_required.cypher",
+            "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+          ]
+        }
+      ],
+      "issueIds": [
+        "F4",
+        "F8",
+        "release-gate"
+      ]
+    }
+  ]
+}

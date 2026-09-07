@@ -1,6 +1,6 @@
 # Four flagship lessons — completed review milestone
 
-Only these four lessons have been rewritten. The other 73 page bodies remain unchanged. Deployment was subsequently authorized. The public snapshot was separately tested: F1/F2 20 passed in 54.84 seconds; no production source files were changed.
+Only these four lessons have been rewritten. The other 73 page bodies remain unchanged. No deployment was performed; review the local site first.
 
 ## Routes and screenshots
 
@@ -18,7 +18,7 @@ The local review server is http://127.0.0.1:5177/. Both locales use the same rou
 - F1: 9 passed, 0 failed/skipped; F2: 11 passed, 0 failed/skipped. Source HEAD: `2a730fff3fe29bebc9b0d00acf724cc7cc0d2672`.
 - Existing isolated UUID Neo4j fixtures and temporary SQLite were used. Subsequent read-only inventory found zero remaining regression databases. DBMS reports Neo4j Enterprise 2026.07.1.
 - Executed selectors, runtime and outcomes: `verification/current-head-regressions.json`; curated authority: `data/verification.json`.
-- F3–F8 and release acceptance remain open. Public source excludes separate local temporal remediation; no temporal verification is claimed.
+- F3–F8 and release acceptance remain open. Temporal changes were reconciled as reviewed open evidence, not newly verified behavior.
 - Documentation: 38 Node tests, 3 Python inspector tests, 8 real-browser tests passed.
 - Bilingual/drift check and TypeScript/Vite build passed. Build emits the existing large-chunk advisory; it is not a build failure.
 - Browser checks cover both languages, all four articles, all 13 question/answer pairs per language, source sections, reference navigation, Explore round trips, history, themes, narrow layouts and absence of production/external API requests.
