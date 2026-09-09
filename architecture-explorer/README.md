@@ -339,3 +339,24 @@ The versioned schema, 28-node / 35-edge curated model, bilingual Markdown,
 dependencies, runtime databases or verification authority are introduced.
 See `review/atlas-m2.md` for the scope and exact review route. M3 and publication
 are intentionally outside this milestone pending screen review.
+
+### System Atlas continuation — M3 through M5
+
+The review stop above was lifted by the user. Runtime now offers six complete,
+separate journeys: ask/read, source ingestion, provenance, conversational proposal,
+correction, and authorized external action. The original read URL remains valid;
+`?journey=ingest`, `sources`, `remember`, `correct`, or `act` selects another route.
+
+Engineering keeps its complete ten-stage backbone and expands concrete rules into
+implementation, regression selectors and recorded verification/remaining scope.
+Branches cover the six contracts, deletion replay, governance, ontology, chunk
+bounds, authorized execution, temporal history, Doctor, evaluation, audit recovery,
+migration versus correction, backup/restore, release acceptance and measured change.
+
+The Atlas has 116 curated nodes and 145 directional edges. Its schema is 1.1.0,
+independent from the Architecture schema. Each journey carries explicit current,
+target, human and deferred boundaries. Its final stage offers two comprehension
+questions with optional answers in Markdown. The 77 older documents and URLs remain
+preserved. Curated verification records are unchanged and no database is accessed.
+
+See `review/atlas-continuation.md` for validation and remaining limitations.

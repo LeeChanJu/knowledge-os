@@ -1,1 +1,1 @@
-Define the data and history that must survive. The detailed M2 branch follows document-version preservation.
+Define the data and history that must survive. Branch into version preservation, separate review, allowed relations and correction history.

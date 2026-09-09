@@ -1,11 +1,11 @@
 export type Axis = 'runtime' | 'engineering';
-export type AtlasState = {axis:Axis;node:string;root:string;open:string[];returnTo:string};
+export type AtlasState = {axis:Axis;journey?:string;node:string;root:string;open:string[];returnTo:string};
 export function atlasState():AtlasState {
  const [path,query='']=location.hash.split('?'),q=new URLSearchParams(query);
- return {axis:path.endsWith('/engineering')?'engineering':'runtime',node:q.get('node')||'',root:q.get('root')||'',open:(q.get('open')||'').split(',').filter(Boolean),returnTo:q.get('returnTo')||''};
+ return {axis:path.endsWith('/engineering')?'engineering':'runtime',journey:q.get('journey')||'read',node:q.get('node')||'',root:q.get('root')||'',open:(q.get('open')||'').split(',').filter(Boolean),returnTo:q.get('returnTo')||''};
 }
 export function atlasHref(lang:string,s:AtlasState){
- const q=new URLSearchParams();if(s.node)q.set('node',s.node);if(s.root)q.set('root',s.root);if(s.open.length)q.set('open',s.open.join(','));if(s.returnTo)q.set('returnTo',s.returnTo);
+ const q=new URLSearchParams();if(s.journey&&s.journey!=='read')q.set('journey',s.journey);if(s.node)q.set('node',s.node);if(s.root)q.set('root',s.root);if(s.open.length)q.set('open',s.open.join(','));if(s.returnTo)q.set('returnTo',s.returnTo);
  return `#/${lang}/${s.axis}${q.size?'?'+q:''}`;
 }
 export function validReturn(value:string){return /^(runtime|engineering)\?/.test(value)&&!/[#<>]/.test(value);}

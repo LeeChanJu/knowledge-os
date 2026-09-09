@@ -6,14 +6,15 @@
     "milestone",
     "backbones",
     "nodes",
-    "edges"
+    "edges",
+    "journeys"
   ],
   "properties": {
     "schemaVersion": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "milestone": {
-      "const": "M1\u2013M2"
+      "const": "M3–M5"
     },
     "backbones": {
       "type": "object",
@@ -101,6 +102,16 @@
               },
               "node": {
                 "type": "string"
+              },
+              "journey": {
+                "enum": [
+                  "read",
+                  "ingest",
+                  "sources",
+                  "remember",
+                  "correct",
+                  "act"
+                ]
               }
             }
           },
@@ -153,6 +164,154 @@
               "runtime",
               "engineering"
             ]
+          }
+        }
+      }
+    },
+    "journeys": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "labels",
+          "backbone",
+          "boundaries",
+          "checkContent"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "read",
+              "ingest",
+              "sources",
+              "remember",
+              "correct",
+              "act"
+            ]
+          },
+          "labels": {
+            "type": "object",
+            "required": [
+              "ko-KR",
+              "en"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "ko-KR": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "backbone": {
+            "type": "array",
+            "minItems": 3,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "boundaries": {
+            "type": "object",
+            "required": [
+              "target",
+              "current",
+              "human",
+              "deferred"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "target": {
+                "type": "object",
+                "required": [
+                  "ko-KR",
+                  "en"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "ko-KR": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "current": {
+                "type": "object",
+                "required": [
+                  "ko-KR",
+                  "en"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "ko-KR": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "human": {
+                "type": "object",
+                "required": [
+                  "ko-KR",
+                  "en"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "ko-KR": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "deferred": {
+                "type": "object",
+                "required": [
+                  "ko-KR",
+                  "en"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "ko-KR": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          "checkContent": {
+            "type": "object",
+            "required": [
+              "en",
+              "ko-KR"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       }

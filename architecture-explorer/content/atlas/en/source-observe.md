@@ -1,0 +1,1 @@
+A connector observes authorized content, permissions and revisions. For example, it reads this note from a Drive folder into a change manifest. Read permission differs from permission to modify the source.

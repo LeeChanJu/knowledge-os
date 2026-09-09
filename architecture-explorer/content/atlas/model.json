@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "milestone": "M1–M2",
+  "schemaVersion": "1.1.0",
+  "milestone": "M3–M5",
   "backbones": {
     "runtime": [
       "question",
@@ -98,7 +98,11 @@
       "claimIds": [],
       "architectureNodeIds": [
         "keyword"
-      ]
+      ],
+      "opposite": {
+        "axis": "engineering",
+        "node": "quality"
+      }
     },
     {
       "id": "store",
@@ -110,7 +114,9 @@
         "ko-KR": "ko-KR/store.md",
         "en": "en/store.md"
       },
-      "branches": [],
+      "branches": [
+        "relation-subjects"
+      ],
       "referenceIds": [],
       "claimIds": [],
       "architectureNodeIds": [
@@ -197,7 +203,9 @@
         "ko-KR": "ko-KR/design.md",
         "en": "en/design.md"
       },
-      "branches": [],
+      "branches": [
+        "boundaries"
+      ],
       "referenceIds": [],
       "claimIds": [],
       "architectureNodeIds": [
@@ -215,7 +223,10 @@
         "en": "en/rules.md"
       },
       "branches": [
-        "version-rule"
+        "version-rule",
+        "governed",
+        "relation-rule",
+        "history"
       ],
       "referenceIds": [],
       "claimIds": [],
@@ -234,7 +245,10 @@
         "en": "en/implementation.md"
       },
       "branches": [
-        "version-code"
+        "version-code",
+        "replay",
+        "executor",
+        "storage-migration"
       ],
       "referenceIds": [],
       "claimIds": [],
@@ -253,7 +267,8 @@
         "en": "en/testing.md"
       },
       "branches": [
-        "integrity-test"
+        "integrity-test",
+        "passage"
       ],
       "referenceIds": [],
       "claimIds": [],
@@ -272,7 +287,9 @@
         "en": "en/verification.md"
       },
       "branches": [
-        "integrity-proof"
+        "integrity-proof",
+        "health",
+        "quality"
       ],
       "referenceIds": [],
       "claimIds": [],
@@ -290,7 +307,9 @@
         "ko-KR": "ko-KR/recovery.md",
         "en": "en/recovery.md"
       },
-      "branches": [],
+      "branches": [
+        "backup-set"
+      ],
       "referenceIds": [],
       "claimIds": [],
       "architectureNodeIds": [
@@ -307,7 +326,9 @@
         "ko-KR": "ko-KR/release.md",
         "en": "en/release.md"
       },
-      "branches": [],
+      "branches": [
+        "release-audit"
+      ],
       "referenceIds": [],
       "claimIds": [
         "release-gate"
@@ -326,7 +347,9 @@
         "ko-KR": "ko-KR/operations.md",
         "en": "en/operations.md"
       },
-      "branches": [],
+      "branches": [
+        "audit"
+      ],
       "referenceIds": [],
       "claimIds": [],
       "architectureNodeIds": [
@@ -343,7 +366,9 @@
         "ko-KR": "ko-KR/improve.md",
         "en": "en/improve.md"
       },
-      "branches": [],
+      "branches": [
+        "measure-runtime"
+      ],
       "referenceIds": [],
       "claimIds": [],
       "architectureNodeIds": [
@@ -441,7 +466,8 @@
       "documentId": "document-version",
       "opposite": {
         "axis": "runtime",
-        "node": "version"
+        "node": "version",
+        "journey": "read"
       },
       "architectureNodeIds": [
         "contract-evidence"
@@ -581,240 +607,3436 @@
       "architectureNodeIds": [
         "graph-retrieval"
       ]
+    },
+    {
+      "id": "sources-statement",
+      "labels": {
+        "ko-KR": "확인할 말 고르기",
+        "en": "Choose a statement"
+      },
+      "content": {
+        "ko-KR": "ko-KR/sources-statement.md",
+        "en": "en/sources-statement.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "assertion",
+      "term": "assertion"
+    },
+    {
+      "id": "sources-passage",
+      "labels": {
+        "ko-KR": "실제 근거 부분 읽기",
+        "en": "Read the supporting passage"
+      },
+      "content": {
+        "ko-KR": "ko-KR/sources-passage.md",
+        "en": "en/sources-passage.md"
+      },
+      "branches": [
+        "evidence"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/models.py::EvidenceBundleRequest",
+        "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic",
+        "ref:migrations/001_core.cypher",
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "chunk",
+      "term": "chunk"
+    },
+    {
+      "id": "sources-version",
+      "labels": {
+        "ko-KR": "그때의 문서 확인",
+        "en": "Identify the document version"
+      },
+      "content": {
+        "ko-KR": "ko-KR/sources-version.md",
+        "en": "en/sources-version.md"
+      },
+      "branches": [
+        "why-version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "document-version",
+      "term": "version",
+      "opposite": {
+        "axis": "engineering",
+        "node": "version-rule"
+      }
+    },
+    {
+      "id": "sources-original",
+      "labels": {
+        "ko-KR": "원본의 위치와 권한 확인",
+        "en": "Check the source and access"
+      },
+      "content": {
+        "ko-KR": "ko-KR/sources-original.md",
+        "en": "en/sources-original.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "source"
+      ],
+      "documentId": "source-of-truth",
+      "term": "document"
+    },
+    {
+      "id": "remember-prepare",
+      "labels": {
+        "ko-KR": "먼저 근거 준비",
+        "en": "Prepare support"
+      },
+      "content": {
+        "ko-KR": "ko-KR/remember-prepare.md",
+        "en": "en/remember-prepare.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_google_drive_connector_is_deterministic_replay_safe_and_tombstones",
+        "ref:docs/operations/google-drive.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "document-journey",
+      "term": "document"
+    },
+    {
+      "id": "remember-recognize",
+      "labels": {
+        "ko-KR": "무엇에 관한 말인지 확인",
+        "en": "Recognize the subjects"
+      },
+      "content": {
+        "ko-KR": "ko-KR/remember-recognize.md",
+        "en": "en/remember-recognize.md"
+      },
+      "branches": [
+        "relation-subjects"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.entity",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:src/knowledge_os/ids.py::stable_id",
+        "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "entity",
+      "term": "entity"
+    },
+    {
+      "id": "remember-propose",
+      "labels": {
+        "ko-KR": "새 내용을 후보로 제출",
+        "en": "Submit a candidate"
+      },
+      "content": {
+        "ko-KR": "ko-KR/remember-propose.md",
+        "en": "en/remember-propose.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "proposal",
+      "term": "proposal",
+      "opposite": {
+        "axis": "engineering",
+        "node": "governed"
+      }
+    },
+    {
+      "id": "remember-review",
+      "labels": {
+        "ko-KR": "근거와 맞는지 검토",
+        "en": "Review against the source"
+      },
+      "content": {
+        "ko-KR": "ko-KR/remember-review.md",
+        "en": "en/remember-review.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "approval",
+      "term": "approval",
+      "opposite": {
+        "axis": "engineering",
+        "node": "governed"
+      }
+    },
+    {
+      "id": "remember-store",
+      "labels": {
+        "ko-KR": "검토한 내용을 연결",
+        "en": "Connect accepted statements"
+      },
+      "content": {
+        "ko-KR": "ko-KR/remember-store.md",
+        "en": "en/remember-store.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "knowledge-graph",
+      "term": "graph"
+    },
+    {
+      "id": "correct-inspect",
+      "labels": {
+        "ko-KR": "어떤 기록이 바뀌었나?",
+        "en": "What has changed?"
+      },
+      "content": {
+        "ko-KR": "ko-KR/correct-inspect.md",
+        "en": "en/correct-inspect.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "document-changes",
+      "term": "document"
+    },
+    {
+      "id": "correct-version",
+      "labels": {
+        "ko-KR": "새 상태를 따로 기록",
+        "en": "Keep a new version"
+      },
+      "content": {
+        "ko-KR": "ko-KR/correct-version.md",
+        "en": "en/correct-version.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "document-version",
+      "term": "version"
+    },
+    {
+      "id": "correct-review",
+      "labels": {
+        "ko-KR": "변경 내용을 검토",
+        "en": "Review a correction"
+      },
+      "content": {
+        "ko-KR": "ko-KR/correct-review.md",
+        "en": "en/correct-review.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "proposal",
+      "term": "proposal",
+      "opposite": {
+        "axis": "engineering",
+        "node": "history"
+      }
+    },
+    {
+      "id": "correct-history",
+      "labels": {
+        "ko-KR": "이전 기록과 변경 연결",
+        "en": "Link the change to its history"
+      },
+      "content": {
+        "ko-KR": "ko-KR/correct-history.md",
+        "en": "en/correct-history.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher",
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+        "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+        "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "temporal-validity",
+      "term": "assertion",
+      "opposite": {
+        "axis": "engineering",
+        "node": "history"
+      }
+    },
+    {
+      "id": "act-intent",
+      "labels": {
+        "ko-KR": "결정과 실행 요청 구분",
+        "en": "Separate a decision from a request"
+      },
+      "content": {
+        "ko-KR": "ko-KR/act-intent.md",
+        "en": "en/act-intent.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_decision",
+        "ref:src/knowledge_os/graph.py::GraphStore.decision",
+        "ref:src/knowledge_os/models.py::DecisionProposalCreate",
+        "ref:tests/test_contracts.py::test_decision_proposal_deduplicates_evidence_and_validates_time",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "mcp"
+      ],
+      "documentId": "decision",
+      "term": "action"
+    },
+    {
+      "id": "act-policy",
+      "labels": {
+        "ko-KR": "허용된 범위 확인",
+        "en": "Check the allowed scope"
+      },
+      "content": {
+        "ko-KR": "ko-KR/act-policy.md",
+        "en": "en/act-policy.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "agent-action",
+      "term": "action",
+      "opposite": {
+        "axis": "engineering",
+        "node": "executor"
+      }
+    },
+    {
+      "id": "act-approve",
+      "labels": {
+        "ko-KR": "사람의 승인 받기",
+        "en": "Obtain human approval"
+      },
+      "content": {
+        "ko-KR": "ko-KR/act-approve.md",
+        "en": "en/act-approve.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "approval",
+      "term": "approval"
+    },
+    {
+      "id": "act-execute",
+      "labels": {
+        "ko-KR": "별도 실행자가 원본 변경",
+        "en": "A separate executor changes the source"
+      },
+      "content": {
+        "ko-KR": "ko-KR/act-execute.md",
+        "en": "en/act-execute.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "source"
+      ],
+      "documentId": "agent-action",
+      "term": "action",
+      "opposite": {
+        "axis": "engineering",
+        "node": "executor"
+      }
+    },
+    {
+      "id": "act-record",
+      "labels": {
+        "ko-KR": "결과와 다시 읽은 근거 연결",
+        "en": "Record and read back the result"
+      },
+      "content": {
+        "ko-KR": "ko-KR/act-record.md",
+        "en": "en/act-record.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_event",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_tombstone",
+        "ref:src/knowledge_os/models.py::EventProposalCreate",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_source_parent_per_operational_event",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "event",
+      "term": "provenance",
+      "opposite": {
+        "axis": "engineering",
+        "node": "audit"
+      }
+    },
+    {
+      "id": "source-original",
+      "labels": {
+        "ko-KR": "외부 원본",
+        "en": "External original"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-original.md",
+        "en": "en/source-original.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "systems"
+      ]
+    },
+    {
+      "id": "source-observe",
+      "labels": {
+        "ko-KR": "읽기 권한으로 관찰",
+        "en": "Observe with read access"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-observe.md",
+        "en": "en/source-observe.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_empty_initial_manifest_cannot_checkpoint_existing_active_documents",
+        "ref:tests/test_deletion_replay.py"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "connectors"
+      ],
+      "opposite": {
+        "axis": "engineering",
+        "node": "replay"
+      }
+    },
+    {
+      "id": "source-document",
+      "labels": {
+        "ko-KR": "같은 문서인지 식별",
+        "en": "Identify the document"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-document.md",
+        "en": "en/source-document.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/ids.py::document_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.document",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:tests/test_contracts.py::test_direct_source_mutations_expose_document_version_cas",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "document"
+      ]
+    },
+    {
+      "id": "source-version",
+      "labels": {
+        "ko-KR": "그때의 상태 보존",
+        "en": "Preserve the observed state"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-version.md",
+        "en": "en/source-version.md"
+      },
+      "branches": [
+        "why-version"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "opposite": {
+        "axis": "engineering",
+        "node": "version-rule"
+      }
+    },
+    {
+      "id": "source-parse",
+      "labels": {
+        "ko-KR": "읽을 수 있는 내용으로 풀기",
+        "en": "Parse readable content"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-parse.md",
+        "en": "en/source-parse.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::extract_file",
+        "ref:tests/test_contracts.py::test_meeting_transcripts_preserve_raw_timestamps_and_source_identity",
+        "ref:docs/operations/meeting-transcripts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "parsing"
+      ]
+    },
+    {
+      "id": "source-chunk",
+      "labels": {
+        "ko-KR": "근거가 될 부분 나누기",
+        "en": "Split evidence passages"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-chunk.md",
+        "en": "en/source-chunk.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/models.py::EvidenceBundleRequest",
+        "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "chunk"
+      ],
+      "opposite": {
+        "axis": "engineering",
+        "node": "passage"
+      }
+    },
+    {
+      "id": "source-candidate",
+      "labels": {
+        "ko-KR": "지식 후보 만들기",
+        "en": "Prepare a candidate"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-candidate.md",
+        "en": "en/source-candidate.md"
+      },
+      "branches": [
+        "relation-rules"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/prompts.py::PromptRegistry",
+        "ref:src/knowledge_os/models.py::ProposalCreate",
+        "ref:config/prompts.yaml",
+        "ref:tests/test_contracts.py::test_extraction_context_is_deterministic_and_verified",
+        "ref:docs/evaluations/2026-09-05-extraction-context-service.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "extraction"
+      ]
+    },
+    {
+      "id": "source-review",
+      "labels": {
+        "ko-KR": "근거와 규칙을 검토",
+        "en": "Review evidence and rules"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-review.md",
+        "en": "en/source-review.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "approval"
+      ]
+    },
+    {
+      "id": "source-knowledge",
+      "labels": {
+        "ko-KR": "승인된 지식으로 연결",
+        "en": "Connect approved knowledge"
+      },
+      "content": {
+        "ko-KR": "ko-KR/source-knowledge.md",
+        "en": "en/source-knowledge.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "neo4j"
+      ]
+    },
+    {
+      "id": "relation-subjects",
+      "labels": {
+        "ko-KR": "어떤 대상을 묻는지 확인",
+        "en": "Identify the subjects"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-subjects.md",
+        "en": "en/relation-subjects.md"
+      },
+      "branches": [
+        "relation-statements"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.entity",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/ids.py::stable_id",
+        "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "entity",
+      "term": "entity"
+    },
+    {
+      "id": "relation-statements",
+      "labels": {
+        "ko-KR": "둘 사이에 기록된 말 보기",
+        "en": "Inspect recorded statements"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-statements.md",
+        "en": "en/relation-statements.md"
+      },
+      "branches": [
+        "relation-rules",
+        "relation-support"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate",
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "documentId": "relationship",
+      "term": "assertion"
+    },
+    {
+      "id": "relation-rules",
+      "labels": {
+        "ko-KR": "어떤 연결이 말이 될까?",
+        "en": "Which connections make sense?"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-rules.md",
+        "en": "en/relation-rules.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "governance"
+      ],
+      "documentId": "ontology-basics",
+      "term": "ontology",
+      "opposite": {
+        "axis": "engineering",
+        "node": "relation-rule"
+      }
+    },
+    {
+      "id": "relation-support",
+      "labels": {
+        "ko-KR": "연결의 근거까지 따라가기",
+        "en": "Trace support for the connection"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-support.md",
+        "en": "en/relation-support.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+        "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ],
+      "documentId": "graph-traversal",
+      "term": "provenance"
+    },
+    {
+      "id": "replay",
+      "labels": {
+        "ko-KR": "삭제 재시도도 같은 기록이어야 한다",
+        "en": "Deletion retries must preserve identity"
+      },
+      "content": {
+        "ko-KR": "ko-KR/replay.md",
+        "en": "en/replay.md"
+      },
+      "branches": [
+        "replay-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ingestion"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "source-observe",
+        "journey": "ingest"
+      }
+    },
+    {
+      "id": "replay-code",
+      "labels": {
+        "ko-KR": "삭제 재시도 · 구현",
+        "en": "Deletion replay · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/replay-code.md",
+        "en": "en/replay-code.md"
+      },
+      "branches": [
+        "replay-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.ingest_manifest",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest",
+        "ref:src/knowledge_os/graph.py::GraphStore.ingest_text",
+        "ref:src/knowledge_os/models.py::SyncManifest",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_connector.py::build_manifest"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ingestion"
+      ]
+    },
+    {
+      "id": "replay-test",
+      "labels": {
+        "ko-KR": "삭제 재시도 · 회귀 테스트",
+        "en": "Deletion replay · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/replay-test.md",
+        "en": "en/replay-test.md"
+      },
+      "branches": [
+        "replay-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint",
+        "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+        "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+        "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ingestion"
+      ]
+    },
+    {
+      "id": "replay-proof",
+      "labels": {
+        "ko-KR": "삭제 재시도 · 현재 확인 결과",
+        "en": "Deletion replay · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/replay-proof.md",
+        "en": "en/replay-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint",
+        "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+        "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+        "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+      ],
+      "claimIds": [
+        "F2"
+      ],
+      "architectureNodeIds": [
+        "ingestion"
+      ]
+    },
+    {
+      "id": "governed",
+      "labels": {
+        "ko-KR": "검토 없이 지식이 되면 안 된다",
+        "en": "Knowledge requires separate review"
+      },
+      "content": {
+        "ko-KR": "ko-KR/governed.md",
+        "en": "en/governed.md"
+      },
+      "branches": [
+        "governed-code"
+      ],
+      "referenceIds": [
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "proposal"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "remember-review",
+        "journey": "remember"
+      }
+    },
+    {
+      "id": "governed-code",
+      "labels": {
+        "ko-KR": "후보와 승인 · 구현",
+        "en": "Proposal and approval · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/governed-code.md",
+        "en": "en/governed-code.md"
+      },
+      "branches": [
+        "governed-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "governed-test",
+      "labels": {
+        "ko-KR": "후보와 승인 · 회귀 테스트",
+        "en": "Proposal and approval · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/governed-test.md",
+        "en": "en/governed-test.md"
+      },
+      "branches": [
+        "governed-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "governed-proof",
+      "labels": {
+        "ko-KR": "후보와 승인 · 현재 확인 결과",
+        "en": "Proposal and approval · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/governed-proof.md",
+        "en": "en/governed-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "proposal"
+      ]
+    },
+    {
+      "id": "relation-rule",
+      "labels": {
+        "ko-KR": "허용된 관계만 연결한다",
+        "en": "Only registered relations are allowed"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-rule.md",
+        "en": "en/relation-rule.md"
+      },
+      "branches": [
+        "relation-rule-code"
+      ],
+      "referenceIds": [
+        "ref:config/ontology.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ontology"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "relation-rules",
+        "journey": "read"
+      }
+    },
+    {
+      "id": "relation-rule-code",
+      "labels": {
+        "ko-KR": "관계 규칙 · 구현",
+        "en": "Relation rules · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-rule-code.md",
+        "en": "en/relation-rule-code.md"
+      },
+      "branches": [
+        "relation-rule-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ontology"
+      ]
+    },
+    {
+      "id": "relation-rule-test",
+      "labels": {
+        "ko-KR": "관계 규칙 · 회귀 테스트",
+        "en": "Relation rules · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-rule-test.md",
+        "en": "en/relation-rule-test.md"
+      },
+      "branches": [
+        "relation-rule-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "ontology"
+      ]
+    },
+    {
+      "id": "relation-rule-proof",
+      "labels": {
+        "ko-KR": "관계 규칙 · 현재 확인 결과",
+        "en": "Relation rules · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/relation-rule-proof.md",
+        "en": "en/relation-rule-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "architectureNodeIds": [
+        "ontology"
+      ]
+    },
+    {
+      "id": "passage",
+      "labels": {
+        "ko-KR": "원문을 잃지 않고 길이를 제한한다",
+        "en": "Bound passages without losing text"
+      },
+      "content": {
+        "ko-KR": "ko-KR/passage.md",
+        "en": "en/passage.md"
+      },
+      "branches": [
+        "passage-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "chunking"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "source-chunk",
+        "journey": "ingest"
+      }
+    },
+    {
+      "id": "passage-code",
+      "labels": {
+        "ko-KR": "문단 상한 · 구현",
+        "en": "Passage bounds · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/passage-code.md",
+        "en": "en/passage-code.md"
+      },
+      "branches": [
+        "passage-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::split_text",
+        "ref:src/knowledge_os/ids.py::processing_fingerprint"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "chunking"
+      ]
+    },
+    {
+      "id": "passage-test",
+      "labels": {
+        "ko-KR": "문단 상한 · 회귀 테스트",
+        "en": "Passage bounds · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/passage-test.md",
+        "en": "en/passage-test.md"
+      },
+      "branches": [
+        "passage-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_correctness_regressions.py::test_f6_chunk_size_is_a_hard_bound_without_content_loss"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "chunking"
+      ]
+    },
+    {
+      "id": "passage-proof",
+      "labels": {
+        "ko-KR": "문단 상한 · 현재 확인 결과",
+        "en": "Passage bounds · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/passage-proof.md",
+        "en": "en/passage-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_v01_correctness_regressions.py::test_f6_chunk_size_is_a_hard_bound_without_content_loss"
+      ],
+      "claimIds": [
+        "F6"
+      ],
+      "architectureNodeIds": [
+        "chunking"
+      ]
+    },
+    {
+      "id": "executor",
+      "labels": {
+        "ko-KR": "허용된 사람이 허용된 변경만 실행한다",
+        "en": "Only authorized changes reach the provider"
+      },
+      "content": {
+        "ko-KR": "ko-KR/executor.md",
+        "en": "en/executor.md"
+      },
+      "branches": [
+        "executor-code"
+      ],
+      "referenceIds": [
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "action"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "act-policy",
+        "journey": "act"
+      }
+    },
+    {
+      "id": "executor-code",
+      "labels": {
+        "ko-KR": "외부 실행 권한 · 구현",
+        "en": "Execution authority · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/executor-code.md",
+        "en": "en/executor-code.md"
+      },
+      "branches": [
+        "executor-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "action"
+      ]
+    },
+    {
+      "id": "executor-test",
+      "labels": {
+        "ko-KR": "외부 실행 권한 · 회귀 테스트",
+        "en": "Execution authority · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/executor-test.md",
+        "en": "en/executor-test.md"
+      },
+      "branches": [
+        "executor-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive",
+        "ref:tests/test_v01_correctness_regressions.py::test_f4_wrong_policy_reviewer_never_reaches_claim_or_provider"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "action"
+      ]
+    },
+    {
+      "id": "executor-proof",
+      "labels": {
+        "ko-KR": "외부 실행 권한 · 현재 확인 결과",
+        "en": "Execution authority · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/executor-proof.md",
+        "en": "en/executor-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive",
+        "ref:tests/test_v01_correctness_regressions.py::test_f4_wrong_policy_reviewer_never_reaches_claim_or_provider"
+      ],
+      "claimIds": [
+        "F4"
+      ],
+      "architectureNodeIds": [
+        "action"
+      ]
+    },
+    {
+      "id": "history",
+      "labels": {
+        "ko-KR": "정정해도 과거의 말을 지우지 않는다",
+        "en": "Corrections retain earlier statements"
+      },
+      "content": {
+        "ko-KR": "ko-KR/history.md",
+        "en": "en/history.md"
+      },
+      "branches": [
+        "history-code"
+      ],
+      "referenceIds": [
+        "ref:migrations/001_core.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "correct-review",
+        "journey": "correct"
+      }
+    },
+    {
+      "id": "history-code",
+      "labels": {
+        "ko-KR": "정정 이력 · 구현",
+        "en": "Correction history · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/history-code.md",
+        "en": "en/history-code.md"
+      },
+      "branches": [
+        "history-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ]
+    },
+    {
+      "id": "history-test",
+      "labels": {
+        "ko-KR": "정정 이력 · 회귀 테스트",
+        "en": "Correction history · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/history-test.md",
+        "en": "en/history-test.md"
+      },
+      "branches": [
+        "history-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ]
+    },
+    {
+      "id": "history-proof",
+      "labels": {
+        "ko-KR": "정정 이력 · 현재 확인 결과",
+        "en": "Correction history · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/history-proof.md",
+        "en": "en/history-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "assertion"
+      ]
+    },
+    {
+      "id": "health",
+      "labels": {
+        "ko-KR": "정상처럼 보여도 손상을 탐지한다",
+        "en": "Detect corruption behind apparent health"
+      },
+      "content": {
+        "ko-KR": "ko-KR/health.md",
+        "en": "en/health.md"
+      },
+      "branches": [
+        "health-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "source-version",
+        "journey": "ingest"
+      }
+    },
+    {
+      "id": "health-code",
+      "labels": {
+        "ko-KR": "손상 탐지 · 구현",
+        "en": "Integrity detection · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/health-code.md",
+        "en": "en/health-code.md"
+      },
+      "branches": [
+        "health-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/doctor.py::run_doctor"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "health-test",
+      "labels": {
+        "ko-KR": "손상 탐지 · 회귀 테스트",
+        "en": "Integrity detection · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/health-test.md",
+        "en": "en/health-test.md"
+      },
+      "branches": [
+        "health-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_accepts_proposal_with_current_governance_contract",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_corrupted_metadata_hash",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_multi_node_supersession_cycle"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "health-proof",
+      "labels": {
+        "ko-KR": "손상 탐지 · 현재 확인 결과",
+        "en": "Integrity detection · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/health-proof.md",
+        "en": "en/health-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_accepts_proposal_with_current_governance_contract",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_corrupted_metadata_hash",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_multi_node_supersession_cycle"
+      ],
+      "claimIds": [
+        "F3"
+      ],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "quality",
+      "labels": {
+        "ko-KR": "권한 누출을 점수에서 숨기지 않는다",
+        "en": "Never hide unauthorized results in a score"
+      },
+      "content": {
+        "ko-KR": "ko-KR/quality.md",
+        "en": "en/quality.md"
+      },
+      "branches": [
+        "quality-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "retrieve",
+        "journey": "read"
+      }
+    },
+    {
+      "id": "quality-code",
+      "labels": {
+        "ko-KR": "권한 평가 · 구현",
+        "en": "Authorization evaluation · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/quality-code.md",
+        "en": "en/quality-code.md"
+      },
+      "branches": [
+        "quality-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "quality-test",
+      "labels": {
+        "ko-KR": "권한 평가 · 회귀 테스트",
+        "en": "Authorization evaluation · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/quality-test.md",
+        "en": "en/quality-test.md"
+      },
+      "branches": [
+        "quality-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "quality-proof",
+      "labels": {
+        "ko-KR": "권한 평가 · 현재 확인 결과",
+        "en": "Authorization evaluation · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/quality-proof.md",
+        "en": "en/quality-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "audit",
+      "labels": {
+        "ko-KR": "저장 성공과 감사 기록 실패를 구분한다",
+        "en": "Separate graph commit from audit failure"
+      },
+      "content": {
+        "ko-KR": "ko-KR/audit.md",
+        "en": "en/audit.md"
+      },
+      "branches": [
+        "audit-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "sqlite"
+      ],
+      "opposite": {
+        "axis": "runtime",
+        "node": "act-record",
+        "journey": "act"
+      }
+    },
+    {
+      "id": "audit-code",
+      "labels": {
+        "ko-KR": "감사 복구 · 구현",
+        "en": "Audit reconciliation · code"
+      },
+      "content": {
+        "ko-KR": "ko-KR/audit-code.md",
+        "en": "en/audit-code.md"
+      },
+      "branches": [
+        "audit-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/recovery.py::_backup_sqlite"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "sqlite"
+      ]
+    },
+    {
+      "id": "audit-test",
+      "labels": {
+        "ko-KR": "감사 복구 · 회귀 테스트",
+        "en": "Audit reconciliation · regression"
+      },
+      "content": {
+        "ko-KR": "ko-KR/audit-test.md",
+        "en": "en/audit-test.md"
+      },
+      "branches": [
+        "audit-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f8_retry_reconciles_audit_missing_after_graph_commit",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f8_committed_mutation_is_not_reported_as_unqualified_sqlite_failure"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "sqlite"
+      ]
+    },
+    {
+      "id": "audit-proof",
+      "labels": {
+        "ko-KR": "감사 복구 · 현재 확인 결과",
+        "en": "Audit reconciliation · recorded evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/audit-proof.md",
+        "en": "en/audit-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f8_retry_reconciles_audit_missing_after_graph_commit",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f8_committed_mutation_is_not_reported_as_unqualified_sqlite_failure"
+      ],
+      "claimIds": [
+        "F8"
+      ],
+      "architectureNodeIds": [
+        "sqlite"
+      ]
+    },
+    {
+      "id": "boundary-source",
+      "labels": {
+        "ko-KR": "원본 관찰의 약속",
+        "en": "Source observation"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-source.md",
+        "en": "en/boundary-source.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-source"
+      ]
+    },
+    {
+      "id": "boundary-evidence",
+      "labels": {
+        "ko-KR": "근거 보존의 약속",
+        "en": "Evidence preservation"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-evidence.md",
+        "en": "en/boundary-evidence.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-evidence"
+      ]
+    },
+    {
+      "id": "boundary-knowledge",
+      "labels": {
+        "ko-KR": "지식 읽기의 약속",
+        "en": "Knowledge reads"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-knowledge.md",
+        "en": "en/boundary-knowledge.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-knowledge"
+      ]
+    },
+    {
+      "id": "boundary-governance",
+      "labels": {
+        "ko-KR": "검토와 승인의 약속",
+        "en": "Governed review"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-governance.md",
+        "en": "en/boundary-governance.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-governance"
+      ]
+    },
+    {
+      "id": "boundary-retrieval",
+      "labels": {
+        "ko-KR": "제한된 검색의 약속",
+        "en": "Bounded retrieval"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-retrieval.md",
+        "en": "en/boundary-retrieval.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-retrieval"
+      ]
+    },
+    {
+      "id": "boundary-action",
+      "labels": {
+        "ko-KR": "외부 실행의 약속",
+        "en": "Authorized action"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundary-action.md",
+        "en": "en/boundary-action.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-action"
+      ]
+    },
+    {
+      "id": "boundaries",
+      "labels": {
+        "ko-KR": "바꿀 수 있는 기술과 유지할 약속",
+        "en": "Replaceable technology, stable contracts"
+      },
+      "content": {
+        "ko-KR": "ko-KR/boundaries.md",
+        "en": "en/boundaries.md"
+      },
+      "branches": [
+        "boundary-source",
+        "boundary-evidence",
+        "boundary-knowledge",
+        "boundary-governance",
+        "boundary-retrieval",
+        "boundary-action"
+      ],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-source"
+      ]
+    },
+    {
+      "id": "backup-set",
+      "labels": {
+        "ko-KR": "두 저장소를 복구 세트로 묶기",
+        "en": "Capture a recovery set"
+      },
+      "content": {
+        "ko-KR": "ko-KR/backup-set.md",
+        "en": "en/backup-set.md"
+      },
+      "branches": [
+        "backup-verify"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "backup-verify",
+      "labels": {
+        "ko-KR": "백업 파일의 무결성 확인",
+        "en": "Verify backup artifacts"
+      },
+      "content": {
+        "ko-KR": "ko-KR/backup-verify.md",
+        "en": "en/backup-verify.md"
+      },
+      "branches": [
+        "backup-restore"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "backup-restore",
+      "labels": {
+        "ko-KR": "격리된 곳에서 복원",
+        "en": "Restore in isolation"
+      },
+      "content": {
+        "ko-KR": "ko-KR/backup-restore.md",
+        "en": "en/backup-restore.md"
+      },
+      "branches": [
+        "backup-read"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "backup-read",
+      "labels": {
+        "ko-KR": "복원된 자료를 실제로 읽기",
+        "en": "Read the restored state"
+      },
+      "content": {
+        "ko-KR": "ko-KR/backup-read.md",
+        "en": "en/backup-read.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "release-audit",
+      "labels": {
+        "ko-KR": "감사에서 실패 조건 찾기",
+        "en": "Identify audit failures"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release-audit.md",
+        "en": "en/release-audit.md"
+      },
+      "branches": [
+        "release-regression"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/doctor.py::run_doctor",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "release-regression",
+      "labels": {
+        "ko-KR": "재현 후 최소 수정",
+        "en": "Reproduce, then remediate"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release-regression.md",
+        "en": "en/release-regression.md"
+      },
+      "branches": [
+        "release-suite"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/doctor.py::run_doctor",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "release-suite",
+      "labels": {
+        "ko-KR": "전체 테스트 범위 확인",
+        "en": "Run the release test scope"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release-suite.md",
+        "en": "en/release-suite.md"
+      },
+      "branches": [
+        "release-install"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "neo4j"
+      ]
+    },
+    {
+      "id": "release-install",
+      "labels": {
+        "ko-KR": "새 설치와 복원 확인",
+        "en": "Check fresh install and restore"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release-install.md",
+        "en": "en/release-install.md"
+      },
+      "branches": [
+        "release-accept"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "release-accept",
+      "labels": {
+        "ko-KR": "명시적 릴리스 승인",
+        "en": "Explicit release acceptance"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release-accept.md",
+        "en": "en/release-accept.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_stale_document_updates_have_one_winner",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "architectureNodeIds": [
+        "release-gate"
+      ]
+    },
+    {
+      "id": "storage-migration",
+      "labels": {
+        "ko-KR": "저장 구조를 안전하게 바꾸기",
+        "en": "Change storage structure explicitly"
+      },
+      "content": {
+        "ko-KR": "ko-KR/storage-migration.md",
+        "en": "en/storage-migration.md"
+      },
+      "branches": [
+        "data-correction"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/migrate.py::main",
+        "ref:src/knowledge_os/graph.py::GraphStore.migrate",
+        "ref:src/knowledge_os/doctor.py::audit_migrations",
+        "ref:tests/test_contracts.py::test_doctor_detects_missing_changed_and_unexpected_migrations",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "migration"
+      ]
+    },
+    {
+      "id": "data-correction",
+      "labels": {
+        "ko-KR": "손상된 과거 데이터를 명시적으로 교정",
+        "en": "Correct affected persisted data explicitly"
+      },
+      "content": {
+        "ko-KR": "ko-KR/data-correction.md",
+        "en": "en/data-correction.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_metadata_correction.py::test_correction_preserves_history_and_audits_exactly_once",
+        "ref:tests/test_metadata_correction.py::test_stale_correction_rolls_back_prior_changes_and_audit"
+      ],
+      "claimIds": [
+        "F1"
+      ],
+      "architectureNodeIds": [
+        "version"
+      ]
+    },
+    {
+      "id": "measure-runtime",
+      "labels": {
+        "ko-KR": "실행에서 관찰 기록 얻기",
+        "en": "Observe runtime behavior"
+      },
+      "content": {
+        "ko-KR": "ko-KR/measure-runtime.md",
+        "en": "en/measure-runtime.md"
+      },
+      "branches": [
+        "measure-quality"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "measure-quality",
+      "labels": {
+        "ko-KR": "품질과 접근 통제 평가",
+        "en": "Evaluate quality and access control"
+      },
+      "content": {
+        "ko-KR": "ko-KR/measure-quality.md",
+        "en": "en/measure-quality.md"
+      },
+      "branches": [
+        "measure-decision"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "measure-decision",
+      "labels": {
+        "ko-KR": "측정된 부족함으로 다음 변경 결정",
+        "en": "Let measured gaps justify change"
+      },
+      "content": {
+        "ko-KR": "ko-KR/measure-decision.md",
+        "en": "en/measure-decision.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-source"
+      ]
     }
   ],
   "edges": [
     {
-      "id": "runtime:question:assistant",
-      "source": "question",
-      "target": "assistant",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:assistant:connection",
-      "source": "assistant",
-      "target": "connection",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:connection:retrieve",
-      "source": "connection",
-      "target": "retrieve",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:retrieve:store",
-      "source": "retrieve",
-      "target": "store",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:store:support",
-      "source": "store",
-      "target": "support",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:support:explain",
-      "source": "support",
-      "target": "explain",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "runtime:explain:user",
-      "source": "explain",
-      "target": "user",
-      "kind": "sequence",
-      "axis": "runtime"
-    },
-    {
-      "id": "engineering:goal:design",
+      "id": "engineering-goal-design",
       "source": "goal",
       "target": "design",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:design:rules",
+      "id": "engineering-design-rules",
       "source": "design",
       "target": "rules",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:rules:implementation",
+      "id": "engineering-rules-implementation",
       "source": "rules",
       "target": "implementation",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:implementation:testing",
+      "id": "engineering-implementation-testing",
       "source": "implementation",
       "target": "testing",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:testing:verification",
+      "id": "engineering-testing-verification",
       "source": "testing",
       "target": "verification",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:verification:recovery",
+      "id": "engineering-verification-recovery",
       "source": "verification",
       "target": "recovery",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:recovery:release",
+      "id": "engineering-recovery-release",
       "source": "recovery",
       "target": "release",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:release:operations",
+      "id": "engineering-release-operations",
       "source": "release",
       "target": "operations",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "engineering:operations:improve",
+      "id": "engineering-operations-improve",
       "source": "operations",
       "target": "improve",
       "kind": "sequence",
-      "axis": "engineering"
+      "axis": "engineering",
+      "journey": "engineering"
     },
     {
-      "id": "branch:retrieve:words",
+      "id": "read-question-assistant",
+      "source": "question",
+      "target": "assistant",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-assistant-connection",
+      "source": "assistant",
+      "target": "connection",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-connection-retrieve",
+      "source": "connection",
+      "target": "retrieve",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-retrieve-store",
+      "source": "retrieve",
+      "target": "store",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-store-support",
+      "source": "store",
+      "target": "support",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-support-explain",
+      "source": "support",
+      "target": "explain",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "read-explain-user",
+      "source": "explain",
+      "target": "user",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "read"
+    },
+    {
+      "id": "sources-sources-statement-sources-passage",
+      "source": "sources-statement",
+      "target": "sources-passage",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "sources"
+    },
+    {
+      "id": "sources-sources-passage-sources-version",
+      "source": "sources-passage",
+      "target": "sources-version",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "sources"
+    },
+    {
+      "id": "sources-sources-version-sources-original",
+      "source": "sources-version",
+      "target": "sources-original",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "sources"
+    },
+    {
+      "id": "remember-remember-prepare-remember-recognize",
+      "source": "remember-prepare",
+      "target": "remember-recognize",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "remember"
+    },
+    {
+      "id": "remember-remember-recognize-remember-propose",
+      "source": "remember-recognize",
+      "target": "remember-propose",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "remember"
+    },
+    {
+      "id": "remember-remember-propose-remember-review",
+      "source": "remember-propose",
+      "target": "remember-review",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "remember"
+    },
+    {
+      "id": "remember-remember-review-remember-store",
+      "source": "remember-review",
+      "target": "remember-store",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "remember"
+    },
+    {
+      "id": "correct-correct-inspect-correct-version",
+      "source": "correct-inspect",
+      "target": "correct-version",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "correct"
+    },
+    {
+      "id": "correct-correct-version-correct-review",
+      "source": "correct-version",
+      "target": "correct-review",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "correct"
+    },
+    {
+      "id": "correct-correct-review-correct-history",
+      "source": "correct-review",
+      "target": "correct-history",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "correct"
+    },
+    {
+      "id": "act-act-intent-act-policy",
+      "source": "act-intent",
+      "target": "act-policy",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "act"
+    },
+    {
+      "id": "act-act-policy-act-approve",
+      "source": "act-policy",
+      "target": "act-approve",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "act"
+    },
+    {
+      "id": "act-act-approve-act-execute",
+      "source": "act-approve",
+      "target": "act-execute",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "act"
+    },
+    {
+      "id": "act-act-execute-act-record",
+      "source": "act-execute",
+      "target": "act-record",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "act"
+    },
+    {
+      "id": "retrieve-branch-words",
       "source": "retrieve",
       "target": "words",
       "kind": "branch"
     },
     {
-      "id": "branch:retrieve:meaning",
+      "id": "retrieve-branch-meaning",
       "source": "retrieve",
       "target": "meaning",
       "kind": "branch"
     },
     {
-      "id": "branch:retrieve:links",
+      "id": "retrieve-branch-links",
       "source": "retrieve",
       "target": "links",
       "kind": "branch"
     },
     {
-      "id": "branch:support:evidence",
+      "id": "retrieve-cross",
+      "source": "retrieve",
+      "target": "quality",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "store-branch-relation-subjects",
+      "source": "store",
+      "target": "relation-subjects",
+      "kind": "branch"
+    },
+    {
+      "id": "support-branch-evidence",
       "source": "support",
       "target": "evidence",
       "kind": "branch"
     },
     {
-      "id": "branch:rules:version-rule",
+      "id": "design-branch-boundaries",
+      "source": "design",
+      "target": "boundaries",
+      "kind": "branch"
+    },
+    {
+      "id": "rules-branch-version-rule",
       "source": "rules",
       "target": "version-rule",
       "kind": "branch"
     },
     {
-      "id": "branch:implementation:version-code",
+      "id": "rules-branch-governed",
+      "source": "rules",
+      "target": "governed",
+      "kind": "branch"
+    },
+    {
+      "id": "rules-branch-relation-rule",
+      "source": "rules",
+      "target": "relation-rule",
+      "kind": "branch"
+    },
+    {
+      "id": "rules-branch-history",
+      "source": "rules",
+      "target": "history",
+      "kind": "branch"
+    },
+    {
+      "id": "implementation-branch-version-code",
       "source": "implementation",
       "target": "version-code",
       "kind": "branch"
     },
     {
-      "id": "branch:testing:integrity-test",
+      "id": "implementation-branch-replay",
+      "source": "implementation",
+      "target": "replay",
+      "kind": "branch"
+    },
+    {
+      "id": "implementation-branch-executor",
+      "source": "implementation",
+      "target": "executor",
+      "kind": "branch"
+    },
+    {
+      "id": "implementation-branch-storage-migration",
+      "source": "implementation",
+      "target": "storage-migration",
+      "kind": "branch"
+    },
+    {
+      "id": "testing-branch-integrity-test",
       "source": "testing",
       "target": "integrity-test",
       "kind": "branch"
     },
     {
-      "id": "branch:verification:integrity-proof",
+      "id": "testing-branch-passage",
+      "source": "testing",
+      "target": "passage",
+      "kind": "branch"
+    },
+    {
+      "id": "verification-branch-integrity-proof",
       "source": "verification",
       "target": "integrity-proof",
       "kind": "branch"
     },
     {
-      "id": "branch:evidence:version",
+      "id": "verification-branch-health",
+      "source": "verification",
+      "target": "health",
+      "kind": "branch"
+    },
+    {
+      "id": "verification-branch-quality",
+      "source": "verification",
+      "target": "quality",
+      "kind": "branch"
+    },
+    {
+      "id": "recovery-branch-backup-set",
+      "source": "recovery",
+      "target": "backup-set",
+      "kind": "branch"
+    },
+    {
+      "id": "release-branch-release-audit",
+      "source": "release",
+      "target": "release-audit",
+      "kind": "branch"
+    },
+    {
+      "id": "operations-branch-audit",
+      "source": "operations",
+      "target": "audit",
+      "kind": "branch"
+    },
+    {
+      "id": "improve-branch-measure-runtime",
+      "source": "improve",
+      "target": "measure-runtime",
+      "kind": "branch"
+    },
+    {
+      "id": "evidence-branch-version",
       "source": "evidence",
       "target": "version",
       "kind": "branch"
     },
     {
-      "id": "branch:version:why-version",
+      "id": "version-branch-why-version",
       "source": "version",
       "target": "why-version",
       "kind": "branch"
     },
     {
-      "id": "cross:version:version-rule",
+      "id": "version-cross",
       "source": "version",
       "target": "version-rule",
       "kind": "cross-axis",
       "axis": "engineering"
     },
     {
-      "id": "cross:why-version:version-rule",
+      "id": "why-version-cross",
       "source": "why-version",
       "target": "version-rule",
       "kind": "cross-axis",
       "axis": "engineering"
     },
     {
-      "id": "branch:version-rule:version-code",
+      "id": "version-rule-branch-version-code",
       "source": "version-rule",
       "target": "version-code",
       "kind": "branch"
     },
     {
-      "id": "cross:version-rule:version",
+      "id": "version-rule-cross",
       "source": "version-rule",
       "target": "version",
       "kind": "cross-axis",
       "axis": "runtime"
     },
     {
-      "id": "branch:version-code:integrity-test",
+      "id": "version-code-branch-integrity-test",
       "source": "version-code",
       "target": "integrity-test",
       "kind": "branch"
     },
     {
-      "id": "cross:version-code:version",
+      "id": "version-code-cross",
       "source": "version-code",
       "target": "version",
       "kind": "cross-axis",
       "axis": "runtime"
     },
     {
-      "id": "branch:integrity-test:integrity-proof",
+      "id": "integrity-test-branch-integrity-proof",
       "source": "integrity-test",
       "target": "integrity-proof",
       "kind": "branch"
     },
     {
-      "id": "cross:integrity-test:version",
+      "id": "integrity-test-cross",
       "source": "integrity-test",
       "target": "version",
       "kind": "cross-axis",
       "axis": "runtime"
     },
     {
-      "id": "cross:integrity-proof:version",
+      "id": "integrity-proof-cross",
       "source": "integrity-proof",
       "target": "version",
       "kind": "cross-axis",
       "axis": "runtime"
+    },
+    {
+      "id": "sources-passage-branch-evidence",
+      "source": "sources-passage",
+      "target": "evidence",
+      "kind": "branch"
+    },
+    {
+      "id": "sources-version-branch-why-version",
+      "source": "sources-version",
+      "target": "why-version",
+      "kind": "branch"
+    },
+    {
+      "id": "sources-version-cross",
+      "source": "sources-version",
+      "target": "version-rule",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "remember-recognize-branch-relation-subjects",
+      "source": "remember-recognize",
+      "target": "relation-subjects",
+      "kind": "branch"
+    },
+    {
+      "id": "remember-propose-cross",
+      "source": "remember-propose",
+      "target": "governed",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "remember-review-cross",
+      "source": "remember-review",
+      "target": "governed",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "correct-review-cross",
+      "source": "correct-review",
+      "target": "history",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "correct-history-cross",
+      "source": "correct-history",
+      "target": "history",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "act-policy-cross",
+      "source": "act-policy",
+      "target": "executor",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "act-execute-cross",
+      "source": "act-execute",
+      "target": "executor",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "act-record-cross",
+      "source": "act-record",
+      "target": "audit",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "source-observe-cross",
+      "source": "source-observe",
+      "target": "replay",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "source-version-branch-why-version",
+      "source": "source-version",
+      "target": "why-version",
+      "kind": "branch"
+    },
+    {
+      "id": "source-version-cross",
+      "source": "source-version",
+      "target": "version-rule",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "source-chunk-cross",
+      "source": "source-chunk",
+      "target": "passage",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "source-candidate-branch-relation-rules",
+      "source": "source-candidate",
+      "target": "relation-rules",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-subjects-branch-relation-statements",
+      "source": "relation-subjects",
+      "target": "relation-statements",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-statements-branch-relation-rules",
+      "source": "relation-statements",
+      "target": "relation-rules",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-statements-branch-relation-support",
+      "source": "relation-statements",
+      "target": "relation-support",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-rules-cross",
+      "source": "relation-rules",
+      "target": "relation-rule",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "replay-branch-replay-code",
+      "source": "replay",
+      "target": "replay-code",
+      "kind": "branch"
+    },
+    {
+      "id": "replay-cross",
+      "source": "replay",
+      "target": "source-observe",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "replay-code-branch-replay-test",
+      "source": "replay-code",
+      "target": "replay-test",
+      "kind": "branch"
+    },
+    {
+      "id": "replay-test-branch-replay-proof",
+      "source": "replay-test",
+      "target": "replay-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "governed-branch-governed-code",
+      "source": "governed",
+      "target": "governed-code",
+      "kind": "branch"
+    },
+    {
+      "id": "governed-cross",
+      "source": "governed",
+      "target": "remember-review",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "governed-code-branch-governed-test",
+      "source": "governed-code",
+      "target": "governed-test",
+      "kind": "branch"
+    },
+    {
+      "id": "governed-test-branch-governed-proof",
+      "source": "governed-test",
+      "target": "governed-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-rule-branch-relation-rule-code",
+      "source": "relation-rule",
+      "target": "relation-rule-code",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-rule-cross",
+      "source": "relation-rule",
+      "target": "relation-rules",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "relation-rule-code-branch-relation-rule-test",
+      "source": "relation-rule-code",
+      "target": "relation-rule-test",
+      "kind": "branch"
+    },
+    {
+      "id": "relation-rule-test-branch-relation-rule-proof",
+      "source": "relation-rule-test",
+      "target": "relation-rule-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "passage-branch-passage-code",
+      "source": "passage",
+      "target": "passage-code",
+      "kind": "branch"
+    },
+    {
+      "id": "passage-cross",
+      "source": "passage",
+      "target": "source-chunk",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "passage-code-branch-passage-test",
+      "source": "passage-code",
+      "target": "passage-test",
+      "kind": "branch"
+    },
+    {
+      "id": "passage-test-branch-passage-proof",
+      "source": "passage-test",
+      "target": "passage-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "executor-branch-executor-code",
+      "source": "executor",
+      "target": "executor-code",
+      "kind": "branch"
+    },
+    {
+      "id": "executor-cross",
+      "source": "executor",
+      "target": "act-policy",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "executor-code-branch-executor-test",
+      "source": "executor-code",
+      "target": "executor-test",
+      "kind": "branch"
+    },
+    {
+      "id": "executor-test-branch-executor-proof",
+      "source": "executor-test",
+      "target": "executor-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "history-branch-history-code",
+      "source": "history",
+      "target": "history-code",
+      "kind": "branch"
+    },
+    {
+      "id": "history-cross",
+      "source": "history",
+      "target": "correct-review",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "history-code-branch-history-test",
+      "source": "history-code",
+      "target": "history-test",
+      "kind": "branch"
+    },
+    {
+      "id": "history-test-branch-history-proof",
+      "source": "history-test",
+      "target": "history-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "health-branch-health-code",
+      "source": "health",
+      "target": "health-code",
+      "kind": "branch"
+    },
+    {
+      "id": "health-cross",
+      "source": "health",
+      "target": "source-version",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "health-code-branch-health-test",
+      "source": "health-code",
+      "target": "health-test",
+      "kind": "branch"
+    },
+    {
+      "id": "health-test-branch-health-proof",
+      "source": "health-test",
+      "target": "health-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "quality-branch-quality-code",
+      "source": "quality",
+      "target": "quality-code",
+      "kind": "branch"
+    },
+    {
+      "id": "quality-cross",
+      "source": "quality",
+      "target": "retrieve",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "quality-code-branch-quality-test",
+      "source": "quality-code",
+      "target": "quality-test",
+      "kind": "branch"
+    },
+    {
+      "id": "quality-test-branch-quality-proof",
+      "source": "quality-test",
+      "target": "quality-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "audit-branch-audit-code",
+      "source": "audit",
+      "target": "audit-code",
+      "kind": "branch"
+    },
+    {
+      "id": "audit-cross",
+      "source": "audit",
+      "target": "act-record",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "audit-code-branch-audit-test",
+      "source": "audit-code",
+      "target": "audit-test",
+      "kind": "branch"
+    },
+    {
+      "id": "audit-test-branch-audit-proof",
+      "source": "audit-test",
+      "target": "audit-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-source",
+      "source": "boundaries",
+      "target": "boundary-source",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-evidence",
+      "source": "boundaries",
+      "target": "boundary-evidence",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-knowledge",
+      "source": "boundaries",
+      "target": "boundary-knowledge",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-governance",
+      "source": "boundaries",
+      "target": "boundary-governance",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-retrieval",
+      "source": "boundaries",
+      "target": "boundary-retrieval",
+      "kind": "branch"
+    },
+    {
+      "id": "boundaries-branch-boundary-action",
+      "source": "boundaries",
+      "target": "boundary-action",
+      "kind": "branch"
+    },
+    {
+      "id": "backup-set-branch-backup-verify",
+      "source": "backup-set",
+      "target": "backup-verify",
+      "kind": "branch"
+    },
+    {
+      "id": "backup-verify-branch-backup-restore",
+      "source": "backup-verify",
+      "target": "backup-restore",
+      "kind": "branch"
+    },
+    {
+      "id": "backup-restore-branch-backup-read",
+      "source": "backup-restore",
+      "target": "backup-read",
+      "kind": "branch"
+    },
+    {
+      "id": "release-audit-branch-release-regression",
+      "source": "release-audit",
+      "target": "release-regression",
+      "kind": "branch"
+    },
+    {
+      "id": "release-regression-branch-release-suite",
+      "source": "release-regression",
+      "target": "release-suite",
+      "kind": "branch"
+    },
+    {
+      "id": "release-suite-branch-release-install",
+      "source": "release-suite",
+      "target": "release-install",
+      "kind": "branch"
+    },
+    {
+      "id": "release-install-branch-release-accept",
+      "source": "release-install",
+      "target": "release-accept",
+      "kind": "branch"
+    },
+    {
+      "id": "storage-migration-branch-data-correction",
+      "source": "storage-migration",
+      "target": "data-correction",
+      "kind": "branch"
+    },
+    {
+      "id": "measure-runtime-branch-measure-quality",
+      "source": "measure-runtime",
+      "target": "measure-quality",
+      "kind": "branch"
+    },
+    {
+      "id": "measure-quality-branch-measure-decision",
+      "source": "measure-quality",
+      "target": "measure-decision",
+      "kind": "branch"
+    },
+    {
+      "id": "ingest-source-original-source-observe",
+      "source": "source-original",
+      "target": "source-observe",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-observe-source-parse",
+      "source": "source-observe",
+      "target": "source-parse",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-parse-source-document",
+      "source": "source-parse",
+      "target": "source-document",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-document-source-version",
+      "source": "source-document",
+      "target": "source-version",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-version-source-chunk",
+      "source": "source-version",
+      "target": "source-chunk",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-chunk-source-candidate",
+      "source": "source-chunk",
+      "target": "source-candidate",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-candidate-source-review",
+      "source": "source-candidate",
+      "target": "source-review",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    },
+    {
+      "id": "ingest-source-review-source-knowledge",
+      "source": "source-review",
+      "target": "source-knowledge",
+      "kind": "sequence",
+      "axis": "runtime",
+      "journey": "ingest"
+    }
+  ],
+  "journeys": [
+    {
+      "id": "read",
+      "labels": {
+        "ko-KR": "질문해서 읽기",
+        "en": "Ask and read"
+      },
+      "backbone": [
+        "question",
+        "assistant",
+        "connection",
+        "retrieve",
+        "store",
+        "support",
+        "explain",
+        "user"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "내 자료를 근거로 AI에게 답을 듣습니다.",
+          "en": "Ask AI for an answer grounded in my material."
+        },
+        "current": {
+          "ko-KR": "MCP의 제한된 조회로 자료를 반환합니다. 자연어 답변은 외부 AI의 역할입니다.",
+          "en": "Bounded MCP reads return material; the external AI writes the answer."
+        },
+        "human": {
+          "ko-KR": "반환한 근거를 읽고 답변을 판단합니다.",
+          "en": "Read the returned evidence and judge the answer."
+        },
+        "deferred": {
+          "ko-KR": "운영용 의미 검색 자료와 자동 대화 전체의 품질은 보장하지 않습니다.",
+          "en": "Production semantic population and end-to-end conversation quality are not assumed."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/read.md",
+        "en": "checks/en/read.md"
+      }
+    },
+    {
+      "id": "ingest",
+      "labels": {
+        "ko-KR": "원문 수집하기",
+        "en": "Ingest sources"
+      },
+      "backbone": [
+        "source-original",
+        "source-observe",
+        "source-parse",
+        "source-document",
+        "source-version",
+        "source-chunk",
+        "source-candidate",
+        "source-review",
+        "source-knowledge"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "원문에서 검토 가능한 지식까지 이어갑니다.",
+          "en": "Connect source material to reviewable knowledge."
+        },
+        "current": {
+          "ko-KR": "읽기 전용 커넥터와 버전·문단 저장, 구조화된 후보 및 별도 승인 경로가 있습니다.",
+          "en": "Read-only connectors, version/passage storage, structured proposals and separate approval paths exist."
+        },
+        "human": {
+          "ko-KR": "원문 접근 권한과 지식 승인 판단은 별개입니다.",
+          "en": "Source access and knowledge approval are separate decisions."
+        },
+        "deferred": {
+          "ko-KR": "자동 추출 제공자가 수집부터 승인까지 자동 수행하지 않습니다.",
+          "en": "No automated extraction provider performs ingestion through approval automatically."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/ingest.md",
+        "en": "checks/en/ingest.md"
+      }
+    },
+    {
+      "id": "sources",
+      "labels": {
+        "ko-KR": "근거 확인하기",
+        "en": "Verify the source"
+      },
+      "backbone": [
+        "sources-statement",
+        "sources-passage",
+        "sources-version",
+        "sources-original"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "답변의 어느 말이 어디서 왔는지 바로 확인하기.",
+          "en": "Immediately trace each statement in an answer to its source."
+        },
+        "current": {
+          "ko-KR": "정확한 문서 조각과 버전·출처를 읽는 제한된 경계가 있습니다.",
+          "en": "Bounded reads resolve exact passages, versions and source lineage."
+        },
+        "human": {
+          "ko-KR": "과거 근거가 있어도 현재 열람 권한이 필요합니다.",
+          "en": "Historical evidence still requires current permission to read."
+        },
+        "deferred": {
+          "ko-KR": "모든 외부 AI 답변에 출처가 자동으로 붙는 통합 제품은 가정하지 않습니다.",
+          "en": "Do not assume a finished integration automatically cites every external AI answer."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/sources.md",
+        "en": "checks/en/sources.md"
+      }
+    },
+    {
+      "id": "remember",
+      "labels": {
+        "ko-KR": "기억시키기",
+        "en": "Remember something"
+      },
+      "backbone": [
+        "remember-prepare",
+        "remember-recognize",
+        "remember-propose",
+        "remember-review",
+        "remember-store"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "한마디로 지식을 기억시키는 경험.",
+          "en": "Remember knowledge with one message."
+        },
+        "current": {
+          "ko-KR": "근거 조회, 구조화된 후보 제출, 별도 승인과 저장 경계가 있습니다.",
+          "en": "Evidence reads, structured proposals and separate approval/storage boundaries exist."
+        },
+        "human": {
+          "ko-KR": "승인은 에이전트 연결 창구 밖에서 권한 있는 검토자가 합니다.",
+          "en": "An authorized reviewer approves outside the agent adapter."
+        },
+        "deferred": {
+          "ko-KR": "자동 추출 제공자와 완전한 대화 자동화는 활성화된 기능으로 보지 않습니다.",
+          "en": "Automated extraction providers and a complete automatic conversation are not assumed active."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/remember.md",
+        "en": "checks/en/remember.md"
+      }
+    },
+    {
+      "id": "correct",
+      "labels": {
+        "ko-KR": "정정하기",
+        "en": "Correct knowledge"
+      },
+      "backbone": [
+        "correct-inspect",
+        "correct-version",
+        "correct-review",
+        "correct-history"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "잘못되거나 오래된 내용을 안전하게 정정하기.",
+          "en": "Safely correct wrong or outdated information."
+        },
+        "current": {
+          "ko-KR": "버전 보존과 검토된 지식 변경·대체 이력 경계가 있습니다.",
+          "en": "Version preservation and reviewed changes/replacement-history boundaries exist."
+        },
+        "human": {
+          "ko-KR": "기존 기록을 조용히 덮어쓰지 않고 변경을 검토해야 합니다.",
+          "en": "Review changes without silently overwriting the earlier record."
+        },
+        "deferred": {
+          "ko-KR": "자동 오류 수정과 모든 시간·정정 동작의 검증 완료를 가정하지 않습니다. 미해결 발견 사항이 남습니다.",
+          "en": "Do not assume automatic error repair or completed verification of every temporal/correction path; findings remain open."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/correct.md",
+        "en": "checks/en/correct.md"
+      }
+    },
+    {
+      "id": "act",
+      "labels": {
+        "ko-KR": "행동 제안하기",
+        "en": "Propose an action"
+      },
+      "backbone": [
+        "act-intent",
+        "act-policy",
+        "act-approve",
+        "act-execute",
+        "act-record"
+      ],
+      "boundaries": {
+        "target": {
+          "ko-KR": "검토한 결과를 원본 시스템에 반영하기.",
+          "en": "Apply a reviewed result to a source system."
+        },
+        "current": {
+          "ko-KR": "제한된 Notion 실행자와 변경 요청·정책·실행 결과 기록이 있습니다.",
+          "en": "A bounded Notion executor, requests, policy and execution records exist."
+        },
+        "human": {
+          "ko-KR": "별도 사람의 승인과 권한 있는 실행자가 필요합니다. 연결 창구는 승인하거나 실행하지 않습니다.",
+          "en": "Separate human approval and an authorized executor are required. The connection adapter does not approve or execute."
+        },
+        "deferred": {
+          "ko-KR": "범용 자율 변경, 모든 원본 쓰기 어댑터, 실행·복구 전부의 검증 완료를 가정하지 않습니다.",
+          "en": "Do not assume general autonomous editing, write adapters for every source, or completed execution/recovery verification."
+        }
+      },
+      "checkContent": {
+        "ko-KR": "checks/ko-KR/act.md",
+        "en": "checks/en/act.md"
+      }
     }
   ]
 }
