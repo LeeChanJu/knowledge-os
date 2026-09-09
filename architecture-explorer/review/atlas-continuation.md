@@ -58,3 +58,11 @@ navigation and reference integrity, not educational effectiveness.
 - Screenshots: `test-results/atlas-release.png`, `atlas-ingest-mobile.png`, and
   `atlas-expanded-{ko-KR,en}.png` (the latter captures the language-switch result).
 - Changes are confined to `architecture-explorer/`. No database regression runs.
+
+## Browser regression caught during publication
+
+Linux CI exposed a pre-existing glossary bridge intercepting clicks on its own
+trigger. A focused hit-testing regression reproduced the failure locally before
+correction. The transparent CSS bridge now ignores pointer events; Term's existing
+pointer corridor still keeps the panel open while moving to its learning link.
+The regression checks both a clickable trigger and successful deep navigation.

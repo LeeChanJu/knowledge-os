@@ -14,3 +14,11 @@ test('definition dismisses outside its corridor and after learning navigation',a
  await term.locator('button').first().focus();await expect(term.locator('.learn-definition')).toBeVisible();await page.keyboard.press('Escape');await expect(term.locator('.learn-definition')).toHaveCount(0);
  await page.goto('/#/en/learn/remember');const branch=page.locator('.concept-branches .learn-term').first();await branch.locator('button').first().click();await branch.locator('a').click();await expect(branch.locator('.learn-definition')).toHaveCount(0);await expect(page.locator('.concept-inspector')).toBeVisible();
 });
+test('an open glossary never covers its own trigger',async({page})=>{
+ await page.goto('/#/en/learn/remember');
+ const term=page.locator('.concept-branches .learn-term').first(),trigger=term.locator('button').first();
+ await trigger.hover();await expect(term.locator('.learn-definition')).toBeVisible();
+ await expect.poll(()=>trigger.evaluate(button=>{const r=button.getBoundingClientRect();return button.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))})).toBe(true);
+ await trigger.click();await expect(term.locator('.learn-definition')).toBeVisible();
+ await term.locator('.learn-definition a').click();await expect(page.locator('.concept-inspector')).toBeVisible();
+});
