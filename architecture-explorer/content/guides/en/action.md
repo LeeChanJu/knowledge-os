@@ -16,13 +16,19 @@ Actions retain policy and principal snapshots, approval, a pre-execution claim a
 
 ## Boundaries the implementation must preserve
 
-- No direct Cypher, ingestion, approval, Action execution or external mutation tools. MCP is not entirely read-only: it can submit governed requests.
+These are responsibilities of the referenced **Action** implementation, not a claim that the concept or learning stage is a separate service.
+
+- MCP cannot approve or execute. A lease expiry is not takeover permission. External exactly-once delivery is not guaranteed if the provider ignores idempotency. F4/F8 remain open.
 
 ## Inputs, outputs and data responsibility
 
-- Bounded MCP tool arguments plus host-owned workspace/principals.
-- Knowledge Service results or governed request receipts.
-- Host adapter configuration only; no independent knowledge store.
+These are responsibilities of the referenced **Action** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Action request, designated reviewers/executors, policy version, explicit approval.
+
+Outputs: Execution claim, provider operation, and immutable execution evidence.
+
+Owned data: Action snapshots, review decisions, claim lease and execution records in Neo4j.
 
 ## Compare nearby concepts
 

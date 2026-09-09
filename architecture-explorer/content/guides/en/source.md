@@ -16,13 +16,19 @@ First ingestion binds a stable connector instance. Checkpoints advance only when
 
 ## Boundaries the implementation must preserve
 
-- Retries must reproduce the same semantic state. Provider failures must not be interpreted as an empty successful inventory.
+These are responsibilities of the referenced **Source Registry** implementation, not a claim that the concept or learning stage is a separate service.
+
+- A different connector cannot silently take ownership. Item ingestion does not independently advance a completed-run checkpoint.
 
 ## Inputs, outputs and data responsibility
 
-- Provider inventory, source authorization, previous connector checkpoint.
-- Deterministic UPSERT/TOMBSTONE manifest and proposed next checkpoint.
-- Adapter-local checkpoint files; no canonical semantic truth.
+These are responsibilities of the referenced **Source Registry** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Workspace, source type, opaque external ID, connector ID.
+
+Outputs: Stable Source identity and authorized catalog/checkpoint summaries.
+
+Owned data: Source node, connector binding, committed sync cursor.
 
 ## Compare nearby concepts
 

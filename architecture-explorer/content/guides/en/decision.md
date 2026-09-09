@@ -16,13 +16,19 @@ Decisions are proposed, approved and preserved with participants, time and evide
 
 ## Boundaries the implementation must preserve
 
-- No direct Cypher, ingestion, approval, Action execution or external mutation tools. MCP is not entirely read-only: it can submit governed requests.
+These are responsibilities of the referenced **Decision** implementation, not a claim that the concept or learning stage is a separate service.
+
+- A later decision supersedes rather than overwrites. Access depends on current authorization to all supporting evidence.
 
 ## Inputs, outputs and data responsibility
 
-- Bounded MCP tool arguments plus host-owned workspace/principals.
-- Knowledge Service results or governed request receipts.
-- Host adapter configuration only; no independent knowledge store.
+These are responsibilities of the referenced **Decision** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Governed DecisionProposalCreate and supporting evidence.
+
+Outputs: Authorized canonical Decision, optionally as of a specified time.
+
+Owned data: Decision payload, participants, evidence, temporal validity, predecessor lineage.
 
 ## Compare nearby concepts
 

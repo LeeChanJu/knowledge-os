@@ -16,13 +16,19 @@ Source systems retain authority. Neo4j holds connected evidence and governed kno
 
 ## Boundaries the implementation must preserve
 
-- No direct Cypher, ingestion, approval, Action execution or external mutation tools. MCP is not entirely read-only: it can submit governed requests.
+These are responsibilities of the referenced **Neo4j** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Original Systems of Record remain authoritative. No external vector store or second knowledge database is introduced.
 
 ## Inputs, outputs and data responsibility
 
-- Bounded MCP tool arguments plus host-owned workspace/principals.
-- Knowledge Service results or governed request receipts.
-- Host adapter configuration only; no independent knowledge store.
+These are responsibilities of the referenced **Neo4j** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Governed GraphStore writes and versioned migrations.
+
+Outputs: Authorized evidence, canonical reads, search results and operational provenance.
+
+Owned data: Context graph, full-text/vector indexes, migration ledger.
 
 ## Compare nearby concepts
 

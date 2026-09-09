@@ -16,13 +16,19 @@ An authorized adapter can annotate eligible current chunks with a vector and exp
 
 ## Boundaries the implementation must preserve
 
-- Do not change dimensionality merely to activate a provider. Model/version provenance must match the query. Index availability does not imply populated vectors.
+These are responsibilities of the referenced **Embedding** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Only current active authorized evidence can be annotated. A different payload cannot silently overwrite an embedding.
 
 ## Inputs, outputs and data responsibility
 
-- Authorized current Chunk vectors with model/version metadata.
-- Filtered semantic search candidates.
-- A Neo4j index over Chunk embeddings.
+These are responsibilities of the referenced **Embedding** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Chunk ID, vector, model/version, authenticated access context.
+
+Outputs: Idempotent embedding annotation or rejection of a conflicting payload.
+
+Owned data: Embedding vector and fingerprint on the existing Chunk.
 
 ## Compare nearby concepts
 

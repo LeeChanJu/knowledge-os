@@ -16,13 +16,19 @@ Source-scoped external identity identifies the Document; CURRENT_VERSION points 
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Document** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Identity is workspace/source scoped. A tombstone retains version history; direct updates require the current version precondition.
 
 ## Inputs, outputs and data responsibility
 
-- Source identity plus external document ID.
-- Stable document ID, current-version pointer, version history.
-- Document identity, active/deleted lifecycle, current-version relationship.
+These are responsibilities of the referenced **Document** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Source identity plus external document ID.
+
+Outputs: Stable document ID, current-version pointer, version history.
+
+Owned data: Document identity, active/deleted lifecycle, current-version relationship.
 
 ## Compare nearby concepts
 

@@ -16,13 +16,19 @@ Follow the diagram below and open a stage to inspect its architecture.
 
 ## Boundaries the implementation must preserve
 
-- Compare-and-set protects current versions and cursors. Failed manifests roll back earlier records and the checkpoint. F1/F2 corrections do not establish full release acceptance.
+These are responsibilities of the referenced **F2 · Deterministic deletion replay** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Verification applies only to the declared scope and pinned dependencies.
 
 ## Inputs, outputs and data responsibility
 
-- Typed text requests or ordered manifest records with authorization and processing metadata.
-- Document/version/Chunk identities, tombstone Events, and committed checkpoints.
-- Evidence lifecycle and source-run completion records in Neo4j.
+These are responsibilities of the referenced **F2 · Deterministic deletion replay** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Not established by repository evidence.
+
+Outputs: Not established by repository evidence.
+
+Owned data: Documentation of the claim; no runtime data.
 
 ## Compare nearby concepts
 

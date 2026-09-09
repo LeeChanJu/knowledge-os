@@ -16,13 +16,19 @@ Approval rechecks evidence lifecycle and access inside the graph transaction bef
 
 ## Boundaries the implementation must preserve
 
-- MCP cannot approve or reject. A pending proposal cannot acquire conflicting review outcomes. Authorization uses current evidence ACLs.
+These are responsibilities of the referenced **Approval** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Approval does not itself execute an external Action.
 
 ## Inputs, outputs and data responsibility
 
-- Typed candidates, creator access context, reviewer identity and decision.
-- One immutable approval/rejection outcome and, on approval, canonical records.
-- Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
+These are responsibilities of the referenced **Approval** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Review identity, decision, reason and authorized evidence.
+
+Outputs: One approval/rejection outcome.
+
+Owned data: Decision record with exactly one governance parent.
 
 ## Compare nearby concepts
 

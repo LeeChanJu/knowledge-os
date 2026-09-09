@@ -16,13 +16,19 @@ Semantic predicates belong to the ontology; lineage edges such as supported-by s
 
 ## Boundaries the implementation must preserve
 
-- Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor.
+These are responsibilities of the referenced **Ontology** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Unknown types and object relations must be rejected. F5 tracks the scalar-value path bypassing predicate validation.
 
 ## Inputs, outputs and data responsibility
 
-- An approved AssertionChange with evidence, predicate and temporal fields.
-- Canonical Assertion reads and graph relationships.
-- Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
+These are responsibilities of the referenced **Ontology** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: EntityRef and AssertionChange candidates.
+
+Outputs: Validated typed relations or a validation error.
+
+Owned data: config/ontology.yaml version and vocabulary.
 
 ## Compare nearby concepts
 

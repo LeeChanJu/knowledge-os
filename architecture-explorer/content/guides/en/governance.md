@@ -16,13 +16,19 @@ Proposal → validation → approval/rejection separates candidates from canonic
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Proposal / Approval** implementation, not a claim that the concept or learning stage is a separate service.
+
 - MCP cannot approve or reject. A pending proposal cannot acquire conflicting review outcomes. Authorization uses current evidence ACLs.
 
 ## Inputs, outputs and data responsibility
 
-- Typed candidates, creator access context, reviewer identity and decision.
-- One immutable approval/rejection outcome and, on approval, canonical records.
-- Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
+These are responsibilities of the referenced **Proposal / Approval** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Typed candidates, creator access context, reviewer identity and decision.
+
+Outputs: One immutable approval/rejection outcome and, on approval, canonical records.
+
+Owned data: Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
 
 ## Compare nearby concepts
 

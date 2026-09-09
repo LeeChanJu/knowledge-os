@@ -18,6 +18,7 @@ export function checkIntegration(root,architecture){
  }
  if(integration.guides.length!==68||new Set(integration.guides.map(g=>g.id)).size!==68)throw Error('68 canonical guides required');
  for(const g of integration.guides){
+  if(JSON.stringify(g.architectureNodeIds)!==JSON.stringify(manifest.find(p=>p.id===g.id)?.nodeIds))throw Error('Guide component ownership must match its authoritative manifest');
   if(entries.get(g.id)?.resolution!=='integrated')throw Error('Guide has no integrated owner');
   const expected=integration.entries.filter(e=>e.canonicalId===g.id).map(e=>e.id).sort();if(JSON.stringify([...g.members].sort())!==JSON.stringify(expected))throw Error('Merged content member missing');
   for(const id of [...g.referenceIds,...g.claimIds])if(!refs.has(id))throw Error('Broken guide evidence: '+id);

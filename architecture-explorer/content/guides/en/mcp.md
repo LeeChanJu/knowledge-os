@@ -16,13 +16,19 @@ The stdio adapter projects service contracts with host-fixed workspace and princ
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **MCP** implementation, not a claim that the concept or learning stage is a separate service.
+
 - No direct Cypher, ingestion, approval, Action execution or external mutation tools. MCP is not entirely read-only: it can submit governed requests.
 
 ## Inputs, outputs and data responsibility
 
-- Bounded MCP tool arguments plus host-owned workspace/principals.
-- Knowledge Service results or governed request receipts.
-- Host adapter configuration only; no independent knowledge store.
+These are responsibilities of the referenced **MCP** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Bounded MCP tool arguments plus host-owned workspace/principals.
+
+Outputs: Knowledge Service results or governed request receipts.
+
+Owned data: Host adapter configuration only; no independent knowledge store.
 
 ## Compare nearby concepts
 

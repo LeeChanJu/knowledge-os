@@ -16,11 +16,19 @@ VERIFIED: 인정된 범위의 검증 근거. IMPLEMENTED: 코드는 있으나 �
 
 ## 구현이 지켜야 할 경계
 
-- Verification applies only to the declared scope and pinned dependencies.
+이 문서에서 참조하는 **release-gate · v0.1 release acceptance**의 구현 책임입니다. 개념이나 학습 단계 자체를 별도 서비스로 뜻하는 것은 아닙니다.
+
+- Resolve remaining findings through regression-driven remediation and explicitly execute the full release acceptance gate.
 
 ## 입력·출력·데이터 책임
 
-- Documentation of the claim; no runtime data.
+이 문서에서 참조하는 **release-gate · v0.1 release acceptance**의 구현 책임입니다. 개념이나 학습 단계 자체를 별도 서비스로 뜻하는 것은 아닙니다.
+
+입력: 저장소 근거로 확인하지 못했습니다.
+
+출력: 저장소 근거로 확인하지 못했습니다.
+
+보유 데이터: Documentation of the claim; no runtime data.
 
 ## 비슷해 보이는 개념 비교
 

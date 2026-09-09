@@ -16,13 +16,19 @@ Provider snapshots become manifest-v2 upserts and tombstones. Provider ACL limit
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Connectors** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Retries must reproduce the same semantic state. Provider failures must not be interpreted as an empty successful inventory.
 
 ## Inputs, outputs and data responsibility
 
-- Provider inventory, source authorization, previous connector checkpoint.
-- Deterministic UPSERT/TOMBSTONE manifest and proposed next checkpoint.
-- Adapter-local checkpoint files; no canonical semantic truth.
+These are responsibilities of the referenced **Connectors** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Provider inventory, source authorization, previous connector checkpoint.
+
+Outputs: Deterministic UPSERT/TOMBSTONE manifest and proposed next checkpoint.
+
+Owned data: Adapter-local checkpoint files; no canonical semantic truth.
 
 ## Compare nearby concepts
 

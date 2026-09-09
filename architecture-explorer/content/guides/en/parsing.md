@@ -16,13 +16,19 @@ Existing file adapters support documented text formats and optional PDF/DOCX dep
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Parsing** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Processing versions contribute to evidence identity. Transcript timestamps remain part of the evidence text.
 
 ## Inputs, outputs and data responsibility
 
-- Supported file bytes or provider blocks and properties.
-- Text, title, URI, and parser version.
-- No independent store; text is passed to ingestion.
+These are responsibilities of the referenced **Parsing** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Supported file bytes or provider blocks and properties.
+
+Outputs: Text, title, URI, and parser version.
+
+Owned data: No independent store; text is passed to ingestion.
 
 ## Compare nearby concepts
 

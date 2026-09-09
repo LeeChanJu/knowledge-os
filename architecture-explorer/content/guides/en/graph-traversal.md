@@ -16,13 +16,19 @@ Graph reads are bounded and enforce workspace and evidence authorization.
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Graph Retrieval** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Known IDs do not bypass ACLs. Canonical reads require all supporting evidence to remain accessible.
 
 ## Inputs, outputs and data responsibility
 
-- Entity/record IDs or discovery query, access context, optional as-of time.
-- Bounded authorized canonical records and traced discovery results.
-- No separate database; retrieval traces belong to the operations store.
+These are responsibilities of the referenced **Graph Retrieval** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Entity/record IDs or discovery query, access context, optional as-of time.
+
+Outputs: Bounded authorized canonical records and traced discovery results.
+
+Owned data: No separate database; retrieval traces belong to the operations store.
 
 ## Compare nearby concepts
 

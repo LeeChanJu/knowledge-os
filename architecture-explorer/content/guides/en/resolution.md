@@ -16,13 +16,19 @@ Current identity is workspace/type/name based. No fuzzy matching service or cros
 
 ## Boundaries the implementation must preserve
 
-- Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor.
+These are responsibilities of the referenced **Entity Resolution** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Identity is scoped by workspace/type/name. Aliases do not establish an implemented fuzzy matching system.
 
 ## Inputs, outputs and data responsibility
 
-- An approved AssertionChange with evidence, predicate and temporal fields.
-- Canonical Assertion reads and graph relationships.
-- Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
+These are responsibilities of the referenced **Entity Resolution** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Approved subject/object EntityRef values.
+
+Outputs: Stable Entity IDs and canonical merges.
+
+Owned data: No separate resolver database or provider.
 
 ## Compare nearby concepts
 

@@ -16,13 +16,19 @@ Chunks belong to an immutable DocumentVersion and are generated under a versione
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Chunk** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Current ACL and active Document lifecycle govern reads. Historical Chunk provenance is retained even when its source is deleted.
 
 ## Inputs, outputs and data responsibility
 
-- Version identity, chunk order, text, processing metadata.
-- Authorized exact evidence and retrieval candidates.
-- Evidence text, version link, lifecycle flags, optional embedding provenance.
+These are responsibilities of the referenced **Chunk** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Version identity, chunk order, text, processing metadata.
+
+Outputs: Authorized exact evidence and retrieval candidates.
+
+Owned data: Evidence text, version link, lifecycle flags, optional embedding provenance.
 
 ## Compare nearby concepts
 

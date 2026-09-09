@@ -16,13 +16,19 @@ Knowledge OS supplies retrieval and evidence contracts; a consuming agent or mod
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Keyword / Hybrid Retrieval** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Fusion cannot discard authorization requirements.
 
 ## Inputs, outputs and data responsibility
 
-- Query, mode, access context and optional vector/model/version.
-- Ranked evidence and trace ID.
-- No additional index service.
+These are responsibilities of the referenced **Keyword / Hybrid Retrieval** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Query, mode, access context and optional vector/model/version.
+
+Outputs: Ranked evidence and trace ID.
+
+Owned data: No additional index service.
 
 ## Vector RAG
 

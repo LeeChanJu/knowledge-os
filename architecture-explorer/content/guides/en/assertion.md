@@ -16,13 +16,19 @@ Candidate assertion changes enter a Proposal and become canonical only through t
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Assertion** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor.
 
 ## Inputs, outputs and data responsibility
 
-- An approved AssertionChange with evidence, predicate and temporal fields.
-- Canonical Assertion reads and graph relationships.
-- Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
+These are responsibilities of the referenced **Assertion** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: An approved AssertionChange with evidence, predicate and temporal fields.
+
+Outputs: Canonical Assertion reads and graph relationships.
+
+Owned data: Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
 
 ## Claim
 

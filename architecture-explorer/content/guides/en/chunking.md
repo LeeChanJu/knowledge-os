@@ -16,13 +16,19 @@ Chunking is versioned and deterministic; F6 leaves hard-bound enforcement unreso
 
 ## Boundaries the implementation must preserve
 
-- Current ACL and active Document lifecycle govern reads. Historical Chunk provenance is retained even when its source is deleted.
+These are responsibilities of the referenced **Chunking** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Do not lose evidence to satisfy a size bound. F6 records that long paragraphs exceed the intended hard limit.
 
 ## Inputs, outputs and data responsibility
 
-- Version identity, chunk order, text, processing metadata.
-- Authorized exact evidence and retrieval candidates.
-- Evidence text, version link, lifecycle flags, optional embedding provenance.
+These are responsibilities of the referenced **Chunking** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Extracted text and declared chunk_size.
+
+Outputs: Ordered text chunks.
+
+Owned data: No separate service or store.
 
 ## Compare nearby concepts
 

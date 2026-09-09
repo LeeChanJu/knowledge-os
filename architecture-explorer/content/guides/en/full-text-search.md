@@ -16,13 +16,19 @@ Neo4j full-text candidates are permission-filtered and ranked by the existing re
 
 ## Boundaries the implementation must preserve
 
-- Fusion cannot discard authorization requirements.
+These are responsibilities of the referenced **Full-text Index** implementation, not a claim that the concept or learning stage is a separate service.
+
+- User search text cannot become Lucene query syntax. Candidate ranking does not bypass source authorization.
 
 ## Inputs, outputs and data responsibility
 
-- Query, mode, access context and optional vector/model/version.
-- Ranked evidence and trace ID.
-- No additional index service.
+These are responsibilities of the referenced **Full-text Index** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Indexed Chunk/Entity text and literalized query tokens.
+
+Outputs: Keyword and entity candidate rows.
+
+Owned data: chunk_text_fulltext and entity_name_fulltext indexes.
 
 ## Compare nearby concepts
 

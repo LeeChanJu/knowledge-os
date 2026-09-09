@@ -1342,6 +1342,9 @@
         "system-of-record",
         "system-of-context",
         "evidence"
+      ],
+      "architectureNodeIds": [
+        "neo4j"
       ]
     },
     {
@@ -1363,6 +1366,9 @@
         "source",
         "document",
         "action"
+      ],
+      "architectureNodeIds": [
+        "systems"
       ]
     },
     {
@@ -1387,6 +1393,9 @@
         "knowledge-os",
         "knowledge-graph",
         "decision"
+      ],
+      "architectureNodeIds": [
+        "neo4j"
       ]
     },
     {
@@ -1412,6 +1421,9 @@
         "entity",
         "relationship",
         "ontology"
+      ],
+      "architectureNodeIds": [
+        "neo4j"
       ]
     },
     {
@@ -1436,6 +1448,9 @@
         "entity",
         "assertion",
         "relationship"
+      ],
+      "architectureNodeIds": [
+        "ontology"
       ]
     },
     {
@@ -1459,6 +1474,9 @@
         "assertion",
         "ontology",
         "resolution"
+      ],
+      "architectureNodeIds": [
+        "entity"
       ]
     },
     {
@@ -1483,6 +1501,9 @@
         "ontology",
         "assertion",
         "graph-traversal"
+      ],
+      "architectureNodeIds": [
+        "ontology"
       ]
     },
     {
@@ -1509,6 +1530,9 @@
         "evidence",
         "proposal",
         "temporal-validity"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1530,6 +1554,9 @@
         "provenance",
         "chunk",
         "assertion"
+      ],
+      "architectureNodeIds": [
+        "contract-evidence"
       ]
     },
     {
@@ -1553,6 +1580,9 @@
         "document",
         "document-version",
         "evidence"
+      ],
+      "architectureNodeIds": [
+        "version"
       ]
     },
     {
@@ -1576,6 +1606,9 @@
         "system-of-record",
         "document-version",
         "chunk"
+      ],
+      "architectureNodeIds": [
+        "document"
       ]
     },
     {
@@ -1599,6 +1632,9 @@
         "document",
         "chunk",
         "provenance"
+      ],
+      "architectureNodeIds": [
+        "version"
       ]
     },
     {
@@ -1624,6 +1660,9 @@
         "document-version",
         "chunking",
         "embedding"
+      ],
+      "architectureNodeIds": [
+        "chunk"
       ]
     },
     {
@@ -1646,6 +1685,9 @@
         "vector-search",
         "chunk",
         "evaluation"
+      ],
+      "architectureNodeIds": [
+        "embedding"
       ]
     },
     {
@@ -1668,6 +1710,9 @@
         "embedding",
         "full-text-search",
         "hybrid-retrieval"
+      ],
+      "architectureNodeIds": [
+        "vector"
       ]
     },
     {
@@ -1690,6 +1735,9 @@
         "vector-search",
         "hybrid-retrieval",
         "evidence"
+      ],
+      "architectureNodeIds": [
+        "fulltext"
       ]
     },
     {
@@ -1713,6 +1761,9 @@
         "knowledge-graph",
         "entity",
         "graph-rag"
+      ],
+      "architectureNodeIds": [
+        "graph-retrieval"
       ]
     },
     {
@@ -1750,6 +1801,9 @@
         "vector-search",
         "graph-traversal",
         "assertion"
+      ],
+      "architectureNodeIds": [
+        "keyword"
       ]
     },
     {
@@ -1775,6 +1829,9 @@
         "vector-search",
         "graph-traversal",
         "evaluation"
+      ],
+      "architectureNodeIds": [
+        "keyword"
       ]
     },
     {
@@ -1797,6 +1854,9 @@
         "approval",
         "governance",
         "assertion"
+      ],
+      "architectureNodeIds": [
+        "proposal"
       ]
     },
     {
@@ -1818,6 +1878,9 @@
         "proposal",
         "governance",
         "action"
+      ],
+      "architectureNodeIds": [
+        "approval"
       ]
     },
     {
@@ -1842,6 +1905,9 @@
         "approval",
         "supersession",
         "action"
+      ],
+      "architectureNodeIds": [
+        "governance"
       ]
     },
     {
@@ -1869,6 +1935,9 @@
         "observed-at",
         "recorded-at",
         "supersession"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1893,6 +1962,9 @@
       "relatedIds": [
         "temporal-validity",
         "document-version"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1917,6 +1989,9 @@
       "relatedIds": [
         "temporal-validity",
         "document-version"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1941,6 +2016,9 @@
       "relatedIds": [
         "temporal-validity",
         "document-version"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1965,6 +2043,9 @@
       "relatedIds": [
         "temporal-validity",
         "document-version"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -1990,6 +2071,9 @@
         "assertion",
         "temporal-validity",
         "governance"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -2017,6 +2101,9 @@
         "knowledge-api",
         "agent",
         "action"
+      ],
+      "architectureNodeIds": [
+        "mcp"
       ]
     },
     {
@@ -2044,6 +2131,9 @@
         "mcp",
         "evidence",
         "governance"
+      ],
+      "architectureNodeIds": [
+        "api"
       ]
     },
     {
@@ -2071,6 +2161,9 @@
         "mcp",
         "knowledge-api",
         "action"
+      ],
+      "architectureNodeIds": [
+        "mcp"
       ]
     },
     {
@@ -2102,6 +2195,9 @@
         "agent",
         "approval",
         "system-of-record"
+      ],
+      "architectureNodeIds": [
+        "action"
       ]
     },
     {
@@ -2128,6 +2224,9 @@
         "evaluation",
         "sqlite",
         "recovery"
+      ],
+      "architectureNodeIds": [
+        "telemetry"
       ]
     },
     {
@@ -2154,6 +2253,9 @@
         "telemetry",
         "hybrid-retrieval",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "telemetry"
       ]
     },
     {
@@ -2177,6 +2279,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "source"
       ]
     },
     {
@@ -2200,6 +2305,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "connectors"
       ]
     },
     {
@@ -2221,6 +2329,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "parsing"
       ]
     },
     {
@@ -2244,6 +2355,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "chunking"
       ]
     },
     {
@@ -2267,6 +2381,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "extraction"
       ]
     },
     {
@@ -2289,6 +2406,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "resolution"
       ]
     },
     {
@@ -2312,6 +2432,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "event"
       ]
     },
     {
@@ -2335,6 +2458,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "decision"
       ]
     },
     {
@@ -2359,6 +2485,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "sqlite"
       ]
     },
     {
@@ -2381,6 +2510,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "doctor"
       ]
     },
     {
@@ -2406,6 +2538,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "migration"
       ]
     },
     {
@@ -2429,6 +2564,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "recovery"
       ]
     },
     {
@@ -2449,6 +2587,9 @@
         "knowledge-os",
         "evidence",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "future-adapters"
       ]
     },
     {
@@ -2474,6 +2615,9 @@
       "relatedIds": [
         "knowledge-os",
         "evaluation"
+      ],
+      "architectureNodeIds": [
+        "release-gate"
       ]
     },
     {
@@ -2500,6 +2644,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "systems"
       ]
     },
     {
@@ -2524,6 +2671,9 @@
         "document",
         "document-version",
         "evidence"
+      ],
+      "architectureNodeIds": [
+        "version"
       ]
     },
     {
@@ -2549,6 +2699,9 @@
         "entity",
         "assertion",
         "relationship"
+      ],
+      "architectureNodeIds": [
+        "ontology"
       ]
     },
     {
@@ -2576,6 +2729,9 @@
         "evidence",
         "proposal",
         "temporal-validity"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -2607,6 +2763,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "proposal"
       ]
     },
     {
@@ -2637,6 +2796,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "keyword"
       ]
     },
     {
@@ -2665,6 +2827,9 @@
         "mcp",
         "knowledge-api",
         "action"
+      ],
+      "architectureNodeIds": [
+        "mcp"
       ]
     },
     {
@@ -2687,6 +2852,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "drive"
       ]
     },
     {
@@ -2711,6 +2879,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "version"
       ]
     },
     {
@@ -2736,6 +2907,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "F2"
       ]
     },
     {
@@ -2762,6 +2936,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -2790,6 +2967,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "mcp"
       ]
     },
     {
@@ -2822,6 +3002,9 @@
         "provenance",
         "governance",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "action"
       ]
     },
     {
@@ -2846,6 +3029,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "sqlite"
       ]
     },
     {
@@ -2869,6 +3055,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "version"
       ]
     },
     {
@@ -2894,6 +3083,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "assertion"
       ]
     },
     {
@@ -2916,6 +3108,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "vector"
       ]
     },
     {
@@ -2943,6 +3138,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "mcp"
       ]
     },
     {
@@ -2963,6 +3161,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "provider"
       ]
     },
     {
@@ -2984,6 +3185,9 @@
         "knowledge-os",
         "new-document",
         "verification"
+      ],
+      "architectureNodeIds": [
+        "contract-knowledge"
       ]
     }
   ]

@@ -16,13 +16,19 @@ Canonical entities are created or reused when governed assertions are approved.
 
 ## Boundaries the implementation must preserve
 
-- Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor.
+These are responsibilities of the referenced **Entity** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Discovery requires related authorized evidence; a known ID does not grant access. Runtime VERIFIED labels describe knowledge status, not Explorer implementation verification.
 
 ## Inputs, outputs and data responsibility
 
-- An approved AssertionChange with evidence, predicate and temporal fields.
-- Canonical Assertion reads and graph relationships.
-- Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
+These are responsibilities of the referenced **Entity** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Approved EntityRef values and evidence-backed canonical relations.
+
+Outputs: Authorized entity summaries and neighbors.
+
+Owned data: Canonical name/type/aliases and workspace membership.
 
 ## Compare nearby concepts
 

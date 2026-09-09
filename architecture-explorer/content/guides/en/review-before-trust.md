@@ -16,13 +16,19 @@ Proposal creation binds payload identity and evidence; approval or rejection rec
 
 ## Boundaries the implementation must preserve
 
-- MCP cannot approve or reject. A pending proposal cannot acquire conflicting review outcomes. Authorization uses current evidence ACLs.
+These are responsibilities of the referenced **Proposal** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Retries do not reopen approved or rejected payloads.
 
 ## Inputs, outputs and data responsibility
 
-- Typed candidates, creator access context, reviewer identity and decision.
-- One immutable approval/rejection outcome and, on approval, canonical records.
-- Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
+These are responsibilities of the referenced **Proposal** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Candidate, creator identity, ontology version.
+
+Outputs: Reviewable immutable candidate identity.
+
+Owned data: Payload hash and SUPPORTED_BY Chunk links.
 
 ## Why Proposal and Approval?
 

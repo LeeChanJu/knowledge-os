@@ -16,13 +16,19 @@ Use measured requirements before adding infrastructure. The current boundary is 
 
 ## Boundaries the implementation must preserve
 
-- Provider retries must not duplicate semantic state.
+These are responsibilities of the referenced **Production Embedding Provider** implementation, not a claim that the concept or learning stage is a separate service.
+
+- An online vector index alone does not prove semantic readiness.
 
 ## Inputs, outputs and data responsibility
 
-- Provider observations with stable identity and authorization.
-- Versioned evidence and committed source-run history.
-- Source contract version; runtime data lives in Neo4j.
+These are responsibilities of the referenced **Production Embedding Provider** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: New provider evaluation and authorized corpus.
+
+Outputs: No activated production provider in this scope.
+
+Owned data: No new provider deployment.
 
 ## Compare nearby concepts
 

@@ -14,3 +14,5 @@ test('renamed evidence rejected',()=>rejects(m=>m.guides[0].referenceIds.push('r
 test('wrong language rejected',()=>rejects(m=>m.guides[0].content.en=m.guides[0].content['ko-KR'],/language mismatch/));
 test('unreachable map position rejected',()=>rejects(m=>m.entries[0].location.node='missing',/map location/));
 test('source changes require reconciliation',()=>rejects((m,b)=>{const p=join(b,'content/architecture/en.json');writeFileSync(p,readFileSync(p,'utf8')+'\n')},/review required/));
+
+test('guide ownership cannot inherit an unrelated map component',()=>rejects(m=>m.guides[0].architectureNodeIds=['contract-source'],/component ownership/));

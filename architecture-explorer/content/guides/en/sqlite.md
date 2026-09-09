@@ -16,13 +16,19 @@ SQLite owns local audit, telemetry, errors, feedback and evaluations under the A
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **SQLite Operations** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Operations data cannot promote canonical truth. Graph commits and SQLite writes do not form one atomic distributed transaction.
 
 ## Inputs, outputs and data responsibility
 
-- Bounded application observations and trace-linked evaluation/feedback.
-- Operational diagnostics and online backup artifact.
-- Operations tables only; no source document or canonical knowledge store.
+These are responsibilities of the referenced **SQLite Operations** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Bounded application observations and trace-linked evaluation/feedback.
+
+Outputs: Operational diagnostics and online backup artifact.
+
+Owned data: Operations tables only; no source document or canonical knowledge store.
 
 ## Compare nearby concepts
 

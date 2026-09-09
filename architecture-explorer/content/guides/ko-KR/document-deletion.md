@@ -16,13 +16,19 @@
 
 ## 구현이 지켜야 할 경계
 
-- 조건부 갱신으로 현재 버전과 커서를 보호합니다. manifest 실패 시 앞선 기록과 체크포인트를 되돌립니다. F1/F2 정정은 전체 출시 승인이 아닙니다.
+이 문서에서 참조하는 **F2 · Deterministic deletion replay**의 구현 책임입니다. 개념이나 학습 단계 자체를 별도 서비스로 뜻하는 것은 아닙니다.
+
+- Verification applies only to the declared scope and pinned dependencies.
 
 ## 입력·출력·데이터 책임
 
-- 권한과 처리 메타데이터가 있는 타입 지정 텍스트 요청 또는 순서가 정해진 manifest.
-- 문서·버전·Chunk 식별, 삭제 Event, 커밋된 체크포인트.
-- Neo4j의 근거 수명주기와 원본 실행 완료 기록.
+이 문서에서 참조하는 **F2 · Deterministic deletion replay**의 구현 책임입니다. 개념이나 학습 단계 자체를 별도 서비스로 뜻하는 것은 아닙니다.
+
+입력: 저장소 근거로 확인하지 못했습니다.
+
+출력: 저장소 근거로 확인하지 못했습니다.
+
+보유 데이터: Documentation of the claim; no runtime data.
 
 ## 비슷해 보이는 개념 비교
 

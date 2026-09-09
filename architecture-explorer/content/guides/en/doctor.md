@@ -16,13 +16,19 @@ Doctor checks graph lineage, migration/index state and SQLite integrity. F3 reco
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Read-only Doctor** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Detection is separate from correction. F3 has unresolved coverage and compatibility cases.
 
 ## Inputs, outputs and data responsibility
 
-- Existing graph, migration files, operations store.
-- Bounded integrity report.
-- No repair state.
+These are responsibilities of the referenced **Read-only Doctor** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Existing graph, migration files, operations store.
+
+Outputs: Bounded integrity report.
+
+Owned data: No repair state.
 
 ## Compare nearby concepts
 

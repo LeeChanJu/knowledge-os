@@ -16,13 +16,19 @@ A2A production integration is intentionally deferred; current access uses existi
 
 ## Boundaries the implementation must preserve
 
-- Provider retries must not duplicate semantic state.
+These are responsibilities of the referenced **A2A / Product UI** implementation, not a claim that the concept or learning stage is a separate service.
+
+- The Explorer is not a runtime dependency or a product feature.
 
 ## Inputs, outputs and data responsibility
 
-- Provider observations with stable identity and authorization.
-- Versioned evidence and committed source-run history.
-- Source contract version; runtime data lives in Neo4j.
+These are responsibilities of the referenced **A2A / Product UI** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: A separately requested measured capability requirement.
+
+Outputs: No production adapter in this milestone.
+
+Owned data: None.
 
 ## Compare nearby concepts
 

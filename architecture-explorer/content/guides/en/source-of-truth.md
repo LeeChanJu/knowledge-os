@@ -16,13 +16,19 @@ Read-only ingestion observes provider content and permissions, then preserves ev
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Systems of Record** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Source content is not silently rewritten by ingestion. Derived knowledge never replaces the source of record.
 
 ## Inputs, outputs and data responsibility
 
-- User-authored source content and source-side sharing decisions.
-- Provider snapshots, file bytes, revision metadata, and ACL observations.
-- Original source records outside Knowledge OS.
+These are responsibilities of the referenced **Systems of Record** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: User-authored source content and source-side sharing decisions.
+
+Outputs: Provider snapshots, file bytes, revision metadata, and ACL observations.
+
+Owned data: Original source records outside Knowledge OS.
 
 ## Why does Drive remain authoritative?
 

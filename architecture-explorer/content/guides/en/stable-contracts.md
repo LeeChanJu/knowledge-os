@@ -16,13 +16,19 @@ Source, Evidence, Knowledge, Governance, Retrieval and Action remain stable boun
 
 ## Boundaries the implementation must preserve
 
-- Provider retries must not duplicate semantic state.
+These are responsibilities of the referenced **Knowledge Contract** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Knowledge requires approved provenance; adapters cannot redefine canonical truth.
 
 ## Inputs, outputs and data responsibility
 
-- Provider observations with stable identity and authorization.
-- Versioned evidence and committed source-run history.
-- Source contract version; runtime data lives in Neo4j.
+These are responsibilities of the referenced **Knowledge Contract** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Record IDs, query context, ontology/prompt names.
+
+Outputs: Authorized semantic records and versioned extraction context.
+
+Owned data: Knowledge contract version.
 
 ## Compare nearby concepts
 

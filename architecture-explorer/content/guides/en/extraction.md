@@ -16,13 +16,19 @@ Versioned prompts and ontology context are exposed; automated extraction provide
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Extraction** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Prompt output never directly becomes canonical knowledge. No model SDK or autonomous extraction pipeline is implied.
 
 ## Inputs, outputs and data responsibility
 
-- Authorized evidence bundle, ontology version, prompt version/checksum.
-- Typed Proposal candidates from replaceable adapters.
-- Git-controlled prompts; candidates persist through Proposal contracts.
+These are responsibilities of the referenced **Extraction** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Authorized evidence bundle, ontology version, prompt version/checksum.
+
+Outputs: Typed Proposal candidates from replaceable adapters.
+
+Owned data: Git-controlled prompts; candidates persist through Proposal contracts.
 
 ## Compare nearby concepts
 

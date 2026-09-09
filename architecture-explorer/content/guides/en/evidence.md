@@ -16,13 +16,19 @@ Evidence bundles resolve exact chunk IDs with immutable version and source prove
 
 ## Boundaries the implementation must preserve
 
-- Metadata hashes must match persisted title/URI. Reusing one source revision with conflicting metadata fails closed. Historical ACLs are provenance, not permanent read grants.
+These are responsibilities of the referenced **Evidence Contract** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Historical ACL snapshots never replace current authorization.
 
 ## Inputs, outputs and data responsibility
 
-- Content, source revision, metadata, ACL snapshot, parser/chunker contract.
-- Content-addressed version identity and version-linked evidence Chunks.
-- Historical metadata, authorization snapshot, hashes, processing provenance.
+These are responsibilities of the referenced **Evidence Contract** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Stable Chunk IDs and current access context.
+
+Outputs: Bounded all-or-nothing evidence bundles.
+
+Owned data: Evidence contract version.
 
 ## Compare nearby concepts
 

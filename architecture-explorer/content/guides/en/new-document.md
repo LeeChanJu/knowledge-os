@@ -16,13 +16,19 @@ Follow the diagram below and open a stage to inspect its architecture.
 
 ## Boundaries the implementation must preserve
 
-- Retries must reproduce the same semantic state. Provider failures must not be interpreted as an empty successful inventory.
+These are responsibilities of the referenced **Google Drive Connector** implementation, not a claim that the concept or learning stage is a separate service.
+
+- No checkpoint advancement before successful graph commit; preserve provider-specific provenance and ACL limitations.
 
 ## Inputs, outputs and data responsibility
 
-- Provider inventory, source authorization, previous connector checkpoint.
-- Deterministic UPSERT/TOMBSTONE manifest and proposed next checkpoint.
-- Adapter-local checkpoint files; no canonical semantic truth.
+These are responsibilities of the referenced **Google Drive Connector** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Authorized inventory and prior connector state.
+
+Outputs: Manifest and next checkpoint.
+
+Owned data: Local source-bound checkpoint.
 
 ## Compare nearby concepts
 

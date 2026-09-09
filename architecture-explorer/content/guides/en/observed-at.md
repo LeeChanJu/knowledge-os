@@ -16,13 +16,19 @@ Temporal metadata is preserved with governed records rather than inferred from d
 
 ## Boundaries the implementation must preserve
 
-- Metadata hashes must match persisted title/URI. Reusing one source revision with conflicting metadata fails closed. Historical ACLs are provenance, not permanent read grants.
+These are responsibilities of the referenced **Assertion** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Canonical promotion requires approval. A superseding assertion preserves subject and predicate and must not silently erase its predecessor.
 
 ## Inputs, outputs and data responsibility
 
-- Content, source revision, metadata, ACL snapshot, parser/chunker contract.
-- Content-addressed version identity and version-linked evidence Chunks.
-- Historical metadata, authorization snapshot, hashes, processing provenance.
+These are responsibilities of the referenced **Assertion** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: An approved AssertionChange with evidence, predicate and temporal fields.
+
+Outputs: Canonical Assertion reads and graph relationships.
+
+Owned data: Claim predicate/value, evidence link, confidence, temporal and extraction provenance.
 
 ## Compare nearby concepts
 

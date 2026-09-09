@@ -16,13 +16,19 @@ Semantic Events go through Proposal/Approval and retain evidence. Operational ev
 
 ## Boundaries the implementation must preserve
 
-- Metadata hashes must match persisted title/URI. Reusing one source revision with conflicting metadata fails closed. Historical ACLs are provenance, not permanent read grants.
+These are responsibilities of the referenced **Event** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Operational Events have exactly one Source/Document provenance parent. Source deletion observations retain source timestamps separately from local recording time.
 
 ## Inputs, outputs and data responsibility
 
-- Content, source revision, metadata, ACL snapshot, parser/chunker contract.
-- Content-addressed version identity and version-linked evidence Chunks.
-- Historical metadata, authorization snapshot, hashes, processing provenance.
+These are responsibilities of the referenced **Event** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Approved Event proposal or a source operation.
+
+Outputs: Semantic Event reads or operational source history.
+
+Owned data: Occurrence and recording times, participants/evidence or source parent linkage.
 
 ## Compare nearby concepts
 

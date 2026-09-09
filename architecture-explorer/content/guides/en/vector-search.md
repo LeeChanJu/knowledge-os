@@ -16,13 +16,19 @@ The vector index is inside Neo4j; it is not a second external vector database.
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Vector Index** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Do not change dimensionality merely to activate a provider. Model/version provenance must match the query. Index availability does not imply populated vectors.
 
 ## Inputs, outputs and data responsibility
 
-- Authorized current Chunk vectors with model/version metadata.
-- Filtered semantic search candidates.
-- A Neo4j index over Chunk embeddings.
+These are responsibilities of the referenced **Vector Index** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Authorized current Chunk vectors with model/version metadata.
+
+Outputs: Filtered semantic search candidates.
+
+Owned data: A Neo4j index over Chunk embeddings.
 
 ## Compare nearby concepts
 

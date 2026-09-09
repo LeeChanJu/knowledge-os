@@ -16,13 +16,19 @@ Neo4j stores entities alongside document lineage, assertions and governed record
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Neo4j** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Original Systems of Record remain authoritative. No external vector store or second knowledge database is introduced.
 
 ## Inputs, outputs and data responsibility
 
-- Governed GraphStore writes and versioned migrations.
-- Authorized evidence, canonical reads, search results and operational provenance.
-- Context graph, full-text/vector indexes, migration ledger.
+These are responsibilities of the referenced **Neo4j** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Governed GraphStore writes and versioned migrations.
+
+Outputs: Authorized evidence, canonical reads, search results and operational provenance.
+
+Owned data: Context graph, full-text/vector indexes, migration ledger.
 
 ## Read a knowledge graph
 

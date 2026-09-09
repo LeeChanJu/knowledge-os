@@ -16,13 +16,19 @@ Applied migrations are checksum-protected. The Explorer reads identities and nev
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Migration** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Applied migrations are never edited silently. Explorer checks read migration files but never execute them.
 
 ## Inputs, outputs and data responsibility
 
-- Git-owned Cypher files and current SchemaMigration ledger.
-- Applied schema/backfill operations and recorded checksums.
-- SchemaMigration records in Neo4j; migration files remain authoritative in Git.
+These are responsibilities of the referenced **Migration** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Git-owned Cypher files and current SchemaMigration ledger.
+
+Outputs: Applied schema/backfill operations and recorded checksums.
+
+Owned data: SchemaMigration records in Neo4j; migration files remain authoritative in Git.
 
 ## Compare nearby concepts
 

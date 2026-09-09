@@ -16,13 +16,19 @@ REST exposes stable contract operations; adapters derive authenticated access co
 
 ## Boundaries the implementation must preserve
 
-- Ranking and vector search do not bypass evidence authorization.
+These are responsibilities of the referenced **Knowledge API** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Authentication belongs to the edge adapter. Caller display names alone never authorize governance. Stable contracts are authoritative over transport choices.
 
 ## Inputs, outputs and data responsibility
 
-- Queries, exact model/version when semantic, authenticated access.
-- Bounded ranked context, capabilities, traces and evaluation evidence.
-- Retrieval contract version.
+These are responsibilities of the referenced **Knowledge API** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: REST requests with adapter-derived authenticated identity.
+
+Outputs: Contract responses, deliberate denials, traces, and bounded errors.
+
+Owned data: No independent store. GraphStore and OpsStore own persistence.
 
 ## Compare nearby concepts
 

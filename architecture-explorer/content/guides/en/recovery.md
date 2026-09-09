@@ -16,13 +16,19 @@ Recovery records a bounded capture window and verifies artifacts. It is not a cr
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Backup / Recovery** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Verify hashes and archive consistency before restore. Local same-DBMS restore evidence does not establish host-loss recovery or off-device retention.
 
 ## Inputs, outputs and data responsibility
 
-- Existing graph and operations stores plus explicit administrative backup tooling.
-- Recovery manifest, database artifacts, hashes, verification results.
-- Protected local backup files outside committed documentation.
+These are responsibilities of the referenced **Backup / Recovery** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Existing graph and operations stores plus explicit administrative backup tooling.
+
+Outputs: Recovery manifest, database artifacts, hashes, verification results.
+
+Owned data: Protected local backup files outside committed documentation.
 
 ## Compare nearby concepts
 

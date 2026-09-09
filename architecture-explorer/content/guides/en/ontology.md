@@ -16,13 +16,19 @@ Ontology.load reads config/ontology.yaml. Ontology.validate checks subject type,
 
 ## Boundaries the implementation must preserve
 
-- MCP cannot approve or reject. A pending proposal cannot acquire conflicting review outcomes. Authorization uses current evidence ACLs.
+These are responsibilities of the referenced **Ontology** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Unknown types and object relations must be rejected. F5 tracks the scalar-value path bypassing predicate validation.
 
 ## Inputs, outputs and data responsibility
 
-- Typed candidates, creator access context, reviewer identity and decision.
-- One immutable approval/rejection outcome and, on approval, canonical records.
-- Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
+These are responsibilities of the referenced **Ontology** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: EntityRef and AssertionChange candidates.
+
+Outputs: Validated typed relations or a validation error.
+
+Owned data: config/ontology.yaml version and vocabulary.
 
 ## Compare nearby concepts
 

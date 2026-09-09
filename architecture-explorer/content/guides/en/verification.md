@@ -16,11 +16,19 @@ VERIFIED: accepted scoped evidence. IMPLEMENTED: code exists without sufficient 
 
 ## Boundaries the implementation must preserve
 
-- Verification applies only to the declared scope and pinned dependencies.
+These are responsibilities of the referenced **release-gate · v0.1 release acceptance** implementation, not a claim that the concept or learning stage is a separate service.
+
+- Resolve remaining findings through regression-driven remediation and explicitly execute the full release acceptance gate.
 
 ## Inputs, outputs and data responsibility
 
-- Documentation of the claim; no runtime data.
+These are responsibilities of the referenced **release-gate · v0.1 release acceptance** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Not established by repository evidence.
+
+Outputs: Not established by repository evidence.
+
+Owned data: Documentation of the claim; no runtime data.
 
 ## Compare nearby concepts
 

@@ -16,13 +16,19 @@ Evaluation records use the existing retrieval contract and SQLite, scoped by wor
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **Telemetry / Evaluation** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Authorization-denial cases must fail on leaked results before exclusions; F7 remains open. Cross-store graph/audit recovery is not a distributed transaction; F8 remains open.
 
 ## Inputs, outputs and data responsibility
 
-- Adapter timings, access-bound trace IDs, evaluation cases and feedback.
-- Operational rows, measured retrieval metrics and diagnostic records.
-- Evidence of operations in the existing local SQLite store.
+These are responsibilities of the referenced **Telemetry / Evaluation** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Adapter timings, access-bound trace IDs, evaluation cases and feedback.
+
+Outputs: Operational rows, measured retrieval metrics and diagnostic records.
+
+Owned data: Evidence of operations in the existing local SQLite store.
 
 ## Compare nearby concepts
 

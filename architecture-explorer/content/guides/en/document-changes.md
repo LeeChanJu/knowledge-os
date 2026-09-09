@@ -16,13 +16,19 @@ Follow the diagram below and open a stage to inspect its architecture.
 
 ## Boundaries the implementation must preserve
 
+These are responsibilities of the referenced **DocumentVersion** implementation, not a claim that the concept or learning stage is a separate service.
+
 - Metadata hashes must match persisted title/URI. Reusing one source revision with conflicting metadata fails closed. Historical ACLs are provenance, not permanent read grants.
 
 ## Inputs, outputs and data responsibility
 
-- Content, source revision, metadata, ACL snapshot, parser/chunker contract.
-- Content-addressed version identity and version-linked evidence Chunks.
-- Historical metadata, authorization snapshot, hashes, processing provenance.
+These are responsibilities of the referenced **DocumentVersion** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Content, source revision, metadata, ACL snapshot, parser/chunker contract.
+
+Outputs: Content-addressed version identity and version-linked evidence Chunks.
+
+Owned data: Historical metadata, authorization snapshot, hashes, processing provenance.
 
 ## Compare nearby concepts
 

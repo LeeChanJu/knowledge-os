@@ -16,13 +16,19 @@ Follow the diagram below and open a stage to inspect its architecture.
 
 ## Boundaries the implementation must preserve
 
-- A different connector cannot silently take ownership. Item ingestion does not independently advance a completed-run checkpoint.
+These are responsibilities of the referenced **Action** implementation, not a claim that the concept or learning stage is a separate service.
+
+- MCP cannot approve or execute. A lease expiry is not takeover permission. External exactly-once delivery is not guaranteed if the provider ignores idempotency. F4/F8 remain open.
 
 ## Inputs, outputs and data responsibility
 
-- Workspace, source type, opaque external ID, connector ID.
-- Stable Source identity and authorized catalog/checkpoint summaries.
-- Source node, connector binding, committed sync cursor.
+These are responsibilities of the referenced **Action** implementation, not a claim that the concept or learning stage is a separate service.
+
+Inputs: Action request, designated reviewers/executors, policy version, explicit approval.
+
+Outputs: Execution claim, provider operation, and immutable execution evidence.
+
+Owned data: Action snapshots, review decisions, claim lease and execution records in Neo4j.
 
 ## Compare nearby concepts
 
