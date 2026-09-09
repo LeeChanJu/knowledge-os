@@ -1,3 +1,4 @@
+import {guideHref,locationHref,integratedEntry} from '../atlas/integration';
 import catalog from '../../content/ia/catalog.json';
 import journeys from '../../content/ia/journeys.json';
 import glossary from '../../content/flow/glossary.json';
@@ -21,17 +22,11 @@ export function contextQuery(context=journeyContext()){
  return q.toString();
 }
 export function docHref(lang:Language,id:string,context=journeyContext()){
- const path=classification(id)?.path||'reference';
- const query=contextQuery(context);
- return `#/${lang}/${path}${query?'?'+query:''}`;
+ return guideHref(lang,id,contextQuery(context));
 }
 export function termHref(lang:Language,id:string){
- const context=journeyContext();
- const current=capability(context?.journey||'');
- const j=current?.stages.some(s=>s.terms.includes(id))?current:capabilities.find(j=>j.stages.some(s=>s.terms.includes(id)));
- const stage=j?.stages.find(s=>s.id===context?.step&&s.terms.includes(id))||j?.stages.find(s=>s.terms.includes(id));
- if(j&&stage)return `#/${lang}/learn/${j.id}?step=${stage.id}&concept=${id}`;
- const g=glossary[id as keyof typeof glossary];return docHref(lang,g?.lesson||'start-here');
+ const doc=conceptDoc(id);if(integratedEntry(doc))return locationHref(lang,doc);
+ const g=glossary[id as keyof typeof glossary];return locationHref(lang,g?.lesson||'start-here');
 }
 
 export function conceptDoc(id:string){return ({version:'document-version',vector:'vector-search',fulltext:'full-text-search',graph:'knowledge-graph',canonical:'approval',retrieval:'hybrid-retrieval'} as Record<string,string>)[id]||id;}

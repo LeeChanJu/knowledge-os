@@ -360,3 +360,41 @@ questions with optional answers in Markdown. The 77 older documents and URLs rem
 preserved. Curated verification records are unchanged and no database is accessed.
 
 See `review/atlas-continuation.md` for validation and remaining limitations.
+
+### Completed document integration (supersedes the historical milestones above)
+
+The default Learn experience is now the System Atlas, with all six Runtime flows
+and the complete Engineering backbone. Every one of the 77 original documents has
+an explicit disposition: **68 canonical guides, 7 merged topics, 2 map redirects**.
+There is no second chapter-list navigation competing with the map.
+
+- `content/atlas/integration.json` owns canonical routes, merged membership,
+  aliases, map positions, references and archive locations.
+- `content/guides/{en,ko-KR}/*.md` contains the 136 bilingual guide bodies.
+  Each guide explains its stage, a concrete example, implementation boundaries,
+  ownership, a comparison and two comprehension questions with optional answers.
+- Every one of the 116 Atlas nodes has a short default explanation and optional
+  responsibility, input/output, preservation, example and misconception sections.
+- `content/atlas/integration-review.json` records explicit content reconciliation,
+  separately from generated facts and curated implementation verification.
+- `scripts/check-integration.mjs` validates all mappings, bilingual bodies,
+  merge membership, evidence references and source/content review fingerprints.
+
+Canonical documents use `/#/ko-KR/reference/guide/{id}`; the reference library
+searches merged names too. Old Learn URLs lead to the corresponding map stage;
+old reference URLs lead to canonical guides. An old selected concept opens its
+guide with the original stage retained. Guide links carry `atlas` context through
+code, tests, history, language switches and archived originals. The top position
+strip always shows the complete selected flow and a breadcrumb to the concept.
+
+Original JSON articles remain unchanged at `/#/ko-KR/archive/document/{id}`.
+Historical journey pages can be inspected at `/#/ko-KR/archive/learn/{journey}`;
+these are explicitly archival. Existing `content/ia/` is retained as the archival
+source record; `content/atlas/integration.json` is the active routing authority.
+External conceptual references and repository implementation evidence appear in
+separate disclosures. Neither merging nor synchronization resolves audit issues.
+
+No further IA implementation backlog is intentionally reserved. A real beginner's
+one-minute explanation has **not** been measured: automated rendering and link
+checks cannot establish human comprehension. Open production findings and deferred
+capabilities remain visible and are not documentation implementation tasks.

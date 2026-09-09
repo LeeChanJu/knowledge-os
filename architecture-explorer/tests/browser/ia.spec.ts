@@ -1,47 +1,33 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
-const journeys=JSON.parse(readFileSync('content/ia/journeys.json','utf8')).journeys;
-for(const lang of ['ko-KR','en'])test(`six complete journeys, concepts and return paths in ${lang}`,async({page})=>{
- test.setTimeout(120000);
- const errors:string[]=[],external:string[]=[];
- page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith(`http://127.0.0.1:${process.env.EXPLORER_PORT||'5173'}/`)&&!r.url().startsWith('data:'))external.push(r.url())});
- await page.goto(`/#/${lang}/learn/start-here`);
- await expect(page.locator('.ia-nav a')).toHaveCount(7);await expect(page.locator('.journey-card-grid a')).toHaveCount(6);
- await expect(page.locator('.outside-source')).toContainText(lang==='en'?'originals stay here':'원본은 여기 남습니다');
- await page.locator('.journey-search input').fill('zz-no-journey');await expect(page.locator('.journey-choices [role=status]')).toBeVisible();await page.locator('.journey-search input').fill('');
- await page.screenshot({path:`test-results/ia-${lang}-home.png`,fullPage:true});
- for(const j of journeys){
-  await page.goto(`/#/${lang}/learn/${j.id}`);await expect(page.locator('h1')).toHaveText(j.title[lang]);
-  for(const s of j.stages){
-   await page.locator('.journey-path a').filter({hasText:s.title[lang]}).click();
-   await expect(page.locator('.journey-path [aria-current=step]')).toContainText(s.title[lang]);
-   await expect(page.locator('.journey-stage h2')).toHaveCount(1);await expect(page.locator('.journey-stage figure')).toHaveCount(1);
-   const term=page.locator('.concept-branches .learn-term').first();await term.locator('button').first().click();await expect(term.locator('.learn-definition')).toBeVisible();await term.locator('.learn-definition a').click();
-   await expect(page.locator('.concept-inspector')).toBeVisible();await expect(page).toHaveURL(new RegExp(`concept=${s.terms[0]}`));
-   await page.locator('.concept-inspector>a').last().click();await expect(page).toHaveURL(/reference\//);await expect(page.locator('.ia-context')).toContainText(s.title[lang]);
-   await page.locator('.ia-context a').last().click();await expect(page.locator('.concept-inspector')).toBeVisible();
-   await page.locator('.concept-close').click();await expect(page.locator('.concept-inspector')).toHaveCount(0);
-  }
-  await page.locator('.capability-boundaries>summary').click();await expect(page.locator('.capability-boundaries section')).toHaveCount(4);
-  await page.locator('.journey-checks>summary').click();await expect(page.locator('.flow-check')).toHaveCount(2);await page.locator('.flow-check summary').first().click();await expect(page.locator('.flow-check details p').first()).toBeVisible();
-  await page.screenshot({path:`test-results/ia-${lang}-${j.id}.png`,fullPage:true});
+const integration=JSON.parse(readFileSync('content/atlas/integration.json','utf8'));
+const learning=JSON.parse(readFileSync('data/learning.json','utf8'));
+for(const lang of ['ko-KR','en'])test(`all 77 documents resolve and 68 bilingual guides render in ${lang}`,async({page})=>{
+ test.setTimeout(180000);const errors:string[]=[],external:string[]=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:')&&!r.url().startsWith('data:'))external.push(r.url())});
+ for(const e of integration.entries){
+  await page.goto(`/#/${lang}/${e.aliases.find((p:string)=>p.startsWith('reference/'))||e.aliases[0]}`);
+  if(e.resolution==='redirected'){await expect(page.locator('.atlas-map')).toBeVisible();continue}
+  await expect(page.locator('.integrated-guide h1')).toHaveText(learning.documents[lang][e.canonicalId].title);
+  await expect(page.locator('.guide-location [aria-current=step]')).toHaveCount(1);
+  await expect(page.locator('.guide-checks details')).toHaveCount(2);
  }
- await page.goto(`/#/${lang}/learn/find?step=meaning`);await page.getByRole('button',{name:lang==='en'?'한국어':'English',exact:true}).click();await expect(page).toHaveURL(/learn\/find\?step=meaning/);await expect(page.locator('.journey-stage')).toBeVisible();
- await page.setViewportSize({width:390,height:844});await page.goto(`/#/${lang}/learn/start-here`);
- expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);await expect(page.locator('.outside-source')).toBeInViewport({ratio:1});await expect(page.locator('.map-user')).toBeInViewport({ratio:1});
- await page.screenshot({path:`test-results/ia-${lang}-mobile.png`});await page.locator('.map-user .learn-term>button').click();await expect(page.locator('.map-user .learn-definition')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator('.map-user .learn-definition')).toHaveCount(0);
+ await page.goto(`/#/${lang}/reference/guide/assertion`);
+ await page.locator('.guide-section summary').last().click();await expect(page.locator('.guide-section table')).toBeVisible();
+ await page.locator('.guide-checks summary').first().click();await expect(page.locator('.guide-checks details[open]')).toBeVisible();
+ await page.screenshot({path:`test-results/integrated-guide-${lang}.png`,fullPage:true});
  expect(errors).toEqual([]);expect(external).toEqual([]);
 });
-test('context survives evidence, graph selection, back/forward and reference filters',async({page})=>{
- await page.goto('/#/en/learn/remember?step=propose');await page.locator('.stage-deep-dives>summary').click();await page.locator('.journey-evidence').first().click();await expect(page.locator('.ia-context')).toContainText('Submit');
- await page.goBack();await expect(page).toHaveURL(/step=propose/);await page.goForward();await expect(page).toHaveURL(/reference\/item/);await page.locator('.ia-context a').last().click();
- await page.locator('.stage-deep-dives>summary').click();await page.locator('.stage-deep-dives>a').last().click();await expect(page).toHaveURL(/explore\/node\/proposal\?journey=remember&step=propose/);await expect(page.locator('.ia-context')).toBeVisible();
- await page.locator('.node-list button').first().click();await expect(page).toHaveURL(/journey=remember&step=propose/);await page.locator('.ia-context a').last().click();await expect(page.locator('.journey-stage')).toBeVisible();
- await page.goto('/#/en/reference');await page.getByLabel('Find a concept',{exact:true}).fill('ontology');await expect(page.locator('.reference-library details a')).not.toHaveCount(0);await page.getByLabel('Document role').selectOption('DEEP DIVE');await expect(page.locator('.reference-library details a')).toHaveCount(2);await page.getByLabel('Find a concept',{exact:true}).fill('zz-nothing');await expect(page.locator('.reference-library [role=status]')).toBeVisible();
+test('canonical library searches merged titles, filters, and preserves archived originals',async({page})=>{
+ await page.goto('/#/en/reference');await expect(page.locator('.guide-library-results article')).toHaveCount(68);
+ await page.getByLabel('Find a concept',{exact:true}).fill('Graph RAG');await expect(page.locator('.guide-library-results article')).toHaveCount(1);
+ await page.getByLabel('Map',{exact:true}).selectOption('engineering');await expect(page.locator('.guide-library [role=status]')).toBeVisible();
+ await page.getByLabel('Map',{exact:true}).selectOption('');await page.locator('.guide-library-results a').click();await expect(page).toHaveURL(/reference\/guide\/rag/);
+ await page.locator('.guide-archive summary').click();await page.locator('.guide-archive a').last().click();await expect(page).toHaveURL(/archive\/document/);await expect(page.locator('.archive-notice')).toBeVisible();
+ await page.goBack();await expect(page.locator('.integrated-guide')).toBeVisible();await page.goForward();await expect(page.locator('.archive-notice')).toBeVisible();
 });
-test('map branches, optional primer and contextual map return work',async({page})=>{
- await page.goto('/#/en/learn/start-here');await page.locator('.ia-primer>summary').click();await expect(page.locator('.ia-primer')).not.toContainText('<!--');
- await page.getByRole('link',{name:'Connected knowledge Implemented boundary',exact:true}).click();await expect(page).toHaveURL(/remember\?step=store$/);
- await page.locator('.journey-whole>summary').click();await expect(page.locator('.outside-source')).toBeVisible();await page.getByRole('link',{name:/Google Drive \/ Notion \/ Files Outside/}).click();await expect(page).toHaveURL(/sources\?step=original$/);
- await page.locator('.journey-step-nav a').last().click();await expect(page).toHaveURL(/start-here\?journey=sources&step=original/);await expect(page.locator('.outside-source')).toBeVisible();
+test('old Learn links resolve into maps and selected concepts retain their original flow',async({page})=>{
+ for(const e of integration.entries){await page.goto('/#/en/learn/'+e.id);await expect(page.locator('.atlas,.atlas-home')).toHaveCount(1)}
+ await page.goto('/#/en/learn/relationships?step=statements&concept=assertion');await expect(page).toHaveURL(/reference\/guide\/assertion\?atlas=/);await expect(page.locator('.atlas-return a')).toHaveAttribute('href',/runtime\?node=relation-statements/);
+ await page.locator('.atlas-return a').click();await expect(page.locator('.atlas-drawer')).toBeVisible();await expect(page).toHaveURL(/node=relation-statements/);
 });

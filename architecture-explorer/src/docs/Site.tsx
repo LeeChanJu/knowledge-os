@@ -1,3 +1,5 @@
+import {GuideLibrary} from '../atlas/GuideLibrary';
+import {migrateHash} from '../atlas/integration';
 import Atlas, {AtlasHome,AtlasReturn} from '../atlas/Atlas';
 import {LearnHome, Journey, CapabilityNav, ContextTrail, ReferenceCatalog} from './LearnIA';
 import {catalog, classification, capability, contextQuery, docHref, contextualHref} from './ia';
@@ -15,6 +17,7 @@ declare const __BUILD_INFO__: {
   dirty: boolean;
   state: string;
 };
+const Guide = lazy(() => import('../atlas/Guide'));
 const Explorer = lazy(() => import("../App"));
 type Page = {
   id: string;
@@ -107,7 +110,8 @@ export default function Site({ data }: { data: Architecture }) {
   const docs = (
     learning.documents as unknown as Record<Language, Record<string, Page>>
   )[lang];
-  const path = currentPath(hash),
+  const rawPath=currentPath(hash), archived=rawPath.startsWith("archive/"), archivedId=rawPath.startsWith("archive/document/")?rawPath.slice(17):null;
+  const path = archivedId?"reference/concepts/"+archivedId:rawPath.replace(/^archive\//,""),
     legacy = hash.startsWith("#/node/") || hash === "#/overview";
   let mode =
     legacy || path === "explore" || path.startsWith("explore/")
@@ -123,17 +127,16 @@ export default function Site({ data }: { data: Architecture }) {
   }
   const routeEntry=catalog.entries.find(e=>e.path===path||('archivePath' in e&&e.archivePath===path));
   if(routeEntry) slug=routeEntry.id;
+  if(archivedId)slug=archivedId;
+  if(path.startsWith("reference/guide/"))slug=slug.replace(/^reference\/guide\//, "");
   const classified=classification(slug);
   if(classified&&slug!=='start-here'&&!capability(slug))mode='reference';
   const atlasAxis=path==='runtime'?'runtime':path==='engineering'?'engineering':null;
   const atlasHome=!path;
   const learnSurface=(!path||path==='learn'||path==='learn/start-here'||!!capability(slug))&&!path.startsWith('reference');
   useEffect(()=>{
-    if(path.startsWith('learn/')&&classified&&classified.id!=='start-here'){
-      const query=hash.includes('?')?'?'+hash.split('?')[1]:'';
-      location.replace(`#/${lang}/${classified.path}${query}`);
-    }
-  },[path,hash,lang,classified]);
+    const target=migrateHash(hash,lang);if(target&&target!==hash)location.replace(target);
+  },[hash,lang]);
   const page = docs[slug],
     entry = manifest.pages.find((p) => p.id === slug);
   const home = !path;
@@ -148,7 +151,7 @@ export default function Site({ data }: { data: Architecture }) {
   const changeLanguage = (next: Language) => {
     const suffix = legacy
       ? "explore" + (hash.startsWith("#/node/") ? hash.slice(1) : "")
-      : path + (hash.includes("?") ? "?" + hash.split("?")[1] : "");
+      : (archived?rawPath:path) + (hash.includes("?") ? "?" + hash.split("?")[1] : "");
     location.hash = route(next, suffix);
   };
   const referenceLinks = (ids: string[]) =>
@@ -260,8 +263,8 @@ export default function Site({ data }: { data: Architecture }) {
           </button>
         </div>
       </header>
-      <AtlasReturn lang={lang}/>
-      {atlasHome ? <AtlasHome lang={lang}/> : atlasAxis ? <Atlas lang={lang} axis={atlasAxis}/> : mode === "explore" ? (
+      <AtlasReturn lang={lang}/>{archived&&<p className="archive-notice">{lang==='en'?'Archived original · current learning starts in the System Atlas.':'보관된 이전 문서 · 현재 학습은 시스템 지도에서 시작합니다.'} <a href={`#/${lang}`}>{lang==='en'?'System Atlas →':'시스템 지도 →'}</a></p>}
+      {path.startsWith('reference/guide/') ? <Suspense fallback={<p>{t("Loading architecture…")}</p>}><Guide id={slug} lang={lang} architecture={architecture}/></Suspense> : atlasHome ? <AtlasHome lang={lang}/> : atlasAxis ? <Atlas lang={lang} axis={atlasAxis}/> : mode === "explore" ? (
         <div className="embedded-explorer"><ContextTrail lang={lang}/>
           <Suspense fallback={<p>{t("Loading architecture…")}</p>}>
             <Explorer key={lang} data={architecture} />
@@ -277,7 +280,7 @@ export default function Site({ data }: { data: Architecture }) {
             {query&&<nav aria-label={t('Search results')}>{manifest.pages.filter(p=>(docs[p.id].title+' '+docs[p.id].sections.map(s=>s.body).join(' ')+' '+(isFlagship(p.id)?flowText(lang,p.id)+' '+flagshipText(lang,p.id):'')).toLowerCase().includes(query.toLowerCase())).map(p=><a key={p.id} href={docHref(lang,p.id)}>{docs[p.id].title}</a>)}{!manifest.pages.some(p=>(docs[p.id].title+' '+docs[p.id].sections.map(s=>s.body).join(' ')+' '+(isFlagship(p.id)?flowText(lang,p.id)+' '+flagshipText(lang,p.id):'')).toLowerCase().includes(query.toLowerCase()))&&<p>{t('No documents match.')}</p>}</nav>}
           </aside>
           {mode === "reference" && !page ? (
-            <main className="docs-article reference-article"><ContextTrail lang={lang}/>{path==='reference'&&<><h1>{t('Reference')}</h1><ReferenceCatalog lang={lang}/></>}
+            <main className="docs-article reference-article"><ContextTrail lang={lang}/>{path==='reference'&&<><h1>{t('Reference')}</h1><GuideLibrary lang={lang}/></>}
               <ReferenceView
                 path={path}
                 architecture={architecture}

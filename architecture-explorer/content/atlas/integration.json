@@ -1,0 +1,2990 @@
+{
+  "schemaVersion": "1.0.0",
+  "entries": [
+    {
+      "id": "knowledge-os",
+      "role": "EXPLANATION",
+      "canonicalId": "knowledge-os",
+      "route": "reference/guide/knowledge-os",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "question"
+      },
+      "aliases": [
+        "reference/explanations/knowledge-os",
+        "learn/knowledge-os"
+      ],
+      "archive": "archive/document/knowledge-os",
+      "resolution": "integrated"
+    },
+    {
+      "id": "system-of-record",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "system-of-record",
+      "route": "reference/guide/system-of-record",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-original"
+      },
+      "aliases": [
+        "reference/explanations/system-of-record",
+        "learn/system-of-record"
+      ],
+      "archive": "archive/document/system-of-record",
+      "resolution": "integrated"
+    },
+    {
+      "id": "system-of-context",
+      "role": "EXPLANATION",
+      "canonicalId": "system-of-context",
+      "route": "reference/guide/system-of-context",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "store"
+      },
+      "aliases": [
+        "reference/explanations/system-of-context",
+        "learn/system-of-context"
+      ],
+      "archive": "archive/document/system-of-context",
+      "resolution": "integrated"
+    },
+    {
+      "id": "knowledge-graph",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "knowledge-graph",
+      "route": "reference/guide/knowledge-graph",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "store"
+      },
+      "aliases": [
+        "reference/deep-dives/knowledge-graph",
+        "learn/knowledge-graph"
+      ],
+      "archive": "archive/document/knowledge-graph",
+      "resolution": "integrated"
+    },
+    {
+      "id": "ontology",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "ontology",
+      "route": "reference/guide/ontology",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-rules"
+      },
+      "aliases": [
+        "reference/deep-dives/ontology",
+        "learn/ontology"
+      ],
+      "archive": "archive/document/ontology",
+      "resolution": "integrated"
+    },
+    {
+      "id": "entity",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "entity",
+      "route": "reference/guide/entity",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-subjects"
+      },
+      "aliases": [
+        "reference/deep-dives/entity",
+        "learn/entity"
+      ],
+      "archive": "archive/document/entity",
+      "resolution": "integrated"
+    },
+    {
+      "id": "relationship",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "relationship",
+      "route": "reference/guide/relationship",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-statements"
+      },
+      "aliases": [
+        "reference/deep-dives/relationship",
+        "learn/relationship"
+      ],
+      "archive": "archive/document/relationship",
+      "resolution": "integrated"
+    },
+    {
+      "id": "assertion",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "assertion",
+      "route": "reference/guide/assertion",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-statements"
+      },
+      "aliases": [
+        "reference/deep-dives/assertion",
+        "learn/assertion"
+      ],
+      "archive": "archive/document/assertion",
+      "resolution": "integrated"
+    },
+    {
+      "id": "claim",
+      "role": "MERGE",
+      "canonicalId": "assertion",
+      "route": "reference/guide/assertion",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-statements"
+      },
+      "aliases": [
+        "reference/explanations/claim",
+        "learn/claim"
+      ],
+      "archive": "archive/document/claim",
+      "resolution": "merged"
+    },
+    {
+      "id": "evidence",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "evidence",
+      "route": "reference/guide/evidence",
+      "location": {
+        "axis": "runtime",
+        "journey": "sources",
+        "node": "sources-passage"
+      },
+      "aliases": [
+        "reference/deep-dives/evidence",
+        "learn/evidence"
+      ],
+      "archive": "archive/document/evidence",
+      "resolution": "integrated"
+    },
+    {
+      "id": "provenance",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "provenance",
+      "route": "reference/guide/provenance",
+      "location": {
+        "axis": "runtime",
+        "journey": "sources",
+        "node": "sources-version"
+      },
+      "aliases": [
+        "reference/deep-dives/provenance",
+        "learn/provenance"
+      ],
+      "archive": "archive/document/provenance",
+      "resolution": "integrated"
+    },
+    {
+      "id": "document",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "document",
+      "route": "reference/guide/document",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-document"
+      },
+      "aliases": [
+        "reference/deep-dives/document",
+        "learn/document"
+      ],
+      "archive": "archive/document/document",
+      "resolution": "integrated"
+    },
+    {
+      "id": "document-version",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "document-version",
+      "route": "reference/guide/document-version",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-version"
+      },
+      "aliases": [
+        "reference/deep-dives/document-version",
+        "learn/document-version"
+      ],
+      "archive": "archive/document/document-version",
+      "resolution": "integrated"
+    },
+    {
+      "id": "chunk",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "chunk",
+      "route": "reference/guide/chunk",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-chunk"
+      },
+      "aliases": [
+        "reference/deep-dives/chunk",
+        "learn/chunk"
+      ],
+      "archive": "archive/document/chunk",
+      "resolution": "integrated"
+    },
+    {
+      "id": "embedding",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "embedding",
+      "route": "reference/guide/embedding",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "meaning"
+      },
+      "aliases": [
+        "reference/deep-dives/embedding",
+        "learn/embedding"
+      ],
+      "archive": "archive/document/embedding",
+      "resolution": "integrated"
+    },
+    {
+      "id": "vector-search",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "vector-search",
+      "route": "reference/guide/vector-search",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "meaning"
+      },
+      "aliases": [
+        "reference/deep-dives/vector-search",
+        "learn/vector-search"
+      ],
+      "archive": "archive/document/vector-search",
+      "resolution": "integrated"
+    },
+    {
+      "id": "full-text-search",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "full-text-search",
+      "route": "reference/guide/full-text-search",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "words"
+      },
+      "aliases": [
+        "reference/deep-dives/full-text-search",
+        "learn/full-text-search"
+      ],
+      "archive": "archive/document/full-text-search",
+      "resolution": "integrated"
+    },
+    {
+      "id": "graph-traversal",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "graph-traversal",
+      "route": "reference/guide/graph-traversal",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "links"
+      },
+      "aliases": [
+        "reference/deep-dives/graph-traversal",
+        "learn/graph-traversal"
+      ],
+      "archive": "archive/document/graph-traversal",
+      "resolution": "integrated"
+    },
+    {
+      "id": "rag",
+      "role": "EXPLANATION",
+      "canonicalId": "rag",
+      "route": "reference/guide/rag",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "retrieve"
+      },
+      "aliases": [
+        "reference/explanations/rag",
+        "learn/rag"
+      ],
+      "archive": "archive/document/rag",
+      "resolution": "integrated"
+    },
+    {
+      "id": "vector-rag",
+      "role": "MERGE",
+      "canonicalId": "rag",
+      "route": "reference/guide/rag",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "meaning"
+      },
+      "aliases": [
+        "reference/explanations/vector-rag",
+        "learn/vector-rag"
+      ],
+      "archive": "archive/document/vector-rag",
+      "resolution": "merged"
+    },
+    {
+      "id": "graph-rag",
+      "role": "MERGE",
+      "canonicalId": "rag",
+      "route": "reference/guide/rag",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "links"
+      },
+      "aliases": [
+        "reference/explanations/graph-rag",
+        "learn/graph-rag"
+      ],
+      "archive": "archive/document/graph-rag",
+      "resolution": "merged"
+    },
+    {
+      "id": "hybrid-retrieval",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "hybrid-retrieval",
+      "route": "reference/guide/hybrid-retrieval",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "retrieve"
+      },
+      "aliases": [
+        "reference/deep-dives/hybrid-retrieval",
+        "learn/hybrid-retrieval"
+      ],
+      "archive": "archive/document/hybrid-retrieval",
+      "resolution": "integrated"
+    },
+    {
+      "id": "proposal",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "proposal",
+      "route": "reference/guide/proposal",
+      "location": {
+        "axis": "runtime",
+        "journey": "remember",
+        "node": "remember-propose"
+      },
+      "aliases": [
+        "reference/deep-dives/proposal",
+        "learn/proposal"
+      ],
+      "archive": "archive/document/proposal",
+      "resolution": "integrated"
+    },
+    {
+      "id": "approval",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "approval",
+      "route": "reference/guide/approval",
+      "location": {
+        "axis": "runtime",
+        "journey": "remember",
+        "node": "remember-review"
+      },
+      "aliases": [
+        "reference/deep-dives/approval",
+        "learn/approval"
+      ],
+      "archive": "archive/document/approval",
+      "resolution": "integrated"
+    },
+    {
+      "id": "governance",
+      "role": "EXPLANATION",
+      "canonicalId": "governance",
+      "route": "reference/guide/governance",
+      "location": {
+        "axis": "runtime",
+        "journey": "remember",
+        "node": "remember-review"
+      },
+      "aliases": [
+        "reference/explanations/governance",
+        "learn/governance"
+      ],
+      "archive": "archive/document/governance",
+      "resolution": "integrated"
+    },
+    {
+      "id": "temporal-validity",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "temporal-validity",
+      "route": "reference/guide/temporal-validity",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/deep-dives/temporal-validity",
+        "learn/temporal-validity"
+      ],
+      "archive": "archive/document/temporal-validity",
+      "resolution": "integrated"
+    },
+    {
+      "id": "valid-from",
+      "role": "REFERENCE",
+      "canonicalId": "valid-from",
+      "route": "reference/guide/valid-from",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/concepts/valid-from",
+        "learn/valid-from"
+      ],
+      "archive": "archive/document/valid-from",
+      "resolution": "integrated"
+    },
+    {
+      "id": "valid-to",
+      "role": "REFERENCE",
+      "canonicalId": "valid-to",
+      "route": "reference/guide/valid-to",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/concepts/valid-to",
+        "learn/valid-to"
+      ],
+      "archive": "archive/document/valid-to",
+      "resolution": "integrated"
+    },
+    {
+      "id": "observed-at",
+      "role": "REFERENCE",
+      "canonicalId": "observed-at",
+      "route": "reference/guide/observed-at",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-version"
+      },
+      "aliases": [
+        "reference/concepts/observed-at",
+        "learn/observed-at"
+      ],
+      "archive": "archive/document/observed-at",
+      "resolution": "integrated"
+    },
+    {
+      "id": "recorded-at",
+      "role": "REFERENCE",
+      "canonicalId": "recorded-at",
+      "route": "reference/guide/recorded-at",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/concepts/recorded-at",
+        "learn/recorded-at"
+      ],
+      "archive": "archive/document/recorded-at",
+      "resolution": "integrated"
+    },
+    {
+      "id": "supersession",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "supersession",
+      "route": "reference/guide/supersession",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/deep-dives/supersession",
+        "learn/supersession"
+      ],
+      "archive": "archive/document/supersession",
+      "resolution": "integrated"
+    },
+    {
+      "id": "mcp",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "mcp",
+      "route": "reference/guide/mcp",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "connection"
+      },
+      "aliases": [
+        "reference/concepts/mcp",
+        "learn/mcp"
+      ],
+      "archive": "archive/document/mcp",
+      "resolution": "integrated"
+    },
+    {
+      "id": "knowledge-api",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "knowledge-api",
+      "route": "reference/guide/knowledge-api",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "boundary-retrieval"
+      },
+      "aliases": [
+        "reference/concepts/knowledge-api",
+        "learn/knowledge-api"
+      ],
+      "archive": "archive/document/knowledge-api",
+      "resolution": "integrated"
+    },
+    {
+      "id": "agent",
+      "role": "EXPLANATION",
+      "canonicalId": "agent",
+      "route": "reference/guide/agent",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "assistant"
+      },
+      "aliases": [
+        "reference/deep-dives/agent",
+        "learn/agent"
+      ],
+      "archive": "archive/document/agent",
+      "resolution": "integrated"
+    },
+    {
+      "id": "action",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "action",
+      "route": "reference/guide/action",
+      "location": {
+        "axis": "runtime",
+        "journey": "act",
+        "node": "act-intent"
+      },
+      "aliases": [
+        "reference/deep-dives/action",
+        "learn/action"
+      ],
+      "archive": "archive/document/action",
+      "resolution": "integrated"
+    },
+    {
+      "id": "telemetry",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "telemetry",
+      "route": "reference/guide/telemetry",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "measure-runtime"
+      },
+      "aliases": [
+        "reference/concepts/telemetry",
+        "learn/telemetry"
+      ],
+      "archive": "archive/document/telemetry",
+      "resolution": "integrated"
+    },
+    {
+      "id": "evaluation",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "evaluation",
+      "route": "reference/guide/evaluation",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "measure-quality"
+      },
+      "aliases": [
+        "reference/concepts/evaluation",
+        "learn/evaluation"
+      ],
+      "archive": "archive/document/evaluation",
+      "resolution": "integrated"
+    },
+    {
+      "id": "source",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "source",
+      "route": "reference/guide/source",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-observe"
+      },
+      "aliases": [
+        "reference/concepts/source",
+        "learn/source"
+      ],
+      "archive": "archive/document/source",
+      "resolution": "integrated"
+    },
+    {
+      "id": "connectors",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "connectors",
+      "route": "reference/guide/connectors",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-observe"
+      },
+      "aliases": [
+        "reference/concepts/connectors",
+        "learn/connectors"
+      ],
+      "archive": "archive/document/connectors",
+      "resolution": "integrated"
+    },
+    {
+      "id": "parsing",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "parsing",
+      "route": "reference/guide/parsing",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-parse"
+      },
+      "aliases": [
+        "reference/concepts/parsing",
+        "learn/parsing"
+      ],
+      "archive": "archive/document/parsing",
+      "resolution": "integrated"
+    },
+    {
+      "id": "chunking",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "chunking",
+      "route": "reference/guide/chunking",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-chunk"
+      },
+      "aliases": [
+        "reference/concepts/chunking",
+        "learn/chunking"
+      ],
+      "archive": "archive/document/chunking",
+      "resolution": "integrated"
+    },
+    {
+      "id": "extraction",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "extraction",
+      "route": "reference/guide/extraction",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-candidate"
+      },
+      "aliases": [
+        "reference/concepts/extraction",
+        "learn/extraction"
+      ],
+      "archive": "archive/document/extraction",
+      "resolution": "integrated"
+    },
+    {
+      "id": "resolution",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "resolution",
+      "route": "reference/guide/resolution",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-subjects"
+      },
+      "aliases": [
+        "reference/concepts/resolution",
+        "learn/resolution"
+      ],
+      "archive": "archive/document/resolution",
+      "resolution": "integrated"
+    },
+    {
+      "id": "event",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "event",
+      "route": "reference/guide/event",
+      "location": {
+        "axis": "runtime",
+        "journey": "act",
+        "node": "act-record"
+      },
+      "aliases": [
+        "reference/concepts/event",
+        "learn/event"
+      ],
+      "archive": "archive/document/event",
+      "resolution": "integrated"
+    },
+    {
+      "id": "decision",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "decision",
+      "route": "reference/guide/decision",
+      "location": {
+        "axis": "runtime",
+        "journey": "act",
+        "node": "act-intent"
+      },
+      "aliases": [
+        "reference/concepts/decision",
+        "learn/decision"
+      ],
+      "archive": "archive/document/decision",
+      "resolution": "integrated"
+    },
+    {
+      "id": "sqlite",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "sqlite",
+      "route": "reference/guide/sqlite",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "audit"
+      },
+      "aliases": [
+        "reference/concepts/sqlite",
+        "learn/sqlite"
+      ],
+      "archive": "archive/document/sqlite",
+      "resolution": "integrated"
+    },
+    {
+      "id": "doctor",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "doctor",
+      "route": "reference/guide/doctor",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "health"
+      },
+      "aliases": [
+        "reference/concepts/doctor",
+        "learn/doctor"
+      ],
+      "archive": "archive/document/doctor",
+      "resolution": "integrated"
+    },
+    {
+      "id": "migration",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "migration",
+      "route": "reference/guide/migration",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "storage-migration"
+      },
+      "aliases": [
+        "reference/concepts/migration",
+        "learn/migration"
+      ],
+      "archive": "archive/document/migration",
+      "resolution": "integrated"
+    },
+    {
+      "id": "recovery",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "recovery",
+      "route": "reference/guide/recovery",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "backup-set"
+      },
+      "aliases": [
+        "reference/concepts/recovery",
+        "learn/recovery"
+      ],
+      "archive": "archive/document/recovery",
+      "resolution": "integrated"
+    },
+    {
+      "id": "a2a",
+      "role": "REFERENCE",
+      "canonicalId": "a2a",
+      "route": "reference/guide/a2a",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "boundaries"
+      },
+      "aliases": [
+        "reference/concepts/a2a",
+        "learn/a2a"
+      ],
+      "archive": "archive/document/a2a",
+      "resolution": "integrated"
+    },
+    {
+      "id": "verification",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "verification",
+      "route": "reference/guide/verification",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "verification"
+      },
+      "aliases": [
+        "reference/concepts/verification",
+        "learn/verification"
+      ],
+      "archive": "archive/document/verification",
+      "resolution": "integrated"
+    },
+    {
+      "id": "start-here",
+      "role": "REDIRECT",
+      "canonicalId": "start-here",
+      "route": "reference/guide/start-here",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "question"
+      },
+      "aliases": [
+        "learn/start-here",
+        "reference/deep-dives/start-here"
+      ],
+      "archive": "archive/document/start-here",
+      "resolution": "redirected"
+    },
+    {
+      "id": "source-of-truth",
+      "role": "EXPLANATION",
+      "canonicalId": "source-of-truth",
+      "route": "reference/guide/source-of-truth",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-original"
+      },
+      "aliases": [
+        "reference/explanations/source-of-truth",
+        "learn/source-of-truth"
+      ],
+      "archive": "archive/document/source-of-truth",
+      "resolution": "integrated"
+    },
+    {
+      "id": "document-journey",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "document-journey",
+      "route": "reference/guide/document-journey",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-version"
+      },
+      "aliases": [
+        "reference/deep-dives/document-journey",
+        "learn/document-journey"
+      ],
+      "archive": "archive/document/document-journey",
+      "resolution": "integrated"
+    },
+    {
+      "id": "graph-basics",
+      "role": "MERGE",
+      "canonicalId": "knowledge-graph",
+      "route": "reference/guide/knowledge-graph",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "store"
+      },
+      "aliases": [
+        "reference/deep-dives/graph-basics",
+        "learn/graph-basics"
+      ],
+      "archive": "archive/document/graph-basics",
+      "resolution": "merged"
+    },
+    {
+      "id": "ontology-basics",
+      "role": "EXPLANATION",
+      "canonicalId": "ontology-basics",
+      "route": "reference/guide/ontology-basics",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-rules"
+      },
+      "aliases": [
+        "reference/deep-dives/ontology-basics",
+        "learn/ontology-basics"
+      ],
+      "archive": "archive/document/ontology-basics",
+      "resolution": "integrated"
+    },
+    {
+      "id": "entity-assertion",
+      "role": "EXPLANATION",
+      "canonicalId": "entity-assertion",
+      "route": "reference/guide/entity-assertion",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-subjects"
+      },
+      "aliases": [
+        "reference/deep-dives/entity-assertion",
+        "learn/entity-assertion"
+      ],
+      "archive": "archive/document/entity-assertion",
+      "resolution": "integrated"
+    },
+    {
+      "id": "review-before-trust",
+      "role": "EXPLANATION",
+      "canonicalId": "review-before-trust",
+      "route": "reference/guide/review-before-trust",
+      "location": {
+        "axis": "runtime",
+        "journey": "remember",
+        "node": "remember-review"
+      },
+      "aliases": [
+        "reference/deep-dives/review-before-trust",
+        "learn/review-before-trust"
+      ],
+      "archive": "archive/document/review-before-trust",
+      "resolution": "integrated"
+    },
+    {
+      "id": "search-methods",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "search-methods",
+      "route": "reference/guide/search-methods",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "retrieve"
+      },
+      "aliases": [
+        "reference/deep-dives/search-methods",
+        "learn/search-methods"
+      ],
+      "archive": "archive/document/search-methods",
+      "resolution": "integrated"
+    },
+    {
+      "id": "agent-access",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "agent-access",
+      "route": "reference/guide/agent-access",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "connection"
+      },
+      "aliases": [
+        "reference/deep-dives/agent-access",
+        "learn/agent-access"
+      ],
+      "archive": "archive/document/agent-access",
+      "resolution": "integrated"
+    },
+    {
+      "id": "read-the-map",
+      "role": "REDIRECT",
+      "canonicalId": "read-the-map",
+      "route": "reference/guide/read-the-map",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "question"
+      },
+      "aliases": [
+        "reference/explanations/read-the-map",
+        "learn/read-the-map"
+      ],
+      "archive": "archive/document/read-the-map",
+      "resolution": "redirected"
+    },
+    {
+      "id": "new-document",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "new-document",
+      "route": "reference/guide/new-document",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-observe"
+      },
+      "aliases": [
+        "reference/deep-dives/new-document",
+        "learn/new-document"
+      ],
+      "archive": "archive/document/new-document",
+      "resolution": "integrated"
+    },
+    {
+      "id": "document-changes",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "document-changes",
+      "route": "reference/guide/document-changes",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-version"
+      },
+      "aliases": [
+        "reference/deep-dives/document-changes",
+        "learn/document-changes"
+      ],
+      "archive": "archive/document/document-changes",
+      "resolution": "integrated"
+    },
+    {
+      "id": "document-deletion",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "document-deletion",
+      "route": "reference/guide/document-deletion",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "replay"
+      },
+      "aliases": [
+        "reference/deep-dives/document-deletion",
+        "learn/document-deletion"
+      ],
+      "archive": "archive/document/document-deletion",
+      "resolution": "integrated"
+    },
+    {
+      "id": "knowledge-changes",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "knowledge-changes",
+      "route": "reference/guide/knowledge-changes",
+      "location": {
+        "axis": "runtime",
+        "journey": "correct",
+        "node": "correct-history"
+      },
+      "aliases": [
+        "reference/deep-dives/knowledge-changes",
+        "learn/knowledge-changes"
+      ],
+      "archive": "archive/document/knowledge-changes",
+      "resolution": "integrated"
+    },
+    {
+      "id": "agent-question",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "agent-question",
+      "route": "reference/guide/agent-question",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "question"
+      },
+      "aliases": [
+        "reference/deep-dives/agent-question",
+        "learn/agent-question"
+      ],
+      "archive": "archive/document/agent-question",
+      "resolution": "integrated"
+    },
+    {
+      "id": "agent-action",
+      "role": "RUNTIME ROADMAP DETAIL",
+      "canonicalId": "agent-action",
+      "route": "reference/guide/agent-action",
+      "location": {
+        "axis": "runtime",
+        "journey": "act",
+        "node": "act-execute"
+      },
+      "aliases": [
+        "reference/deep-dives/agent-action",
+        "learn/agent-action"
+      ],
+      "archive": "archive/document/agent-action",
+      "resolution": "integrated"
+    },
+    {
+      "id": "storage-boundaries",
+      "role": "EXPLANATION",
+      "canonicalId": "storage-boundaries",
+      "route": "reference/guide/storage-boundaries",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "boundaries"
+      },
+      "aliases": [
+        "reference/explanations/storage-boundaries",
+        "learn/storage-boundaries"
+      ],
+      "archive": "archive/document/storage-boundaries",
+      "resolution": "integrated"
+    },
+    {
+      "id": "keep-originals",
+      "role": "MERGE",
+      "canonicalId": "source-of-truth",
+      "route": "reference/guide/source-of-truth",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-original"
+      },
+      "aliases": [
+        "reference/explanations/keep-originals",
+        "learn/keep-originals"
+      ],
+      "archive": "archive/document/keep-originals",
+      "resolution": "merged"
+    },
+    {
+      "id": "keep-versions",
+      "role": "EXPLANATION",
+      "canonicalId": "keep-versions",
+      "route": "reference/guide/keep-versions",
+      "location": {
+        "axis": "runtime",
+        "journey": "ingest",
+        "node": "source-version"
+      },
+      "aliases": [
+        "reference/explanations/keep-versions",
+        "learn/keep-versions"
+      ],
+      "archive": "archive/document/keep-versions",
+      "resolution": "integrated"
+    },
+    {
+      "id": "keep-assertions",
+      "role": "EXPLANATION",
+      "canonicalId": "keep-assertions",
+      "route": "reference/guide/keep-assertions",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "relation-statements"
+      },
+      "aliases": [
+        "reference/explanations/keep-assertions",
+        "learn/keep-assertions"
+      ],
+      "archive": "archive/document/keep-assertions",
+      "resolution": "integrated"
+    },
+    {
+      "id": "review-gate",
+      "role": "MERGE",
+      "canonicalId": "review-before-trust",
+      "route": "reference/guide/review-before-trust",
+      "location": {
+        "axis": "runtime",
+        "journey": "remember",
+        "node": "remember-review"
+      },
+      "aliases": [
+        "reference/explanations/review-gate",
+        "learn/review-gate"
+      ],
+      "archive": "archive/document/review-gate",
+      "resolution": "merged"
+    },
+    {
+      "id": "local-vector",
+      "role": "EXPLANATION",
+      "canonicalId": "local-vector",
+      "route": "reference/guide/local-vector",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "meaning"
+      },
+      "aliases": [
+        "reference/explanations/local-vector",
+        "learn/local-vector"
+      ],
+      "archive": "archive/document/local-vector",
+      "resolution": "integrated"
+    },
+    {
+      "id": "search-complementarity",
+      "role": "MERGE",
+      "canonicalId": "search-methods",
+      "route": "reference/guide/search-methods",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "retrieve"
+      },
+      "aliases": [
+        "reference/explanations/search-complementarity",
+        "learn/search-complementarity"
+      ],
+      "archive": "archive/document/search-complementarity",
+      "resolution": "merged"
+    },
+    {
+      "id": "adapter-boundary",
+      "role": "EXPLANATION",
+      "canonicalId": "adapter-boundary",
+      "route": "reference/guide/adapter-boundary",
+      "location": {
+        "axis": "runtime",
+        "journey": "read",
+        "node": "connection"
+      },
+      "aliases": [
+        "reference/explanations/adapter-boundary",
+        "learn/adapter-boundary"
+      ],
+      "archive": "archive/document/adapter-boundary",
+      "resolution": "integrated"
+    },
+    {
+      "id": "deferred-platforms",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "deferred-platforms",
+      "route": "reference/guide/deferred-platforms",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "boundaries"
+      },
+      "aliases": [
+        "reference/explanations/deferred-platforms",
+        "learn/deferred-platforms"
+      ],
+      "archive": "archive/document/deferred-platforms",
+      "resolution": "integrated"
+    },
+    {
+      "id": "stable-contracts",
+      "role": "ENGINEERING ROADMAP DETAIL",
+      "canonicalId": "stable-contracts",
+      "route": "reference/guide/stable-contracts",
+      "location": {
+        "axis": "engineering",
+        "journey": "read",
+        "node": "boundaries"
+      },
+      "aliases": [
+        "reference/concepts/stable-contracts",
+        "learn/stable-contracts"
+      ],
+      "archive": "archive/document/stable-contracts",
+      "resolution": "integrated"
+    }
+  ],
+  "legacyJourneys": {
+    "find": "read",
+    "relationships": "read",
+    "sources": "sources",
+    "remember": "remember",
+    "correct": "correct",
+    "act": "act"
+  },
+  "guides": [
+    {
+      "id": "knowledge-os",
+      "members": [
+        "knowledge-os"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/knowledge-os.md",
+        "en": "en/knowledge-os.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedIds": [
+        "system-of-record",
+        "system-of-context",
+        "evidence"
+      ]
+    },
+    {
+      "id": "system-of-record",
+      "members": [
+        "system-of-record"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/system-of-record.md",
+        "en": "en/system-of-record.md"
+      },
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "source",
+        "document",
+        "action"
+      ]
+    },
+    {
+      "id": "system-of-context",
+      "members": [
+        "system-of-context"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/system-of-context.md",
+        "en": "en/system-of-context.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "knowledge-graph",
+        "decision"
+      ]
+    },
+    {
+      "id": "knowledge-graph",
+      "members": [
+        "knowledge-graph",
+        "graph-basics"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/knowledge-graph.md",
+        "en": "en/knowledge-graph.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore",
+        "ref:migrations/001_core.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedIds": [
+        "entity",
+        "relationship",
+        "ontology"
+      ]
+    },
+    {
+      "id": "ontology",
+      "members": [
+        "ontology"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/ontology.md",
+        "en": "en/ontology.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "entity",
+        "assertion",
+        "relationship"
+      ]
+    },
+    {
+      "id": "entity",
+      "members": [
+        "entity"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/entity.md",
+        "en": "en/entity.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.entity",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_mcp_entity_search_is_traced_and_scoped_by_fixed_access",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "assertion",
+        "ontology",
+        "resolution"
+      ]
+    },
+    {
+      "id": "relationship",
+      "members": [
+        "relationship"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/relationship.md",
+        "en": "en/relationship.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "ontology",
+        "assertion",
+        "graph-traversal"
+      ]
+    },
+    {
+      "id": "assertion",
+      "members": [
+        "assertion",
+        "claim"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/assertion.md",
+        "en": "en/assertion.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "evidence",
+        "proposal",
+        "temporal-validity"
+      ]
+    },
+    {
+      "id": "evidence",
+      "members": [
+        "evidence"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/evidence.md",
+        "en": "en/evidence.md"
+      },
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "provenance",
+        "chunk",
+        "assertion"
+      ]
+    },
+    {
+      "id": "provenance",
+      "members": [
+        "provenance"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/provenance.md",
+        "en": "en/provenance.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "document-version",
+        "evidence"
+      ]
+    },
+    {
+      "id": "document",
+      "members": [
+        "document"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/document.md",
+        "en": "en/document.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ids.py::document_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.document",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:tests/test_contracts.py::test_direct_source_mutations_expose_document_version_cas",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "system-of-record",
+        "document-version",
+        "chunk"
+      ]
+    },
+    {
+      "id": "document-version",
+      "members": [
+        "document-version"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/document-version.md",
+        "en": "en/document-version.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "chunk",
+        "provenance"
+      ]
+    },
+    {
+      "id": "chunk",
+      "members": [
+        "chunk"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/chunk.md",
+        "en": "en/chunk.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.evidence_bundle",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/models.py::EvidenceBundleRequest",
+        "ref:tests/test_contracts.py::test_evidence_bundle_request_is_bounded_and_deterministic",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F6"
+      ],
+      "relatedIds": [
+        "document-version",
+        "chunking",
+        "embedding"
+      ]
+    },
+    {
+      "id": "embedding",
+      "members": [
+        "embedding"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/embedding.md",
+        "en": "en/embedding.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.upsert_chunk_embedding",
+        "ref:src/knowledge_os/models.py::EmbeddingUpsert",
+        "ref:tests/test_contracts.py::test_embedding_fingerprint_binds_vector_model_and_version",
+        "ref:docs/evaluations/2026-09-05-embedding-provenance.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "vector-search",
+        "chunk",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "vector-search",
+      "members": [
+        "vector-search"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/vector-search.md",
+        "en": "en/vector-search.md"
+      },
+      "referenceIds": [
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "embedding",
+        "full-text-search",
+        "hybrid-retrieval"
+      ]
+    },
+    {
+      "id": "full-text-search",
+      "members": [
+        "full-text-search"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/full-text-search.md",
+        "en": "en/full-text-search.md"
+      },
+      "referenceIds": [
+        "ref:migrations/001_core.cypher",
+        "ref:src/knowledge_os/graph.py::literal_fulltext_query",
+        "ref:src/knowledge_os/graph.py::GraphStore.search",
+        "ref:tests/test_contracts.py::test_user_search_text_cannot_become_lucene_query_syntax"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "vector-search",
+        "hybrid-retrieval",
+        "evidence"
+      ]
+    },
+    {
+      "id": "graph-traversal",
+      "members": [
+        "graph-traversal"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/graph-traversal.md",
+        "en": "en/graph-traversal.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+        "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-graph",
+        "entity",
+        "graph-rag"
+      ]
+    },
+    {
+      "id": "rag",
+      "members": [
+        "rag",
+        "vector-rag",
+        "graph-rag"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/rag.md",
+        "en": "en/rag.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently",
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract",
+        "ref:src/knowledge_os/graph.py::GraphStore.neighbors",
+        "ref:src/knowledge_os/graph.py::GraphStore.search_entities",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:tests/test_contracts.py::test_mcp_canonical_reads_use_fixed_access_and_as_of",
+        "ref:docs/evaluations/2026-09-06-personal-mcp-graph-consumption.md"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedIds": [
+        "evidence",
+        "embedding",
+        "vector-search",
+        "graph-traversal",
+        "assertion"
+      ]
+    },
+    {
+      "id": "hybrid-retrieval",
+      "members": [
+        "hybrid-retrieval"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/hybrid-retrieval.md",
+        "en": "en/hybrid-retrieval.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedIds": [
+        "full-text-search",
+        "vector-search",
+        "graph-traversal",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "proposal",
+      "members": [
+        "proposal"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/proposal.md",
+        "en": "en/proposal.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "approval",
+        "governance",
+        "assertion"
+      ]
+    },
+    {
+      "id": "approval",
+      "members": [
+        "approval"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/approval.md",
+        "en": "en/approval.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_governed_parent_per_approval",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "proposal",
+        "governance",
+        "action"
+      ]
+    },
+    {
+      "id": "governance",
+      "members": [
+        "governance"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/governance.md",
+        "en": "en/governance.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "proposal",
+        "approval",
+        "supersession",
+        "action"
+      ]
+    },
+    {
+      "id": "temporal-validity",
+      "members": [
+        "temporal-validity"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/temporal-validity.md",
+        "en": "en/temporal-validity.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "valid-from",
+        "valid-to",
+        "observed-at",
+        "recorded-at",
+        "supersession"
+      ]
+    },
+    {
+      "id": "valid-from",
+      "members": [
+        "valid-from"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/valid-from.md",
+        "en": "en/valid-from.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "temporal-validity",
+        "document-version"
+      ]
+    },
+    {
+      "id": "valid-to",
+      "members": [
+        "valid-to"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/valid-to.md",
+        "en": "en/valid-to.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "temporal-validity",
+        "document-version"
+      ]
+    },
+    {
+      "id": "observed-at",
+      "members": [
+        "observed-at"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/observed-at.md",
+        "en": "en/observed-at.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "temporal-validity",
+        "document-version"
+      ]
+    },
+    {
+      "id": "recorded-at",
+      "members": [
+        "recorded-at"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/recorded-at.md",
+        "en": "en/recorded-at.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "temporal-validity",
+        "document-version"
+      ]
+    },
+    {
+      "id": "supersession",
+      "members": [
+        "supersession"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/supersession.md",
+        "en": "en/supersession.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "assertion",
+        "temporal-validity",
+        "governance"
+      ]
+    },
+    {
+      "id": "mcp",
+      "members": [
+        "mcp"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/mcp.md",
+        "en": "en/mcp.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-api",
+        "agent",
+        "action"
+      ]
+    },
+    {
+      "id": "knowledge-api",
+      "members": [
+        "knowledge-api"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/knowledge-api.md",
+        "en": "en/knowledge-api.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/api.py",
+        "ref:src/knowledge_os/dependencies.py",
+        "ref:tests/test_contracts.py::test_http_adapter_records_bounded_operational_telemetry",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/api.py::ingest_manifest",
+        "ref:src/knowledge_os/api.py::evidence_bundle",
+        "ref:src/knowledge_os/api.py::approve_proposal",
+        "ref:src/knowledge_os/api.py::retrieve",
+        "ref:src/knowledge_os/api.py::claim_action_execution"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "mcp",
+        "evidence",
+        "governance"
+      ]
+    },
+    {
+      "id": "agent",
+      "members": [
+        "agent"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/agent.md",
+        "en": "en/agent.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "mcp",
+        "knowledge-api",
+        "action"
+      ]
+    },
+    {
+      "id": "action",
+      "members": [
+        "action"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/action.md",
+        "en": "en/action.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "F4",
+        "F8"
+      ],
+      "relatedIds": [
+        "agent",
+        "approval",
+        "system-of-record"
+      ]
+    },
+    {
+      "id": "telemetry",
+      "members": [
+        "telemetry"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/telemetry.md",
+        "en": "en/telemetry.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [
+        "F7",
+        "F8"
+      ],
+      "relatedIds": [
+        "evaluation",
+        "sqlite",
+        "recovery"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "members": [
+        "evaluation"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/evaluation.md",
+        "en": "en/evaluation.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/evaluate.py::run_suite",
+        "ref:src/knowledge_os/connector_observation.py::observe_connector_run",
+        "ref:tests/test_contracts.py::test_ops_trace_feedback_evaluation_and_error_are_linked",
+        "ref:tests/test_v01_correctness_regressions.py::test_f7_denial_evaluation_checks_raw_results_before_exclusion"
+      ],
+      "claimIds": [
+        "F7",
+        "F8"
+      ],
+      "relatedIds": [
+        "telemetry",
+        "hybrid-retrieval",
+        "verification"
+      ]
+    },
+    {
+      "id": "source",
+      "members": [
+        "source"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/source.md",
+        "en": "en/source.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ids.py::source_id",
+        "ref:src/knowledge_os/graph.py::GraphStore.source",
+        "ref:src/knowledge_os/graph.py::GraphStore.commit_sync_checkpoint",
+        "ref:tests/test_contracts.py::test_source_and_document_identity_is_workspace_scoped_and_delimiter_safe",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "connectors",
+      "members": [
+        "connectors"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/connectors.md",
+        "en": "en/connectors.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_empty_initial_manifest_cannot_checkpoint_existing_active_documents",
+        "ref:tests/test_deletion_replay.py"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "parsing",
+      "members": [
+        "parsing"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/parsing.md",
+        "en": "en/parsing.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/file_connector.py::extract_file",
+        "ref:tests/test_contracts.py::test_meeting_transcripts_preserve_raw_timestamps_and_source_identity",
+        "ref:docs/operations/meeting-transcripts.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "chunking",
+      "members": [
+        "chunking"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/chunking.md",
+        "en": "en/chunking.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::split_text",
+        "ref:src/knowledge_os/ids.py::processing_fingerprint",
+        "ref:tests/test_v01_correctness_regressions.py::test_f6_chunk_size_is_a_hard_bound_without_content_loss"
+      ],
+      "claimIds": [
+        "F6"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "extraction",
+      "members": [
+        "extraction"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/extraction.md",
+        "en": "en/extraction.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/prompts.py::PromptRegistry",
+        "ref:src/knowledge_os/models.py::ProposalCreate",
+        "ref:config/prompts.yaml",
+        "ref:tests/test_contracts.py::test_extraction_context_is_deterministic_and_verified",
+        "ref:docs/evaluations/2026-09-05-extraction-context-service.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "resolution",
+      "members": [
+        "resolution"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/resolution.md",
+        "en": "en/resolution.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/ids.py::stable_id",
+        "ref:src/knowledge_os/models.py::EntityRef",
+        "ref:tests/test_contracts.py::test_stable_id_is_deterministic"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "event",
+      "members": [
+        "event"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/event.md",
+        "en": "en/event.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_event",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_tombstone",
+        "ref:src/knowledge_os/models.py::EventProposalCreate",
+        "ref:tests/test_contracts.py::test_doctor_requires_exactly_one_source_parent_per_operational_event",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "decision",
+      "members": [
+        "decision"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/decision.md",
+        "en": "en/decision.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve_decision",
+        "ref:src/knowledge_os/graph.py::GraphStore.decision",
+        "ref:src/knowledge_os/models.py::DecisionProposalCreate",
+        "ref:tests/test_contracts.py::test_decision_proposal_deduplicates_evidence_and_validates_time",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "sqlite",
+      "members": [
+        "sqlite"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/sqlite.md",
+        "en": "en/sqlite.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/recovery.py::_backup_sqlite",
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "F8"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "doctor",
+      "members": [
+        "doctor"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/doctor.md",
+        "en": "en/doctor.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/doctor.py::run_doctor",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f3_doctor_detects_missing_schema_object"
+      ],
+      "claimIds": [
+        "F3"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "migration",
+      "members": [
+        "migration"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/migration.md",
+        "en": "en/migration.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/migrate.py::main",
+        "ref:src/knowledge_os/graph.py::GraphStore.migrate",
+        "ref:src/knowledge_os/doctor.py::audit_migrations",
+        "ref:tests/test_contracts.py::test_doctor_detects_missing_changed_and_unexpected_migrations",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F3"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "recovery",
+      "members": [
+        "recovery"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/recovery.md",
+        "en": "en/recovery.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/recovery.py::create_backup",
+        "ref:src/knowledge_os/recovery.py::verify_backup",
+        "ref:tests/test_contracts.py::test_recovery_verifier_detects_tampering",
+        "ref:docs/operations/backup-and-restore.md",
+        "ref:docs/evaluations/2026-09-06-post-action-recovery-drill.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "a2a",
+      "members": [
+        "a2a"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/a2a.md",
+        "en": "en/a2a.md"
+      },
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:AGENT.md#architecture-explorer"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "evidence",
+        "verification"
+      ]
+    },
+    {
+      "id": "verification",
+      "members": [
+        "verification"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/verification.md",
+        "en": "en/verification.md"
+      },
+      "referenceIds": [
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_neo4j_regressions.py::test_manifest_failure_rolls_back_prior_record_and_checkpoint",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_stale_document_updates_have_one_winner",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "release-gate"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "source-of-truth",
+      "members": [
+        "source-of-truth",
+        "keep-originals"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/source-of-truth.md",
+        "en": "en/source-of-truth.md"
+      },
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:src/knowledge_os/file_connector.py::build_manifest",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "system-of-record",
+        "source",
+        "document",
+        "action",
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "document-journey",
+      "members": [
+        "document-journey"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/document-journey.md",
+        "en": "en/document-journey.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "provenance",
+        "document",
+        "document-version",
+        "evidence"
+      ]
+    },
+    {
+      "id": "ontology-basics",
+      "members": [
+        "ontology-basics"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/ontology-basics.md",
+        "en": "en/ontology-basics.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ontology.py::Ontology.validate",
+        "ref:config/ontology.yaml",
+        "ref:tests/test_contracts.py::test_ontology_rejects_invalid_relation",
+        "ref:tests/test_v01_correctness_regressions.py::test_f5_scalar_assertions_reject_unregistered_predicate"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "ontology",
+        "entity",
+        "assertion",
+        "relationship"
+      ]
+    },
+    {
+      "id": "entity-assertion",
+      "members": [
+        "entity-assertion"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/entity-assertion.md",
+        "en": "en/entity-assertion.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "assertion",
+        "claim",
+        "evidence",
+        "proposal",
+        "temporal-validity"
+      ]
+    },
+    {
+      "id": "review-before-trust",
+      "members": [
+        "review-before-trust",
+        "review-gate"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/review-before-trust.md",
+        "en": "en/review-before-trust.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._persist_proposal",
+        "ref:src/knowledge_os/graph.py::proposal_identity",
+        "ref:migrations/005_proposal_evidence_lineage.cypher",
+        "ref:tests/test_contracts.py::test_proposal_identity_is_canonical_workspace_scoped_and_content_addressed",
+        "ref:src/knowledge_os/graph.py::GraphStore.approve_proposal",
+        "ref:src/knowledge_os/graph.py::GraphStore._require_approvable_evidence",
+        "ref:tests/test_v01_neo4j_regressions.py::test_concurrent_approve_reject_has_one_immutable_outcome",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "proposal",
+        "approval",
+        "governance",
+        "assertion",
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "search-methods",
+      "members": [
+        "search-methods",
+        "search-complementarity"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/search-methods.md",
+        "en": "en/search-methods.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.retrieve",
+        "ref:src/knowledge_os/graph.py::rerank_keyword_results",
+        "ref:src/knowledge_os/graph.py::GraphStore.fuse_results",
+        "ref:tests/test_contracts.py::test_hybrid_fusion_ranks_each_retrieval_source_independently"
+      ],
+      "claimIds": [
+        "F7"
+      ],
+      "relatedIds": [
+        "hybrid-retrieval",
+        "full-text-search",
+        "vector-search",
+        "graph-traversal",
+        "evaluation",
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "agent-access",
+      "members": [
+        "agent-access"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/agent-access.md",
+        "en": "en/agent-access.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "agent",
+        "mcp",
+        "knowledge-api",
+        "action"
+      ]
+    },
+    {
+      "id": "new-document",
+      "members": [
+        "new-document"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/new-document.md",
+        "en": "en/new-document.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/google_drive_connector.py::build_manifest",
+        "ref:tests/test_contracts.py::test_google_drive_connector_is_deterministic_replay_safe_and_tombstones",
+        "ref:docs/operations/google-drive.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "document-changes",
+      "members": [
+        "document-changes"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/document-changes.md",
+        "en": "en/document-changes.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "document-deletion",
+      "members": [
+        "document-deletion"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/document-deletion.md",
+        "en": "en/document-deletion.md"
+      },
+      "referenceIds": [
+        "ref:AGENT.md#current-remediation-workflow",
+        "ref:tests/test_v01_correctness_regressions.py::test_f2_rebuilt_deletion_manifest_is_byte_identical",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f2_replay_after_graph_commit_before_checkpoint_file",
+        "ref:tests/test_deletion_replay.py::test_crash_restart_replay_and_later_deletion",
+        "ref:tests/test_deletion_replay.py::test_legacy_replay_requires_exact_original_full_hash",
+        "ref:tests/test_deletion_replay.py::test_source_deletion_time_is_preserved_and_bound_to_hash"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "knowledge-changes",
+      "members": [
+        "knowledge-changes"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/knowledge-changes.md",
+        "en": "en/knowledge-changes.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "agent-question",
+      "members": [
+        "agent-question"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/agent-question.md",
+        "en": "en/agent-question.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "agent-action",
+      "members": [
+        "agent-action"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/agent-action.md",
+        "en": "en/agent-action.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore.claim_action_execution",
+        "ref:src/knowledge_os/graph.py::GraphStore.record_action_execution",
+        "ref:src/knowledge_os/notion_action_executor.py::execute_action",
+        "ref:src/knowledge_os/models.py::ActionCreate",
+        "ref:migrations/004_action_execution.cypher",
+        "ref:migrations/006_action_capability_principals.cypher",
+        "ref:migrations/007_action_execution_claim.cypher",
+        "ref:migrations/008_action_contract_provenance.cypher",
+        "ref:migrations/009_action_contract_required.cypher",
+        "ref:tests/test_v01_neo4j_regressions.py::test_action_execution_claim_is_exclusive"
+      ],
+      "claimIds": [
+        "F4",
+        "F8"
+      ],
+      "relatedIds": [
+        "document",
+        "provenance",
+        "governance",
+        "verification"
+      ]
+    },
+    {
+      "id": "storage-boundaries",
+      "members": [
+        "storage-boundaries"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/storage-boundaries.md",
+        "en": "en/storage-boundaries.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/ops.py::OpsStore",
+        "ref:src/knowledge_os/recovery.py::_backup_sqlite",
+        "ref:tests/test_contracts.py::test_recovery_sqlite_backup_is_independent_and_valid",
+        "ref:docs/architecture/0001-stable-context-contracts.md"
+      ],
+      "claimIds": [
+        "F8"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "keep-versions",
+      "members": [
+        "keep-versions"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/keep-versions.md",
+        "en": "en/keep-versions.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::GraphStore._write_manifest_upsert",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint",
+        "ref:tests/test_metadata_correction.py",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "keep-assertions",
+      "members": [
+        "keep-assertions"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/keep-assertions.md",
+        "en": "en/keep-assertions.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._approve",
+        "ref:src/knowledge_os/graph.py::GraphStore.assertion",
+        "ref:src/knowledge_os/models.py::AssertionChange",
+        "ref:tests/test_v01_neo4j_regressions.py::test_supersession_cannot_invert_or_overlap_validity",
+        "ref:migrations/001_core.cypher"
+      ],
+      "claimIds": [
+        "F5"
+      ],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "local-vector",
+      "members": [
+        "local-vector"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/local-vector.md",
+        "en": "en/local-vector.md"
+      },
+      "referenceIds": [
+        "ref:migrations/002_chunk_vector.cypher",
+        "ref:migrations/003_vector_search_filters.cypher",
+        "ref:src/knowledge_os/graph.py::GraphStore.semantic_search",
+        "ref:tests/test_contracts.py::test_doctor_matches_vector_index_to_configured_embedding_contract"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "adapter-boundary",
+      "members": [
+        "adapter-boundary"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/adapter-boundary.md",
+        "en": "en/adapter-boundary.md"
+      },
+      "referenceIds": [
+        "ref:src/knowledge_os/mcp_server.py",
+        "ref:tests/test_contracts.py::test_mcp_adapter_exposes_only_bounded_reads_and_governed_requests",
+        "ref:tests/test_contracts.py::test_mcp_access_context_comes_from_server_environment",
+        "ref:docs/operations/mcp-adapter.md",
+        "ref:src/knowledge_os/mcp_server.py::get_contracts",
+        "ref:src/knowledge_os/mcp_server.py::get_evidence",
+        "ref:src/knowledge_os/mcp_server.py::propose_assertions",
+        "ref:src/knowledge_os/mcp_server.py::request_action",
+        "ref:src/knowledge_os/mcp_server.py::get_retrieval_capabilities"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "deferred-platforms",
+      "members": [
+        "deferred-platforms"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/deferred-platforms.md",
+        "en": "en/deferred-platforms.md"
+      },
+      "referenceIds": [
+        "ref:docs/architecture/north-star-conformance.md",
+        "ref:docs/evaluations/2026-09-06-cross-lingual-semantic-selection.md"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    },
+    {
+      "id": "stable-contracts",
+      "members": [
+        "stable-contracts"
+      ],
+      "content": {
+        "ko-KR": "ko-KR/stable-contracts.md",
+        "en": "en/stable-contracts.md"
+      },
+      "referenceIds": [
+        "ref:config/contracts.yaml",
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:tests/test_contracts.py::test_stable_contract_registry_is_complete"
+      ],
+      "claimIds": [],
+      "relatedIds": [
+        "knowledge-os",
+        "new-document",
+        "verification"
+      ]
+    }
+  ]
+}

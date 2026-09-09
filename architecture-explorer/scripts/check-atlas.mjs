@@ -1,3 +1,4 @@
+import {checkIntegration} from './check-integration.mjs';
 import {readFileSync,readdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
@@ -37,5 +38,6 @@ export function checkAtlas(root,architecture){
  for(const n of nodes.values())if(n.opposite&&!model.edges.some(e=>e.kind==='cross-axis'&&e.source===n.id&&e.target===n.opposite.node&&e.axis===n.opposite.axis))throw Error('Missing cross-axis edge');
  for(const lang of ['en','ko-KR'])if(readdirSync(resolve(dir,lang)).length!==nodes.size)throw Error('Atlas bilingual coverage mismatch');
  for(const p of ['schema.json','model.json','catalog.json',...model.nodes.flatMap(n=>Object.values(n.content)),...model.journeys.flatMap(j=>Object.values(j.checkContent))])if(hash(read(p))!==review[p])throw Error('Atlas review required: '+p);
+ checkIntegration(root,architecture);
  return {nodes:nodes.size,runtime:model.backbones.runtime.length,engineering:model.backbones.engineering.length,legacy:catalog.length,journeys:model.journeys.length};
 }
