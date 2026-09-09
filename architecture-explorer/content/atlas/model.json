@@ -1,0 +1,820 @@
+{
+  "schemaVersion": "1.0.0",
+  "milestone": "M1–M2",
+  "backbones": {
+    "runtime": [
+      "question",
+      "assistant",
+      "connection",
+      "retrieve",
+      "store",
+      "support",
+      "explain",
+      "user"
+    ],
+    "engineering": [
+      "goal",
+      "design",
+      "rules",
+      "implementation",
+      "testing",
+      "verification",
+      "recovery",
+      "release",
+      "operations",
+      "improve"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "question",
+      "labels": {
+        "ko-KR": "내 질문",
+        "en": "My question"
+      },
+      "content": {
+        "ko-KR": "ko-KR/question.md",
+        "en": "en/question.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "mcp"
+      ]
+    },
+    {
+      "id": "assistant",
+      "labels": {
+        "ko-KR": "Claude / GPT",
+        "en": "Claude / GPT"
+      },
+      "content": {
+        "ko-KR": "ko-KR/assistant.md",
+        "en": "en/assistant.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "mcp"
+      ]
+    },
+    {
+      "id": "connection",
+      "labels": {
+        "ko-KR": "MCP",
+        "en": "MCP"
+      },
+      "content": {
+        "ko-KR": "ko-KR/connection.md",
+        "en": "en/connection.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "term": "mcp",
+      "documentId": "mcp",
+      "architectureNodeIds": [
+        "mcp"
+      ]
+    },
+    {
+      "id": "retrieve",
+      "labels": {
+        "ko-KR": "읽을 수 있는 자료 찾기",
+        "en": "Find permitted material"
+      },
+      "content": {
+        "ko-KR": "ko-KR/retrieve.md",
+        "en": "en/retrieve.md"
+      },
+      "branches": [
+        "words",
+        "meaning",
+        "links"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "store",
+      "labels": {
+        "ko-KR": "저장된 근거·관계 읽기",
+        "en": "Read stored evidence and links"
+      },
+      "content": {
+        "ko-KR": "ko-KR/store.md",
+        "en": "en/store.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "neo4j"
+      ]
+    },
+    {
+      "id": "support",
+      "labels": {
+        "ko-KR": "답변에 쓸 근거 반환",
+        "en": "Return supporting material"
+      },
+      "content": {
+        "ko-KR": "ko-KR/support.md",
+        "en": "en/support.md"
+      },
+      "branches": [
+        "evidence"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-evidence"
+      ]
+    },
+    {
+      "id": "explain",
+      "labels": {
+        "ko-KR": "Claude / GPT가 설명",
+        "en": "Claude / GPT explains"
+      },
+      "content": {
+        "ko-KR": "ko-KR/explain.md",
+        "en": "en/explain.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "mcp"
+      ]
+    },
+    {
+      "id": "user",
+      "labels": {
+        "ko-KR": "내가 읽고 확인",
+        "en": "I read and check"
+      },
+      "content": {
+        "ko-KR": "ko-KR/user.md",
+        "en": "en/user.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-evidence"
+      ]
+    },
+    {
+      "id": "goal",
+      "labels": {
+        "ko-KR": "목표",
+        "en": "Goal"
+      },
+      "content": {
+        "ko-KR": "ko-KR/goal.md",
+        "en": "en/goal.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "systems"
+      ]
+    },
+    {
+      "id": "design",
+      "labels": {
+        "ko-KR": "전체 설계",
+        "en": "Architecture"
+      },
+      "content": {
+        "ko-KR": "ko-KR/design.md",
+        "en": "en/design.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-source"
+      ]
+    },
+    {
+      "id": "rules",
+      "labels": {
+        "ko-KR": "지켜야 할 규칙",
+        "en": "Rules to preserve"
+      },
+      "content": {
+        "ko-KR": "ko-KR/rules.md",
+        "en": "en/rules.md"
+      },
+      "branches": [
+        "version-rule"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "contract-evidence"
+      ]
+    },
+    {
+      "id": "implementation",
+      "labels": {
+        "ko-KR": "코드 구현",
+        "en": "Implementation"
+      },
+      "content": {
+        "ko-KR": "ko-KR/implementation.md",
+        "en": "en/implementation.md"
+      },
+      "branches": [
+        "version-code"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "version"
+      ]
+    },
+    {
+      "id": "testing",
+      "labels": {
+        "ko-KR": "테스트",
+        "en": "Testing"
+      },
+      "content": {
+        "ko-KR": "ko-KR/testing.md",
+        "en": "en/testing.md"
+      },
+      "branches": [
+        "integrity-test"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "verification",
+      "labels": {
+        "ko-KR": "제대로 되는지 검증",
+        "en": "Verification"
+      },
+      "content": {
+        "ko-KR": "ko-KR/verification.md",
+        "en": "en/verification.md"
+      },
+      "branches": [
+        "integrity-proof"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "recovery",
+      "labels": {
+        "ko-KR": "고장 후 복구 검증",
+        "en": "Recovery validation"
+      },
+      "content": {
+        "ko-KR": "ko-KR/recovery.md",
+        "en": "en/recovery.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "recovery"
+      ]
+    },
+    {
+      "id": "release",
+      "labels": {
+        "ko-KR": "릴리스 승인",
+        "en": "Release acceptance"
+      },
+      "content": {
+        "ko-KR": "ko-KR/release.md",
+        "en": "en/release.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [
+        "release-gate"
+      ],
+      "architectureNodeIds": [
+        "release-gate"
+      ]
+    },
+    {
+      "id": "operations",
+      "labels": {
+        "ko-KR": "운영",
+        "en": "Operations"
+      },
+      "content": {
+        "ko-KR": "ko-KR/operations.md",
+        "en": "en/operations.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "doctor"
+      ]
+    },
+    {
+      "id": "improve",
+      "labels": {
+        "ko-KR": "측정·개선",
+        "en": "Measure and improve"
+      },
+      "content": {
+        "ko-KR": "ko-KR/improve.md",
+        "en": "en/improve.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "telemetry"
+      ]
+    },
+    {
+      "id": "evidence",
+      "labels": {
+        "ko-KR": "답변의 근거 확인",
+        "en": "Check the answer’s evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/evidence.md",
+        "en": "en/evidence.md"
+      },
+      "branches": [
+        "version"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "term": "evidence",
+      "documentId": "evidence",
+      "architectureNodeIds": [
+        "chunk"
+      ]
+    },
+    {
+      "id": "version",
+      "labels": {
+        "ko-KR": "당시 문서 상태",
+        "en": "The document as it was"
+      },
+      "content": {
+        "ko-KR": "ko-KR/version.md",
+        "en": "en/version.md"
+      },
+      "branches": [
+        "why-version"
+      ],
+      "referenceIds": [],
+      "claimIds": [],
+      "term": "version",
+      "documentId": "document-version",
+      "opposite": {
+        "axis": "engineering",
+        "node": "version-rule"
+      },
+      "architectureNodeIds": [
+        "version"
+      ]
+    },
+    {
+      "id": "why-version",
+      "labels": {
+        "ko-KR": "왜 문서 버전을 보존할까?",
+        "en": "Why preserve document versions?"
+      },
+      "content": {
+        "ko-KR": "ko-KR/why-version.md",
+        "en": "en/why-version.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "term": "version",
+      "documentId": "keep-versions",
+      "opposite": {
+        "axis": "engineering",
+        "node": "version-rule"
+      },
+      "architectureNodeIds": [
+        "version"
+      ]
+    },
+    {
+      "id": "version-rule",
+      "labels": {
+        "ko-KR": "원래 근거를 바꾸지 않는 규칙",
+        "en": "Preserve the original evidence"
+      },
+      "content": {
+        "ko-KR": "ko-KR/version-rule.md",
+        "en": "en/version-rule.md"
+      },
+      "branches": [
+        "version-code"
+      ],
+      "referenceIds": [
+        "ref:docs/architecture/0001-stable-context-contracts.md",
+        "ref:config/contracts.yaml"
+      ],
+      "claimIds": [],
+      "term": "version",
+      "documentId": "document-version",
+      "opposite": {
+        "axis": "runtime",
+        "node": "version"
+      },
+      "architectureNodeIds": [
+        "contract-evidence"
+      ]
+    },
+    {
+      "id": "version-code",
+      "labels": {
+        "ko-KR": "그 규칙을 저장 코드에 적용",
+        "en": "Enforce the rule in storage"
+      },
+      "content": {
+        "ko-KR": "ko-KR/version-code.md",
+        "en": "en/version-code.md"
+      },
+      "branches": [
+        "integrity-test"
+      ],
+      "referenceIds": [
+        "ref:src/knowledge_os/graph.py::GraphStore._write_version",
+        "ref:src/knowledge_os/graph.py::source_metadata_fingerprint"
+      ],
+      "claimIds": [],
+      "term": "version",
+      "documentId": "document-version",
+      "opposite": {
+        "axis": "runtime",
+        "node": "version"
+      },
+      "architectureNodeIds": [
+        "version"
+      ]
+    },
+    {
+      "id": "integrity-test",
+      "labels": {
+        "ko-KR": "다른 주소가 섞이면 잡아내기",
+        "en": "Detect mismatched metadata"
+      },
+      "content": {
+        "ko-KR": "ko-KR/integrity-test.md",
+        "en": "en/integrity-test.md"
+      },
+      "branches": [
+        "integrity-proof"
+      ],
+      "referenceIds": [
+        "ref:tests/test_v01_neo4j_regressions.py::test_f1_manifest_hash_matches_immutable_document_metadata",
+        "ref:tests/test_v01_neo4j_regressions.py::test_f1_manifest_rejects_document_uri_drift_under_same_revision",
+        "ref:tests/test_metadata_correction.py"
+      ],
+      "claimIds": [],
+      "term": "version",
+      "documentId": "verification",
+      "opposite": {
+        "axis": "runtime",
+        "node": "version"
+      },
+      "architectureNodeIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "integrity-proof",
+      "labels": {
+        "ko-KR": "어디까지 실제로 확인했나?",
+        "en": "What was actually verified?"
+      },
+      "content": {
+        "ko-KR": "ko-KR/integrity-proof.md",
+        "en": "en/integrity-proof.md"
+      },
+      "branches": [],
+      "referenceIds": [
+        "ref:tests/test_metadata_correction.py"
+      ],
+      "claimIds": [
+        "F1"
+      ],
+      "term": "version",
+      "documentId": "verification",
+      "opposite": {
+        "axis": "runtime",
+        "node": "version"
+      },
+      "architectureNodeIds": [
+        "F1"
+      ]
+    },
+    {
+      "id": "words",
+      "labels": {
+        "ko-KR": "정확한 단어 찾기",
+        "en": "Find exact words"
+      },
+      "content": {
+        "ko-KR": "ko-KR/words.md",
+        "en": "en/words.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "meaning",
+      "labels": {
+        "ko-KR": "비슷한 뜻 찾기",
+        "en": "Find similar meaning"
+      },
+      "content": {
+        "ko-KR": "ko-KR/meaning.md",
+        "en": "en/meaning.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "vector"
+      ]
+    },
+    {
+      "id": "links",
+      "labels": {
+        "ko-KR": "기록된 관계 읽기",
+        "en": "Read recorded relationships"
+      },
+      "content": {
+        "ko-KR": "ko-KR/links.md",
+        "en": "en/links.md"
+      },
+      "branches": [],
+      "referenceIds": [],
+      "claimIds": [],
+      "architectureNodeIds": [
+        "graph-retrieval"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "runtime:question:assistant",
+      "source": "question",
+      "target": "assistant",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:assistant:connection",
+      "source": "assistant",
+      "target": "connection",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:connection:retrieve",
+      "source": "connection",
+      "target": "retrieve",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:retrieve:store",
+      "source": "retrieve",
+      "target": "store",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:store:support",
+      "source": "store",
+      "target": "support",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:support:explain",
+      "source": "support",
+      "target": "explain",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "runtime:explain:user",
+      "source": "explain",
+      "target": "user",
+      "kind": "sequence",
+      "axis": "runtime"
+    },
+    {
+      "id": "engineering:goal:design",
+      "source": "goal",
+      "target": "design",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:design:rules",
+      "source": "design",
+      "target": "rules",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:rules:implementation",
+      "source": "rules",
+      "target": "implementation",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:implementation:testing",
+      "source": "implementation",
+      "target": "testing",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:testing:verification",
+      "source": "testing",
+      "target": "verification",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:verification:recovery",
+      "source": "verification",
+      "target": "recovery",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:recovery:release",
+      "source": "recovery",
+      "target": "release",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:release:operations",
+      "source": "release",
+      "target": "operations",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "engineering:operations:improve",
+      "source": "operations",
+      "target": "improve",
+      "kind": "sequence",
+      "axis": "engineering"
+    },
+    {
+      "id": "branch:retrieve:words",
+      "source": "retrieve",
+      "target": "words",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:retrieve:meaning",
+      "source": "retrieve",
+      "target": "meaning",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:retrieve:links",
+      "source": "retrieve",
+      "target": "links",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:support:evidence",
+      "source": "support",
+      "target": "evidence",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:rules:version-rule",
+      "source": "rules",
+      "target": "version-rule",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:implementation:version-code",
+      "source": "implementation",
+      "target": "version-code",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:testing:integrity-test",
+      "source": "testing",
+      "target": "integrity-test",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:verification:integrity-proof",
+      "source": "verification",
+      "target": "integrity-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:evidence:version",
+      "source": "evidence",
+      "target": "version",
+      "kind": "branch"
+    },
+    {
+      "id": "branch:version:why-version",
+      "source": "version",
+      "target": "why-version",
+      "kind": "branch"
+    },
+    {
+      "id": "cross:version:version-rule",
+      "source": "version",
+      "target": "version-rule",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "cross:why-version:version-rule",
+      "source": "why-version",
+      "target": "version-rule",
+      "kind": "cross-axis",
+      "axis": "engineering"
+    },
+    {
+      "id": "branch:version-rule:version-code",
+      "source": "version-rule",
+      "target": "version-code",
+      "kind": "branch"
+    },
+    {
+      "id": "cross:version-rule:version",
+      "source": "version-rule",
+      "target": "version",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "branch:version-code:integrity-test",
+      "source": "version-code",
+      "target": "integrity-test",
+      "kind": "branch"
+    },
+    {
+      "id": "cross:version-code:version",
+      "source": "version-code",
+      "target": "version",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "branch:integrity-test:integrity-proof",
+      "source": "integrity-test",
+      "target": "integrity-proof",
+      "kind": "branch"
+    },
+    {
+      "id": "cross:integrity-test:version",
+      "source": "integrity-test",
+      "target": "version",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    },
+    {
+      "id": "cross:integrity-proof:version",
+      "source": "integrity-proof",
+      "target": "version",
+      "kind": "cross-axis",
+      "axis": "runtime"
+    }
+  ]
+}

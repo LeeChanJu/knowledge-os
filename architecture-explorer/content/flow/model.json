@@ -68,8 +68,8 @@
     },
     {
       "id": "interface",
-      "ko-KR": "연결 창구",
-      "en": "Connection tools",
+      "ko-KR": "MCP",
+      "en": "MCP",
       "state": "current",
       "terms": [
         "mcp",
@@ -251,7 +251,7 @@
         "request": "“이 내용 기억해둬.”",
         "steps": [
           "나 → Claude/GPT",
-          "연결 창구 → 근거 준비",
+          "MCP → 근거 준비",
           "후보 → 별도 검토",
           "승인 → 연결된 지식"
         ],
@@ -262,7 +262,7 @@
         "request": "“Remember this.”",
         "steps": [
           "Me → Claude/GPT",
-          "Connection tools → prepare evidence",
+          "MCP → prepare evidence",
           "Candidate → separate review",
           "Accept → connected knowledge"
         ],
@@ -276,7 +276,7 @@
         "label": "찾아보기",
         "request": "“전에 저장한 SAP A2A 내용 찾아줘.”",
         "steps": [
-          "나 → Claude/GPT → 연결 창구",
+          "나 → Claude/GPT → MCP",
           "읽기 권한 확인 → 관련 자료 찾기",
           "원본 근거와 함께 반환 → Claude/GPT → 나"
         ],
@@ -286,7 +286,7 @@
         "label": "Find",
         "request": "“Find my saved notes about SAP A2A.”",
         "steps": [
-          "Me → Claude/GPT → connection tools",
+          "Me → Claude/GPT → MCP",
           "Check read access → find material",
           "Return source evidence → Claude/GPT → me"
         ],
@@ -376,7 +376,7 @@
           "별도 권한을 가진 실행자 → 허용된 원본 시스템",
           "실행 결과 기록 → 다시 읽어 확인"
         ],
-        "boundary": "일부 구현입니다. 제한된 Notion 실행 경로가 있으며, 연결 창구는 승인·실행하지 않습니다. 범용 자율 변경 기능은 아닙니다."
+        "boundary": "일부 구현입니다. 제한된 Notion 실행 경로가 있으며, MCP는 승인·실행하지 않습니다. 범용 자율 변경 기능은 아닙니다."
       },
       "en": {
         "label": "Propose a change",
@@ -386,7 +386,7 @@
           "Separately authorized executor → permitted source system",
           "Record outcome → read it back"
         ],
-        "boundary": "Partially implemented. A bounded Notion executor exists; connection tools do not approve or execute. This is not general autonomous editing."
+        "boundary": "Partially implemented. A bounded Notion executor exists; MCP do not approve or execute. This is not general autonomous editing."
       }
     }
   ],

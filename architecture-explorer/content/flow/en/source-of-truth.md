@@ -32,7 +32,7 @@ The authoritative home of an original is called the Source of Truth. Connecting 
 
 ## The “I can read it, so I can write it” mistake
 
-[A request to change an outside system](term:action) is different from search. A bounded Notion execution path exists, but requires separate policy, human approval and execution authority. Connection tools do not automatically approve or execute it.
+[A request to change an outside system](term:action) is different from search. A bounded Notion execution path exists, but requires separate policy, human approval and execution authority. MCP do not automatically approve or execute it.
 
 ## Explain it in your own words
 

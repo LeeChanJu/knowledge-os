@@ -26,7 +26,7 @@ No technical background is needed. If you can explain where originals live and h
 
 ## How does today's implementation differ from the goal?
 
-There are [connection tools](term:mcp) for bounded reads and proposals. An independently authorized reviewer approves outside those tools. Automated extraction providers and production meaning-search population remain intentionally deferred.
+There are [MCP](term:mcp) for bounded reads and proposals. An independently authorized reviewer approves outside those tools. Automated extraction providers and production meaning-search population remain intentionally deferred.
 
 [Accepted knowledge](term:canonical) can still be wrong. Review history and original evidence let us revisit and correct it. The map describes connected responsibilities, not proof that every path has completed verification.
 

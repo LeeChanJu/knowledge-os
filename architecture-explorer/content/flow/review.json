@@ -11,8 +11,8 @@
         "canonical"
       ],
       "hashes": {
-        "en": "ab807d36af8d64aeeee925613322475a244067a71426ff8d733ed005ea81f020",
-        "ko-KR": "8338b7122bb2b4dea4ca4cc9893614c5c971d83d899a53a0d5888c6bd6abe0a5"
+        "en": "4452cd5c048c21f0e534d15f432299973a19da2b399a974eba9835ddb2da106b",
+        "ko-KR": "9fa70f2613aafc060f67759f329346ca8cff10e6716011b2e92b4c5c30f194c9"
       }
     },
     "source-of-truth": {
@@ -24,8 +24,8 @@
         "action"
       ],
       "hashes": {
-        "en": "66273a0f04a3d78eff2678b59fadc968af6dded6bab45223920fb4c8eb21e7d0",
-        "ko-KR": "3c207eb73c68b133495494f6f734acd2ee53c7bb7eef93518af6f41fd1684fc2"
+        "en": "3a4f7770d3756461c2b59cada11ae795583461c05ad00e63e770d7e6134f6b2d",
+        "ko-KR": "a77e438736b883203caa124fbf7c64843e59d8a413acf49c4c6f975c5ba86edb"
       }
     },
     "document-journey": {
@@ -64,8 +64,8 @@
     }
   },
   "fingerprints": {
-    "model.json": "99ace38ba24b8bd732e9f9def3d444fda86afdc6afc0de68f78ea2d84185530a",
-    "glossary.json": "6d175052ff8c0933eba0ab349cbed95fb924ad6c70e82d2550c37a9cf04b585d"
+    "model.json": "84de54f484d81b8dadcd134790d39a6f04ebad4ddeb43dc621ebdb9e05cfd12f",
+    "glossary.json": "47d4d84b9b8a3b3d88402ee5f28fd5ec82d431e43af36179627fa69c984503ed"
   },
   "optionalIntroductions": {
     "agent": {

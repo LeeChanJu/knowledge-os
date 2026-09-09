@@ -323,3 +323,19 @@ and keyboard dismissal, source/Explore return paths, old URLs, search/filter emp
 states and narrow layouts. Screenshots are written to ignored `test-results/`.
 The hover panel keeps a safe pointer corridor to its link; selecting that link
 closes the panel so it cannot cover the destination content.
+
+### System Atlas M1 / M2 (local review)
+
+The root now offers Runtime (`/#/ko-KR/runtime`) and Engineering
+(`/#/ko-KR/engineering`) roadmaps. Replace `ko-KR` with `en` for English.
+Both complete backbones are visible before any selection; the detailed M2 branch
+connects query evidence and document versions to preservation rules, code, tests,
+executed evidence and back to the original query flow. Architecture remains the
+existing Cytoscape graph. Legacy Learn documents remain reachable.
+
+The versioned schema, 28-node / 35-edge curated model, bilingual Markdown,
+77-page reclassification and review fingerprints live under `content/atlas/`.
+`explorer:check` now also runs the non-mutating Atlas validator. No new commands,
+dependencies, runtime databases or verification authority are introduced.
+See `review/atlas-m2.md` for the scope and exact review route. M3 and publication
+are intentionally outside this milestone pending screen review.

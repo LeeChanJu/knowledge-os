@@ -276,12 +276,12 @@
     "stage": "interface",
     "lesson": "start-here",
     "ko-KR": {
-      "label": "연결 창구",
+      "label": "MCP",
       "definition": "Claude 같은 프로그램이 정해진 도구를 호출하도록 연결하는 약속입니다. 이 연결 자체가 승인 권한을 주지는 않습니다.",
-      "example": "예: 자료 조회나 검토 요청 도구. Knowledge API도 별도 연결 창구입니다."
+      "example": "예: 자료 조회나 검토 요청 도구. Knowledge API도 별도 접근 인터페이스입니다."
     },
     "en": {
-      "label": "Connection tools",
+      "label": "MCP",
       "definition": "A protocol through which a program such as Claude calls defined tools. Connecting does not grant approval authority.",
       "example": "Example: tools for reading material or submitting a request. The Knowledge API is another interface."
     }

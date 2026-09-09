@@ -99,12 +99,3 @@ a new GitHub Pages snapshot.
 Existing Explorer routing, shared map, flagship/reference wrappers, graph hash
 handling, stylesheet, content checker, README and relevant Explorer tests were
 updated to integrate them. The previous flagship work was not discarded.
-
-## GitHub Pages publication
-
-Publication was subsequently requested explicitly. The release uses the existing
-public snapshot branch and its previously executed, curated F1/F2 evidence.
-Local-only production temporal changes and local Git history are not included.
-Only Explorer documentation/UI files are updated; generated evidence is synchronized
-against the public source tree before the existing Pages workflow validates and
-publishes it. The earlier local-only note above describes the implementation milestone.

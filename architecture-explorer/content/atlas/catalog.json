@@ -1,0 +1,1078 @@
+[
+  {
+    "id": "knowledge-os",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/knowledge-os",
+    "aliases": [
+      "learn/knowledge-os"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "5b26cfeca5bdece13c7af1ee2d35f1000df2ac9aea88a652c575abb2a2585b4c",
+      "en": "49eabe50553e7dd8d0db486cdfdfb61dfbdb11e6ab4e974ce5c168f5c9d4e0ce"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "system-of-record",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/explanations/system-of-record",
+    "aliases": [
+      "learn/system-of-record"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c3426aa4751576b3a5a444f18fac541c5975a6dac11972029236fefbef2e04bb",
+      "en": "b8b56d905535458c9ff7c99a927b16f5f8b55fd906264ec47eb7458a08bf2ecf"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "system-of-context",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/system-of-context",
+    "aliases": [
+      "learn/system-of-context"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "96e092c51970fa3eb3455d10b50cf8a4db0b5ac08d9bbcd8d0415d45ec701f98",
+      "en": "ddf2cfaf9e2ce11444816eba4970911de48be523502eebd01fd85275a0143333"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "knowledge-graph",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/knowledge-graph",
+    "aliases": [
+      "learn/knowledge-graph"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "2193cf58484fb46ed980c5773ce79d49d6b51e3daa289f7eaeb6afd877793700",
+      "en": "ec58813c035b301408d78c3fe60b3fb3fdb05342a8746255a09bb2f670b021a0"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "ontology",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/ontology",
+    "aliases": [
+      "learn/ontology"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "9f00ae1a807046423a3c19b5b8be05efefe98e70c2710578ffda6716f61290cf",
+      "en": "cf6f2c1ec5ea4d61cd1ddbb1c41c7e59f305f34b2af5dc4be696b1a060be2c23"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "entity",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/entity",
+    "aliases": [
+      "learn/entity"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c9a5a6da1005eb47fe53d37892a9d1c390e2a90f841a569f3bcd436b8dcbc1b6",
+      "en": "f27f83254bbadf33eb097570ad3c55b20873b5469fc5080ddaac458565a0b8db"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "relationship",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/relationship",
+    "aliases": [
+      "learn/relationship"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "b776044107a63f6a552fb4d7db68d17ee177b1968e536db99375b1b5ddea9bcc",
+      "en": "7439baffe1d8f5c8658a0c08b8f20885c33f37268d9f1e603e908d9d1149462f"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "assertion",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/assertion",
+    "aliases": [
+      "learn/assertion"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "405251524e5e6dc73c85241befb24fdb09aff601efbb886c5c4595ac1dca9f79",
+      "en": "071bc5b2ca26df50e0b9ea03cea65688cdf24a79fc5c8998b1f7191eec187d0c"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "claim",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/claim",
+    "aliases": [
+      "learn/claim"
+    ],
+    "plannedMerge": "assertion",
+    "bodyHashes": {
+      "ko-KR": "fcb314df6c5f9e7ed86b4ea7c4ccec47b05858f82b8892465fb6dbe940906bb1",
+      "en": "c019dca85c4b8a329a9b6fb43d1edbc2b53b83b04e419ed5a7bbc558da65cf54"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "evidence",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/evidence",
+    "aliases": [
+      "learn/evidence"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "a5a095a7684cec12092cdf8ec2d3c9a06c27e56a0895990e3595f2e03276d581",
+      "en": "4f7779ce33f30965ed02d308f0d2aeb686d5f50be98f58f10fcb0a93a8431a5b"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "provenance",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/provenance",
+    "aliases": [
+      "learn/provenance"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c3ebbaee8a78d63675b6ed782e4ac450ef00a0408c09280172f7c2a229ed1727",
+      "en": "a945afa6c1d533db055c9d5488598e552ed543f671a0b431930346b1aeaabbf9"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "document",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/document",
+    "aliases": [
+      "learn/document"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "8c8b434f779d4f6bb366be2d47b78897475d00abecae61bc43c5b13d0c122da9",
+      "en": "8be9654eb3765faf90e6465529f19ba5270ebc79032e76a82c0d8d6951f3f838"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "document-version",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/document-version",
+    "aliases": [
+      "learn/document-version"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "ac3387c8c0cac848b4683010f0002993cc60b1ae58e37ec3e6bd19cd9013655e",
+      "en": "1fddb78b91dde6eaecd8045100e7034f2ff07ada8ac7d161c21d2a9d50a91f37"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "chunk",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/chunk",
+    "aliases": [
+      "learn/chunk"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "ebb5a8c08b2b55890c0493a5205d5905c8d742355927e938ad1e128d657dc2a9",
+      "en": "ba530e1bf13be5211f355bb54711e9ed6e25fcf3257df38f66d3a4851a68b237"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "embedding",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/embedding",
+    "aliases": [
+      "learn/embedding"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "71409a286063a8f101acac5ea70b73c240c24d730f2683b1409dfde09212aa2e",
+      "en": "400b03d2b6a5721bfc3e6bf26fe28bacc294841846196c463cef066af64d8d92"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "vector-search",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/vector-search",
+    "aliases": [
+      "learn/vector-search"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c3ef27fd99be7e6b1f47ff2c4c585d8b31213361059713d6ca7b63aed02610bd",
+      "en": "f4a3a40259444d92ae498705779d898885d39defce69f1e1336bc8d3511e3a1b"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "full-text-search",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/full-text-search",
+    "aliases": [
+      "learn/full-text-search"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "e102a1388608def0122e842e54bb20a1beb144788d4061bc37559c88ae205c89",
+      "en": "ecf1ac64b804accdfcc804cc78ea2f1ec97afd3ada857f4a67275d4edfb486c5"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "graph-traversal",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/graph-traversal",
+    "aliases": [
+      "learn/graph-traversal"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "dc5aaf119a159cad99f933502ceb9c3dd9cad71df39e2142b5671aa1bfd98270",
+      "en": "efc16263c4ef5242ad01046e14a6fb41f59c36a46722f5c7db9b42f4cbf62d6f"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "rag",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/rag",
+    "aliases": [
+      "learn/rag"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "21be8fbd0526eaecb5cef584f430efdb13fb30f1d05161708d99ff3a36d03f85",
+      "en": "d5b722acd1f55c8a44eb0db15a757492aa3283d8e1bf76e818c2696c8981827e"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "vector-rag",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/vector-rag",
+    "aliases": [
+      "learn/vector-rag"
+    ],
+    "plannedMerge": "rag",
+    "bodyHashes": {
+      "ko-KR": "516d5c90edf48c8d08f0b1f305bfafd14a386751b19033415d483c61a6db63e7",
+      "en": "2b5ee30d4bb129d6a683ba003e17b844a73075806328fded1d10081b91378a2d"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "graph-rag",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/graph-rag",
+    "aliases": [
+      "learn/graph-rag"
+    ],
+    "plannedMerge": "rag",
+    "bodyHashes": {
+      "ko-KR": "342270a6842c9421eb1bc13e665e7b947f6bdb09ff3ec2e1f8592ddf61a676ce",
+      "en": "6d1dc887c296cdbb07d3850e739ea6edbbde7e9be58e9c9724d4f5b21853c343"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "hybrid-retrieval",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/hybrid-retrieval",
+    "aliases": [
+      "learn/hybrid-retrieval"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "6ac3f05287870ea83afd9d8348b27201ff4432e0a88583120a71e7244331fd20",
+      "en": "1932e7e83589910d6be13259b0bfd8475d5ceba0e94ccd341a58ee26d54dfdb7"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "proposal",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/proposal",
+    "aliases": [
+      "learn/proposal"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "0c8c22b8338bbaec892d8581330210e912f5a7471a2061ad375713dfb662279b",
+      "en": "8dbaae2e5975f80329794db069086196b1953361b1dc51eed5fbedc79f153c51"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "approval",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/approval",
+    "aliases": [
+      "learn/approval"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "786d45f9722341655075771787bd488be5437a23fef7331ad65d41d53730df1e",
+      "en": "db8df27a1c047de2ce4fe605060055631b5331577e572d12352c97b801681b6e"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "governance",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/governance",
+    "aliases": [
+      "learn/governance"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "d1b942b15747ccc47beee53270dd9815f79271a3c933e87ae43f3c44f66e1c48",
+      "en": "b8c4807f2faec21fd2d710246140859da30ba3e1e5b48b312ede6a5516ac70e0"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "temporal-validity",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/temporal-validity",
+    "aliases": [
+      "learn/temporal-validity"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "f544987c7ac0e9f41d12fe118913d95348186898e626ce8d4a4107cbbb6e08f9",
+      "en": "a379ec6d221f0f71261d24712db1c175622706fb1f148904ccc314fca36cd19d"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "valid-from",
+    "role": "REFERENCE",
+    "currentPath": "reference/concepts/valid-from",
+    "aliases": [
+      "learn/valid-from"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c7d23f695cbc3eea574372e8d4c5948d664392a158fa10ab073cf271d26fa792",
+      "en": "c1faef1b527f05aa4b82ae8bcff19323192ae2160746b244e17bd8f130718763"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "valid-to",
+    "role": "REFERENCE",
+    "currentPath": "reference/concepts/valid-to",
+    "aliases": [
+      "learn/valid-to"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "90457d6da68da2d83d0f4c8b04e85a3eed075685f13eba71aa0e04932aa31b96",
+      "en": "dae37e027c3be7d0b0863ff1b37e9e9257bb3628ee8d21a55e965dbec62a87c1"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "observed-at",
+    "role": "REFERENCE",
+    "currentPath": "reference/concepts/observed-at",
+    "aliases": [
+      "learn/observed-at"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "d09d9d875c4c123798c4d3a3b404fa010a8ca1706d7d4a7c02fdc6bff83fdf5a",
+      "en": "bf114b1b0152ffb7b1ca818a8155d0dc94abac44b73fae40a6f524c523a359c0"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "recorded-at",
+    "role": "REFERENCE",
+    "currentPath": "reference/concepts/recorded-at",
+    "aliases": [
+      "learn/recorded-at"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "798735ba331f7580a3b408f81c57a002a987c1221e057b5bd5ed9b6f0fd1c9e2",
+      "en": "aec49a301bd427dfd52ef8449d7dddd8e1a2e48a020616f049d48a76482f781e"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "supersession",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/supersession",
+    "aliases": [
+      "learn/supersession"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "90c2a1aa59e1ed8297eabd8f8008f64f10352effd6647fa6421fe28b76a0e839",
+      "en": "a6bb269c09ce81a403223545f58ef918d4da4fc698c9eb08489b0c355b684ce2"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "mcp",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/mcp",
+    "aliases": [
+      "learn/mcp"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "48df50f8030f8dab8e6be227129f9ec2ba87697c9d9bddeb51cb5e78ce4baef7",
+      "en": "97d807bde0c26f8f5c464baf5750b42f2f5a2c37622aeb547d78fad0781033e6"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "knowledge-api",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/knowledge-api",
+    "aliases": [
+      "learn/knowledge-api"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "a243ae5ad82ad4ca20d45b325118b425e43628e71086fc368e5e8bf589d731dc",
+      "en": "1bbdd5c0a4d249442409c8f3e0bbfbedc589ee8e8b2dd716d7fb78b62b16857f"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "agent",
+    "role": "EXPLANATION",
+    "currentPath": "reference/deep-dives/agent",
+    "aliases": [
+      "learn/agent"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "8e9add4f19d684db121a73f0fd4ca097895645420f5bc06dbedca81b00e4cefb",
+      "en": "ba3c33da3a03d2673aeb285a07ed9f61cba861f03b2129539b8a6e12dae8e536"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "action",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/action",
+    "aliases": [
+      "learn/action"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "6a0a1e80431599b64c7576c2f87bc363f616d1d7303620319f35a853601d3e9a",
+      "en": "7999845875cad9c9bfc7345c7c9f406075f59bc4b6f6a769bd023fdb2de8ac85"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "telemetry",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/telemetry",
+    "aliases": [
+      "learn/telemetry"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "90ce607c920edb151e61044f1d8b0e2ceea072bf539d80bcc5414441a4a2484e",
+      "en": "c60d1df2e147ea15081621e88b02b2a871cbc51ece07fb93e1a52e96481e7178"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "evaluation",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/evaluation",
+    "aliases": [
+      "learn/evaluation"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "831f04058f94bac8a778901e2c613356084f6e5db8b2ee49c4b740a30653b80a",
+      "en": "645e1c1d134ee7853361c303842708d0194fb341f3627663800f8c7b3faf90d8"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "source",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/source",
+    "aliases": [
+      "learn/source"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "176a99ed27874c8b7acd4db20ced3fed3a0a0ff3d2d7eeaf29b1a31ec817f47d",
+      "en": "108937122d0ab7f26b23a778a4cb00208f29ca160c1b50083e0989fd7562fd76"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "connectors",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/connectors",
+    "aliases": [
+      "learn/connectors"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "18b617f6abcb51ee3a451ed0c76e21c19151aa4d7d15888d0c0ef569e71a9446",
+      "en": "aedf55eb94c09eaa5dadd489795283972b35a9d9c62cf99c5899c3de2cd82fea"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "parsing",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/parsing",
+    "aliases": [
+      "learn/parsing"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "5bf3560ff09885ea8e9e0aec5e5c905d76a922d9dac8ec1cedf86086d8683d3f",
+      "en": "07ee257f3352f0d6b984996719a14523c6959d2c0a77ef289eaa27fbb9c1ddfc"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "chunking",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/chunking",
+    "aliases": [
+      "learn/chunking"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "3745982d267f1e576206a787e781ed2558679e6b6d6e5a8907f5147dd319c39c",
+      "en": "58e63c9f54d3c12f538db54b98d7427958ea857589f430b63a4ee72c912c7fd5"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "extraction",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/extraction",
+    "aliases": [
+      "learn/extraction"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "70e62606dd375f634ef55274ff110c2da845ab44d67dac586887bd3a98279622",
+      "en": "484f7e8f5ef105fed36073b2c1091ec912d81e27d7cc9a41ad6051dd7dc8e0d7"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "resolution",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/resolution",
+    "aliases": [
+      "learn/resolution"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "54beb6eeb69e1026b028d24fcc315016765d928b30a00bbc0474ccacd82a27ec",
+      "en": "d5b9abfc185465dda0e9da688e8c3d3c0ec6c861b44c5f5015a65c3a7e53c488"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "event",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/event",
+    "aliases": [
+      "learn/event"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "a1d146a7afa4e6862fe04321da92ffc6e78837d8c753cfdb1d5189997715b6b9",
+      "en": "94b3bbabbb0fb0814c544d7802c2d7ed6597a267dfcc764ad1c8542310c9486c"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "decision",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/concepts/decision",
+    "aliases": [
+      "learn/decision"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "84643a63fdc610ef609eb8825b3de0c9b145a855feae38fd0cb186eadd90409b",
+      "en": "7b0454648746581876a9fdb95b6726839c139f686a1b0b94113cb32304ef3596"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "sqlite",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/sqlite",
+    "aliases": [
+      "learn/sqlite"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "f2af6fac1b8cd596cefd4f535b3e601e97ee79e85f9d5ac62d7eddaf15103582",
+      "en": "70935514460878606203c8a803e1684b00f941412a28ef153268bc3ce41bbaf9"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "doctor",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/doctor",
+    "aliases": [
+      "learn/doctor"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "c0edef020c6b2e02e30eebaeaad36239dcc97a321bf7fce99a6f958780887c24",
+      "en": "ac12f76d7e511fb7e7ad49af7c7f1ed10b3791910338ca851e30b3e54d45d282"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "migration",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/migration",
+    "aliases": [
+      "learn/migration"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "5a07a3ae7cee744a1669a3d2350e3adf823250c9d2b1f40513c1775ce92225e1",
+      "en": "be2fa1e1d2fb865771ce7fa66d5bc3e419be789d39ae79e3e1e433aa3eaaebd7"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "recovery",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/recovery",
+    "aliases": [
+      "learn/recovery"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "3a578ec9ccab1a1d0be268e6f9206f46655dbcddf5772ae33be90b009db1e0ec",
+      "en": "e39e5bb8cfdf348d64a879e8833d0b8d94e5a01d04fa020f212ef6beef134bad"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "a2a",
+    "role": "REFERENCE",
+    "currentPath": "reference/concepts/a2a",
+    "aliases": [
+      "learn/a2a"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "07604e824a55def004210dae49a99b8cb1dd6d0d3476929f8d886bfc9f8d0e98",
+      "en": "93643e3046bfc5b23e0ff6d53d3da15a938e3641097c56a5a320ee20cfd40582"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "verification",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/verification",
+    "aliases": [
+      "learn/verification"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "2fd32e19a16f0e0efb2539bf86c0186c122c169b34d265c7ced1badb6cf2115d",
+      "en": "8f18bc5c979919861a77fc76111cbfa10f8cfe98406813c5abbc073c6e665fae"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "start-here",
+    "role": "REDIRECT",
+    "currentPath": "learn/start-here",
+    "aliases": [],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "552c030e46cd6cdf6c443432a3ce4f4952830969faf843abe4d8ce78b653efec",
+      "en": "59fa51e3f005fc9a6ffd32a68c705ecc6116c9df7b266564571605fd8a89ff2e"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "source-of-truth",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/source-of-truth",
+    "aliases": [
+      "learn/source-of-truth"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "4f7c82a7630c584a1fd29b6c4a94d43c8b1926bc339fd94710076bad40640162",
+      "en": "c8e79c0091b7c359696b35c8ba31d857d56f3acc79e341769a37b68a64776a72"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "document-journey",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/document-journey",
+    "aliases": [
+      "learn/document-journey"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "3c0cefc9c018a566112cf4312880d26adbaf7f13987e0566be7cd80f8ee6945a",
+      "en": "496915fc86270ec4dc3a82830b8bab6be69971481f503c0db20156f19f6dda2d"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "graph-basics",
+    "role": "MERGE",
+    "currentPath": "reference/deep-dives/graph-basics",
+    "aliases": [
+      "learn/graph-basics"
+    ],
+    "plannedMerge": "knowledge-graph",
+    "bodyHashes": {
+      "ko-KR": "4c5f30d0e059e9132b44cd08aec9be726c180375922467c654a7c38d25440d92",
+      "en": "b517f9891ba821ad7648081135bd085654d4ca90ef465abe8e09f1aa9585d7c0"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "ontology-basics",
+    "role": "EXPLANATION",
+    "currentPath": "reference/deep-dives/ontology-basics",
+    "aliases": [
+      "learn/ontology-basics"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "e10375c49e53f2209971e27cb7737201d642fc127404f0f517cfd4c90631a1c1",
+      "en": "06dd3d542adee40ae09705022d974ebb7d22e55ef0a048d8f0a3fa3f7633d0e0"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "entity-assertion",
+    "role": "EXPLANATION",
+    "currentPath": "reference/deep-dives/entity-assertion",
+    "aliases": [
+      "learn/entity-assertion"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "0635db0cb6acb72c04436caa1c90c1d9a95b173eed78b9c6d8d4edc43dd58916",
+      "en": "02f39b9401cd4a5bc536d95d790d0a37ea8883b32bf586a702f1d4fc06d8f6a7"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "review-before-trust",
+    "role": "EXPLANATION",
+    "currentPath": "reference/deep-dives/review-before-trust",
+    "aliases": [
+      "learn/review-before-trust"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "0ac93feeb3991bb6091c5af21cea2572529dea00385093412a6a98c4106c767d",
+      "en": "d0c84bf01d91e510531b64585279102507bced5f385a2cf962e6917fe467c3bc"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "search-methods",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/search-methods",
+    "aliases": [
+      "learn/search-methods"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "9fe1fc84215f904b164da93918d9ba61faaa947e01e6d965435103698fa61ab6",
+      "en": "01ff95f8135f135cdfbf0fef37b2dce4e10b156f4691f40e5a0de5d14e6d8d8f"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "agent-access",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/agent-access",
+    "aliases": [
+      "learn/agent-access"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "f18f068b56c4051bfafa4bb345634375b3b3308a3ed9ee23475b44b7fdc5deb2",
+      "en": "e0117c32242f1caab391cfa669ee32f33588b7abc907fe707d4411d41c90a148"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "read-the-map",
+    "role": "REDIRECT",
+    "currentPath": "reference/explanations/read-the-map",
+    "aliases": [
+      "learn/read-the-map"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "0091a81bc7f4cc47f4910663d076ed74bf97511ab05b9f74205377db795b38b3",
+      "en": "828b41a550b1d63ffea471ddafb84b1d5c7e49f7b19371b0c08b0ee7ba17a5ca"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "new-document",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/new-document",
+    "aliases": [
+      "learn/new-document"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "6340e570d2513d12ec66697e53cb0cd5a67127ffa1bfd19f6a708e4e93d9d6b9",
+      "en": "7e6a80dd73a4b470a06041ebca43a0da8c841f42856bd13dc69f987dceab5533"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "document-changes",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/document-changes",
+    "aliases": [
+      "learn/document-changes"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "640fd6a35c4ee8975213d1e2127fac15dd477ac0feedbcf0894e0129df14fd7e",
+      "en": "cf27ecbac702fe74adb06b7db4b85def5c5f30cb2d3a6ea6fd4f1c089bf609af"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "document-deletion",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/document-deletion",
+    "aliases": [
+      "learn/document-deletion"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "4ced56af31f226034dd67daf89fa2ef00832d76f938955d4d39dbcaf9b87d808",
+      "en": "4c0d80f3a60645ea7d3455ba4ca7e46754b46d44274a1ba8dc417bef1ab68092"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "knowledge-changes",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/knowledge-changes",
+    "aliases": [
+      "learn/knowledge-changes"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "4fb846af0613cd2232224e821caa1bb2f0995f80d06b306d2642f26143c71bc6",
+      "en": "0fbde87bd8cff2856fa56edcff180666cee12abcd331e9ed6d5c651efac53da3"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "agent-question",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/agent-question",
+    "aliases": [
+      "learn/agent-question"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "b70f2f7c7aa0639d2078af5b5d7d968583c30ae169efedb40c98275b5b512cf9",
+      "en": "aab6d37f8997b9e9161889a8f18cd0742b0aaabd4eba93863b432fec6e97b169"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "agent-action",
+    "role": "RUNTIME ROADMAP DETAIL",
+    "currentPath": "reference/deep-dives/agent-action",
+    "aliases": [
+      "learn/agent-action"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "4934431857b1572a270c30dba07c203c98b254fb3437512b9e31042004f761d0",
+      "en": "1730c7f49d7f4bc0895819a4c4527025a4d5495d9a531ddac966e592f3b99b1b"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "storage-boundaries",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/storage-boundaries",
+    "aliases": [
+      "learn/storage-boundaries"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "435cd2eb59c394627559a34830ff9b1a155edb720e710bc7b9f068eb71fde6ba",
+      "en": "df83c0b6b1d15a665d63b0b5348a80a02eb55ad1d0a20541ac2f09808de26471"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "keep-originals",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/keep-originals",
+    "aliases": [
+      "learn/keep-originals"
+    ],
+    "plannedMerge": "source-of-truth",
+    "bodyHashes": {
+      "ko-KR": "14acc81d2908f6ac39824df6442d7caebbef89bf2b8fbfc8bac14cd8bcb151e5",
+      "en": "0da609abfd0dfd0f8ba749281c045740d7c4cfd4d06ab9171356fb22b13d1c00"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "keep-versions",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/keep-versions",
+    "aliases": [
+      "learn/keep-versions"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "48dbe36ca61958cfe6fdb25dddffb9fe910343cebedbcaf9922e654612fa1320",
+      "en": "1eb60ce43fb3a11b3f62dd960c6032b2020d0c10b9ff2d5b05c74ffd8a6c83d8"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "keep-assertions",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/keep-assertions",
+    "aliases": [
+      "learn/keep-assertions"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "cfa254cd60ca3eb67a0290647ea30e4b709bd4853296dbd129f1693e39bd7b0b",
+      "en": "1d38f4434ee3f442bc2b529b2aa2afed0159338c3af0d99787dc32456713951e"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "review-gate",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/review-gate",
+    "aliases": [
+      "learn/review-gate"
+    ],
+    "plannedMerge": "review-before-trust",
+    "bodyHashes": {
+      "ko-KR": "dea7af6d99275432da6c2a3858c089ed5d8a5d0f039fc2e8d526b626b9d302ab",
+      "en": "950aa93605a2730220f8c2b9cdb85dded5ffde54439421090e62e7ecc68b2392"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "local-vector",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/local-vector",
+    "aliases": [
+      "learn/local-vector"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "cb75b61da837f654a8c8f93e39af897b7fd5e956c1e46d22c9d4a6e4aeedf838",
+      "en": "5cecb44827040d122408b8078ae5b2f0a758dad1ea84a7d29274aeb5f631653b"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "search-complementarity",
+    "role": "MERGE",
+    "currentPath": "reference/explanations/search-complementarity",
+    "aliases": [
+      "learn/search-complementarity"
+    ],
+    "plannedMerge": "search-methods",
+    "bodyHashes": {
+      "ko-KR": "23b9742a5bdd031c050c65da57e88dc49803894074ac4b0ddd5e8a284b88c96b",
+      "en": "03e19afb858476a14596c264b22d6f6337261697b53487cc5c90ff7f6480dc8b"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "adapter-boundary",
+    "role": "EXPLANATION",
+    "currentPath": "reference/explanations/adapter-boundary",
+    "aliases": [
+      "learn/adapter-boundary"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "d15d51e9510357c30239692a2e8d8422137af5f0449c6a02dab96fe1953e8d21",
+      "en": "647b81447cab1dfb1778cba8b400450eae85bc1a1f2f57de9623c58568d55609"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "deferred-platforms",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/explanations/deferred-platforms",
+    "aliases": [
+      "learn/deferred-platforms"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "4d77d670c1fa0fe6826172a8815fcf0069cb861ee9b1bb80edf6c1b55e208220",
+      "en": "691fc05c9de5f873fab9fa2fc744a24e5f34680b531082edb4a64aeec399d072"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  },
+  {
+    "id": "stable-contracts",
+    "role": "ENGINEERING ROADMAP DETAIL",
+    "currentPath": "reference/concepts/stable-contracts",
+    "aliases": [
+      "learn/stable-contracts"
+    ],
+    "plannedMerge": null,
+    "bodyHashes": {
+      "ko-KR": "faaee2535c8914f6cbf305af663007afeed3360e296712e237bb0b6ffa59ed6b",
+      "en": "574ebe48ce516022422916eadfd13f4ca1c28e1d703aa31e2757955f66a260dd"
+    },
+    "migration": "preserved; no prose deletion in M2"
+  }
+]

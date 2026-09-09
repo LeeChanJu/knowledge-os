@@ -1,3 +1,4 @@
+import Atlas, {AtlasHome,AtlasReturn} from '../atlas/Atlas';
 import {LearnHome, Journey, CapabilityNav, ContextTrail, ReferenceCatalog} from './LearnIA';
 import {catalog, classification, capability, contextQuery, docHref, contextualHref} from './ia';
 import {flowText} from './LearnFlow';
@@ -124,6 +125,8 @@ export default function Site({ data }: { data: Architecture }) {
   if(routeEntry) slug=routeEntry.id;
   const classified=classification(slug);
   if(classified&&slug!=='start-here'&&!capability(slug))mode='reference';
+  const atlasAxis=path==='runtime'?'runtime':path==='engineering'?'engineering':null;
+  const atlasHome=!path;
   const learnSurface=(!path||path==='learn'||path==='learn/start-here'||!!capability(slug))&&!path.startsWith('reference');
   useEffect(()=>{
     if(path.startsWith('learn/')&&classified&&classified.id!=='start-here'){
@@ -135,8 +138,8 @@ export default function Site({ data }: { data: Architecture }) {
     entry = manifest.pages.find((p) => p.id === slug);
   const home = !path;
   useEffect(() => {
-    document.title = `${capability(slug)?.title[lang] || page?.title || t(mode[0].toUpperCase() + mode.slice(1))} · Knowledge OS`;
-  }, [page?.title, mode, lang]);
+    document.title = `${atlasAxis?(atlasAxis==='runtime'?(lang==='en'?'How it works':'시스템 동작'):(lang==='en'?'How it is built':'개발·검증')):capability(slug)?.title[lang] || page?.title || t(mode[0].toUpperCase() + mode.slice(1))} · Knowledge OS`;
+  }, [page?.title, mode, lang, atlasAxis]);
   const href = (s: string) => {
     if(s.startsWith('learn/')&&classification(s.slice(6)))return docHref(lang,s.slice(6));
     const query=contextQuery();
@@ -224,14 +227,14 @@ export default function Site({ data }: { data: Architecture }) {
           Knowledge OS <small>{t("FIELD GUIDE")}</small>
         </a>
         <nav aria-label={t("Main navigation")}>
-          {["learn", "explore", "reference"].map((m) => (
+          {["runtime", "engineering", "explore", "reference"].map((m) => (
             <a
               key={m}
-              className={mode === m ? "current" : ""}
-              aria-current={mode === m ? "page" : undefined}
+              className={(atlasAxis||mode) === m ? "current" : ""}
+              aria-current={(atlasAxis||mode) === m ? "page" : undefined}
               href={href(m === "learn" ? "learn/start-here" : m)}
             >
-              {t(m[0].toUpperCase() + m.slice(1))}
+              {m==='runtime'?(lang==='en'?'How it works':'시스템 동작'):m==='engineering'?(lang==='en'?"How it’s built":'개발·검증'):t(m[0].toUpperCase() + m.slice(1))}
             </a>
           ))}
         </nav>
@@ -257,7 +260,8 @@ export default function Site({ data }: { data: Architecture }) {
           </button>
         </div>
       </header>
-      {mode === "explore" ? (
+      <AtlasReturn lang={lang}/>
+      {atlasHome ? <AtlasHome lang={lang}/> : atlasAxis ? <Atlas lang={lang} axis={atlasAxis}/> : mode === "explore" ? (
         <div className="embedded-explorer"><ContextTrail lang={lang}/>
           <Suspense fallback={<p>{t("Loading architecture…")}</p>}>
             <Explorer key={lang} data={architecture} />

@@ -47,6 +47,7 @@ export function nodeHash(id) {
   const q = typeof location !== "undefined" ? new URLSearchParams(location.hash.split("?")[1]) : new URLSearchParams();
   const context = new URLSearchParams();
   if (["remember","find","relationships","sources","correct","act"].includes(q.get("journey"))) for (const key of ["journey","step","concept"]) if(q.get(key)) context.set(key,q.get(key));
+  if(q.get("atlas"))context.set("atlas",q.get("atlas"));
   const suffix = context.size ? "?" + context.toString() : "";
   return (id
     ? prefix + "/node/" + encodeURIComponent(id)

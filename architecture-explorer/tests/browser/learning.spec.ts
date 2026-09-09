@@ -18,7 +18,7 @@ test("learning entry, bilingual reading, implementation links and graph round tr
     )
       external.push(r.url());
   });
-  await page.goto("/#/ko-KR");
+  await page.goto("/#/ko-KR/learn/start-here");
   await expect(page.locator("html")).toHaveAttribute("lang", "ko-KR");
   await expect(page.locator(".journey-card-grid a")).toHaveCount(6);
   await page.locator(".ia-nav a").first().click();
@@ -124,7 +124,7 @@ test("term definitions, keyboard dismissal and mobile learning navigation", asyn
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/#/ko-KR");
+  await page.goto("/#/ko-KR/learn/start-here");
   await expect(
     page.locator(".ia-nav a").first(),
   ).toBeVisible();

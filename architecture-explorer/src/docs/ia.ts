@@ -16,7 +16,9 @@ export function journeyContext(){
  return {journey:j.id,step:stage.id,concept};
 }
 export function contextQuery(context=journeyContext()){
- return context?new URLSearchParams(Object.entries(context).filter(([,v])=>v)).toString():'';
+ const q=new URLSearchParams(context?Object.entries(context).filter(([,v])=>v):[]);
+ const atlas=new URLSearchParams(location.hash.split('?')[1]).get('atlas');if(atlas)q.set('atlas',atlas);
+ return q.toString();
 }
 export function docHref(lang:Language,id:string,context=journeyContext()){
  const path=classification(id)?.path||'reference';

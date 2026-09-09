@@ -1,3 +1,4 @@
+import {checkAtlas} from './check-atlas.mjs';
 import {checkIA} from './check-ia.mjs';
 import { checkFlagships } from "./check-flagships.mjs";
 import { readFileSync, readdirSync } from "node:fs";
@@ -123,6 +124,7 @@ export function checkContent(root, architecture) {
   )
     throw Error("Empty UI translation");
   checkIA(root,architecture);
+  checkAtlas(root,architecture);
   const links = read("github.json");
   if (links.repository !== "https://github.com/LeeChanJu/knowledge-os")
     throw Error("Unexpected GitHub repository");
