@@ -43,6 +43,8 @@ test('runtime switches clear old branches and invalid journeys safely use read',
  await page.locator('.atlas-journeys a').filter({hasText:'Correct knowledge'}).click();await expect(page.locator('.atlas-drawer')).toHaveCount(0);await expect(page.locator('.atlas-backbone>li')).toHaveCount(4);
  await page.goBack();await expect(page.locator('.atlas-drawer h2')).toHaveText('Preserve the observed state');
  await page.setViewportSize({width:390,height:844});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+ await expect(page.locator('.atlas-topology>span').first()).toHaveCSS('transform','none');
+ const map=await page.locator('.atlas-viewport').boundingBox(),drawer=await page.locator('.atlas-drawer').boundingBox();expect(drawer!.y-map!.y-map!.height).toBeLessThan(40);
  await page.screenshot({path:'test-results/atlas-ingest-mobile.png',fullPage:true});
  await page.goto('/#/en/runtime?journey=invalid');await expect(page.locator('.atlas-backbone>li')).toHaveCount(8);
 });
