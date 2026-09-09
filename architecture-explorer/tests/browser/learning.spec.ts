@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 test('guide evidence preserves exact map origin, language, and browser history',async({page})=>{
  const origin='runtime?node=version&root=support&open=support%2Cversion';
  await page.goto('/#/en/reference/guide/document-version?atlas='+encodeURIComponent(origin));
+ await expect(page.locator('.guide-location ol a').first()).toHaveText('My question');await expect(page.locator('.guide-trail')).toContainText('document');
  await page.locator('.guide-evidence summary').click();await page.locator('.guide-evidence a').first().click();
  await expect(page.locator('.source-path')).toBeVisible();await expect(page).toHaveURL(/atlas=/);
  await expect(page.getByRole('link',{name:/Evidence revision on GitHub/})).toHaveAttribute('href',/github.com\/LeeChanJu\/knowledge-os\/blob\//);

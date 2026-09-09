@@ -4,7 +4,7 @@ import learning from '../../data/learning.json';
 import flagships from '../../content/flagships.json';
 import model from '../../content/atlas/model.json';
 import {integration,integratedEntry,canonicalEntry,guideHref,locationHref,stageTrail} from './integration';
-import {atlasHref} from './state';
+import {atlasHref,validReturn} from './state';
 import {githubLink} from '../docs/helpers';
 import {Term} from '../docs/Term';
 import type {Language} from '../i18n';
@@ -12,9 +12,12 @@ import type {Architecture} from '../model';
 const text=import.meta.glob('../../content/guides/{ko-KR,en}/*.md',{query:'?raw',import:'default',eager:true}) as Record<string,string>;
 export function GuideLocation({id,lang}:{id:string;lang:Language}){
  const e=integratedEntry(id);if(!e)return null;
- const {axis,journey,node}=e.location,base=axis==='engineering'?model.backbones.engineering:model.journeys.find(j=>j.id===journey)!.backbone;
+ let {axis,journey,node}=e.location;
+ const origin=new URLSearchParams(location.hash.split('?')[1]).get('atlas');
+ if(origin&&validReturn(origin)){const [path,q]=origin.split('?'),params=new URLSearchParams(q),j=params.get('journey')||'read',n=params.get('node')||'';const baseline=path==='engineering'?model.backbones.engineering:model.journeys.find(x=>x.id===j)?.backbone;if(baseline&&stageTrail(baseline,n).length){axis=path;journey=j;node=n}}
+ const base=axis==='engineering'?model.backbones.engineering:model.journeys.find(j=>j.id===journey)!.backbone;
  const trail=stageTrail(base,node);
- return <nav className="guide-location" aria-label={lang==='en'?'Position in the whole flow':'전체 흐름에서의 위치'}><a href={`#/${lang}/${axis}${axis==='runtime'&&journey!=='read'?'?journey='+journey:''}`}>{lang==='en'?'↑ Whole flow':'↑ 전체 흐름'}</a><ol>{base.map(n=><li key={n}><a aria-current={n===trail[0]?'step':undefined} href={atlasHref(lang,{axis:axis as 'runtime'|'engineering',journey,node:n,root:'',open:[n],returnTo:''})}>{model.nodes.find(x=>x.id===n)!.labels[lang]}</a></li>)}</ol><p className="guide-trail">{trail.map(n=>model.nodes.find(x=>x.id===n)!.labels[lang]).join(' → ')}</p><a href={locationHref(lang,id)}>{lang==='en'?'Return to this stage':'이 단계로 돌아가기'} → {model.nodes.find(n=>n.id===node)!.labels[lang]}</a></nav>;
+ return <nav className="guide-location" aria-label={lang==='en'?'Position in the whole flow':'전체 흐름에서의 위치'}><a href={`#/${lang}/${axis}${axis==='runtime'&&journey!=='read'?'?journey='+journey:''}`}>{lang==='en'?'↑ Whole flow':'↑ 전체 흐름'}</a><ol>{base.map(n=><li key={n}><a aria-current={n===trail[0]?'step':undefined} href={atlasHref(lang,{axis:axis as 'runtime'|'engineering',journey,node:n,root:'',open:[n],returnTo:''})}>{model.nodes.find(x=>x.id===n)!.labels[lang]}</a></li>)}</ol><p className="guide-trail">{trail.map(n=>model.nodes.find(x=>x.id===n)!.labels[lang]).join(' → ')}</p><a href={origin&&validReturn(origin)?`#/${lang}/${origin}`:locationHref(lang,id)}>{lang==='en'?'Return to this stage':'이 단계로 돌아가기'} → {model.nodes.find(n=>n.id===node)!.labels[lang]}</a></nav>;
 }
 export default function Guide({id,lang,architecture}:{id:string;lang:Language;architecture:Architecture}){
  const e=canonicalEntry(id),g=integration.guides.find(g=>g.id===e?.id),ko=lang==='ko-KR';
