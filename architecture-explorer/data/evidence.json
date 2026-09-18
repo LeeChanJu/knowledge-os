@@ -3,15 +3,15 @@
   "files": {
     "AGENT.md": {
       "kind": "document",
-      "fingerprint": "b651c092ef1325424c56682d0b5f0eb60a962719e66ecc146bd8d39e8fe83687"
+      "fingerprint": "9969ad832cd1964f8eeddef127ac5691e02258c8579f87ca617e3c90b335b0f1"
     },
     "AGENTS.md": {
       "kind": "document",
-      "fingerprint": "b651c092ef1325424c56682d0b5f0eb60a962719e66ecc146bd8d39e8fe83687"
+      "fingerprint": "9969ad832cd1964f8eeddef127ac5691e02258c8579f87ca617e3c90b335b0f1"
     },
     "README.md": {
       "kind": "document",
-      "fingerprint": "6f58900679bbec78e4d720246380fd381ce116d18f27f9e34a62ecfb74a09118"
+      "fingerprint": "a1860c29df1af1177564356d5d7651f7e1c1e3374fc42a678bf4325235716ad1"
     },
     "config/contracts.yaml": {
       "kind": "configuration",
@@ -446,11 +446,11 @@
     },
     "docs/operations/notion-pipeline.md": {
       "kind": "document",
-      "fingerprint": "ae2afe784d692970351da3db23bd1346614b6d21b51b5b39b3b091c16466d711"
+      "fingerprint": "3377bf1cdf30d26683da2c6910d43984303de9715aa6c1cff0d205743e7131f3"
     },
     "docs/operations/telegram-review.md": {
       "kind": "document",
-      "fingerprint": "4247bdce1448acab798ae09edac4f0a8eceebe40adebbdb6c48eea3f31749bf9"
+      "fingerprint": "1f69b98760ba42da9f2137491733c3cc44fbca2142b547076f0e7fca0aca89c4"
     },
     "docs/policies/notion-archive-page-v1.md": {
       "kind": "document",
@@ -4454,6 +4454,14 @@
         {
           "decorators": [],
           "fields": [],
+          "fingerprint": "bcdd6f32ad507596a17c96ddbe1cf28f7123db15509be3c9bbee2fc52c1830a9",
+          "kind": "function",
+          "signature": "async Reviewer.present(self, token, card, detail, *, update_existing=False)",
+          "symbol": "Reviewer.present"
+        },
+        {
+          "decorators": [],
+          "fields": [],
           "fingerprint": "3975039ec08a1111c8a2f2b63224be02d698950a018e7a8cfdb5cf17c060e587",
           "kind": "function",
           "signature": "async Reviewer.refresh(self)",
@@ -5643,6 +5651,14 @@
           "kind": "test",
           "signature": "test_doctor_accepts_current_governance_but_rejects_unknown_contract(graph, tmp_path)",
           "symbol": "test_doctor_accepts_current_governance_but_rejects_unknown_contract"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "4289456e7c27ffe0b3be5a931fe7323abe7fcbbec5fc068b4aa17a6724347043",
+          "kind": "test",
+          "signature": "test_pending_batch_does_not_resynchronize_notion(tmp_path, monkeypatch, capsys)",
+          "symbol": "test_pending_batch_does_not_resynchronize_notion"
         }
       ]
     },
@@ -5750,13 +5766,13 @@
         },
         {
           "decorators": [
-            "pytest.mark.parametrize('attack', ['user', 'group', 'message', 'expired', 'unreviewed'])"
+            "pytest.mark.parametrize('attack', ['user', 'group', 'message', 'expired', 'undelivered'])"
           ],
           "fields": [],
-          "fingerprint": "2099bf36d86e81e4cec144a5c9ac8089b571d78f818ae6348c13a4d860bf5325",
+          "fingerprint": "19c8022f5f4d61e34a996902f2f4f666a86652f1ffe98904cb0e8e30023dd858",
           "kind": "test",
-          "signature": "test_untrusted_or_unreviewed_callback_never_mutates(tmp_path, attack)",
-          "symbol": "test_untrusted_or_unreviewed_callback_never_mutates"
+          "signature": "test_untrusted_or_undelivered_callback_never_mutates(tmp_path, attack)",
+          "symbol": "test_untrusted_or_undelivered_callback_never_mutates"
         },
         {
           "decorators": [],
@@ -5781,6 +5797,22 @@
           "kind": "test",
           "signature": "test_delivery_failure_after_commit_never_repeats_decision(tmp_path)",
           "symbol": "test_delivery_failure_after_commit_never_repeats_decision"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "67c808a812a176a0b3c8de0109a79878be190303d154e5b670cc9ad44329d228",
+          "kind": "test",
+          "signature": "test_evidence_failure_never_exposes_decision_buttons(tmp_path)",
+          "symbol": "test_evidence_failure_never_exposes_decision_buttons"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "e2a54ede6dc192f3072936ac5a3263127e5ece1973840950320b966181c7272b",
+          "kind": "test",
+          "signature": "test_existing_two_step_card_is_upgraded_without_new_decision(tmp_path)",
+          "symbol": "test_existing_two_step_card_is_upgraded_without_new_decision"
         },
         {
           "decorators": [],
@@ -6079,6 +6111,6 @@
       "fingerprint": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
     }
   },
-  "evidenceDigest": "a70fd7801e848c37b9a3f8b82d29d52b4eb9949ebf5f2a6e854416084995bb24",
-  "baselineRevision": "3a412d11bb03a9f7eba43a4d617ff921630b93cd"
+  "evidenceDigest": "acce7aafc72faa0b1d491bef587c14aa35f2a4403eadfa6e638d1b442d7b5361",
+  "baselineRevision": "89dfc2bded622bfb96680fb5ebd00de98d82f14b"
 }
