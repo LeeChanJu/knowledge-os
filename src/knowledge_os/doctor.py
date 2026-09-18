@@ -162,7 +162,7 @@ GRAPH_CHECKS = {
     "proposal_has_content_addressed_contract": """
         MATCH (p:Proposal)
         WHERE p.contract_version IS NULL
-           OR NOT p.contract_version IN ['governance-v6', 'governance-v7']
+           OR NOT p.contract_version IN ['governance-v6', 'governance-v7', 'governance-v8']
            OR p.payload_hash IS NULL OR size(p.payload_hash) <> 64
            OR p.created_access_fingerprint IS NULL
            OR NOT p.created_access_fingerprint STARTS WITH 'access-context:'

@@ -3,6 +3,7 @@
 import pytest
 from test_v01_neo4j_regressions import ROOT, graph, query, text_request  # noqa: F401
 
+from knowledge_os.doctor import run_doctor
 from knowledge_os.models import AccessContext
 from knowledge_os.notion_pipeline import Extraction, Pipeline
 from knowledge_os.ontology import Ontology
@@ -176,3 +177,13 @@ def test_temporal_candidates_use_governed_proposals(graph, tmp_path, kind):  # n
     assert worker.apply(result)[0]["status"] == "PROPOSED"
     assert query(graph, "MATCH (p:Proposal) RETURN p.proposal_type AS kind")[0]["kind"] == kind
     assert query(graph, "MATCH (a:Approval) RETURN count(a) AS n")[0]["n"] == 0
+
+
+def test_doctor_accepts_current_governance_but_rejects_unknown_contract(graph, tmp_path):  # noqa: F811
+    worker, _, result = setup(graph, tmp_path)
+    worker.apply(result)
+    assert run_doctor(graph, ROOT / "migrations")["status"] == "ok"
+    query(graph, "MATCH (p:Proposal) SET p.contract_version='governance-unknown'")
+    checks = run_doctor(graph, ROOT / "migrations")["checks"]
+    check = next(c for c in checks if c["name"] == "proposal_has_content_addressed_contract")
+    assert check["violations"] == 1
