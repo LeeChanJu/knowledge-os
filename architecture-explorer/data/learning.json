@@ -14090,7 +14090,7 @@
       "F1": {
         "title": "Immutable metadata hash integrity",
         "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
-        "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+        "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately. Reverified 2026-09-19 after the governance-v8 Doctor compatibility fix: combined 20 passed, zero failures/skips in 52.63s; see notionPipelineReconciliation in the same execution record.",
         "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
         "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
         "resolutionRequired": ""
@@ -14098,7 +14098,7 @@
       "F2": {
         "title": "Deterministic deletion replay",
         "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
-        "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+        "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately. Reverified 2026-09-19 after the governance-v8 Doctor compatibility fix: combined 20 passed, zero failures/skips in 52.63s; see notionPipelineReconciliation in the same execution record.",
         "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
         "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
         "resolutionRequired": ""
@@ -14106,7 +14106,7 @@
       "F3": {
         "title": "Doctor integrity coverage",
         "scope": "Doctor must accept the current governance contract and detect corrupt metadata, missing constraints/indexes, and multi-node supersession cycles.",
-        "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+        "recordedOutcome": "Governance-v8 compatibility regression passes. Existing doctor selection on 2026-09-19: 9 passed, 6 failed (missing schema objects and multi-node supersession cycles). The finding remains open; no full resolution is claimed.",
         "environment": "",
         "limitations": "The metadata-hash subcase overlaps the F1 correction. That does not establish that the complete F3 finding is resolved.",
         "resolutionRequired": "Execute and reconcile all F3 cases against isolated real Neo4j, then record scoped acceptance."
@@ -14164,7 +14164,7 @@
       "F1": {
         "title": "불변 메타데이터 해시 무결성",
         "scope": "manifest 메타데이터 해시는 실제 저장된 DocumentVersion의 제목·문서 URI에 결합되어야 합니다. 명시적인 정정은 과거 계보와 감사 가능한 멱등성을 보존합니다.",
-        "recordedOutcome": "공개 소스 스냅샷에서 9개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다.",
+        "recordedOutcome": "공개 소스 스냅샷에서 9개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다. 2026-09-19 governance-v8 진단 호환성 수정 후 F1/F2 결합 회귀 20개가 52.63초에 통과했고 실패·건너뜀은 없습니다. 기존 실행 기록의 notionPipelineReconciliation에 범위를 기록했습니다.",
         "environment": "Python 3.12.11, pytest 8.4.2, Darwin. 명시적 PYTHONPATH로 공개 소스를 실행하고 테스트별 UUID Neo4j 데이터베이스와 임시 SQLite를 사용·제거했습니다.",
         "resolutionRequired": "",
         "limitations": "해당 범위만 재검증했습니다. 공개 소스는 별도의 로컬 시간 처리 수정을 포함하지 않습니다. 두 실행 revision을 구분하며 F3–F8과 출시 관문은 열려 있습니다."
@@ -14172,7 +14172,7 @@
       "F2": {
         "title": "결정적인 삭제 재시도",
         "scope": "그래프 커밋 후 로컬 체크포인트 저장 전에 삭제를 재구성해도 정확히 같은 manifest를 재현하고 이력을 중복시키지 않아야 합니다. 이후 독립적인 삭제는 구분합니다.",
-        "recordedOutcome": "공개 소스 스냅샷에서 11개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다.",
+        "recordedOutcome": "공개 소스 스냅샷에서 11개 통과. 통합 실행은 20개 통과, 실패·건너뛰기 0개, 54.84초입니다. verification/current-head-regressions.json에 로컬 HEAD 결과도 따로 보존합니다. 2026-09-19 governance-v8 진단 호환성 수정 후 F1/F2 결합 회귀 20개가 52.63초에 통과했고 실패·건너뜀은 없습니다. 기존 실행 기록의 notionPipelineReconciliation에 범위를 기록했습니다.",
         "environment": "Python 3.12.11, pytest 8.4.2, Darwin. 명시적 PYTHONPATH로 공개 소스를 실행하고 테스트별 UUID Neo4j 데이터베이스와 임시 SQLite를 사용·제거했습니다.",
         "resolutionRequired": "",
         "limitations": "해당 범위만 재검증했습니다. 공개 소스는 별도의 로컬 시간 처리 수정을 포함하지 않습니다. 두 실행 revision을 구분하며 F3–F8과 출시 관문은 열려 있습니다."
@@ -14180,7 +14180,7 @@
       "F3": {
         "title": "Doctor 무결성 검사 범위",
         "scope": "Doctor는 현재 관리 계약을 받아들이고 손상 메타데이터, 누락 제약·인덱스, 여러 노드의 대체 순환을 감지해야 합니다.",
-        "recordedOutcome": "현재 정정 지침에 따라 열린 상태입니다. 이후 인정된 해결 기록은 여기에 없습니다.",
+        "recordedOutcome": "governance-v8 호환성 회귀는 통과했습니다. 2026-09-19 기존 진단 테스트 선택 실행은 9개 통과·6개 실패이며, 스키마 누락 및 여러 노드의 순환 감지 문제는 여전히 열려 있습니다. F3 전체 해결을 주장하지 않습니다.",
         "environment": "",
         "resolutionRequired": "격리된 실제 Neo4j에서 모든 F3 사례를 실행·조정하고 범위를 정한 승인을 기록해야 합니다.",
         "limitations": "메타데이터 해시 하위 사례는 F1 정정과 겹치지만 F3 전체가 해결되었다는 증거는 아닙니다."
