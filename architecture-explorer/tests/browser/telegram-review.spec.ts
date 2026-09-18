@@ -8,7 +8,8 @@ for (const lang of ['ko-KR', 'en']) {
     const section = page.locator('summary').filter({
       hasText: lang === 'ko-KR' ? '텔레그램에서 검토하고 승인하기' : 'Review and approve in Telegram',
     });
-    if (await section.count()) await section.click();
+    await expect(section).toBeVisible();
+    await section.click();
     await expect(page.locator('.integrated-guide')).toContainText('?start=');
     await expect(page.getByRole('link', {
       name: lang === 'ko-KR' ? '설정과 동작 범위' : 'Setup and operating boundaries',
