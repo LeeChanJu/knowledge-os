@@ -33,7 +33,7 @@ Use `/pending` in the bot to check the inbox. While running, the adapter checks 
 25-second intervals and sends new pending reviews. Click **검토하기**, read the attached complete
 payload and evidence, then **내용 확인 · 승인** or **반려**. Approval is a real governance mutation.
 Action approval only records permission; the existing separately authorized executor still runs
-external operations. No source ingestion or proposal extraction scheduler is installed here.
+external operations. The separate [Notion pipeline](notion-pipeline.md) connects scheduled source ingestion and extraction to this review inbox. The Telegram worker itself remains an approval adapter.
 
 ## Guarantees and limits
 

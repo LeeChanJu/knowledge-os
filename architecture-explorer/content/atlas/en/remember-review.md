@@ -10,6 +10,8 @@ The reviewer checks whether the suggestion matches its support. The agent adapte
 
 In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
 
+A Codex schedule in the personal deployment connects Notion ingestion and proposal extraction every 15 minutes. Version-scoped receipts prevent repeated submissions; the owner reviews and approves in Telegram. Keep the Mac, Codex, Neo4j, and review process running.
+
 <!-- DEPTH -->
 
 ### Why this responsibility exists

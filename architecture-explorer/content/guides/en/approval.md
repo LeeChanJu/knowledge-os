@@ -45,11 +45,23 @@ For example, review the document version supporting “the project uses Neo4j”
 
 Creating a bot or sending plain `/start` does not complete pairing. Enter the token in the local setup prompt, then use the one-time link, including its `?start=` value, to pair your own account. Decisions are bound to the numeric owner ID and private chat. Wrong users, wrong messages, expired buttons, and changed review content cannot authorize a decision.
 
-The current run command is a foreground terminal process. If closing the window terminates it, or the Mac sleeps, processing stops. A visible terminal is a property of this deployment, not a Telegram requirement; background-service deployment is separate work. The review process and Neo4j must be running to process decisions. This bot does not schedule source synchronization or extraction.
+The current run command is a foreground terminal process. If closing the window terminates it, or the Mac sleeps, processing stops. A visible terminal is a property of this deployment, not a Telegram requirement; background-service deployment is separate work. The review process and Neo4j must be running to process decisions. The separate scheduled pipeline below handles synchronization and extraction; this bot delivers the resulting proposals for review.
 
 The adapter and isolated-database approval tests are implemented. Live delivery still requires each owner's bot token, account pairing, and running process to be checked separately. Adding this interface does not resolve every existing reviewer-policy audit finding.
 
 [Setup and operating boundaries](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/telegram-review.md) · [Review adapter implementation](https://github.com/LeeChanJu/knowledge-os/blob/main/src/knowledge_os/telegram_review.py)
+
+## How does a Notion edit reach the review inbox?
+
+The personal deployment connects a Codex scheduled task: **check Notion every 15 minutes → ingest changed evidence → extract knowledge proposals → send Telegram review requests**. Previously imported, unprocessed versions are included. Synchronization and extraction remain separate responsibilities, joined by the scheduled task.
+
+A career roadmap can yield a candidate linking a growth goal to its exact evidence. The adapter must not turn a goal into an achieved fact or assume that a document's creation date is a decision date. Navigation pages and insufficient evidence yield no candidate, with an explanation recorded.
+
+Version-scoped receipts prevent repeated processing of the same version. New versions are reviewed again, but previously approved knowledge is not automatically superseded or invalidated. Review potential overlap against existing knowledge.
+
+**Collection, proposals, and notifications are automated; approval remains yours.** Keep the Mac awake and Codex, Neo4j, and the Telegram review process running. No additional model API key is needed, but Codex usage and execution limits apply. Offline work resumes on a later successful run, so 15 minutes is a polling interval, not a delivery guarantee. The schedule is installed in the personal deployment; cloning this repository does not activate it.
+
+[Operating boundaries and recovery](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/notion-pipeline.md)
 
 <!-- CHECKS -->
 

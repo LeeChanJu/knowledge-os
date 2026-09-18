@@ -456,3 +456,10 @@ principals, and actor come from launch-time `REVIEW_*` settings, never model arg
 approval can promote canonical knowledge; Action approval changes lifecycle state but cannot
 execute an external operation. MCP and source connectors still cannot approve. See
 [`docs/operations/human-review.md`](docs/operations/human-review.md).
+
+## Scheduled Notion knowledge proposals
+
+The [Notion pipeline](docs/operations/notion-pipeline.md) connects source synchronization,
+version-scoped extraction receipts, governed proposals, and the Telegram review inbox.
+The personal deployment uses a Codex heartbeat every 15 minutes. Human approval remains required;
+Mac, Codex, Neo4j, and the Telegram worker must be running.
