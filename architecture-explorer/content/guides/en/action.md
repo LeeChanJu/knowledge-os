@@ -37,6 +37,12 @@ Owned data: Action snapshots, review decisions, claim lease and execution record
 | Decision | What was decided? | Evidence and decision history |
 | Action request | What external change is requested? | Separate policy, approval and execution authority |
 
+## Telegram review surface
+
+In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+
+[Telegram review details](#/en/reference/guide/approval)
+
 <!-- CHECKS -->
 
 ### Does approving knowledge automatically execute a Notion change?

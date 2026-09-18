@@ -37,6 +37,12 @@ Owned data: Proposal identity/payload, SUPPORTED_BY lineage, Approval history.
 | Proposal | Request acceptance of candidate content | Includes evidence and structure |
 | Approval | An authorized reviewer accepts it | Separate from MCP submission authority |
 
+## Telegram review surface
+
+In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+
+[Telegram review details](#/en/reference/guide/approval)
+
 <!-- CHECKS -->
 
 ### Does AI submission complete approval?

@@ -37,6 +37,12 @@ Owned data: Host adapter configuration only; no independent knowledge store.
 | Adapter | Carry external requests into defined contracts | MCP and REST are replaceable |
 | Stable contract | Define bounded reads, proposals and actions | Preserve lineage, authorization and governance |
 
+## Telegram review surface
+
+In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+
+[Telegram review details](#/en/reference/guide/approval)
+
 <!-- CHECKS -->
 
 ### Does connecting an AI through MCP grant arbitrary Cypher or approval?

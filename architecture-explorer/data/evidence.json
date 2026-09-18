@@ -444,6 +444,10 @@
       "kind": "document",
       "fingerprint": "7eeda9b635378cdd46cd0cb2ac69b6893d25a1e8f7515343215443731764f18f"
     },
+    "docs/operations/telegram-review.md": {
+      "kind": "document",
+      "fingerprint": "2ac902b85ee8ebc2ba12d1c5fb740c355bcf8246fe92ae8074d339ac9b70b562"
+    },
     "docs/policies/notion-archive-page-v1.md": {
       "kind": "document",
       "fingerprint": "c8790265dbeb7de6706838665a29d29f9a566e1c8a005f472f4577c590516d89"
@@ -4177,6 +4181,203 @@
         }
       ]
     },
+    "src/knowledge_os/telegram_review.py": {
+      "kind": "python",
+      "symbols": [
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "264100cd4d934ea4ba952a3849b42258b9ba711f78aabf2aa280e47fed01cc09",
+          "kind": "function",
+          "signature": "save_private(path: Path, value: dict) -> None",
+          "symbol": "save_private"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "33dd7333ebde6ddac5c0c411b2a4e73957536068dec069f4a3aa409a7d551e34",
+          "kind": "function",
+          "signature": "private_json(path: Path) -> dict",
+          "symbol": "private_json"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "0669fd250b30dc170545483a496c58a69cec1ec08c4bb193cc44d6ebef1bfca5",
+          "kind": "function",
+          "signature": "canonical(value: Any) -> str",
+          "symbol": "canonical"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "55e95d1148a25791cdb1bf8177b11bdcba6111b7dcfca50aca5c9d8629dd0db4",
+          "kind": "function",
+          "signature": "digest(value: Any) -> str",
+          "symbol": "digest"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "d449ef971457e9c37fe746b86a1c0ee9cbda5973a260dd01ffa9582d2d4e249f",
+          "kind": "class",
+          "signature": "class Telegram()",
+          "symbol": "Telegram"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "44af22b94fe5fe05dd5b0187085f2a90b80eefd5ddaa4916fff743a889343585",
+          "kind": "function",
+          "signature": "Telegram.__init__(self, token: str)",
+          "symbol": "Telegram.__init__"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "4b833bd077e5a0762e1c06d7e5c693c72bcffc72080124610c7af697abdb9a35",
+          "kind": "function",
+          "signature": "async Telegram.call(self, method: str, **params)",
+          "symbol": "Telegram.call"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "09aca7fa01d8b15f3092cd0391f4e472407d72c8a4eaaad3755a142a4d3cdff1",
+          "kind": "function",
+          "signature": "async Telegram.document(self, chat_id: int, text: str)",
+          "symbol": "Telegram.document"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "3300daabaf8de00d29c2abd73de3eb458e5fdc4701a9a9dd36e3484eab3c15d1",
+          "kind": "class",
+          "signature": "class Service()",
+          "symbol": "Service"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "19eb552fb2a3145f7171a4681550d64c6fae90392dfedb117beab7eadd992d9b",
+          "kind": "function",
+          "signature": "async Service.pending(self)",
+          "symbol": "Service.pending"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "f530b707086512e20043713c9a6f77634d23883d182de1e72114b120438d3ec5",
+          "kind": "function",
+          "signature": "async Service.detail(self, kind: str, identifier: str)",
+          "symbol": "Service.detail"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "492c864c9f897ee7c145078565f3d788d26a855396b129157b0af4312cd63469",
+          "kind": "function",
+          "signature": "async Service.decide(self, kind, identifier, decision, reason)",
+          "symbol": "Service.decide"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "925cbda29e03f1c38e0ec026f1f2d012dfb59b5e0e921d8c6a9f039b4f2166f2",
+          "kind": "function",
+          "signature": "summary(kind: str, detail: dict) -> str",
+          "symbol": "summary"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "21ff7dc5755640e6ce7ccec8db81a7c2a32925d0820b3f9630f88f69f0b0e139",
+          "kind": "class",
+          "signature": "class Reviewer()",
+          "symbol": "Reviewer"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "fbfc2819004dac0d51a1f4eca6cdc853bee43856135867500e110aaaf12da9a5",
+          "kind": "function",
+          "signature": "Reviewer.__init__(self, config: dict, state_path: Path, telegram, service, clock=time.time)",
+          "symbol": "Reviewer.__init__"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "f83241077dde13ac86b99b4ac5735c51b78d6bfd6c42b24bd2b96c9fc07167e1",
+          "kind": "function",
+          "signature": "Reviewer.save(self)",
+          "symbol": "Reviewer.save"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "ac3251b7a8cfd8a9769065771843ac00d3ecd2cd8f8c65daa2cfc5f52b044dc6",
+          "kind": "function",
+          "signature": "async Reviewer.message(self, text, keyboard=None)",
+          "symbol": "Reviewer.message"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "73f1ece00b2dc0c5ca567028ee78776be8b675643ed7c6338a39effa22027a5a",
+          "kind": "function",
+          "signature": "async Reviewer.answer(self, query, text)",
+          "symbol": "Reviewer.answer"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "3975039ec08a1111c8a2f2b63224be02d698950a018e7a8cfdb5cf17c060e587",
+          "kind": "function",
+          "signature": "async Reviewer.refresh(self)",
+          "symbol": "Reviewer.refresh"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "1b4a0e47e72f0359c1fbb6e84323014a9f00df905f312c90e8e6f3e151d1338a",
+          "kind": "function",
+          "signature": "async Reviewer.handle(self, update)",
+          "symbol": "Reviewer.handle"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "d4f4db4a2c5eccd7730833775b0c245cce6d8c535eb2c54da1e2e06592543b71",
+          "kind": "function",
+          "signature": "Reviewer.authorized(self, user, chat)",
+          "symbol": "Reviewer.authorized"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "560d5203f8a2228dcda5dab3893e76d7f8eb80c7e7430ce50ae89a1b6c427fe0",
+          "kind": "function",
+          "signature": "async setup(path: Path, args)",
+          "symbol": "setup"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "27b7e008f09cbbbb3b5e0022d9850924206ae4c895f84b48ae3fb2141b2f0605",
+          "kind": "function",
+          "signature": "async run(path: Path)",
+          "symbol": "run"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "33c42dd2d89b30c0d8458569c8a9ec5e084ed48739abedd3aec24e5f10d10735",
+          "kind": "function",
+          "signature": "main()",
+          "symbol": "main"
+        }
+      ]
+    },
     "tests/test_contracts.py": {
       "kind": "python",
       "symbols": [
@@ -5247,6 +5448,184 @@
         }
       ]
     },
+    "tests/test_telegram_review.py": {
+      "kind": "python",
+      "symbols": [
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "141cae4fdd283fc75f5d5ce9179d73c964813d0a44a05cfdbbc3279f3c95cfdb",
+          "kind": "class",
+          "signature": "class FakeTelegram()",
+          "symbol": "FakeTelegram"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "b6c662b5b8ed2139efd7e35d4d8472136973ca575c6ac037f467328aef326015",
+          "kind": "function",
+          "signature": "FakeTelegram.__init__(self)",
+          "symbol": "FakeTelegram.__init__"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "8c2bbf787fb17ea2faa41b9f0058ddcaae4c47987228716509b4c30ac815e877",
+          "kind": "function",
+          "signature": "async FakeTelegram.call(self, method, **params)",
+          "symbol": "FakeTelegram.call"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "c562cec916910f8eb9d7726d143a9e7be26a936e1fdf08b0718ddd3a21cd737e",
+          "kind": "function",
+          "signature": "async FakeTelegram.document(self, chat_id, text)",
+          "symbol": "FakeTelegram.document"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "82f1039ae49a573d5f9c18064ed0b2a94a405633c79f266da83d6c86d4de5179",
+          "kind": "class",
+          "signature": "class FakeService()",
+          "symbol": "FakeService"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "e96f20e14e6144dc624b98e5812a73605b00df8c7133f7ead8d05b8a5a9a21ae",
+          "kind": "function",
+          "signature": "FakeService.__init__(self, kind='proposal')",
+          "symbol": "FakeService.__init__"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "534304ce7ca1d573ddf4ec601a5049c0da82c8bc257ad0a3e859a02e909c3f6c",
+          "kind": "function",
+          "signature": "async FakeService.pending(self)",
+          "symbol": "FakeService.pending"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "63a7e35cecc74ce59d641a3a56b9d206ec0f5ea561beb0ae4dcbb4a22d7acbc3",
+          "kind": "function",
+          "signature": "async FakeService.detail(self, kind, identifier)",
+          "symbol": "FakeService.detail"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "7a7869104295be8c737ca64d9bf6946cebdc16d7fa9a0fc6f0b927f4c9ddae87",
+          "kind": "function",
+          "signature": "async FakeService.decide(self, kind, identifier, decision, reason)",
+          "symbol": "FakeService.decide"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "59ac22580a28c38efafbc9aedfb2ab3c2e8236afc6c5ec1f76c65ef52b14f4a6",
+          "kind": "function",
+          "signature": "callback(worker, token, command, **overrides)",
+          "symbol": "callback"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "cbe8817056b788be19d2ba75944b07bfab65a3b2714a47e6f97401eb11492f0a",
+          "kind": "function",
+          "signature": "async prepared(tmp_path, kind='proposal')",
+          "symbol": "prepared"
+        },
+        {
+          "decorators": [
+            "pytest.mark.parametrize('kind', ['proposal', 'action'])",
+            "pytest.mark.parametrize('decision', ['approve', 'reject'])"
+          ],
+          "fields": [],
+          "fingerprint": "8732c3b03d4ffcab8dc77e28d54611d6223173f78aa5242041e5f412c773b774",
+          "kind": "test",
+          "signature": "test_exact_review_then_one_decision_survives_restart(tmp_path, kind, decision)",
+          "symbol": "test_exact_review_then_one_decision_survives_restart"
+        },
+        {
+          "decorators": [
+            "pytest.mark.parametrize('attack', ['user', 'group', 'message', 'expired', 'unreviewed'])"
+          ],
+          "fields": [],
+          "fingerprint": "2099bf36d86e81e4cec144a5c9ac8089b571d78f818ae6348c13a4d860bf5325",
+          "kind": "test",
+          "signature": "test_untrusted_or_unreviewed_callback_never_mutates(tmp_path, attack)",
+          "symbol": "test_untrusted_or_unreviewed_callback_never_mutates"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "76b31dc1251e7917c0d009d93d65d4e63d5cfddec037ebe2f8fbb4460b6d090c",
+          "kind": "test",
+          "signature": "test_changed_evidence_requires_new_review(tmp_path)",
+          "symbol": "test_changed_evidence_requires_new_review"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "181629fc4995d988d3a17de864e92ea9678c0af90c1c1378eabf94f3eaa6aab8",
+          "kind": "test",
+          "signature": "test_failed_notification_can_be_retried(tmp_path)",
+          "symbol": "test_failed_notification_can_be_retried"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "5ac6386b7f86e8d84895ce5e677e7df42fafd91b602c66d0a9f719d2cf74da6c",
+          "kind": "test",
+          "signature": "test_delivery_failure_after_commit_never_repeats_decision(tmp_path)",
+          "symbol": "test_delivery_failure_after_commit_never_repeats_decision"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "9ca8cf83d6df0421618d17d5b16ec941467bf7c98517eed1b5db112e49cf45e4",
+          "kind": "test",
+          "signature": "test_private_state_and_account_binding(tmp_path)",
+          "symbol": "test_private_state_and_account_binding"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "386c2667931c756552dfd3e63641089a79cab3c06732b32e598012927678f925",
+          "kind": "test",
+          "signature": "test_telegram_http_failure_does_not_expose_token()",
+          "symbol": "test_telegram_http_failure_does_not_expose_token"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "9c9cc59f464b3220d9ebc6c6eeee91bf699abc396e2c7a6b7828297edbefaedd",
+          "kind": "test",
+          "signature": "test_pairing_requires_secret_and_private_owner_chat(tmp_path, monkeypatch)",
+          "symbol": "test_pairing_requires_secret_and_private_owner_chat"
+        }
+      ]
+    },
+    "tests/test_telegram_review_neo4j.py": {
+      "kind": "python",
+      "symbols": [
+        {
+          "decorators": [
+            "pytest.mark.parametrize('kind', ['proposal', 'action'])",
+            "pytest.mark.parametrize('decision', ['approve', 'reject'])"
+          ],
+          "fields": [],
+          "fingerprint": "9dee32badb50fddf4ca1d41ec21dab45dcaba975378ab3407b99ba61b737a1c2",
+          "kind": "test",
+          "signature": "test_telegram_real_governance_only_once(graph, tmp_path, monkeypatch, kind, decision)",
+          "symbol": "test_telegram_real_governance_only_once"
+        }
+      ]
+    },
     "tests/test_v01_correctness_regressions.py": {
       "kind": "python",
       "symbols": [
@@ -5502,6 +5881,6 @@
       "fingerprint": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
     }
   },
-  "evidenceDigest": "6bf0a786eac0e7444d2f2311c430f925a16c9a98bd8e272a41561c89772cc9db",
+  "evidenceDigest": "4da3df573516b45a8f47c3b7c9cbba348721142fb71fc57b45cef4b13bdcfbea",
   "baselineRevision": "5275071c977da7f103e98f01777030edfcb7c3f7"
 }

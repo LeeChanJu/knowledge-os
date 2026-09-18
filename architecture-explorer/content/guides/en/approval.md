@@ -37,6 +37,20 @@ Owned data: Decision record with exactly one governance parent.
 | Proposal | Request acceptance of candidate content | Includes evidence and structure |
 | Approval | An authorized reviewer accepts it | Separate from MCP submission authority |
 
+## Review and approve in Telegram
+
+A personal Telegram bot can now serve as the human review surface. Select **Review** on a pending notification to receive the full proposed change and source evidence. After reading it, choose **Approve** or **Reject**. The existing Knowledge Service rechecks access and lifecycle state and records the decision. The AI submitting a proposal does not approve it on your behalf.
+
+For example, review the document version supporting “the project uses Neo4j” before accepting that claim. Proposal approval can promote canonical knowledge. Action approval records permission only; a separately authorized executor performs an external operation such as creating a Notion page.
+
+Creating a bot or sending plain `/start` does not complete pairing. Enter the token in the local setup prompt, then use the one-time link, including its `?start=` value, to pair your own account. Decisions are bound to the numeric owner ID and private chat. Wrong users, wrong messages, expired buttons, and changed review content cannot authorize a decision.
+
+The current run command is a foreground terminal process. If closing the window terminates it, or the Mac sleeps, processing stops. A visible terminal is a property of this deployment, not a Telegram requirement; background-service deployment is separate work. The review process and Neo4j must be running to process decisions. This bot does not schedule source synchronization or extraction.
+
+The adapter and isolated-database approval tests are implemented. Live delivery still requires each owner's bot token, account pairing, and running process to be checked separately. Adding this interface does not resolve every existing reviewer-policy audit finding.
+
+[Setup and operating boundaries](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/telegram-review.md) · [Review adapter implementation](https://github.com/LeeChanJu/knowledge-os/blob/main/src/knowledge_os/telegram_review.py)
+
 <!-- CHECKS -->
 
 ### Does AI submission complete approval?
