@@ -40,5 +40,37 @@
     "skipped": 0,
     "seconds": 54.84,
     "scope": "F1 9 cases and F2 11 cases, same selectors as runs above executed together against explicit public snapshot PYTHONPATH; isolated UUID Neo4j databases and temporary SQLite; all tests and finalizers passed."
+  },
+  "notionPipelineReconciliation": {
+    "revision": "3a412d11bb03a9f7eba43a4d617ff921630b93cd",
+    "date": "2026-09-19",
+    "change": "Doctor now recognizes governance-v8; no mutation of persisted records or schema.",
+    "F1_F2": {
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 52.63,
+      "selectors": "Same combined F1/F2 selectors recorded above. Executed against this public checkout with PYTHONPATH=src, local pinned Python runtime, isolated UUID Neo4j databases and temporary SQLite."
+    },
+    "pipeline": {
+      "passed": 12,
+      "failed": 0,
+      "scope": "11 pipeline cases plus the doctor current/unknown-contract regression executed separately in isolated real databases."
+    },
+    "relatedApprovalTests": {
+      "passed": 130,
+      "failed": 0,
+      "scope": "Telegram unit/real-DB integration, contracts, Notion action executor."
+    },
+    "existingDoctorRegressions": {
+      "passed": 9,
+      "failed": 6,
+      "scope": "Existing -k doctor selection; known missing schema and multi-node cycle cases still fail. F3 remains open."
+    },
+    "productionReadOnlyCheck": {
+      "checks": 41,
+      "violations": 0
+    },
+    "limitations": "Agent-recorded command results. Initial source-to-extraction-to-Telegram delivery was exercised; scheduled uptime and future extraction accuracy are not certified. No release acceptance or full F3 remediation claimed."
   }
 }

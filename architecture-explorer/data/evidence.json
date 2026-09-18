@@ -11,7 +11,7 @@
     },
     "README.md": {
       "kind": "document",
-      "fingerprint": "06836a0d7d49d640ff170f27420b59f22cfd9e71132bd524681149ad6eea0614"
+      "fingerprint": "6f58900679bbec78e4d720246380fd381ce116d18f27f9e34a62ecfb74a09118"
     },
     "config/contracts.yaml": {
       "kind": "configuration",
@@ -444,9 +444,13 @@
       "kind": "document",
       "fingerprint": "7eeda9b635378cdd46cd0cb2ac69b6893d25a1e8f7515343215443731764f18f"
     },
+    "docs/operations/notion-pipeline.md": {
+      "kind": "document",
+      "fingerprint": "ae2afe784d692970351da3db23bd1346614b6d21b51b5b39b3b091c16466d711"
+    },
     "docs/operations/telegram-review.md": {
       "kind": "document",
-      "fingerprint": "2ac902b85ee8ebc2ba12d1c5fb740c355bcf8246fe92ae8074d339ac9b70b562"
+      "fingerprint": "4247bdce1448acab798ae09edac4f0a8eceebe40adebbdb6c48eea3f31749bf9"
     },
     "docs/policies/notion-archive-page-v1.md": {
       "kind": "document",
@@ -3707,6 +3711,125 @@
         }
       ]
     },
+    "src/knowledge_os/notion_pipeline.py": {
+      "kind": "python",
+      "symbols": [
+        {
+          "decorators": [],
+          "fields": [
+            "kind: Literal['ASSERTION', 'DECISION', 'EVENT']",
+            "payload: dict[str, Any]",
+            "quotes: dict[str, str] = Field(min_length=1)"
+          ],
+          "fingerprint": "0905edec36c9e995b181b5b69b27a682b3737e77751e24c18d6e7413c4284551",
+          "kind": "class",
+          "signature": "class Candidate(BaseModel)",
+          "symbol": "Candidate"
+        },
+        {
+          "decorators": [],
+          "fields": [
+            "job_id: str",
+            "candidates: list[Candidate] = Field(max_length=30)",
+            "no_candidates_reason: str | None = None"
+          ],
+          "fingerprint": "4253cd3b58025f6689c4ae9526f56600c62dc21c6d598221560ca5c1a4170cac",
+          "kind": "class",
+          "signature": "class Extraction(BaseModel)",
+          "symbol": "Extraction"
+        },
+        {
+          "decorators": [
+            "contextmanager"
+          ],
+          "fields": [],
+          "fingerprint": "97627d9b0b2f47144f4ae7d0f71a7472ad169f191099391cf7a08c77be12bfef",
+          "kind": "function",
+          "signature": "locked(path: Path)",
+          "symbol": "locked"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "a44b40e9ff07959bb0da501a6503cc697041c0e3c2506ca8616cd14f6493e769",
+          "kind": "class",
+          "signature": "class Pipeline()",
+          "symbol": "Pipeline"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "d8753070983c074c9df58b5ad61e20e85c4f26a302fa3acb8788077a0522d425",
+          "kind": "function",
+          "signature": "Pipeline.__init__(self, graph, ontology, prompts, state_path, root_page, connection, workspace)",
+          "symbol": "Pipeline.__init__"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "2e0f5987980232a206bb98fa080fe9dc7c57fdd02a94e797e43c746d699c1188",
+          "kind": "function",
+          "signature": "Pipeline.save(self)",
+          "symbol": "Pipeline.save"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "5c0ad7855e904a163057cd7aab7e99a5d619fc74e968ecd51461fdd408064600",
+          "kind": "function",
+          "signature": "Pipeline.current(self, document_id)",
+          "symbol": "Pipeline.current"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "6aca4258a45195c59f90246364215e9a9e8c35b12590c622ca8a8cab51b94046",
+          "kind": "function",
+          "signature": "Pipeline.prepare(self, limit=3)",
+          "symbol": "Pipeline.prepare"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "6eced041eac8e8ce97a3c4a29103fe907045ba40e8687c965576d9fcd8ffcadb",
+          "kind": "function",
+          "signature": "Pipeline.validate_current(self, job)",
+          "symbol": "Pipeline.validate_current"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "0b2b63b8b6a1483de4641c92c75f0b53cffcb763829d1fa2d5ea496f1cf65ec6",
+          "kind": "function",
+          "signature": "Pipeline.normalize(self, result, job)",
+          "symbol": "Pipeline.normalize"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "25fa2ffe6d4b65511eb368cc9b182f0cb39f737ee554e62a731f213bfdc60e05",
+          "kind": "function",
+          "signature": "Pipeline.apply(self, result: Extraction)",
+          "symbol": "Pipeline.apply"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "c65b921e662cac7cd3eb4b010025ae3af1ba8d47f150836f6ebe29d26c460732",
+          "kind": "function",
+          "signature": "Pipeline.commit(self, job_id)",
+          "symbol": "Pipeline.commit"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "33c42dd2d89b30c0d8458569c8a9ec5e084ed48739abedd3aec24e5f10d10735",
+          "kind": "function",
+          "signature": "main()",
+          "symbol": "main"
+        }
+      ]
+    },
     "src/knowledge_os/ontology.py": {
       "kind": "python",
       "symbols": [
@@ -5448,6 +5571,81 @@
         }
       ]
     },
+    "tests/test_notion_pipeline.py": {
+      "kind": "python",
+      "symbols": [
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "9f9344db4ffa43c1ceaba65a297ccf4d5cc6bf27de9af638e23909c8777bcfee",
+          "kind": "function",
+          "signature": "setup(graph, tmp_path)",
+          "symbol": "setup"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "6d1155f9be76909a2be434ab15b335e0ab4d25215f0a59f121ac23df2b1fbf5a",
+          "kind": "test",
+          "signature": "test_replay_stays_pending_until_human_approval(graph, tmp_path)",
+          "symbol": "test_replay_stays_pending_until_human_approval"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "9f526bc0c274d5a2d397fec3e59a7ce3ca526075da260caef3c12970e39e7401",
+          "kind": "test",
+          "signature": "test_crash_after_graph_commit_reuses_sealed_payload(graph, tmp_path, monkeypatch)",
+          "symbol": "test_crash_after_graph_commit_reuses_sealed_payload"
+        },
+        {
+          "decorators": [
+            "pytest.mark.parametrize('invalid', ['quote', 'actor', 'ontology', 'other_chunk'])"
+          ],
+          "fields": [],
+          "fingerprint": "7c989796c37855e2d14403dcf025e31ef37a3e85b24a9f939544fa5694e09b9e",
+          "kind": "test",
+          "signature": "test_invalid_output_never_persists(graph, tmp_path, invalid)",
+          "symbol": "test_invalid_output_never_persists"
+        },
+        {
+          "decorators": [
+            "pytest.mark.parametrize('revoked', [False, True])"
+          ],
+          "fields": [],
+          "fingerprint": "1d2ad41dfe9cc65211d6bfec5878568dc50a1c2f9d15ee2e5ccf031a28684be8",
+          "kind": "test",
+          "signature": "test_changed_or_revoked_evidence_requires_new_preparation(graph, tmp_path, revoked)",
+          "symbol": "test_changed_or_revoked_evidence_requires_new_preparation"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "c4a7aafa96b0cda695b769f71459e40bead1f91f06a15c926af7068c6b6479b3",
+          "kind": "test",
+          "signature": "test_empty_extraction_is_checkpointed_without_fake_proposals(graph, tmp_path)",
+          "symbol": "test_empty_extraction_is_checkpointed_without_fake_proposals"
+        },
+        {
+          "decorators": [
+            "pytest.mark.parametrize('kind', ['DECISION', 'EVENT'])"
+          ],
+          "fields": [],
+          "fingerprint": "1f3a66778439800f6cf4261b9a0e7015db47b1ae22ed4be03be921d3c1ac0d45",
+          "kind": "test",
+          "signature": "test_temporal_candidates_use_governed_proposals(graph, tmp_path, kind)",
+          "symbol": "test_temporal_candidates_use_governed_proposals"
+        },
+        {
+          "decorators": [],
+          "fields": [],
+          "fingerprint": "ad7f29b732759dea49a584ad15f6bdd544fcfc62b6dfb9f99971e0ac1cca8c0b",
+          "kind": "test",
+          "signature": "test_doctor_accepts_current_governance_but_rejects_unknown_contract(graph, tmp_path)",
+          "symbol": "test_doctor_accepts_current_governance_but_rejects_unknown_contract"
+        }
+      ]
+    },
     "tests/test_telegram_review.py": {
       "kind": "python",
       "symbols": [
@@ -5881,6 +6079,6 @@
       "fingerprint": "5676718d3de3326c78567b91075a4a111c679bff21110783d6321b2273e98bff"
     }
   },
-  "evidenceDigest": "4da3df573516b45a8f47c3b7c9cbba348721142fb71fc57b45cef4b13bdcfbea",
-  "baselineRevision": "49249d28d9bc42efdf313cf66d7a71cb8d9ad39f"
+  "evidenceDigest": "a70fd7801e848c37b9a3f8b82d29d52b4eb9949ebf5f2a6e854416084995bb24",
+  "baselineRevision": "3a412d11bb03a9f7eba43a4d617ff921630b93cd"
 }

@@ -2,7 +2,7 @@
   "F1": {
     "title": "Immutable metadata hash integrity",
     "scope": "Manifest metadata hashes must bind the exact persisted DocumentVersion title and document URI; explicit correction retains historical lineage and auditable idempotency.",
-    "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+    "recordedOutcome": "Executed at current HEAD: 9 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately. Reverified 2026-09-19 after the governance-v8 Doctor compatibility fix: combined 20 passed, zero failures/skips in 52.63s; see notionPipelineReconciliation in the same execution record.",
     "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
     "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
     "resolutionRequired": ""
@@ -10,7 +10,7 @@
   "F2": {
     "title": "Deterministic deletion replay",
     "scope": "Reconstructing a deletion after a graph commit but before local checkpoint persistence must reproduce the exact manifest and not duplicate history; later independent deletions remain distinct.",
-    "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately.",
+    "recordedOutcome": "Executed at current HEAD: 11 passed in the public snapshot. Combined run: 20 passed, zero failures/skips, 54.84s. Record: architecture-explorer/verification/current-head-regressions.json; local-HEAD results preserved separately. Reverified 2026-09-19 after the governance-v8 Doctor compatibility fix: combined 20 passed, zero failures/skips in 52.63s; see notionPipelineReconciliation in the same execution record.",
     "environment": "Existing graph fixture creates a UUID kos-v01-regression database for each graph test, migrates only that database, uses temporary SQLite, then drops and verifies removal of only that UUID database. Python 3.12.11 / pytest 8.4.2 on Darwin; PYTHONPATH=src.",
     "limitations": "Only the declared finding is reverified. Public snapshot excludes separate local temporal remediation. Both execution revisions remain recorded. F3–F8 and release acceptance remain open.",
     "resolutionRequired": ""
@@ -18,7 +18,7 @@
   "F3": {
     "title": "Doctor integrity coverage",
     "scope": "Doctor must accept the current governance contract and detect corrupt metadata, missing constraints/indexes, and multi-node supersession cycles.",
-    "recordedOutcome": "Open according to the current remediation workflow; no subsequent accepted resolution is recorded here.",
+    "recordedOutcome": "Governance-v8 compatibility regression passes. Existing doctor selection on 2026-09-19: 9 passed, 6 failed (missing schema objects and multi-node supersession cycles). The finding remains open; no full resolution is claimed.",
     "environment": "",
     "limitations": "The metadata-hash subcase overlaps the F1 correction. That does not establish that the complete F3 finding is resolved.",
     "resolutionRequired": "Execute and reconcile all F3 cases against isolated real Neo4j, then record scoped acceptance."
