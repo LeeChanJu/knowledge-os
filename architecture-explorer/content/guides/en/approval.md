@@ -39,29 +39,29 @@ Owned data: Decision record with exactly one governance parent.
 
 ## Review and approve in Telegram
 
-A personal Telegram bot can now serve as the human review surface. Select **Review** on a pending notification to receive the full proposed change and source evidence. After reading it, choose **Approve** or **Reject**. The existing Knowledge Service rechecks access and lifecycle state and records the decision. The AI submitting a proposal does not approve it on your behalf.
+A personal Telegram bot can now serve as the human review surface. The first notification includes the proposed change and complete source evidence attachment. After reading it, choose **Approve** or **Reject**. The existing Knowledge Service rechecks access and lifecycle state and records the decision. The AI submitting a proposal does not approve it on your behalf.
 
 For example, review the document version supporting “the project uses Neo4j” before accepting that claim. Proposal approval can promote canonical knowledge. Action approval records permission only; a separately authorized executor performs an external operation such as creating a Notion page.
 
 Creating a bot or sending plain `/start` does not complete pairing. Enter the token in the local setup prompt, then use the one-time link, including its `?start=` value, to pair your own account. Decisions are bound to the numeric owner ID and private chat. Wrong users, wrong messages, expired buttons, and changed review content cannot authorize a decision.
 
-The current run command is a foreground terminal process. If closing the window terminates it, or the Mac sleeps, processing stops. A visible terminal is a property of this deployment, not a Telegram requirement; background-service deployment is separate work. The review process and Neo4j must be running to process decisions. The separate scheduled pipeline below handles synchronization and extraction; this bot delivers the resulting proposals for review.
+The current run command is a foreground terminal process. If closing the window terminates it, or the Mac sleeps, processing stops. A visible terminal is a property of this deployment, not a Telegram requirement; background-service deployment is separate work. The review process and Neo4j must be running to process decisions. A user-requested sync starts ingestion and automatic extraction; this bot delivers the resulting proposals for review.
 
 The adapter and isolated-database approval tests are implemented. Live delivery still requires each owner's bot token, account pairing, and running process to be checked separately. Adding this interface does not resolve every existing reviewer-policy audit finding.
 
 [Setup and operating boundaries](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/telegram-review.md) · [Review adapter implementation](https://github.com/LeeChanJu/knowledge-os/blob/main/src/knowledge_os/telegram_review.py)
 
-## How does a Notion edit reach the review inbox?
+## What happens after I request a Notion sync?
 
-The personal deployment connects a Codex scheduled task: **check Notion every 15 minutes → ingest changed evidence → extract knowledge proposals → send Telegram review requests**. Previously imported, unprocessed versions are included. Synchronization and extraction remain separate responsibilities, joined by the scheduled task.
+Start with one request to Codex: **“Sync Notion.”** Codex continues through source ingestion, evidence-grounded proposal extraction, and Telegram delivery without another extraction request. There is no recurring Notion polling or scheduled model run.
 
-A career roadmap can yield a candidate linking a growth goal to its exact evidence. The adapter must not turn a goal into an achieved fact or assume that a document's creation date is a decision date. Navigation pages and insufficient evidence yield no candidate, with an explanation recorded.
+The first Telegram notification includes the proposal summary and complete evidence attachment. Read it and choose **Approve** or **Reject** directly. The separate Review-opening step has been removed; decision buttons appear only after evidence delivery succeeds. Owner checks, changed-content detection, and duplicate-decision prevention remain in force.
 
-Version-scoped receipts prevent repeated processing of the same version. New versions are reviewed again, but previously approved knowledge is not automatically superseded or invalidated. Review potential overlap against existing knowledge.
+Previously imported, unprocessed versions are included. Receipts prevent repeated submissions for the same version. Insufficient evidence and navigation-only pages yield no candidate, with an explanation. Goals are not achieved facts, and a document creation date is not assumed to be a decision date. Changed sources do not automatically supersede or invalidate previously approved knowledge.
 
-**Collection, proposals, and notifications are automated; approval remains yours.** Keep the Mac awake and Codex, Neo4j, and the Telegram review process running. No additional model API key is needed, but Codex usage and execution limits apply. Offline work resumes on a later successful run, so 15 minutes is a polling interval, not a delivery guarantee. The schedule is installed in the personal deployment; cloning this repository does not activate it.
+Keep the Mac, Codex, and Neo4j available while the requested run is processed. Later Telegram decisions require the Mac, Neo4j, and review program. Telegram message long polling does not synchronize Notion or invoke extraction. Interrupted work resumes from its receipts when the user next requests a sync.
 
-[Operating boundaries and recovery](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/notion-pipeline.md)
+[Automatic continuation and recovery](https://github.com/LeeChanJu/knowledge-os/blob/main/docs/operations/notion-pipeline.md)
 
 <!-- CHECKS -->
 

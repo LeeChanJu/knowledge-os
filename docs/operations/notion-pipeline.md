@@ -2,16 +2,22 @@
 
 ## Personal deployment
 
-A Codex thread heartbeat is the scheduled extraction adapter. Every 15 minutes it runs
-`scripts/run-notion-pipeline.command prepare`, interprets only the returned current evidence
-with the registered prompts and ontology, and submits each result using
-`scripts/run-notion-pipeline.command apply --input PATH`. The existing Telegram review worker
-then sends the proposals to the paired owner. No new model API credential, database, queue, or
-approval path is introduced. Codex usage limits apply; this is not a server-side Notion webhook.
-The Mac must be awake, Codex open, Neo4j running, and the Telegram review worker running.
-If those are unavailable, work resumes on a later successful scheduled run, not at an exact
-15-minute deadline. The scheduler is an installed local deployment setting, not enabled merely
-by cloning this repository. The heartbeat prompt is recorded below for reproducibility.
+The user starts a run by asking Codex to synchronize Notion. That one request covers the
+complete workflow: synchronize sources, extract proposals from exact evidence, register them,
+and deliver them to the paired Telegram owner. There is no recurring Notion polling or scheduled
+model execution. The previously installed 15-minute heartbeat is paused by user preference.
+
+Codex runs `scripts/run-notion-pipeline.command prepare` once, interprets the returned evidence
+with the registered prompts and ontology, and submits results through `apply --input PATH`.
+Further batches use `pending`, which reads already-ingested versions without another Notion API
+traversal. These commands are the model handoff; executing `prepare` alone in a shell outputs work
+for the agent and does not itself run a standalone extraction model. The repository agent
+instructions require a requested sync to continue through the full workflow.
+
+No new model API credential, database, queue, or approval path is introduced. Codex usage applies
+only when asked to perform this workflow. Keep the Mac awake and Neo4j available during the run.
+The Telegram approval program must remain running to receive button callbacks; its lightweight
+Telegram long polling neither synchronizes Notion nor invokes the extraction model.
 
 A standalone `knowledge-os-ingest-notion` remains a source-only command. The automated pipeline
 runs it first and then checks ALL unprocessed current versions, including previously imported
@@ -30,7 +36,7 @@ pages, so an earlier successful manual sync cannot lose extraction work.
   unknown predicates, mismatched evidence, and model-supplied identity or supersession fields.
 - Plans remain plans. Missing decision dates, ambiguous commitment, hypothetical events, navigation,
   and fixture pages do not justify invented canonical records. An empty result needs an explanation.
-- Correction/supersession is deliberately not inferred by this first scheduled adapter. A changed
+- Correction/supersession is deliberately not inferred by this first extraction adapter. A changed
   source can produce new proposals; an existing approved claim is not automatically superseded or
   invalidated. Exact-once processing is per document version and extraction context, not semantic
   deduplication across different versions or documents. Review possible overlap before approval.
@@ -45,12 +51,12 @@ pages, so an earlier successful manual sync cannot lose extraction work.
   not claim a new transactional latest-version-only guarantee.
 - Bounds: 3 whole documents per prepare, 60,000 characters per document, 30 candidates per result,
   1,000 catalog documents. Oversized sources fail explicitly instead of silently truncating evidence.
-  The scheduler drains at most 4 batches per run; remaining work continues next run.
+  The agent drains batches until no jobs remain. On an execution limit or failure, it reports the remaining work and resumes only when the user asks; it must not silently install a schedule.
 - Approval stays human. This adapter has no approval, rejection, Action, or external-write call.
   Telegram reads pending proposals and performs the existing human callback flow. It does not itself
   extract knowledge. If the Telegram worker stops, proposals remain pending until it returns.
 
-## Scheduler prompt / runbook
+## Manual trigger / automatic continuation runbook
 
 1. In the original local repository run `scripts/run-notion-pipeline.command prepare`. Never inspect
    or print `.env`, Notion tokens, or Telegram tokens. Stop on synchronization failure; report a
@@ -62,11 +68,10 @@ pages, so an earlier successful manual sync cannot lose extraction work.
 3. Run `scripts/run-notion-pipeline.command apply --input PATH` for each job, then remove only the
    temporary result files you created. Use this adapter rather than direct graph writes or alternative
    proposal tools; its receipt prevents repeated processing and its fixed actor preserves attribution.
-4. Run prepare again until no jobs remain, up to 4 batches. If interrupted, leave sealed state intact.
+4. Run `pending` until no jobs remain. It does not re-fetch Notion. If interrupted, leave sealed state intact.
    Never use automatic approval/rejection, supersession, source edits, or external Action execution.
 5. Check Telegram delivery metadata only for newly created proposal IDs; do not consume getUpdates
-   alongside the active review worker. Remain quiet when nothing changed and no action is required.
-   Notify the user only for new review items, substantive failures, or missing runtime dependencies.
+   alongside the active review worker. Report the requested run outcome, including changes, proposals, delivery, and any remaining work.
 
 `status` returns operational job outcomes without staged payloads. If synchronization succeeds but
 extraction fails, the source checkpoint remains committed and the next run resumes pending work.

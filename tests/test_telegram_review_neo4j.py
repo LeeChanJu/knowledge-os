@@ -45,7 +45,8 @@ def test_telegram_real_governance_only_once(graph, tmp_path, monkeypatch, kind, 
         )
         await worker.refresh()
         token = next(iter(worker.state["cards"]))
-        await worker.handle(callback(worker, token, "view"))
+        assert worker.state["cards"][token]["ready"]
+        assert worker.tg.documents
         update = callback(worker, token, decision)
         await worker.handle(update)
         await worker.handle(update)

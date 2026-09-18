@@ -15,11 +15,11 @@ for (const lang of ['ko-KR', 'en']) {
       name: lang === 'ko-KR' ? '설정과 동작 범위' : 'Setup and operating boundaries',
     })).toBeVisible();
     const pipelineSection = page.locator('summary').filter({
-      hasText: lang === 'ko-KR' ? 'Notion에 쓰면 승인 요청까지 어떻게 이어지나요?' : 'How does a Notion edit reach the review inbox?',
+      hasText: lang === 'ko-KR' ? '수동 동기화 뒤에는 무엇이 자동으로 진행되나요?' : 'What happens after I request a Notion sync?',
     });
     await expect(pipelineSection).toBeVisible();
     await pipelineSection.click();
-    await expect(page.locator('.integrated-guide')).toContainText(lang === 'ko-KR' ? '15분마다' : 'every 15 minutes');
+    await expect(page.locator('.integrated-guide')).toContainText(lang === 'ko-KR' ? '요청 한 번' : 'one request');
     await page.screenshot({ path: `test-results/telegram-review-${lang}.png`, fullPage: true });
     await page.setViewportSize({ width: 390, height: 844 });
     await page.screenshot({ path: `test-results/telegram-review-${lang}-mobile.png`, fullPage: true });

@@ -1,6 +1,6 @@
 """Resumable Notion -> extraction handoff -> governed proposals.
 
-The scheduler/model is a replaceable adapter. This module never approves knowledge,
+The user-triggered model is a replaceable adapter. This module never approves knowledge,
 executes Actions, or stores source bodies in its operational receipt file.
 """
 
@@ -265,7 +265,7 @@ class Pipeline:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["prepare", "apply", "status"])
+    parser.add_argument("command", choices=["prepare", "pending", "apply", "status"])
     parser.add_argument(
         "--source-state", type=Path, default=Path("data/notion-page-tree-state.json")
     )
@@ -310,6 +310,9 @@ def main():
             )
             if args.command == "prepare":
                 output = {"sync": sync_result.get("stats", {}), **worker.prepare()}
+            elif args.command == "pending":
+                # Drain this manually requested run without polling Notion again per batch.
+                output = worker.prepare()
             elif args.command == "apply":
                 if not args.input:
                     raise ValueError("apply requires --input")

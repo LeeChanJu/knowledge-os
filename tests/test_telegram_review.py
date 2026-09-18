@@ -21,6 +21,7 @@ class FakeTelegram:
         self.calls = []
         self.documents = []
         self.fail_send = False
+        self.fail_document = False
 
     async def call(self, method, **params):
         self.calls.append((method, params))
@@ -29,6 +30,8 @@ class FakeTelegram:
         return {"message_id": len(self.calls)}
 
     async def document(self, chat_id, text):
+        if self.fail_document:
+            raise RuntimeError("evidence delivery failed")
         self.documents.append((chat_id, text))
 
 
@@ -93,8 +96,9 @@ async def prepared(tmp_path, kind="proposal"):
 def test_exact_review_then_one_decision_survives_restart(tmp_path, kind, decision):
     async def scenario():
         worker, token, tg, service = await prepared(tmp_path, kind)
-        await worker.handle(callback(worker, token, "view"))
         assert '"A uses B"' in tg.documents[0][1]
+        buttons = tg.calls[-1][1]["reply_markup"]["inline_keyboard"][0]
+        assert [b["text"] for b in buttons] == ["승인", "반려"]
         update = callback(worker, token, decision)
         await worker.handle(update)
         restarted = Reviewer(CONFIG, worker.path, tg, service)
@@ -107,12 +111,12 @@ def test_exact_review_then_one_decision_survives_restart(tmp_path, kind, decisio
     asyncio.run(scenario())
 
 
-@pytest.mark.parametrize("attack", ["user", "group", "message", "expired", "unreviewed"])
-def test_untrusted_or_unreviewed_callback_never_mutates(tmp_path, attack):
+@pytest.mark.parametrize("attack", ["user", "group", "message", "expired", "undelivered"])
+def test_untrusted_or_undelivered_callback_never_mutates(tmp_path, attack):
     async def scenario():
         worker, token, _tg, service = await prepared(tmp_path)
-        if attack != "unreviewed":
-            await worker.handle(callback(worker, token, "view"))
+        if attack == "undelivered":
+            worker.state["cards"][token]["ready"] = False
         update = callback(worker, token, "approve")
         query = update["callback_query"]
         if attack == "user":
@@ -132,7 +136,6 @@ def test_untrusted_or_unreviewed_callback_never_mutates(tmp_path, attack):
 def test_changed_evidence_requires_new_review(tmp_path):
     async def scenario():
         worker, token, _tg, service = await prepared(tmp_path)
-        await worker.handle(callback(worker, token, "view"))
         service.value["evidence_bundle"][0]["text"] = "Changed content"
         await worker.handle(callback(worker, token, "approve"))
         assert service.decisions == []
@@ -158,13 +161,48 @@ def test_failed_notification_can_be_retried(tmp_path):
 def test_delivery_failure_after_commit_never_repeats_decision(tmp_path):
     async def scenario():
         worker, token, tg, service = await prepared(tmp_path)
-        await worker.handle(callback(worker, token, "view"))
         update = callback(worker, token, "approve")
         tg.fail_send = True
         with pytest.raises(RuntimeError):
             await worker.handle(update)
         tg.fail_send = False
         await Reviewer(CONFIG, worker.path, tg, service).handle(update)
+        assert len(service.decisions) == 1
+
+    asyncio.run(scenario())
+
+
+def test_evidence_failure_never_exposes_decision_buttons(tmp_path):
+    async def scenario():
+        tg, service = FakeTelegram(), FakeService()
+        tg.fail_document = True
+        worker = Reviewer(CONFIG, tmp_path / "state.json", tg, service)
+        with pytest.raises(RuntimeError, match="evidence delivery"):
+            await worker.refresh()
+        assert not any(method == "sendMessage" for method, _ in tg.calls)
+        assert all(not card["ready"] for card in worker.state["cards"].values())
+        tg.fail_document = False
+        await worker.refresh()
+        assert any(card["ready"] for card in worker.state["cards"].values())
+        assert service.decisions == []
+
+    asyncio.run(scenario())
+
+
+def test_existing_two_step_card_is_upgraded_without_new_decision(tmp_path):
+    async def scenario():
+        worker, token, tg, service = await prepared(tmp_path)
+        card = worker.state["cards"][token]
+        old_message = card["message_id"]
+        card.pop("ui_version", None)
+        card["ready"] = False
+        worker.save()
+        await worker.refresh()
+        assert card["message_id"] == old_message
+        assert card["ready"] and card["ui_version"] == 2
+        assert tg.calls[-1][0] == "editMessageText"
+        assert service.decisions == []
+        await worker.handle(callback(worker, token, "approve"))
         assert len(service.decisions) == 1
 
     asyncio.run(scenario())

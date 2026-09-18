@@ -457,9 +457,10 @@ approval can promote canonical knowledge; Action approval changes lifecycle stat
 execute an external operation. MCP and source connectors still cannot approve. See
 [`docs/operations/human-review.md`](docs/operations/human-review.md).
 
-## Scheduled Notion knowledge proposals
+## User-triggered Notion knowledge proposals
 
 The [Notion pipeline](docs/operations/notion-pipeline.md) connects source synchronization,
 version-scoped extraction receipts, governed proposals, and the Telegram review inbox.
-The personal deployment uses a Codex heartbeat every 15 minutes. Human approval remains required;
-Mac, Codex, Neo4j, and the Telegram worker must be running.
+Ask Codex to synchronize Notion once; it continues through extraction and Telegram delivery.
+There is no recurring source poll or scheduled model run. The first Telegram notification includes
+full evidence and direct approve/reject buttons. Human approval remains required.

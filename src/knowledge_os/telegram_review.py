@@ -205,18 +205,45 @@ class Reviewer:
     async def answer(self, query, text):
         await self.tg.call("answerCallbackQuery", callback_query_id=query["id"], text=text)
 
+    async def present(self, token, card, detail, *, update_existing=False):
+        # Evidence delivery must succeed BEFORE decision buttons become available.
+        await self.tg.document(
+            self.config["chat_id"], json.dumps(detail, ensure_ascii=False, indent=2)
+        )
+        text = summary(card["kind"], detail)
+        keyboard = [
+            [
+                {"text": "승인", "callback_data": f"approve:{token}"},
+                {"text": "반려", "callback_data": f"reject:{token}"},
+            ]
+        ]
+        if update_existing:
+            await self.tg.call(
+                "editMessageText",
+                chat_id=self.config["chat_id"],
+                message_id=card["message_id"],
+                text=text,
+                reply_markup={"inline_keyboard": keyboard},
+                link_preview_options={"is_disabled": True},
+            )
+        else:
+            sent = await self.message(text, keyboard)
+            card["message_id"] = sent["message_id"]
+        card.update(ready=True, digest=digest(detail), ui_version=2)
+        self.save()
+
     async def refresh(self):
         for kind, identifier in await self.service.pending():
             live = [
-                c
-                for c in self.state["cards"].values()
+                (token, c)
+                for token, c in self.state["cards"].items()
                 if c["kind"] == kind
                 and c["id"] == identifier
                 and c["expires"] > self.clock()
                 and not c.get("done")
                 and c.get("message_id")
             ]
-            if live:
+            if live and all(c.get("ui_version") == 2 for _, c in live):
                 continue
             try:
                 detail = await self.service.detail(kind, identifier)
@@ -224,6 +251,12 @@ class Reviewer:
                 print("검토 항목 조회 실패: 근거 접근 권한을 확인하세요.", flush=True)
                 continue
             if detail[kind]["status"] != "PROPOSED":
+                continue
+            if live:
+                # Upgrade pending legacy cards without creating another review decision.
+                for token, card in live:
+                    if card.get("ui_version") != 2:
+                        await self.present(token, card, detail, update_existing=True)
                 continue
             token = secrets.token_hex(12)
             card = {
@@ -235,15 +268,7 @@ class Reviewer:
             }
             self.state["cards"][token] = card
             self.save()
-            sent = await self.message(
-                summary(kind, detail).replace(
-                    "전체 내용·근거는 첨부 자료에서 확인하세요.",
-                    "검토하기를 누르면 전체 내용과 근거를 보내드립니다.",
-                ),
-                [[{"text": "검토하기", "callback_data": f"view:{token}"}]],
-            )
-            card["message_id"] = sent["message_id"]
-            self.save()
+            await self.present(token, card, detail)
 
     async def handle(self, update):
         query = update.get("callback_query")
@@ -280,20 +305,8 @@ class Reviewer:
             await self.message(f"이미 처리된 항목입니다: {detail[card['kind']]['status']}")
             return
         if command == "view":
-            await self.tg.document(
-                self.config["chat_id"], json.dumps(detail, ensure_ascii=False, indent=2)
-            )
-            sent = await self.message(
-                summary(card["kind"], detail) + "\n\n첨부 내용과 근거를 확인한 뒤 선택하세요.",
-                [
-                    [
-                        {"text": "내용 확인 · 승인", "callback_data": f"approve:{token}"},
-                        {"text": "반려", "callback_data": f"reject:{token}"},
-                    ]
-                ],
-            )
-            card.update(ready=True, digest=digest(detail), message_id=sent["message_id"])
-            self.save()
+            # Backwards compatibility for a previously delivered two-step card.
+            await self.present(token, card, detail, update_existing=True)
             return
         if not card["ready"] or card["digest"] != digest(detail):
             card["done"] = True

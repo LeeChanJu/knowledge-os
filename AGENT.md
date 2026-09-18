@@ -191,3 +191,15 @@ Before making a broad change, state:
 * whether persisted data requires migration or correction
 
 When repository evidence is insufficient, report the uncertainty instead of inventing behavior.
+
+
+## User-triggered Notion workflow
+
+When the user asks to synchronize Notion, treat that one request as authorization to complete
+source synchronization, evidence-grounded extraction, Proposal registration, and Telegram delivery.
+Follow `docs/operations/notion-pipeline.md` without asking for a second extraction request.
+Start with `scripts/run-notion-pipeline.command prepare`, then use `pending` to drain further
+batches without re-fetching Notion. The model interprets only the returned evidence and submits
+results through `apply`. These commands are an agent handoff, not a standalone model runtime.
+Never approve/reject on the user's behalf. Do not install or resume any recurring source polling,
+cron job, or Codex schedule unless the user explicitly asks. The previous heartbeat is paused.

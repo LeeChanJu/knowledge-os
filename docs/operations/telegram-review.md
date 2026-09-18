@@ -30,16 +30,16 @@ python -m knowledge_os.telegram_review run
 ```
 
 Use `/pending` in the bot to check the inbox. While running, the adapter checks at approximately
-25-second intervals and sends new pending reviews. Click **검토하기**, read the attached complete
-payload and evidence, then **내용 확인 · 승인** or **반려**. Approval is a real governance mutation.
+25-second intervals and sends new pending reviews. The complete payload and evidence are delivered with the initial review notification.
+Read the attachment, then click **승인** or **반려** once; there is no separate review-opening button. Approval is a real governance mutation.
 Action approval only records permission; the existing separately authorized executor still runs
-external operations. The separate [Notion pipeline](notion-pipeline.md) connects scheduled source ingestion and extraction to this review inbox. The Telegram worker itself remains an approval adapter.
+external operations. The separate [Notion pipeline](notion-pipeline.md) connects user-triggered source ingestion and automatic extraction to this review inbox. The Telegram worker itself remains an approval adapter.
 
 ## Guarantees and limits
 
 - Numeric owner user ID, private chat, message ID, random callback ID, and a 24-hour expiry are
-  checked before accepting a decision. Initial inbox cards cannot approve without the review step.
-- Full authorized payload/evidence is fetched at review and again before the decision. A digest
+  checked before accepting a decision. Decision buttons are exposed only after the full evidence attachment has been delivered successfully.
+- Full authorized payload/evidence is fetched before initial delivery and again before the decision. A digest
   mismatch forces fresh review. The existing service repeats transaction-level ACL, evidence,
   lifecycle, ontology and supersession checks; no governance rule is relaxed.
 - The digest is an adapter preflight, not a new transactional expected-evidence-version contract.
@@ -64,3 +64,5 @@ external operations. The separate [Notion pipeline](notion-pipeline.md) connects
   application-data configuration/runtime arrangement.
 
 Telegram protocol: https://core.telegram.org/bots/api
+
+Existing pending two-step cards are upgraded on worker restart/refresh: evidence is sent and the original message receives direct approval/rejection buttons. Completed decisions are never reopened. Reading is the human responsibility; button count cannot prove that evidence was read.

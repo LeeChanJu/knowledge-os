@@ -187,3 +187,40 @@ def test_doctor_accepts_current_governance_but_rejects_unknown_contract(graph, t
     checks = run_doctor(graph, ROOT / "migrations")["checks"]
     check = next(c for c in checks if c["name"] == "proposal_has_content_addressed_contract")
     assert check["violations"] == 1
+
+
+def test_pending_batch_does_not_resynchronize_notion(tmp_path, monkeypatch, capsys):
+    import json
+    from types import SimpleNamespace
+
+    import knowledge_os.notion_pipeline as module
+
+    source = tmp_path / "source.json"
+    source.write_text(json.dumps({"root_page_id": "root", "connection_id": "fixture"}))
+    monkeypatch.setattr(
+        module.sys,
+        "argv",
+        [
+            "pipeline",
+            "pending",
+            "--source-state",
+            str(source),
+            "--state",
+            str(tmp_path / "state.json"),
+        ],
+    )
+
+    def unexpected_sync(*args, **kwargs):
+        pytest.fail("draining an existing run must not poll Notion again")
+
+    monkeypatch.setattr(module.subprocess, "run", unexpected_sync)
+    getter = lambda: SimpleNamespace(close=lambda: None)
+    getter.cache_clear = lambda: None
+    monkeypatch.setattr(module, "get_graph", getter)
+    monkeypatch.setattr(module, "get_ontology", lambda: None)
+    monkeypatch.setattr(module, "get_prompts", lambda: None)
+    monkeypatch.setattr(
+        module, "Pipeline", lambda *args: SimpleNamespace(prepare=lambda: {"jobs": []})
+    )
+    module.main()
+    assert json.loads(capsys.readouterr().out) == {"jobs": []}

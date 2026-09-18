@@ -39,7 +39,7 @@ Owned data: Host adapter configuration only; no independent knowledge store.
 
 ## Telegram review surface
 
-In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+The first Telegram notification arrives with the complete change and evidence. Read the attachment, then choose **Approve/Reject** once. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
 
 [Telegram review details](#/en/reference/guide/approval)
 

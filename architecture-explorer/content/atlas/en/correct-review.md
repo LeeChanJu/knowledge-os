@@ -8,7 +8,7 @@ Separate review → accept or reject
 
 New content must not become accepted knowledge without review. Identify the requested change and its support. The existence of a review path does not prove every correction behavior has completed verification.
 
-In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+The first Telegram notification arrives with the complete change and evidence. Read the attachment, then choose **Approve/Reject** once. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
 
 <!-- DEPTH -->
 

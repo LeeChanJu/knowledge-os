@@ -8,9 +8,9 @@ Reject ← Review → Accept
 
 The reviewer checks whether the suggestion matches its support. The agent adapter does not perform this approval. Rejected candidates do not become accepted knowledge.
 
-In Telegram, open **Review**, read the complete change and evidence, then choose **Approve/Reject**. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
+The first Telegram notification arrives with the complete change and evidence. Read the attachment, then choose **Approve/Reject** once. Pair your own account and keep the local review process running; plain `/start` is not account pairing. The existing Knowledge Service owns the decision and audit history. Action approval remains separate from execution. With the current foreground deployment, process termination or Mac sleep delays processing.
 
-A Codex schedule in the personal deployment connects Notion ingestion and proposal extraction every 15 minutes. Version-scoped receipts prevent repeated submissions; the owner reviews and approves in Telegram. Keep the Mac, Codex, Neo4j, and review process running.
+Ask Codex to sync Notion once; ingestion continues through proposal extraction and Telegram delivery. There is no recurring run. Version-scoped receipts prevent repeated submissions. The owner reads the initial evidence and directly approves or rejects.
 
 <!-- DEPTH -->
 
